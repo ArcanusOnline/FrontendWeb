@@ -535,17 +535,71 @@ async function obtenerSoportes(token) {
   return data;
 }
 
-async function obtenerDataSoporte(id) {
+async function obtenerDataSoporte(id, token) {
   try {
     let response = await fetch(`${urlBase}/traerDataSoporte`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({ id }),
     });
-    let data = await response.json();
-    return data;
+
+    if (!response.ok) {
+      return null; // No autorizado o no pertenece
+    }
+
+    return await response.json();
   } catch (error) {
     throw new Error(error.message || "Error en la carga del soporte.");
+  }
+}
+
+async function traerInfoPersonajeAsuntoSoporte(token) {
+  try {
+    let response = await fetch(`${urlBase}/traerInformacionParaSoporte`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    let data = await response.json();
+    if (data.error === 0) {
+      return { data, error: 0 };
+    } else {
+      return { message: data.message, error: 1 };
+    }
+  } catch (error) {
+    throw new Error(error.message || "Error al cargar los datos");
+  }
+}
+
+async function enviarNuevoSoporte(datos) {
+  try {
+    let response = await fetch(`${urlBase}/insertarSoporte`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${datos.token}`,
+      },
+      body: JSON.stringify({
+        sector: datos.sector,
+        asunto: datos.asunto,
+        texto: datos.texto,
+        nick: datos.nick,
+      }),
+    });
+
+    let data = await response.json();
+    if (data.error === 0) {
+      return { message: data.message, error: 0 };
+    } else {
+      return data.message;
+    }
+  } catch (error) {
+    throw new Error(error.message || "Error al cargar los datos");
   }
 }
 
@@ -575,4 +629,6 @@ export {
   confirmAddCharacterAccount,
   obtenerSoportes,
   obtenerDataSoporte,
+  traerInfoPersonajeAsuntoSoporte,
+  enviarNuevoSoporte,
 };

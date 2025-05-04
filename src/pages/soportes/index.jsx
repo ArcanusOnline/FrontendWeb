@@ -1,4 +1,5 @@
 import { ListadoSoporte } from "../../components"
+import {Link} from "react-router"
 
 const PaginaSoportes = () => {
 
@@ -6,7 +7,7 @@ const PaginaSoportes = () => {
         <>
         <div className="paginaSoporteContainer">
             <ListadoSoporte />
-            <button>Nuevo Soporte</button>
+            <Link to="/panel-usuario/nuevoSoporte" className="botonNuevoSoporte">Nuevo Soporte</Link>
         </div>
         </>
     )

@@ -4,7 +4,6 @@ import {
   BannerInicio,
   BannerFooter,
   CambiarPassPanel,
-  //CambiarPinPanel,
   CambiarEmailPanel,
   RecuperarCuenta,
   RecuperarPersonaje,
@@ -34,6 +33,7 @@ import {
   ConfirmarAgregarPersonaje,
   PaginaSoportes,
   SoporteInfo,
+  NuevoSoporte,
 } from "./pages/index.js";
 
 import { ProtectedRoute, PrivateRoute } from "./assets/ProtectedRoute.jsx";
@@ -63,11 +63,11 @@ function App() {
               />
               <Route path="configuracion" element={<ConfigPanelCuenta />}>
                 <Route path="cambiarPassword" element={<CambiarPassPanel />} />
-                {/*   <Route path="cambiarPin" element={<CambiarPinPanel />} /> */}
                 <Route path="cambiarEmail" element={<CambiarEmailPanel />} />
               </Route>
               <Route path="historialDeSoportes" element={<PaginaSoportes />} />
               <Route path="soporte" element={<SoporteInfo />} />
+              <Route path="nuevoSoporte" element={<NuevoSoporte />} />
             </Route>
           </Route>
           ;

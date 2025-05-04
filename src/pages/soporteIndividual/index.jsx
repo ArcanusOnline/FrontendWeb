@@ -7,19 +7,20 @@ const SoporteInfo = () => {
   let ticket = parametro.get("ticket");
   let [respuestas, setRespuestas] = useState([]);
   let navigate = useNavigate();
+  let token = localStorage.getItem("token") || ""
 
   function formatDate(dateString) {
-    const date = new Date(dateString); 
-  
+    const date = new Date(dateString);
+
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); 
-    const day = String(date.getDate()).padStart(2, '0');
-  
-    const hours = String(date.getHours()).padStart(2, '0'); 
-    const minutes = String(date.getMinutes()).padStart(2, '0'); 
-    const seconds = String(date.getSeconds()).padStart(2, '0'); 
-  
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`; 
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const seconds = String(date.getSeconds()).padStart(2, "0");
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   }
 
   useEffect(() => {
@@ -30,11 +31,15 @@ const SoporteInfo = () => {
 
     async function extraerDatos() {
       try {
-        const data = await obtenerDataSoporte(ticket);
+        const data = await obtenerDataSoporte(ticket,token );
+        if (!data || !Array.isArray(data) || data.length === 0) {
+          navigate("/"); // redirecciona si no le corresponde
+          return;
+        }
         setRespuestas(data);
-        console.log(respuestas);
       } catch (error) {
         console.error("Error al obtener datos del soporte:", error);
+        navigate("/");
       }
     }
 

@@ -60,8 +60,8 @@ const ListadoSoporte = () => {
                 <th>Ticket #</th>
                 <th>Asunto</th>
                 <th>Fecha creacion</th>
-                <th>Estado</th>
                 <th>Ultima Actividad</th>
+                <th>Estado</th>
               </tr>
             </thead>
             <tbody>
@@ -78,8 +78,8 @@ const ListadoSoporte = () => {
                     </NavLink>
                   </td>
                   <td>{formatDate(elem.fecha_alta)}</td>
-                  <td>{elem.estado}</td>
                   <td>{formatDate(elem.fecha_cambio_estado)}</td>
+                  <td>{elem.estado}</td>
                 </tr>
               ))}
             </tbody>

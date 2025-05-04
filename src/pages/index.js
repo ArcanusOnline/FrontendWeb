@@ -22,3 +22,4 @@ export { CambiarPwRecuPersonaje } from "./cambiarPwRecuPersonaje";
 export { ConfirmarAgregarPersonaje } from "./confirmarAgregarPersonaje";
 export { PaginaSoportes } from "./soportes";
 export { SoporteInfo } from "./soporteIndividual";
+export { NuevoSoporte } from "./nuevoSoporte";
