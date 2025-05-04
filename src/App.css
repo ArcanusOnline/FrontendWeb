@@ -2345,25 +2345,6 @@ h1 {
   gap: 15px; /* Espacio entre los botones */
 }
 
-/* Estilo general para los botones */
-button {
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-/* Estilo para el botón "Enviar respuesta" */
-button[type="submit"] {
-  background-color: #007bff;
-  color: white;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
 
 /* Estilo para el botón "Cerrar soporte" */
 .cerrar-soporte-btn {
@@ -2380,6 +2361,28 @@ button[type="submit"]:hover {
   display: flex;
   justify-content: end;
 }
+
+.checkbox-censura {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: orangered;
+}
+
+.checkbox-censura input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #007bff;
+}
+
+.checkbox-censura label {
+  cursor: pointer;
+  user-select: none;
+}
+
 
 /* FORM NUEVO SOPORTE */
 

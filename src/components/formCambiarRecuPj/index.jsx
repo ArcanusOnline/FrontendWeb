@@ -24,9 +24,10 @@ const FormularioCambiarPasswordRecuPersonaje = () => {
         return;
       }
       return;
+    } else {
+      setError("Las contraseñas no coinciden");
+      return;
     }
-    setError("Las contraseñas no coinciden");
-    return;
   }
 
   return (

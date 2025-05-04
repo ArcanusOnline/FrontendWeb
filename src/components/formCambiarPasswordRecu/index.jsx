@@ -21,11 +21,12 @@ const FormularioCambiarPasswordRecu = () => {
         setTimeout(() => {
           navigate("/");
         }, 3000);
-        return;
       }
+      return;
+    } else {
+      setError("Las contraseñas no coinciden");
+      return;
     }
-    setError("Las contraseñas no coinciden");
-    return;
   }
 
   return (
@@ -43,6 +44,7 @@ const FormularioCambiarPasswordRecu = () => {
             value={fields.newPassword}
             onChange={(e) => {
               setFields((prev) => ({ ...prev, newPassword: e.target.value }));
+              setError("");
             }}
             required
           />
@@ -63,6 +65,7 @@ const FormularioCambiarPasswordRecu = () => {
                 ...prev,
                 confirmPassword: e.target.value,
               }));
+              setError("");
             }}
             required
           />

@@ -589,7 +589,7 @@ async function enviarNuevoSoporte(datos) {
         asunto: datos.asunto,
         texto: datos.texto,
         nick: datos.nick,
-        censura: datos.censura
+        censura: datos.censura,
       }),
     });
 
@@ -603,7 +603,44 @@ async function enviarNuevoSoporte(datos) {
     throw new Error(error.message || "Error al cargar los datos");
   }
 }
+async function enviarRespuestaNuevaSoporte(datos) {
+  try {
+    let response = await fetch(`${urlBase}/agregarRespuestaSoporte`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${datos.token}`,
+      },
+      body: JSON.stringify({
+        censura: datos.censura,
+        texto: datos.texto,
+        idSoporte: datos.idSoporte,
+      }),
+    });
 
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error al enviar la respuesta:", error.message);
+  }
+}
+
+async function cerrarSoporte(id) {
+  try {
+    let response = await fetch(`${urlBase}/cerrarSoporte`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ idSoporte: id }),
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error al enviar la respuesta:", error.message);
+  }
+}
 export {
   login,
   getTop100,
@@ -632,4 +669,6 @@ export {
   obtenerDataSoporte,
   traerInfoPersonajeAsuntoSoporte,
   enviarNuevoSoporte,
+  enviarRespuestaNuevaSoporte,
+  cerrarSoporte,
 };
