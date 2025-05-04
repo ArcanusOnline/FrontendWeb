@@ -2460,3 +2460,33 @@ button[type="submit"]:hover {
   resize: vertical; /* Solo permite cambiar tamaño vertical */
   overflow-x: hidden; /* Oculta el scroll horizontal */
 }
+
+.form-checkbox {
+  margin-top: 20px;
+  display: flex;
+  align-items: center; /* Alinea verticalmente checkbox y texto */
+  gap: 10px;
+  background-color: #2b2217;
+  padding: 10px;
+  border: 2px solid #d4af37;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px #000;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #d4af37;
+  cursor: pointer;
+  margin: 0; /* Quita márgenes por defecto que desalinean */
+}
+
+.form-checkbox label {
+  color: #f1e7c6;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+

@@ -14,6 +14,7 @@ const NuevoSoporte = () => {
     nick: "",
     texto: "",
     token: token,
+    censura: "",
   });
 
   const [sectores, setSectores] = useState([]);
@@ -52,7 +53,7 @@ const NuevoSoporte = () => {
   return (
     <>
       <form className="form-mmorpg" onSubmit={handleSubmit}>
-        <h2 className="form-title">Soporte del Reino</h2>
+        <h2 className="form-title">Nuevo Soporte</h2>
 
         <label className="form-label" htmlFor="asunto">
           Asunto del soporte:
@@ -120,6 +121,24 @@ const NuevoSoporte = () => {
           cols="50"
           required
         ></textarea>
+
+        {/* Nuevo checkbox para marcar censura */}
+        <div className="form-checkbox">
+          <label htmlFor="censura">
+            <input
+              type="checkbox"
+              id="censura"
+              name="censura"
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  censura: e.target.checked ? "CENSURADO" : "",
+                })
+              }
+            />
+            Marcar mensaje como CENSURADO
+          </label>
+        </div>
 
         <input className="form-button" type="submit" value="Enviar soporte" />
       </form>

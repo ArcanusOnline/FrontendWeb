@@ -70,7 +70,7 @@ const SoporteInfo = () => {
                   <span>{item.responde}</span>
                   <span className="fecha">{formatDate(item.fecha)}</span>
                 </p>
-                <p className="mensaje-texto">{item.texto}</p>
+                <p className="mensaje-texto">{item.censura === "CENSURADO" ? "Mensaje censurado" : item.texto}</p>
               </div>
             ))}
           </div>

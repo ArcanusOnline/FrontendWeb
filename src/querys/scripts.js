@@ -589,6 +589,7 @@ async function enviarNuevoSoporte(datos) {
         asunto: datos.asunto,
         texto: datos.texto,
         nick: datos.nick,
+        censura: datos.censura
       }),
     });
 
