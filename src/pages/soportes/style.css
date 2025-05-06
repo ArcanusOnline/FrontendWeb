@@ -1,0 +1,44 @@
+/* Contenedor principal de la página */
+.paginaSoporteContainer {
+  font-family: "Arial", sans-serif;
+  background-color: #000; /* Fondo negro */
+  color: #ffcccc; /* Texto en rojo claro */
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Estilo del botón de "Nuevo Soporte" */
+.botonNuevoSoporte {
+  display: inline-block;
+  background-color: #b22222; /* Rojo brillante */
+  color: #fff;
+  padding: 12px 24px;
+  width: 35%;
+  align-self: end;
+  font-size: 1.2em;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.botonNuevoSoporte:hover {
+  background-color: #ff6347; /* Tomate */
+  transform: translateY(-2px);
+}
+
+.botonNuevoSoporte:active {
+  background-color: #ff4500; /* Rojo anaranjado */
+  transform: translateY(2px);
+}
+
+/* Título principal */
+.paginaSoporteContainer h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}

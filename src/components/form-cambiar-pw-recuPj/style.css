@@ -1,0 +1,94 @@
+/* Estilo general del formulario */
+.mmorpg-form {
+  font-family: "Arial", sans-serif;
+  background-color: rgba(139, 0, 0, 0.7); /* Fondo rojo oscuro con opacidad */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  max-width: 500px;
+  margin: 0 auto;
+  color: #f9dcdc; /* Texto en gris claro */
+}
+
+/* Estilo para los grupos de formulario */
+.mmorpg-form-group {
+  margin-bottom: 20px;
+}
+
+.mmorpg-label {
+  display: block;
+  font-size: 1.2em;
+  color: #fff5f5; /* Blanco roto */
+  margin-bottom: 8px;
+}
+
+/* Estilo para los inputs del formulario */
+.mmorpg-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #660000; /* Rojo más oscuro */
+  border-radius: 5px;
+  background-color: rgba(139, 0, 0, 0.9); /* Rojo oscuro con opacidad */
+  color: #f9dcdc; /* Texto claro */
+  font-size: 1em;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.mmorpg-input:focus {
+  border-color: #ff4d4d; /* Rojo más brillante en el enfoque */
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.7); /* Sombra brillante en el enfoque */
+}
+
+/* Estilo para el botón de cambio de contraseña */
+.mmorpg-button {
+  background-color: #8b0000; /* Rojo oscuro */
+  color: #fff5f5; /* Blanco roto */
+  padding: 12px 20px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.mmorpg-button:hover {
+  background-color: #b22222; /* Rojo más brillante al hacer hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para el mensaje de error */
+.mmorpg-form p {
+  color: #ff4d4d; /* Rojo brillante para el mensaje de error */
+  font-size: 1em;
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Estilo para la respuesta exitosa (si la hay) */
+.mmorpg-form p.success {
+  color: #32cd32; /* Verde brillante para mensajes exitosos */
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Efecto de sombra para los campos de texto */
+.mmorpg-input:focus {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.7);
+}
+
+/* Estilo del contenedor principal del formulario */
+.mmorpg-form {
+  background-color: rgba(139, 0, 0, 0.8); /* Rojo oscuro con mayor opacidad */
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 450px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}

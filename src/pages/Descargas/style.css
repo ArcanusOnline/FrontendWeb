@@ -1,0 +1,42 @@
+.descarga-container {
+  background-color: #000000;
+  color: #ff6347;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 10px #ff0000aa;
+  text-align: center;
+}
+
+.descarga-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #ff6347;
+  text-shadow: 0 0 5px #ff0000;
+}
+
+.descarga-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.descarga-links a {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid #ff6347;
+}
+
+.descarga-links a:hover {
+  background-color: #ff6347;
+  color: #000000;
+  box-shadow: 0 0 10px #ff0000aa;
+}

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+.config-panel-container {
+  background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+  padding: 40px;
+  border: 2px solid #3a1c1c;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+  color: #d6b88d;
+  font-family: 'Cinzel', serif;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+.config-panel-title {
+  font-size: 28px;
+  color: #e7c06f;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(231, 192, 111, 0.3);
+}
+
+.config-panel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.config-panel-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.config-panel-label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #a87b4f;
+}
+
+.config-panel-input {
+  background: #0f0f0f;
+  border: 1px solid #3a1c1c;
+  color: #e0e0e0;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.config-panel-input:focus {
+  border-color: #ff3d3d;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 61, 61, 0.4);
+}
+
+.config-panel-error {
+  color: #ff3d3d;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.config-panel-success {
+  color: #00d084;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.config-panel-button {
+  background: #3a1c1c;
+  color: #e7c06f;
+  padding: 12px;
+  font-size: 16px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  border: 1px solid #5c2c2c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.config-panel-button:hover {
+  background: #5c2c2c;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 61, 61, 0.3);
+}
+
+.config-panel-link {
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+  color: #b53d3d;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.config-panel-link:hover {
+  color: #ff4a4a;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+}

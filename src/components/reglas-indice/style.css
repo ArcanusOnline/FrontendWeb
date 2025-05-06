@@ -1,0 +1,80 @@
+.reglasTitles {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: "Cinzel", serif;
+    color: #e2ded0;
+  }
+  
+  .reglasTitles h2 {
+    font-size: 2.2rem;
+    color: #aa0000;
+    margin-bottom: 0.5rem;
+  }
+  
+  .reglasTitles h3 {
+    font-size: 1.3rem;
+    color: #ccc;
+    font-style: italic;
+  }
+  
+  h4 {
+    font-family: "Cinzel", serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #e2ded0;
+  }
+  
+  /* Estilos para la lista principal */
+  .custom-list {
+    list-style: none;
+    padding-left: 1rem;
+    font-family: "Cinzel", serif;
+    color: #e2ded0;
+  }
+  
+  .custom-list .main-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .custom-list .main-item > a {
+    font-weight: bold;
+    color: #aa0000;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-list .main-item > a:hover {
+    color: #fff;
+  }
+  
+  /* Estilos para subitems */
+  .custom-list .sub-item {
+    margin-left: 1rem;
+    margin-top: 0.3rem;
+  }
+  
+  .custom-list .sub-item a {
+    font-size: 0.95rem;
+    color: #ccc;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-list .sub-item a:hover {
+    color: #fff;
+  }
+  
+  /* Responsive tip: más espacio en móviles */
+  @media (max-width: 600px) {
+    .custom-list {
+      padding-left: 0.5rem;
+    }
+  
+    .custom-list .main-item > a {
+      font-size: 1rem;
+    }
+  
+    .custom-list .sub-item a {
+      font-size: 0.9rem;
+    }
+  }
+  

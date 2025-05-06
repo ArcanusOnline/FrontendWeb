@@ -1,0 +1,44 @@
+.noticiasCompletas {
+  background-color: #1e1e1e; /* Fondo oscuro para la sección */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  font-family: "Arial", sans-serif;
+}
+
+.noticiasCompletas h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #e74c3c; /* Rojo infernal */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.noticias {
+  background-color: #2c2c2c; /* Fondo más oscuro para cada noticia */
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.noticias h2 {
+  font-size: 2rem;
+  color: #ff6347; /* Color anaranjado cálido para los títulos */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.noticias p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.noticias span {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+}

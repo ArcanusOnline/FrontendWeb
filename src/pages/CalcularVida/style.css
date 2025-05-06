@@ -1,0 +1,29 @@
+.calculadora-vida-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+  background-color: #222; /* Fondo oscuro para la página */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.calculadora-vida-title {
+  text-align: center;
+  font-size: 3.5rem;
+  color: #e74c3c; /* Rojo infernal */
+  margin-bottom: 20px;
+}
+
+.calculadora-vida-container h1 {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.calculadora-vida-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

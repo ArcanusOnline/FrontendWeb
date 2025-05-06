@@ -1,0 +1,71 @@
+.noticiasInicio {
+  background-color: transparent;
+  color: #e2ded0;
+  font-family: "Cinzel", serif;
+  display: flex;
+  flex-direction: column; /* ✅ hace que siempre se apilen */
+  gap: 2rem;
+}
+.noticiasInicio h1 {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 2rem;
+  color: #aa0000;
+}
+
+.noticias {
+  background-color: #121212;
+  border: 1px solid #aa0000;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(170, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.noticias:hover {
+  transform: scale(1.02);
+}
+
+.noticias h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.noticias p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+.noticias span {
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* 🔴 Botón "Ver más..." */
+.noticiasInicio > button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 2rem;
+  background-color: #aa0000;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  width: 50%;
+}
+
+.noticiasInicio > button:hover {
+  background-color: #cc1e1e;
+}

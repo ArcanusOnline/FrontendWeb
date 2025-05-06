@@ -1,0 +1,130 @@
+/* Estilos generales para la sección */
+.rankingClases {
+    padding: 2rem;
+    background-color: #121212;
+    color: #e2ded0;
+    font-family: "Cinzel", serif;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  
+  .rankingClases h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #aa0000;
+    font-size: 2rem;
+  }
+  
+  /* Estilo del select */
+  .rankingSelect {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    background-color: #1a1a1a;
+    color: #e2ded0;
+    font-size: 1rem;
+    border: 2px solid #aa0000;
+    border-radius: 5px;
+  }
+  
+  .rankingSelect option {
+    background-color: #121212;
+    color: #e2ded0;
+  }
+  
+  .rankingSelect:focus {
+    outline: none;
+    border-color: #ff4d4d;
+  }
+  
+  /* Estilos para la tabla */
+  .rankingTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background-color: #121212;
+    color: #e2ded0;
+    font-family: "Cinzel", serif;
+  }
+  
+  .rankingTable th,
+  .rankingTable td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #aa0000;
+  }
+  
+  .rankingTable th {
+    background-color: #1a1a1a;
+    color: #e2ded0;
+  }
+  
+  .rankingTable td {
+    background-color: #121212;
+    color: #ccc;
+  }
+  
+  .rankingTable tr:nth-child(even) {
+    background-color: #1a1a1a;
+  }
+  
+  .rankingTable tr:nth-child(odd) {
+    background-color: #121212;
+  }
+  
+  .rankingTable tr:hover {
+    background-color: #aa0000;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Mensajes de carga y error */
+  .rankingTable td[colspan="5"] {
+    text-align: center;
+    color: #ff4d4d;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .rankingTable td[colspan="5"][style="color: red;"] {
+    color: #ff4d4d;
+  }
+  
+  /* Mensaje "Cargando..." */
+  .rankingTable td[colspan="5"][style="text-align: center;"] {
+    color: #ffa500;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  /* Primer lugar */
+  .rankingTable tbody tr:nth-child(1) {
+    font-size: 1.8em;
+    height: 90px;
+    color: #ffcc00; /* Dorado */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Segundo lugar */
+  .rankingTable tbody tr:nth-child(2) {
+    font-size: 1.5em;
+    height: 70px;
+    color: #c0c0c0; /* Plateado */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Tercer lugar */
+  .rankingTable tbody tr:nth-child(3) {
+    font-size: 1.3em;
+    height: 50px;
+    color: #cd7f32; /* Bronce */ 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* A partir del cuarto lugar */
+  .rankingTable tbody tr:nth-child(n + 4) {
+    font-size: 1.1em;
+    height: 30px;
+    color: #ccc; /* Gris */
+  }
+  

@@ -1,0 +1,57 @@
+/* Contenedor de la lista de soporte */
+.listaSoporteContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #1a1a1a; /* Gris oscuro */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo de la tabla */
+.soportes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.soportes-table th,
+.soportes-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #660000; /* Rojo oscuro */
+}
+
+.soportes-table th {
+  background-color: #660000; /* Rojo oscuro */
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.soportes-table tr:nth-child(even) {
+  background-color: #333; /* Gris muy oscuro */
+}
+
+.soportes-table tr:hover {
+  background-color: #b22222; /* Rojo brillante */
+  cursor: pointer;
+}
+
+/* Estilo de los enlaces dentro de la tabla */
+.linksSoportes {
+  color: #ff6347; /* Tomate */
+  text-decoration: none;
+}
+
+.linksSoportes:hover {
+  text-decoration: underline;
+}
+
+/* Estilo de los mensajes de error */
+.listaSoporteContainer p {
+  color: #ff4d4d; /* Rojo brillante */
+  font-size: 1.1em;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Login } from "../../components";
+import "./style.css";
 
 const Cuenta = () => {
   return (
@@ -7,7 +8,7 @@ const Cuenta = () => {
       <div className="seccionCuenta">
         <h1>Iniciar sesión</h1>
         <Login />
-        <Link to="/register" className="linkRegistrarseCuenta">
+        <Link to="/registrarse" className="linkRegistrarseCuenta">
           Registrarme
         </Link>
       </div>

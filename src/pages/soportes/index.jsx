@@ -1,16 +1,18 @@
-import { ListadoSoporte } from "../../components"
-import {Link} from "react-router"
+import { ListadoSoporte } from "../../components";
+import { Link } from "react-router";
+import "./style.css"
 
 const PaginaSoportes = () => {
+  return (
+    <>
+      <div className="paginaSoporteContainer">
+        <ListadoSoporte />
+        <Link to="/panel-de-usuario/nuevo-soporte" className="botonNuevoSoporte">
+          Nuevo Soporte
+        </Link>
+      </div>
+    </>
+  );
+};
 
-    return(
-        <>
-        <div className="paginaSoporteContainer">
-            <ListadoSoporte />
-            <Link to="/panel-usuario/nuevoSoporte" className="botonNuevoSoporte">Nuevo Soporte</Link>
-        </div>
-        </>
-    )
-}
-
-export {PaginaSoportes}
+export { PaginaSoportes };

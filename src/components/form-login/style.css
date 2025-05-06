@@ -1,0 +1,95 @@
+.cuentaContainer {
+  background: linear-gradient(to bottom, #0b0b0b, #1a1a1a);
+  color: #e2ded0;
+  padding: 2rem;
+  font-family: "Cinzel", serif;
+  max-width: 500px;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(170, 0, 0, 0.4);
+}
+
+.cuentaContainer fieldset {
+  border: 1px solid #aa0000;
+  border-radius: 6px;
+  padding: 2rem;
+  background-color: #121212;
+}
+
+.cuentaContainer legend {
+  font-size: 1.5rem;
+  color: #ffffff;
+  padding: 0 0.6rem;
+  background-color: #aa0000;
+  border-radius: 4px;
+}
+
+.cuentaContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cuentaContainer label {
+  font-size: 1rem;
+  color: #e2ded0;
+}
+
+.cuentaContainer input[type="text"],
+.cuentaContainer input[type="password"] {
+  padding: 0.7rem;
+  border: 1px solid #aa0000;
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.cuentaContainer button[type="submit"] {
+  padding: 0.8rem;
+  background-color: #aa0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cuentaContainer button[type="submit"]:hover {
+  background-color: #cc1e1e;
+}
+
+.cuentaContainer span {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.cuentaContainer p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.cuentaContainer p a {
+  color: #aa0000;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.cuentaContainer p a:hover {
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .cuentaContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .cuentaContainer fieldset {
+    padding: 1.5rem;
+  }
+}

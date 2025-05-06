@@ -1,0 +1,191 @@
+/* Contenedor principal */
+.contenedor-soporte {
+  background-color: #121212; /* Fondo negro */
+  color: #e6e6e6; /* Texto en gris claro */
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título del soporte */
+.soporte-titulo {
+  color: #ff6347; /* Rojo tomate */
+  font-size: 2em;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+/* Categoría y ticket */
+.soporte-categoria {
+  color: #ff4500; /* Rojo anaranjado */
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Hilo de mensajes */
+.soporte-hilo {
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #1a1a1a; /* Gris oscuro */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.mensaje-hilo {
+  margin-bottom: 15px;
+}
+
+.mensaje-autor {
+  font-weight: bold;
+  color: #ff6347; /* Rojo tomate */
+}
+
+.fecha {
+  font-size: 0.9em;
+  color: #ff4500; /* Rojo anaranjado */
+}
+
+.mensaje-texto {
+  color: #e6e6e6; /* Texto en gris claro */
+  font-size: 1.1em;
+  margin-top: 5px;
+}
+
+/* Formulario de respuesta */
+.soporte-formulario {
+  background-color: #1a1a1a; /* Gris oscuro */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  margin-top: 30px;
+}
+
+.soporte-formulario label {
+  color: #ff6347; /* Rojo tomate */
+  font-size: 1.2em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.soporte-formulario textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #333; /* Gris muy oscuro */
+  color: #e6e6e6; /* Texto en gris claro */
+  border: 1px solid #ff6347; /* Borde rojo */
+  border-radius: 8px;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.posicionEnviarRespuesta {
+  text-align: center;
+}
+
+.soporte-formulario button {
+  background-color: #ff6347; /* Rojo tomate */
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.soporte-formulario button:hover {
+  background-color: #ff4500; /* Rojo anaranjado */
+  transform: translateY(-2px);
+}
+
+.soporte-formulario button:active {
+  background-color: #e63946; /* Rojo oscuro */
+  transform: translateY(2px);
+}
+
+/* Estado cerrado */
+.soporte-cerrado {
+  color: #ff6347; /* Rojo tomate */
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.checkbox-censura {
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+  gap: 10px;
+  color: #ff6347;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.checkbox-censura input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #ff4d4d; /* Coordinado con la paleta */
+  vertical-align: middle; /* Clave para alineación */
+  margin: 0; /* Elimina espacios raros de algunos navegadores */
+}
+
+.checkbox-censura label {
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+}
+
+.mensaje-autor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #ff6347;
+  margin-bottom: 5px;
+}
+
+.botones-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cerrar-soporte-btn {
+  background-color: #1a0000;
+  color: #ff4d4d;
+  border: 2px solid #ff4d4d;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 3px rgba(255, 77, 77, 0.6);
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  align-self: end;
+}
+
+.cerrar-soporte-btn:hover {
+  background-color: #330000;
+  color: #fff0f0;
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+  transform: translateY(-1px);
+}
+
+.botones-container p {
+  background-color: #1a0000;
+  color: #ff4d4d;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 0 3px rgba(255, 77, 77, 0.6);
+  align-self: end;
+}

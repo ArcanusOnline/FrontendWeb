@@ -1,0 +1,58 @@
+/* Estilos generales para la tabla */
+.tableRanking {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background-color: #121212;
+  color: #e2ded0;
+  font-family: "Cinzel", serif;
+}
+
+.tableRanking caption {
+  font-size: 2rem;
+  color: #aa0000;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.tableRanking th,
+.tableRanking td {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #aa0000;
+}
+
+.tableRanking th {
+  background-color: #1a1a1a;
+  color: #e2ded0;
+  font-size: 1.1rem;
+}
+
+.tableRanking td {
+  background-color: #121212;
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.tableRanking tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+.tableRanking tr:nth-child(odd) {
+  background-color: #121212;
+}
+
+.tableRanking tr:hover {
+  background-color: #aa0000;
+  color: white;
+  cursor: pointer;
+}
+
+/* Para el mensaje "No hay datos" */
+.tableRanking td[colspan="6"] {
+  text-align: center;
+  color: #ff4d4d;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

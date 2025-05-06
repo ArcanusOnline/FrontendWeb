@@ -1,39 +1,39 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 import {
+  StaffCard,
+  ListadoPersonajes,
+  PanelPorPersonaje,
+  ConfigPanelCuenta,
+  CambiarEmailPanel,
+  CambiarPassPanel,
   BannerInicio,
   BannerFooter,
-  CambiarPassPanel,
-  CambiarEmailPanel,
+  SoporteInfo,
+  NuevoSoporte,
+  RegisterPanel,
+  Ranking,
+  RankingPorClases,
+  PanelMiniStats,
+  NoticiasCompletas,
   RecuperarCuenta,
+  FormularioCambiarPasswordRecu,
   RecuperarPersonaje,
+  FormularioCambiarPasswordRecuPersonaje,
 } from "./components/index.js";
 import {
   Inicio,
   RenderReglas,
-  Staff,
   Cuenta,
-  Register,
-  TablaRanking,
-  PaginaDescarga,
   PanelUsuario,
-  Ranking,
-  MiniEstadisticas,
+  PaginaSoportes,
+  PaginaDescarga,
   CalculadoraVida,
-  Noticias,
-  ListadoPersonajes,
-  ConfigPanelCuenta,
-  PanelPorPersonaje,
   ActivarCuenta,
   RecuperarContrasenas,
-  CambiarPwRecu,
   ConfirmacionEliminadoPersonaje,
   ConfirmarCambioEmailCuenta,
-  CambiarPwRecuPersonaje,
   ConfirmarAgregarPersonaje,
-  PaginaSoportes,
-  SoporteInfo,
-  NuevoSoporte,
 } from "./pages/index.js";
 
 import { ProtectedRoute, PrivateRoute } from "./assets/ProtectedRoute.jsx";
@@ -46,57 +46,72 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/reglas" element={<RenderReglas />} />
-          <Route path="/staff" element={<Staff />} />
-          <Route element={<ProtectedRoute redirectTo="/panel-usuario" />}>
+          <Route path="/staff" element={<StaffCard />} />
+          <Route element={<ProtectedRoute redirectTo="/panel-de-usuario" />}>
             <Route path="/cuenta" element={<Cuenta />} />
           </Route>
           <Route element={<PrivateRoute redirectTo="/cuenta" />}>
-            <Route path="/panel-usuario" element={<PanelUsuario />}>
+            <Route path="/panel-de-usuario" element={<PanelUsuario />}>
               <Route
-                path="listaMisPersonajes/:usuario"
+                path="lista-de-mis-personajes/:usuario"
                 element={<ListadoPersonajes />}
               />
 
               <Route
-                path="listaMisPersonajes/:usuario/infoPersonaje"
+                path="lista-de-mis-personajes/:usuario/infoPersonaje"
                 element={<PanelPorPersonaje />}
               />
-              <Route path="configuracion" element={<ConfigPanelCuenta />}>
-                <Route path="cambiarPassword" element={<CambiarPassPanel />} />
-                <Route path="cambiarEmail" element={<CambiarEmailPanel />} />
+              <Route
+                path="configuracion-de-cuenta"
+                element={<ConfigPanelCuenta />}
+              >
+                <Route path="change-password" element={<CambiarPassPanel />} />
+                <Route path="change-email" element={<CambiarEmailPanel />} />
               </Route>
-              <Route path="historialDeSoportes" element={<PaginaSoportes />} />
+              <Route
+                path="historial-de-soportes"
+                element={<PaginaSoportes />}
+              />
               <Route path="soporte" element={<SoporteInfo />} />
-              <Route path="nuevoSoporte" element={<NuevoSoporte />} />
+              <Route path="nuevo-soporte" element={<NuevoSoporte />} />
             </Route>
           </Route>
           ;
-          <Route path="/register" element={<Register />} />
-          <Route path="/top100" element={<TablaRanking />} />
-          <Route path="/esperandoDescarga" element={<PaginaDescarga />} />
-          <Route path="/ranking" element={<Ranking />} />
-          <Route path="/showInfoPersonaje" element={<MiniEstadisticas />} />
-          <Route path="/calculadoraVida" element={<CalculadoraVida />} />
-          <Route path="/noticias" element={<Noticias />} />
-          <Route path="/activarCuenta/:token" element={<ActivarCuenta />} />
-          <Route path="/recoveryPasswords" element={<RecuperarContrasenas />}>
-            <Route path="recuperarCuenta" element={<RecuperarCuenta />}>
-              <Route path=":token" element={<CambiarPwRecu />} />
+          <Route path="/registrarse" element={<RegisterPanel />} />
+          <Route path="/top100" element={<Ranking />} />
+          <Route path="/lista-de-descargas" element={<PaginaDescarga />} />
+          <Route path="/ranking" element={<RankingPorClases />} />
+          <Route path="/ver-personaje" element={<PanelMiniStats />} />
+          <Route path="/calculadora-de-vida" element={<CalculadoraVida />} />
+          <Route path="/noticias" element={<NoticiasCompletas />} />
+          <Route path="/activar-cuenta/:token" element={<ActivarCuenta />} />
+          <Route
+            path="/recuperar-contrasenas"
+            element={<RecuperarContrasenas />}
+          >
+            <Route path="recuperar-cuenta" element={<RecuperarCuenta />}>
+              <Route
+                path=":token"
+                element={<FormularioCambiarPasswordRecu />}
+              />
             </Route>
-            <Route path="recuperarPersonaje" element={<RecuperarPersonaje />}>
-              <Route path=":token" element={<CambiarPwRecuPersonaje />} />
+            <Route path="recuperar-personaje" element={<RecuperarPersonaje />}>
+              <Route
+                path=":token"
+                element={<FormularioCambiarPasswordRecuPersonaje />}
+              />
             </Route>
           </Route>
           <Route
-            path="/eliminarPersonajeEnCuenta/:token"
+            path="/confirmacion-eliminar-personaje/:token"
             element={<ConfirmacionEliminadoPersonaje />}
           />
           <Route
-            path="/confirmarCambioDeMail/:token"
+            path="/confirmacion-cambio-email/:token"
             element={<ConfirmarCambioEmailCuenta />}
           />
           <Route
-            path="/agregarPersonajeEnCuenta/:token"
+            path="/confirmacion-agregar-personaje/:token"
             element={<ConfirmarAgregarPersonaje />}
           />
         </Routes>

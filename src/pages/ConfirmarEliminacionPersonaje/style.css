@@ -1,0 +1,18 @@
+.confirmacion-container {
+    width: 100%;
+    min-height: 48vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .confirmacion-texto {
+    font-size: 20px;
+    color: #ff6347; /* rojo tomate */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  }
+  

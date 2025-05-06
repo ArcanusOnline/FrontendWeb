@@ -1,0 +1,85 @@
+.config-panel-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  border: 2px solid #e5533c;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+}
+
+.config-panel-title {
+  font-size: 24px;
+  color: #ff6347;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.config-panel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.config-panel-field {
+  text-align: left;
+}
+
+.config-panel-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.config-panel-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 14px;
+}
+
+.config-panel-input:focus {
+  border-color: #ff6347;
+  outline: none;
+}
+
+.config-panel-button {
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.config-panel-button:hover {
+  background-color: #e5533c;
+}
+
+.config-panel-error {
+  color: orange;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.config-panel-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.config-panel-link:hover {
+  color: #ffa500;
+}

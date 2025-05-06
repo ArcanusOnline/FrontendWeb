@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+.registro-container {
+  background: linear-gradient(to bottom, #121212, #0a0a0a);
+  padding: 50px;
+  border: 2px solid #3a1c1c;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 60px auto;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+  font-family: 'Cinzel', serif;
+  color: #d6b88d;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+.registro-title {
+  text-align: center;
+  font-size: 32px;
+  color: #e7c06f;
+  margin-bottom: 30px;
+  text-shadow: 0 0 12px rgba(231, 192, 111, 0.25);
+}
+
+.registro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.registro-input {
+  background: #0f0f0f;
+  border: 1px solid #3a1c1c;
+  color: #e0e0e0;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.registro-input:focus {
+  border-color: #ff3d3d;
+  outline: none;
+  box-shadow: 0 0 12px rgba(255, 61, 61, 0.4);
+}
+
+.registro-btn {
+  background: #3a1c1c;
+  color: #e7c06f;
+  padding: 14px;
+  font-size: 17px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  border: 1px solid #5c2c2c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.registro-btn:hover {
+  background: #5c2c2c;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 61, 61, 0.3);
+}

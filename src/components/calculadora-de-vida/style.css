@@ -1,0 +1,152 @@
+.containerCalculadoraSeleccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+  background-color: #2b2b2b; /* Fondo oscuro para todo el contenedor */
+  border-radius: 10px;
+}
+
+.razas-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #3a3a3a; /* Fondo más oscuro para la sección de razas */
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.clases-container {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  background: #3a3a3a; /* Fondo más oscuro para la sección de clases */
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  position: relative;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.clases-titulo {
+  grid-column: span 2;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffd700; /* Dorado para los títulos de clases */
+}
+
+.titulo {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #e74c3c; /* Rojo para los títulos de razas */
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.opcion input[type="radio"] {
+  margin: 0;
+}
+
+.razas-container .opcion input {
+  display: none;
+}
+
+.raza-img {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.opcion.seleccionado {
+  opacity: 1;
+}
+
+.opcion.seleccionado .raza-img {
+  scale: 1.2;
+  border-color: #e74c3c; /* Borde rojo cuando la opción está seleccionada */
+}
+
+.opcion:hover {
+  opacity: 1;
+}
+
+.contenedorEntradasVida {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: white;
+  margin: 20px 0 20px 0;
+}
+
+.contenedorEntradasVida input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.contenedorEntradasVida input[type="number"] {
+  width: 70px;
+}
+
+.contenedorEntradasVida input {
+  height: auto;
+  width: auto;
+  text-align: center;
+  padding: 2px;
+  border: 2px solid #c29d5e;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+}
+
+.textoPromedio {
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  padding: 3px;
+  font-family: "Arial", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contenedorEntradasVida input[type="submit"] {
+  cursor: pointer;
+  text-align: center;
+  background-color: #e74c3c; /* Rojo infernal */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem; /* Tamaño de fuente consistente */
+}
+
+.contenedorEntradasVida input[type="submit"]:hover {
+  background-color: #c0392b; /* Rojo más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Le da un pequeño efecto de aumento */
+}
+
+.contenedorEntradasVida input[type="submit"]:active {
+  background-color: #9b2c2c; /* Rojo más oscuro al hacer clic */
+  transform: scale(1); /* Se quita el efecto de aumento */
+}

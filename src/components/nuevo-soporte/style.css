@@ -1,0 +1,124 @@
+/* Estilo general para el fondo y el texto */
+body {
+  background-color: #000000; /* Fondo negro */
+  color: #ff6347; /* Texto en rojo tomate */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo para los formularios */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #1a1a1a; /* Fondo gris oscuro */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos del formulario */
+h2 {
+  text-align: center;
+  color: #ff6347;
+  margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas de los campos */
+label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ff6347;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #333333;
+  border: 1px solid #444444;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+input[type="submit"] {
+  background-color: #ff6347;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: #e5533c;
+}
+
+/* Estilo para los checkboxes y sus etiquetas */
+.checkbox-censura {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.checkbox-censura input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #ff6347;
+}
+
+.checkbox-censura label {
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+}
+
+/* Estilo para los mensajes en el hilo de soporte */
+.mensaje-hilo {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+}
+
+.mensaje-autor {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.mensaje-autor .fecha {
+  font-size: 12px;
+  color: #ff6347;
+}
+
+.mensaje-texto {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Estilo para el botón de cerrar soporte */
+.cerrar-soporte-btn {
+  background-color: #ff6347;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.cerrar-soporte-btn:hover {
+  background-color: #e5533c;
+}

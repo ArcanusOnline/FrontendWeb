@@ -1,0 +1,40 @@
+.seccionCuenta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom, #0b0b0b, #1a1a1a);
+  color: #e2ded0;
+  font-family: "Cinzel", serif;
+  min-height: 100vh;
+}
+
+.seccionCuenta h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #aa0000;
+}
+
+.linkRegistrarseCuenta {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: #e2ded0;
+  background-color: #aa0000;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: "Cinzel", serif;
+}
+
+.linkRegistrarseCuenta:hover {
+  background-color: #cc1e1e;
+  transform: scale(1.05);
+}
+
+.linkRegistrarseCuenta:active {
+  background-color: #990000;
+}
