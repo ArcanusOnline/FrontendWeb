@@ -1,6 +1,6 @@
 export { CalculadoraVida } from "./CalcularVida";
 export { ConfirmacionEliminadoPersonaje } from "./ConfirmarEliminacionPersonaje";
-export { Cuenta } from "./Cuenta";
+export { Cuenta } from "./cuenta";
 export { PaginaDescarga } from "./Descargas";
 export { Inicio } from "./Inicio";
 export { PaginaSoportes } from "./Soportes";
