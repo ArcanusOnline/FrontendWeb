@@ -1,4 +1,4 @@
-let urlBase = "http://localhost:3001/api";
+let urlBase = import.meta.env.VITE_API_URL;
 
 async function login(nick, pass) {
   try {
