@@ -1,4 +1,4 @@
-let urlBase = import.meta.env.VITE_API_URL;
+let urlBase = "http://190.138.72.129:12000/api";
 
 async function login(nick, pass) {
   try {
