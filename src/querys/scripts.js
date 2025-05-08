@@ -1,4 +1,4 @@
-let urlBase = "https://190.138.72.129:12000/api";
+let urlBase = "https://backarcanus.onrender.com/api";
 
 async function login(nick, pass) {
   try {
