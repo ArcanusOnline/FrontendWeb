@@ -1,12 +1,12 @@
 export { CalculadoraVida } from "./CalcularVida";
 export { ConfirmacionEliminadoPersonaje } from "./ConfirmarEliminacionPersonaje";
-export { Cuenta } from "./cuenta";
+export { Cuenta } from "./Cuenta";
 export { PaginaDescarga } from "./Descargas";
 export { Inicio } from "./Inicio";
-export { PaginaSoportes } from "./soportes";
-export { RenderReglas } from "./reglas";
+export { PaginaSoportes } from "./Soportes";
+export { RenderReglas } from "./Reglas";
 export { PanelUsuario } from "./PanelUsuario";
 export { ActivarCuenta } from "./ActivacionCuenta";
 export { RecuperarContrasenas } from "./RecuperarContrasenas";
-export { ConfirmarCambioEmailCuenta } from "./confirmarCambioEmail";
+export { ConfirmarCambioEmailCuenta } from "./ConfirmarCambioEmail";
 export { ConfirmarAgregarPersonaje } from "./ConfirmarAgregadoPersonaje";
