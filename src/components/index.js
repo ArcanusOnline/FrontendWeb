@@ -28,3 +28,4 @@ export { ReglasIndice } from "./reglas-indice";
 export { StaffCard } from "./staff";
 export { RankingPorClases } from "./tabla-ranking-clases";
 export { Ranking } from "./tabla-top-100";
+export {NoticiaIndividual} from "./noticia-completa-individual";
