@@ -2,7 +2,7 @@ import { useState } from "react";
 import { protectedName } from "../../assets/protectedName";
 import { cambiarEmail } from "../../querys/scripts";
 import { useNavigate, Link } from "react-router";
-import "./style.css"
+import "./style.css";
 
 const CambiarEmailPanel = () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -41,12 +41,14 @@ const CambiarEmailPanel = () => {
         newEmail,
         email
       );
-      setError(response);
-      if (response === "Email cambiado correctamente") {
+      if (response === "OK") {
+        setError("Se ha enviado un email, para confirmar el cambio.");
         setTimeout(() => {
           desconectar();
         }, 2000);
+        return;
       }
+      setError(response);
     } catch (error) {
       setError("Error al conectar con el servidor.");
       console.error(error);
@@ -114,7 +116,10 @@ const CambiarEmailPanel = () => {
             Cambiar Email
           </button>
         </form>
-        <Link to="/panel-de-usuario/configuracion-de-cuenta" className="config-panel-link">
+        <Link
+          to="/panel-de-usuario/configuracion-de-cuenta"
+          className="config-panel-link"
+        >
           Volver
         </Link>
       </div>

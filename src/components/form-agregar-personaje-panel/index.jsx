@@ -32,7 +32,6 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
         email,
         nombreCuenta,
       });
-
       if (mensaje === "OK") {
         setMensajeConfirmacion(
           "Se ha enviado un email a la casilla de correo del personaje, para finalizar con el proceso."

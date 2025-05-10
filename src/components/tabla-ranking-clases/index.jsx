@@ -86,7 +86,7 @@ const RankingPorClases = () => {
                 {dataError}
               </td>
             </tr>
-          ) : (
+          ) : Array.isArray(fields) && fields.length > 0 ? (
             fields.map((item, index) => (
               <tr key={index}>
                 <td>{index + 1}°</td>
@@ -96,6 +96,12 @@ const RankingPorClases = () => {
                 <td>{item.clan}</td>
               </tr>
             ))
+          ) : (
+            <tr>
+              <td colSpan="5" style={{ textAlign: "center" }}>
+                Sin resultados.
+              </td>
+            </tr>
           )}
         </tbody>
       </table>

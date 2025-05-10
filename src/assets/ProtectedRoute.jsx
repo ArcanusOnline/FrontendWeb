@@ -6,7 +6,12 @@ const isTokenValid = () => {
   const token = localStorage.getItem("token");
   if (!token) return false;
   try {
-    const payloadBase64 = token.split(".")[1];
+    const payloadBase64url = token.split(".")[1];
+    if(!payloadBase64url) return false;
+    let payloadBase64 = payloadBase64url.replace(/-/g,"+").replace(/_/g,"/")
+    while(payloadBase64.length % 4 !== 0){
+      base64+="="
+    }
     const payload = JSON.parse(atob(payloadBase64));
     return payload.exp * 1000 > Date.now();
   } catch (error) {

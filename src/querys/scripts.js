@@ -60,11 +60,7 @@ async function getTop100() {
     }
 
     // Si todo está bien, devolver los datos con estado true
-    return {
-      message: "Top 100 cargado exitosamente",
-      state: true,
-      top100: data,
-    };
+    return data;
   } catch (error) {
     // Capturar errores de la llamada fetch
     console.error("Hubo un error al conectarse con el servidor:", error);
@@ -115,15 +111,6 @@ async function rankingPorClases(clase) {
 
     // Obtener los datos de la respuesta
     const data = await response.json();
-
-    // Si la respuesta no es ok, devolver el mensaje adecuado
-    if (!response.ok) {
-      return {
-        message: data.message || "No se pudo obtener el ranking.",
-        state: false,
-      };
-    }
-
     // Si no hay datos para la clase, devolver un mensaje adecuado
     if (data.length === 0) {
       return {
@@ -132,16 +119,8 @@ async function rankingPorClases(clase) {
       };
     }
 
-    // Transformar los datos antes de devolverlos, similar al controlador
-    const personajes = data.map((elem) => ({
-      nick: elem.NickB,
-      lvl: elem.ELVB,
-      raza: elem.RazaB,
-      clan: elem.Clan,
-    }));
-
     // Retornar los datos transformados
-    return { state: true, ranking: personajes };
+    return data;
   } catch (error) {
     // Manejo de errores de conexión
     console.error("Error al cargar el ranking:", error);
@@ -272,17 +251,14 @@ async function cambiarContra(
     // Verificar si la respuesta es exitosa
     if (!response.ok) {
       let data = await response.json();
-      return {
-        message: data.message || "Error al cambiar la contraseña",
-        state: false,
-      };
+      return data.message
     }
 
     // Obtener la respuesta JSON
     let data = await response.json();
 
     // Devolver el mensaje de éxito si todo salió bien
-    return data.message;
+    return data.state;
   } catch (error) {
     console.error("Error al cambiar la contraseña:", error);
     return { message: "Error al conectar con el servidor", state: false };
@@ -396,11 +372,6 @@ async function cambiarEmail(
       }), // Datos que se envían al servidor
     });
 
-    // Verificar si la respuesta fue exitosa
-    if (!response.ok) {
-      throw new Error(`Error al cambiar el email: ${response.statusText}`);
-    }
-
     // Convertir la respuesta a JSON
     let data = await response.json();
 
@@ -408,9 +379,8 @@ async function cambiarEmail(
     if (data.error) {
       throw new Error(data.message || "Error desconocido");
     }
-
     // Retornar el mensaje de éxito
-    return data.message;
+    return data.state;
   } catch (error) {
     // Manejo de errores
     console.error("Error en la solicitud de cambio de email:", error);
@@ -428,11 +398,6 @@ async function recuperarCuenta(fields) {
       },
       body: JSON.stringify(fields), // Enviar los datos recibidos
     });
-
-    // Verificar si la respuesta fue exitosa
-    if (!response.ok) {
-      throw new Error(`Error al recuperar la cuenta: ${response.statusText}`);
-    }
 
     // Convertir la respuesta a JSON
     let data = await response.json();
@@ -471,11 +436,6 @@ async function cambioPasswordRecupero(fields, token) {
       body: JSON.stringify(fields), // Enviar los datos (nueva contraseña)
     });
 
-    // Verificar si la respuesta es exitosa
-    if (!response.ok) {
-      throw new Error(`Error al cambiar la contraseña: ${response.statusText}`);
-    }
-
     // Obtener los datos de la respuesta
     let data = await response.json();
 
@@ -505,13 +465,6 @@ async function recuperarPersonaje(fields) {
       },
       body: JSON.stringify(fields), // Enviar los datos del personaje
     });
-
-    // Verificar si la respuesta es exitosa
-    if (!response.ok) {
-      throw new Error(
-        `Error al recuperar el personaje: ${response.statusText}`
-      );
-    }
 
     // Obtener los datos de la respuesta
     let data = await response.json();
@@ -543,13 +496,6 @@ async function cambioPasswordRecuperoPersonaje(fields, token) {
       },
       body: JSON.stringify(fields), // Enviar los datos de la nueva contraseña
     });
-
-    // Verificar si la respuesta es exitosa
-    if (!response.ok) {
-      throw new Error(
-        `Error al cambiar la contraseña del personaje: ${response.statusText}`
-      );
-    }
 
     // Obtener los datos de la respuesta
     let data = await response.json();
@@ -739,7 +685,7 @@ async function agregarPersonajeCuenta({
     if (!response.ok) {
       throw new Error(data.message || "Error al agregar personaje.");
     }
-    return data.message || "Personaje agregado exitosamente.";
+    return data.state || "Personaje agregado exitosamente.";
   } catch (error) {
     console.error("Error en agregarPersonajeCuenta:", error);
     return {

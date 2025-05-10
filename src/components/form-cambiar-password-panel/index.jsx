@@ -44,12 +44,16 @@ const CambiarPassPanel = () => {
         newPassword,
         email
       );
-      setError(response);
-      if (response === "Contraseña cambiada correctamente") {
+      if(response === "OK"){
+     setError("Contraseña cambiada correctamente");
+      if (response === "OK") {
         setTimeout(() => {
           desconectar();
         }, 2000);
       }
+      return;
+      }
+    setError(response);
     } catch (error) {
       setError("Error al conectar con el servidor.");
       console.error(error);
