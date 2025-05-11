@@ -1,7 +1,8 @@
 import { useRedireccionar } from "../../assets/functions";
 import { useState, useEffect } from "react";
 import { extraerNoticias } from "../../querys/scripts";
-import "./style.css"
+import { NavLink } from "react-router";
+import "./style.css";
 
 const NoticiasInicio = () => {
   const redireccionar = useRedireccionar();
@@ -21,8 +22,13 @@ const NoticiasInicio = () => {
         noticias.length > 0 ? (
           noticias.slice(0, 3).map((elem) => (
             <div className="noticias" key={elem.id}>
-              <h2>{elem.titulo}</h2>
-              <p>{elem.cuerpo.slice(0,200) + " ..."}</p>
+              <NavLink
+                to={`/ver-informacion-completa-noticia/noticia?numero=${elem.id}`}
+                state={{ datos: elem }}
+              >
+                <h2>{elem.titulo}</h2>
+              </NavLink>
+              <p>{elem.cuerpo.slice(0, 200) + " ..."}</p>
               <span>
                 Autor: {elem.autor} Fecha: {elem.fecha}
               </span>

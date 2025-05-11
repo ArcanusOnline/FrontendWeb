@@ -20,6 +20,7 @@ import {
   FormularioCambiarPasswordRecu,
   RecuperarPersonaje,
   FormularioCambiarPasswordRecuPersonaje,
+  NoticiaIndividual,
 } from "./components/index.js";
 import {
   Inicio,
@@ -113,6 +114,10 @@ function App() {
           <Route
             path="/confirmacion-agregar-personaje/:token"
             element={<ConfirmarAgregarPersonaje />}
+          />
+          <Route
+            path="/ver-informacion-completa-noticia/noticia"
+            element={<NoticiaIndividual />}
           />
         </Routes>
         <BannerFooter />

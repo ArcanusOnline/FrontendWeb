@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { extraerNoticias } from "../../querys/scripts";
+import { NavLink } from "react-router";
 import "./style.css";
 const NoticiasCompletas = () => {
   const [noticias, setNoticias] = useState(null);
@@ -18,7 +19,12 @@ const NoticiasCompletas = () => {
         noticias.length > 0 ? (
           noticias.map((elem) => (
             <div className="noticias" key={elem.id}>
-              <h2>{elem.titulo}</h2>
+              <NavLink
+                to={`/ver-informacion-completa-noticia/noticia?numero=${elem.id}`}
+                state={{ datos: elem }}
+              >
+                <h2>{elem.titulo}</h2>
+              </NavLink>
               <p>{elem.cuerpo}</p>
               <span>
                 Autor: {elem.autor} Fecha: {elem.fecha}
