@@ -5,6 +5,7 @@ import discord from "../resources/images/discord.png"
 import threads from "../resources/images/threads.png"
 import youtube from "../resources/images/youtube.png"
 import instagram from "../resources/images/instagram.png"
+import twitch from "../resources/images/twitch.png"
 
 
 let urlImagenes = {
@@ -14,7 +15,8 @@ let urlImagenes = {
   discord,  
   threads,
   youtube,
-  instagram
+  instagram,
+  twitch
 };
 
 export { urlImagenes };
