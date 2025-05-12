@@ -1,7 +1,7 @@
 import { obtenerSoportes } from "../../querys/scripts";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router";
-import "./style.css"
+import "./style.css";
 
 const ListadoSoporte = () => {
   const [listaSoporte, setListaSoporte] = useState([]);

@@ -30,8 +30,6 @@ const RegisterPanel = () => {
       alert("Por favor completá los campos obligatorios.");
       return;
     }
-
-    console.log("Datos enviados:", formData);
     const dat = await registrarCuenta(formData);
     setFormData({
       NombreCuenta: "",

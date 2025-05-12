@@ -20,6 +20,8 @@ const NuevoSoporte = () => {
 
   const [sectores, setSectores] = useState([]);
   const [personajes, setPersonajes] = useState([]);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -44,11 +46,13 @@ const NuevoSoporte = () => {
     e.preventDefault();
     let dato = await enviarNuevoSoporte(formData);
     if (dato.error === 0) {
-      navigate("/panel-de-usuario/historial-de-soportes");
-      alert(dato.message);
-      return;
+      setSuccessMessage(dato.message);
+      setTimeout(() => {
+        navigate("/panel-de-usuario/historial-de-soportes");
+      }, 2500);
+    } else {
+      setErrorMessage(typeof dato === "string" ? dato : "Ocurrió un error.");
     }
-    alert(dato);
   };
 
   return (
@@ -123,7 +127,6 @@ const NuevoSoporte = () => {
           required
         ></textarea>
 
-        {/* Nuevo checkbox para marcar censura */}
         <div className="form-checkbox">
           <label htmlFor="censura">
             <input
@@ -143,6 +146,25 @@ const NuevoSoporte = () => {
 
         <input className="form-button" type="submit" value="Enviar soporte" />
       </form>
+
+      {/* Modal de éxito */}
+      {successMessage && (
+        <div className="modal-overlay">
+          <div className="modal-content success">
+            <p>{successMessage}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de error */}
+      {errorMessage && (
+        <div className="modal-overlay">
+          <div className="modal-content error">
+            <p>{errorMessage}</p>
+            <button onClick={() => setErrorMessage("")}>Cerrar</button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

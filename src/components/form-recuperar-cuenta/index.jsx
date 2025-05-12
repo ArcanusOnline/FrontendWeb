@@ -1,12 +1,12 @@
 import { Link, useNavigate, Outlet, useParams } from "react-router";
 import { useState } from "react";
 import { recuperarCuenta } from "../../querys/scripts";
-import "./style.css"
+import "./style.css";
 
 const RecuperarCuenta = () => {
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   let navigate = useNavigate();
-
   let { token } = useParams();
 
   const [fields, setFields] = useState({
@@ -21,9 +21,10 @@ const RecuperarCuenta = () => {
     if (data.estado === 2 || data.estado === 3) {
       setError(data.message);
     } else {
-      navigate("/");
-      alert(data.message);
-      return;
+      setSuccessMessage(data.message);
+      setTimeout(() => {
+        navigate("/");
+      }, 2500);
     }
   }
 
@@ -41,12 +42,9 @@ const RecuperarCuenta = () => {
             <input
               type="text"
               value={fields.cuenta}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  cuenta: e.target.value,
-                }));
-              }}
+              onChange={(e) =>
+                setFields((prev) => ({ ...prev, cuenta: e.target.value }))
+              }
               required
               className="config-panel-input"
             />
@@ -56,12 +54,9 @@ const RecuperarCuenta = () => {
             <input
               type="email"
               value={fields.email}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  email: e.target.value,
-                }));
-              }}
+              onChange={(e) =>
+                setFields((prev) => ({ ...prev, email: e.target.value }))
+              }
               required
               className="config-panel-input"
             />
@@ -71,12 +66,9 @@ const RecuperarCuenta = () => {
             <input
               type="text"
               value={fields.pin}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  pin: e.target.value,
-                }));
-              }}
+              onChange={(e) =>
+                setFields((prev) => ({ ...prev, pin: e.target.value }))
+              }
               required
               className="config-panel-input"
             />
@@ -90,6 +82,15 @@ const RecuperarCuenta = () => {
           Volver
         </Link>
       </div>
+
+      {/* Modal de éxito */}
+      {successMessage && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>{successMessage}</p>
+          </div>
+        </div>
+      )}
     </>
   );
 };

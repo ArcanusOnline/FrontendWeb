@@ -19,19 +19,21 @@ const SoporteInfo = () => {
     idSoporte: "",
     token: token,
   });
-  const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
+
+  const [modalMensaje, setModalMensaje] = useState({
+    abierto: false,
+    texto: "",
+  });
+  const [modalConfirmacion, setModalConfirmacion] = useState(false);
 
   function formatDate(dateString) {
     const date = new Date(dateString);
-
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
-
     const hours = String(date.getHours()).padStart(2, "0");
     const minutes = String(date.getMinutes()).padStart(2, "0");
     const seconds = String(date.getSeconds()).padStart(2, "0");
-
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   }
 
@@ -39,12 +41,13 @@ const SoporteInfo = () => {
     e.preventDefault();
     let data = await enviarRespuestaNuevaSoporte(formData);
     if (data.error === 0) {
-      navigate("/panel-de-usuario/historial-de-soportes");
-      alert(data.message);
-      return;
+      setModalMensaje({ abierto: true, texto: data.message });
+      setTimeout(
+        () => navigate("/panel-de-usuario/historial-de-soportes"),
+        1500
+      );
     } else {
-      alert(data.message);
-      return;
+      setModalMensaje({ abierto: true, texto: data.message });
     }
   }
 
@@ -57,7 +60,7 @@ const SoporteInfo = () => {
       try {
         const data = await obtenerDataSoporte(ticket, token);
         if (!data || !Array.isArray(data) || data.length === 0) {
-          navigate("/"); // redirecciona si no le corresponde
+          navigate("/");
           return;
         }
         setRespuestas(data);
@@ -71,30 +74,58 @@ const SoporteInfo = () => {
     extraerDatos();
   }, [ticket, navigate]);
 
-  async function closeSupport() {
-    const confirmado = window.confirm(
-      "¿Estás seguro que deseas cerrar el soporte?"
-    );
-    if (confirmado) {
-      let response = await cerrarSoporte(formData.idSoporte);
-      if (response.error === 0) {
-        navigate("/panel-de-usuario/historial-de-soportes");
-        alert(response.message);
-      }
+  async function confirmarCierre() {
+    let response = await cerrarSoporte(formData.idSoporte);
+    if (response.error === 0) {
+      setModalMensaje({ abierto: true, texto: response.message });
+      setTimeout(
+        () => navigate("/panel-de-usuario/historial-de-soportes"),
+        1500
+      );
     }
+    setModalConfirmacion(false);
   }
 
   return (
     <div className="contenedor-soporte">
+      {/* Modal Mensaje */}
+      {modalMensaje.abierto && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>{modalMensaje.texto}</p>
+            <button
+              onClick={() => setModalMensaje({ abierto: false, texto: "" })}
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Confirmación */}
+      {modalConfirmacion && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>¿Estás seguro que deseas cerrar el soporte?</p>
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <button onClick={confirmarCierre}>Confirmar</button>
+              <button onClick={() => setModalConfirmacion(false)}>
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {respuestas.length > 0 ? (
         <div className="soporte-detalle">
           <div className="botones-container">
             <h1 className="soporte-titulo">Asunto: {respuestas[0].asunto}</h1>
-            {respuestas[0].estado != "Cerrado" ? (
+            {respuestas[0].estado !== "Cerrado" ? (
               <button
                 type="button"
                 className="cerrar-soporte-btn"
-                onClick={closeSupport}
+                onClick={() => setModalConfirmacion(true)}
               >
                 Cerrar soporte
               </button>
@@ -153,7 +184,6 @@ const SoporteInfo = () => {
                 }))
               }
             />
-
             <label htmlFor="censuraRespuesta">
               Marcar mensaje como CENSURADO
             </label>

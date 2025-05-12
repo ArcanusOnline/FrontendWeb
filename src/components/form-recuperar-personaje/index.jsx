@@ -1,6 +1,7 @@
 import { Link, useNavigate, Outlet, useParams } from "react-router";
 import { useState } from "react";
 import { recuperarPersonaje } from "../../querys/scripts";
+import "./style.css";
 import "../form-recuperar-cuenta/style.css";
 
 const RecuperarPersonaje = () => {
@@ -10,6 +11,8 @@ const RecuperarPersonaje = () => {
     email: "",
     pin: "",
   });
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
   let navigate = useNavigate();
 
   let { token } = useParams();
@@ -24,9 +27,11 @@ const RecuperarPersonaje = () => {
     if (data.estado === 2 || data.estado === 3) {
       setError(data.message);
     } else {
-      navigate("/");
-      alert(data.message);
-      return;
+      setModalMessage(data.message); // Guardamos el mensaje para mostrarlo en el modal
+      setShowModal(true); // Mostramos el modal
+      setTimeout(() => {
+        navigate("/"); // Navegamos después de cerrar el modal
+      }, 2000);
     }
   }
 
@@ -92,6 +97,16 @@ const RecuperarPersonaje = () => {
           Volver
         </Link>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>{modalMessage}</h2>
+            <button onClick={() => setShowModal(false)}>Cerrar</button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
