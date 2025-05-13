@@ -59,7 +59,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
   };
 
   return (
-    <div className={`modal-overlay ${visible ? "visible" : "hidden"}`}>
+    <div className={`modal-overlay-agregar ${visible ? "visible" : "hidden"}`}>
       <form className="modal-form" onSubmit={handleSubmit}>
         <h2 className="modal-title">Agregar Personaje</h2>
 
