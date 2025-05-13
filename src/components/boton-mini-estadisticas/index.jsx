@@ -26,7 +26,7 @@ const MiniStats = () => {
     let response = await showMiniStats(nick);
     if (
       response.message == "No se encontro el personaje" ||
-      response.message == "Por favor ingrese un nick valido"
+      response.message == "Por favor ingrese un nick valido" || response.state == false
     ) {
       setErrorMsg(response.message);
       setError(!error);
