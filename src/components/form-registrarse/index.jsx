@@ -134,7 +134,7 @@ const RegisterPanel = () => {
         />
         <input
           className="registro-input"
-          type="number"
+          type="text"
           name="pin"
           placeholder="PIN"
           value={formData.pin}
