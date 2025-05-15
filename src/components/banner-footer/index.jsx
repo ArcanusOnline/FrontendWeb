@@ -3,45 +3,50 @@ import "./style.css"
 const BannerFooter = () => {
   return (
     <>
-      <div className="bannerFooter">
-        <ul>
-          <li>
-            <a href="https://www.facebook.com/ArcanusOnline/" target="_blank">
-              <img src={urlImagenes.facebook} alt="Logo Facebook" />
-            </a>
-          </li>
-          <li>
-            <a href="https://discord.com/invite/Eqg7zmVj2f" target="_blank">
-              <img src={urlImagenes.discord} alt="Logo Discord" />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/@ArcanusOnline" target="_blank">
-              <img src={urlImagenes.youtube} alt="Logo Youtube" />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.threads.com/@arcanusonline" target="_blank">
-              <img src={urlImagenes.threads} alt="Logo Threads" />
-            </a>
-          </li>
-          <li>
-            <a href="https://x.com/ArcanusOnline_" target="_blank">
-              <img src={urlImagenes.twitter} alt="Logo Twitter" />
-            </a>
-          </li>
-          <li>
-            <a href="https://instagram.com/arcanusonline" target="_blank">
-              <img src={urlImagenes.instagram} alt="Logo Instagram" />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.twitch.tv/arcanusonline" target="_blank">
-              <img src={urlImagenes.twitch} alt="Logo Twitch" />
-            </a>
-          </li>
-        </ul>
-      </div>
+      <div className="footer">
+        <div className="footer-social-label">Seguinos</div>
+        <div className="footer-social-icons">
+          <a href="https://instagram.com/arcanusonline" target="_blank" rel="noopener noreferrer">
+            <img src={urlImagenes.instagram} alt="Instagram" />
+          </a>
+          <a href="https://www.threads.com/@arcanusonline" target="_blank" rel="noopener noreferrer">
+            <img src={urlImagenes.threads} alt="Threads" />
+          </a>
+          <a href="https://www.facebook.com/ArcanusOnline/" target="_blank" rel="noopener noreferrer">
+            <img src={urlImagenes.facebook} alt="Facebook" />
+          </a>
+          <a href="https://x.com/ArcanusOnline_" target="_blank" rel="noopener noreferrer">
+            <img src={urlImagenes.twitter} alt="Twitter" />
+          </a>
+          <a href="https://www.youtube.com/@ArcanusOnline" target="_blank" rel="noopener noreferrer">
+            <img src={urlImagenes.youtube} alt="YouTube" />
+          </a>
+          <a href="https://www.twitch.tv/arcanusonline" target="_blank" rel="noopener noreferrer">
+            <img src={urlImagenes.twitch} alt="Twitch" />
+          </a>
+          <a href="https://discord.com/invite/Eqg7zmVj2f" target="_blank" rel="noopener noreferrer">
+            <img src={urlImagenes.discord} alt="Discord" />
+          </a>
+        </div>
+
+        <div className="footer-links">
+          <a href="#">Soporte</a>
+          <span>/</span>
+          <a href="#">Staff</a>
+          <span>/</span>
+          <a href="#">Seguridad</a>
+          <span>/</span>
+          <a href="#">Términos del Servicio</a>
+          <span>/</span>
+          <a href="#">Política de Privacidad</a>
+          <span>/</span>
+          <a href="#">Lista de Cambios</a>
+        </div>
+
+        <div className="footer-bottom">
+          Copyright © 2025 Arcanus Online.<br />Todos los derechos reservados - All rights reserved.
+        </div>
+      </div >
     </>
   );
 };
