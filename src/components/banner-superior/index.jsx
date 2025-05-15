@@ -11,23 +11,23 @@ const BannerInicio = () => {
 
   return (
     <div className="bannerConLogo">
-    <button
-      className="hamburger"
-      onClick={() => setMenuOpen(!menuOpen)}
-      aria-label="Toggle menu"
-    >
-      ☰
-    </button>
-  
-    <div className="logo">
-      <img src={urlImagenes.logo} alt="Logo Arcanus" />
-    </div>
-  
-    <div className="cta">
-      <Link to="/lista-de-descargas">Comenzar a jugar</Link>
-    </div>
-  
-    <nav className={`nav ${menuOpen ? "open" : ""}`}>
+      <button
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+
+      <div className="logo">
+        <img src={urlImagenes.logo} alt="Logo Arcanus" />
+      </div>
+
+      <div className="cta">
+        <Link to="/lista-de-descargas">Comenzar a jugar</Link>
+      </div>
+
+      <nav className={`nav ${menuOpen ? "open" : ""}`}>
         <ul>
           <li>
             <NavLink
@@ -76,7 +76,7 @@ const BannerInicio = () => {
           </li>
           <li>
             <NavLink
-              to="/manual"
+              to="/manual-del-juego"
               onClick={handleLinkClick}
               className={({ isActive }) => (isActive ? "active" : "")}
             >

@@ -35,6 +35,7 @@ import {
   ConfirmacionEliminadoPersonaje,
   ConfirmarCambioEmailCuenta,
   ConfirmarAgregarPersonaje,
+  Manual,
 } from "./pages/index.js";
 
 import { ProtectedRoute, PrivateRoute } from "./assets/ProtectedRoute.jsx";
@@ -119,6 +120,7 @@ function App() {
             path="/ver-informacion-completa-noticia/noticia"
             element={<NoticiaIndividual />}
           />
+          <Route path="/manual-del-juego" element={<Manual />} />
         </Routes>
         <BannerFooter />
       </BrowserRouter>

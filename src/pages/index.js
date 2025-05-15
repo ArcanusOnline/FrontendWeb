@@ -10,3 +10,4 @@ export { ActivarCuenta } from "./ActivacionCuenta";
 export { RecuperarContrasenas } from "./RecuperarContrasenas";
 export { ConfirmarCambioEmailCuenta } from "./confirmarCambioEmail";
 export { ConfirmarAgregarPersonaje } from "./ConfirmarAgregadoPersonaje";
+export { Manual } from "./Manual";
