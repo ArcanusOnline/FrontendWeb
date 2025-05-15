@@ -30,7 +30,7 @@ const NoticiasInicio = () => {
               </NavLink>
               <p>{elem.cuerpo.slice(0, 200) + " ..."}</p>
               <span>
-                Autor: {elem.autor} Fecha: {elem.fecha}
+                Fecha: {elem.fecha} Hora: {elem.hora} - Por: {elem.autor} 
               </span>
             </div>
           ))

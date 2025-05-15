@@ -27,7 +27,7 @@ const NoticiasCompletas = () => {
               </NavLink>
               <p>{elem.cuerpo}</p>
               <span>
-                Autor: {elem.autor} Fecha: {elem.fecha}
+                Fecha: {elem.fecha} Hora: {elem.hora} - Por: {elem.autor} 
               </span>
             </div>
           ))
