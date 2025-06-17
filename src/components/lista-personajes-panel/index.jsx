@@ -7,7 +7,7 @@ import {
 } from "react-router";
 import { useState, useEffect } from "react";
 import { protectedName } from "../../assets/protectedName";
-import { personajesPorCuenta } from "../../querys/scripts";
+import { personajesPorCuenta, bloquearPersonaje } from "../../querys/scripts";
 import { calcularExp } from "../../assets/calculadoraExp";
 import { obtenerPromedio } from "../../assets/calculadoraVida";
 import { devolverExp } from "../../assets/indiceExp";
@@ -36,9 +36,12 @@ const ListadoPersonajes = () => {
     async function traerPersonajes() {
       const tokenUsername = await protectedName(response);
       if (tokenUsername !== paramUsuario) {
-        return navigate(`/panel-de-usuario/lista-de-mis-personajes/${tokenUsername}`, {
-          replace: true,
-        });
+        return navigate(
+          `/panel-de-usuario/lista-de-mis-personajes/${tokenUsername}`,
+          {
+            replace: true,
+          }
+        );
       }
       let data = await personajesPorCuenta(response);
 
@@ -131,6 +134,31 @@ const ListadoPersonajes = () => {
               </div>
             </div>
             <div key={index} className="personaje-actions">
+              <button
+                className="btn-link danger"
+                onClick={async () => {
+                  try {
+                    const nuevoEstado = elem.Bloqueado == 0 ? 1 : 0;
+                    const data = await bloquearPersonaje({
+                      usuario: elem.NickB,
+                      status: nuevoEstado,
+                    });
+                    alert(
+                      `${data.message}, debe esperar 1 minuto para poder bloquear/desbloquearlo`
+                    );
+                    setTimeout(() => {
+                      navigate("/panel-de-usuario");
+                    }, 2000);
+                  } catch (error) {
+                    alert("Error al intentar cambiar el estado del personaje.");
+                    console.error(error);
+                  }
+                }}
+              >
+                {elem.Bloqueado == 0
+                  ? "Bloquear personaje"
+                  : "Desbloquear personaje"}
+              </button>
               <NavLink
                 className="btn-link"
                 to="infoPersonaje"

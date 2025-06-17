@@ -251,7 +251,7 @@ async function cambiarContra(
     // Verificar si la respuesta es exitosa
     if (!response.ok) {
       let data = await response.json();
-      return data.message
+      return data.message;
     }
 
     // Obtener la respuesta JSON
@@ -899,6 +899,23 @@ async function cerrarSoporte(id) {
   }
 }
 
+async function bloquearPersonaje({ usuario, status }) {
+  try {
+    let response = await fetch(`${urlBase}/bloquear-personaje-panel`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ usuario, status }),
+    });
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error al bloquear personaje:", error.message);
+    return { message: error.message || "Error en la solicitud", error: 1 };
+  }
+}
+
 export {
   login,
   getTop100,
@@ -929,4 +946,5 @@ export {
   enviarNuevoSoporte,
   enviarRespuestaNuevaSoporte,
   cerrarSoporte,
+  bloquearPersonaje,
 };
