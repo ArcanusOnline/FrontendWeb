@@ -916,6 +916,17 @@ async function bloquearPersonaje({ usuario, status }) {
   }
 }
 
+async function obtenerOnlinesServidor() {
+  try {
+    let response = await fetch(`${urlBase}/obtener-onlines`);
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error en obtenerOnlinesServidor:", error.message);
+    return { message: error.message || "Error en la solicitud", error: 1 };
+  }
+}
+
 export {
   login,
   getTop100,
@@ -947,4 +958,5 @@ export {
   enviarRespuestaNuevaSoporte,
   cerrarSoporte,
   bloquearPersonaje,
+  obtenerOnlinesServidor,
 };

@@ -1,13 +1,23 @@
 import "./style.css";
 import { urlImagenes } from "../../assets/urlImagenes";
 import { NavLink, Link } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { obtenerOnlinesServidor } from "../../querys/scripts";
 
 const BannerInicio = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   // Opcional: cerrar menú al hacer clic en un link
   const handleLinkClick = () => setMenuOpen(false);
+  let [onlines, setOnlines] = useState(0); // Cantidad de onlines en el servidor
+
+  useEffect(() => {
+    async function cantidadOnlines() {
+      let data = await obtenerOnlinesServidor();
+      console.log(data);
+      setOnlines(data.onlines.CantidadB);
+    }
+    cantidadOnlines();
+  }, []);
 
   return (
     <div className="bannerConLogo">
@@ -25,6 +35,7 @@ const BannerInicio = () => {
 
       <div className="cta">
         <Link to="/lista-de-descargas">Comenzar a jugar</Link>
+        <p>{`Cantidad de onlines: ${onlines}`}</p>
       </div>
 
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
