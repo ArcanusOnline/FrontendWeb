@@ -2,7 +2,7 @@ import { useState } from "react";
 import { protectedName } from "../../assets/protectedName";
 import { cambiarContra } from "../../querys/scripts";
 import { useNavigate, Link } from "react-router";
-import "./style.css"
+import "./style.css";
 const CambiarPassPanel = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -11,6 +11,7 @@ const CambiarPassPanel = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [mostrarPw, setMostrarPw] = useState(false);
   let navigate = useNavigate();
 
   let token = localStorage.getItem("token");
@@ -42,18 +43,18 @@ const CambiarPassPanel = () => {
         pin,
         oldPassword,
         newPassword,
-        email
+        email.toLocaleLowerCase()
       );
-      if(response === "OK"){
-     setError("Contraseña cambiada correctamente");
       if (response === "OK") {
-        setTimeout(() => {
-          desconectar();
-        }, 2000);
+        setError("Contraseña cambiada correctamente");
+        if (response === "OK") {
+          setTimeout(() => {
+            desconectar();
+          }, 2000);
+        }
+        return;
       }
-      return;
-      }
-    setError(response);
+      setError(response);
     } catch (error) {
       setError("Error al conectar con el servidor.");
       console.error(error);
@@ -65,21 +66,38 @@ const CambiarPassPanel = () => {
       <h2 className="config-panel-title">Cambiar Contraseña</h2>
       <form onSubmit={handleSubmit} className="config-panel-form">
         <div className="config-panel-field">
-          <label className="config-panel-label">PIN:</label>
-          <input
-            type="text"
-            value={pin}
-            onChange={(e) => setPin(e.target.value)}
-            required
-            className="config-panel-input"
-          />
+          <div style={{ position: "relative" }}>
+            <label className="config-panel-label">PIN:</label>
+            <input
+              type="text"
+              value={pin}
+              onChange={(e) => setPin(e.target.value)}
+              required
+              className="config-panel-input"
+            />
+            <button
+              type="button"
+              onClick={() => setMostrarPw((prev) => !prev)}
+              style={{
+                position: "absolute",
+                right: 10,
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              {mostrarPw ? "🙈" : "👁️"}
+            </button>
+          </div>
         </div>
         <div className="config-panel-field">
           <label className="config-panel-label">Email:</label>
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())}
             required
             className="config-panel-input"
           />
@@ -122,7 +140,10 @@ const CambiarPassPanel = () => {
           Cambiar Contraseña
         </button>
       </form>
-      <Link to="/panel-de-usuario/configuracion-de-cuenta" className="config-panel-link">
+      <Link
+        to="/panel-de-usuario/configuracion-de-cuenta"
+        className="config-panel-link"
+      >
         Volver
       </Link>
     </div>

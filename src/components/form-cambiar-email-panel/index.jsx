@@ -15,6 +15,7 @@ const CambiarEmailPanel = () => {
   let navigate = useNavigate();
 
   let token = localStorage.getItem("token");
+  const [mostrarPw, setMostrarPw] = useState(false);
 
   function desconectar() {
     localStorage.removeItem("token");
@@ -38,8 +39,8 @@ const CambiarEmailPanel = () => {
         nombre,
         pin,
         oldPassword,
-        newEmail,
-        email
+        newEmail.toLocaleLowerCase(),
+        email.toLocaleLowerCase()
       );
       if (response === "OK") {
         setError("Se ha enviado un email, para confirmar el cambio.");
@@ -61,21 +62,38 @@ const CambiarEmailPanel = () => {
         <h2 className="config-panel-title">Cambiar Email</h2>
         <form onSubmit={handleSubmit} className="config-panel-form">
           <div className="config-panel-field">
-            <label className="config-panel-label">PIN:</label>
-            <input
-              type="text"
-              value={pin}
-              onChange={(e) => setPin(e.target.value)}
-              required
-              className="config-panel-input"
-            />
+            <div style={{ position: "relative" }}>
+              <label className="config-panel-label">PIN:</label>
+              <input
+                type="text"
+                value={pin}
+                onChange={(e) => setPin(e.target.value)}
+                required
+                className="config-panel-input"
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPw((prev) => !prev)}
+                style={{
+                  position: "absolute",
+                  right: 10,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                {mostrarPw ? "🙈" : "👁️"}
+              </button>
+            </div>
           </div>
           <div className="config-panel-field">
             <label className="config-panel-label">Email:</label>
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
               required
               className="config-panel-input"
             />

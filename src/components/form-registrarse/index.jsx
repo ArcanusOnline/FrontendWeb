@@ -19,12 +19,11 @@ const RegisterPanel = () => {
   });
 
   const [mostrarPin, setMostrarPin] = useState(false);
-  const [mostrarPw, setMostrarPw] = useState(false)
-
+  const [mostrarPw, setMostrarPw] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value.trim() });
+    setFormData({ ...formData, [name]: value.trim().toLowerCase() });
   };
 
   const handleSubmit = async (e) => {
@@ -65,16 +64,16 @@ const RegisterPanel = () => {
           onChange={handleChange}
           required
         />
-         <div style={{ position: "relative" }}>
-        <input
-          className="registro-input"
-          type={mostrarPw ? "text" : "password"}
-          name="Clave"
-          placeholder="Clave"
-          value={formData.Clave}
-          onChange={handleChange}
-          required
-        />
+        <div style={{ position: "relative" }}>
+          <input
+            className="registro-input"
+            type={mostrarPw ? "text" : "password"}
+            name="Clave"
+            placeholder="Clave"
+            value={formData.Clave}
+            onChange={handleChange}
+            required
+          />
           <button
             type="button"
             onClick={() => setMostrarPw((prev) => !prev)}
