@@ -13,6 +13,7 @@ const ActivarCuenta = () => {
       const nick = await protectedName(token);
       if (nick) {
         let response = await enviarActivacion(token);
+        console.log(response);
         setMensaje(response);
         setTimeout(() => {
           navigate("/cuenta");
