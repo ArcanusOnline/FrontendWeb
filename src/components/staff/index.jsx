@@ -17,14 +17,14 @@ const StaffCard = () => {
             <li>Aygron</li>
             <li>Nitherem</li>
             <li>xSelket</li>
-            <li>Be Erre</li>
+            <li>NaeriB</li>
           </ul>
         </fieldset>
         <fieldset className="staffCuadro">
           <legend>Web</legend>
           <ul>
             <li>Nitherem</li>
-            <li>Be Erre</li>
+            <li>NaeriB</li>
           </ul>
         </fieldset>
       </div>

@@ -13,7 +13,11 @@ const BannerInicio = () => {
   useEffect(() => {
     async function cantidadOnlines() {
       let data = await obtenerOnlinesServidor();
-      setOnlines(data?.onlines[0].NumeroB);
+      if (data.length > 0) {
+        setOnlines(data?.onlines[0]?.NumeroB);
+      } else {
+        setOnlines(0);
+      }
     }
     cantidadOnlines();
   }, []);
