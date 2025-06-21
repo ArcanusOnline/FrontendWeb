@@ -18,6 +18,10 @@ const RegisterPanel = () => {
     pin: "",
   });
 
+  const [mostrarPin, setMostrarPin] = useState(false);
+  const [mostrarPw, setMostrarPw] = useState(false)
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value.trim() });
@@ -61,15 +65,32 @@ const RegisterPanel = () => {
           onChange={handleChange}
           required
         />
+         <div style={{ position: "relative" }}>
         <input
           className="registro-input"
-          type="password"
+          type={mostrarPw ? "text" : "password"}
           name="Clave"
           placeholder="Clave"
           value={formData.Clave}
           onChange={handleChange}
           required
         />
+          <button
+            type="button"
+            onClick={() => setMostrarPw((prev) => !prev)}
+            style={{
+              position: "absolute",
+              right: 10,
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            {mostrarPw ? "🙈" : "👁️"}
+          </button>
+        </div>
         <input
           className="registro-input"
           type="email"
@@ -132,15 +153,32 @@ const RegisterPanel = () => {
           onChange={handleChange}
           required
         />
-        <input
-          className="registro-input"
-          type="text"
-          name="pin"
-          placeholder="PIN"
-          value={formData.pin}
-          onChange={handleChange}
-          required
-        />
+        <div style={{ position: "relative" }}>
+          <input
+            className="registro-input"
+            type={mostrarPin ? "text" : "password"}
+            name="pin"
+            placeholder="PIN"
+            value={formData.pin}
+            onChange={handleChange}
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setMostrarPin((prev) => !prev)}
+            style={{
+              position: "absolute",
+              right: 10,
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            {mostrarPin ? "🙈" : "👁️"}
+          </button>
+        </div>
         <button className="registro-btn" type="submit">
           Registrarse
         </button>
