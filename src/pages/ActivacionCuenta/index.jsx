@@ -34,6 +34,5 @@ const ActivarCuenta = () => {
   );
 };
 
-export { ActivarCuenta };
 
 export { ActivarCuenta };
