@@ -8,11 +8,12 @@ import "./style.css";
 
 const NuevoSoporte = () => {
   const token = localStorage.getItem("token") || "";
+  const account = localStorage.getItem("usernamme") || "";
 
   const [formData, setFormData] = useState({
     asunto: "",
     sector: "",
-    nick: "",
+    nick: account,
     texto: "",
     token: token,
     censura: "",
@@ -105,12 +106,17 @@ const NuevoSoporte = () => {
           required
         >
           <option value="">-- Seleccionar --</option>
-          {personajes &&
+          {personajes && personajes.length > 0 ? (
             personajes.map((elem, index) => (
               <option key={index} value={elem}>
                 {elem}
               </option>
-            ))}
+            ))
+          ) : (
+            <option key={0} value={account}>
+              {account}
+            </option>
+          )}
         </select>
 
         <label className="form-label" htmlFor="texto">
