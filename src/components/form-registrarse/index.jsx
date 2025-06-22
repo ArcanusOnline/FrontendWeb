@@ -34,20 +34,20 @@ const RegisterPanel = () => {
       return;
     }
     const dat = await registrarCuenta(formData);
-    setFormData({
-      NombreCuenta: "",
-      Clave: "",
-      Mail: "",
-      Nombre: "",
-      Apellido: "",
-      Pais: "",
-      Localidad: "",
-      Provincia: "",
-      FechaNacimiento: "",
-      pin: "",
-    });
     if (dat.estado === 1) {
       navigate("/");
+      setFormData({
+        NombreCuenta: "",
+        Clave: "",
+        Mail: "",
+        Nombre: "",
+        Apellido: "",
+        Pais: "",
+        Localidad: "",
+        Provincia: "",
+        FechaNacimiento: "",
+        pin: "",
+      });
     }
   };
 
