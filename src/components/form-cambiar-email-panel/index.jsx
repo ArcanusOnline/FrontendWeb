@@ -65,7 +65,7 @@ const CambiarEmailPanel = () => {
             <div style={{ position: "relative" }}>
               <label className="config-panel-label">PIN:</label>
               <input
-                type="text"
+                type={mostrarPw ? "text" : "password"}
                 value={pin}
                 onChange={(e) => {
                   setPin(e.target.value);
