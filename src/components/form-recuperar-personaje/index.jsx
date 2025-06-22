@@ -13,6 +13,7 @@ const RecuperarPersonaje = () => {
   });
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [mostrarPw, setMostrarPw] = useState(false);
   let navigate = useNavigate();
 
   let { token } = useParams();

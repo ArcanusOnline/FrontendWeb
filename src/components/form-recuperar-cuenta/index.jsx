@@ -14,6 +14,7 @@ const RecuperarCuenta = () => {
     email: "",
     pin: "",
   });
+   const [mostrarPw, setMostrarPw] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
