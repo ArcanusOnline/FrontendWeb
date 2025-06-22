@@ -6,7 +6,7 @@ import { enviarActivacion } from "../../querys/scripts";
 const ActivarCuenta = () => {
   const { token } = useParams();
   const [mensaje, setMensaje] = useState("");
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
   useEffect(() => {
     async function activar() {
@@ -16,7 +16,7 @@ const ActivarCuenta = () => {
         setMensaje(response);
         setTimeout(() => {
           navigate("/cuenta");
-        }, 10000);
+        }, 6000);
       } else {
         setMensaje("Token inválido o ausente");
       }
@@ -27,12 +27,11 @@ const ActivarCuenta = () => {
     } else {
       setMensaje("Token inválido o ausente");
     }
-  }, [token, navigate]);
+  }, []);
 
   return (
     <div className="mensajeCuentaActivada">{mensaje && <h2>{mensaje}</h2>}</div>
   );
 };
-
 
 export { ActivarCuenta };
