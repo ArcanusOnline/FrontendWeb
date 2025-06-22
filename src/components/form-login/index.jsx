@@ -36,10 +36,12 @@ const Login = () => {
       <div className="cuentaContainer">
         <fieldset>
           <legend>Acceder</legend>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} autoComplete="on">
             <label>Usuario</label>
             <input
               type="text"
+              name="username"
+              autoComplete="username"
               onChange={(e) => {
                 setError(false);
                 setFields({ ...fields, nick: e.target.value });
@@ -48,6 +50,8 @@ const Login = () => {
             <label>Contraseña</label>
             <input
               type="password"
+              name="password"
+              autoComplete="current-password"
               onChange={(e) => {
                 setError(false);
                 setFields({ ...fields, pass: e.target.value });
