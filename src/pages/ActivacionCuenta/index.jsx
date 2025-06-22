@@ -11,11 +11,9 @@ const ActivarCuenta = () => {
   useEffect(() => {
     async function activar() {
       const nick = await protectedName(token);
-
       if (nick) {
         const response = await enviarActivacion(token);
         setMensaje(response);
-        console.log(mensaje);
         setTimeout(() => {
           navigate("/cuenta");
         }, 6000);
@@ -32,7 +30,7 @@ const ActivarCuenta = () => {
   }, []);
 
   return (
-    <div className="mensajeCuentaActivada">{mensaje && <h2>{mensaje}</h2>}</div>
+    <div className="mensajeCuentaActivada">{mensaje && <h2>{mensaje.message}</h2>}</div>
   );
 };
 
