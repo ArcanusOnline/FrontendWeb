@@ -14,7 +14,7 @@ const RecuperarCuenta = () => {
     email: "",
     pin: "",
   });
-   const [mostrarPw, setMostrarPw] = useState(false);
+  const [mostrarPw, setMostrarPw] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -71,7 +71,7 @@ const RecuperarCuenta = () => {
             <div style={{ position: "relative" }}>
               <label className="config-panel-label">PIN:</label>
               <input
-                type="text"
+                type={mostrarPw ? "text" : "password"}
                 value={fields.pin}
                 onChange={(e) => {
                   setFields((prev) => ({ ...prev, pin: e.target.value }));
