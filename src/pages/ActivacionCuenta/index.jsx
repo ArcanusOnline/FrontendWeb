@@ -11,9 +11,11 @@ const ActivarCuenta = () => {
   useEffect(() => {
     async function activar() {
       const nick = await protectedName(token);
+
       if (nick) {
         const response = await enviarActivacion(token);
         setMensaje(response);
+        console.log(mensaje);
         setTimeout(() => {
           navigate("/cuenta");
         }, 6000);
