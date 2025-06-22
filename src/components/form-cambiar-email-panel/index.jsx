@@ -67,13 +67,19 @@ const CambiarEmailPanel = () => {
               <input
                 type="text"
                 value={pin}
-                onChange={(e) => setPin(e.target.value)}
+                onChange={(e) => {
+                  setPin(e.target.value);
+                  setError("");
+                }}
                 required
                 className="config-panel-input"
               />
               <button
                 type="button"
-                onClick={() => setMostrarPw((prev) => !prev)}
+                onClick={() => {
+                  setMostrarPw((prev) => !prev);
+                  setError("");
+                }}
                 style={{
                   position: "absolute",
                   right: 10,
@@ -93,7 +99,10 @@ const CambiarEmailPanel = () => {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value.toLowerCase())}
+              onChange={(e) => {
+                setEmail(e.target.value.toLowerCase());
+                setError("");
+              }}
               required
               className="config-panel-input"
             />
@@ -103,7 +112,10 @@ const CambiarEmailPanel = () => {
             <input
               type="password"
               value={oldPassword}
-              onChange={(e) => setOldPassword(e.target.value)}
+              onChange={(e) => {
+                setOldPassword(e.target.value);
+                setError("");
+              }}
               required
               className="config-panel-input"
             />
@@ -113,7 +125,10 @@ const CambiarEmailPanel = () => {
             <input
               type="email"
               value={newEmail}
-              onChange={(e) => setNewEmail(e.target.value)}
+              onChange={(e) => {
+                setNewEmail(e.target.value);
+                setError("");
+              }}
               required
               className="config-panel-input"
             />
@@ -123,7 +138,10 @@ const CambiarEmailPanel = () => {
             <input
               type="email"
               value={confirmeEmail}
-              onChange={(e) => setConfirmeEmail(e.target.value)}
+              onChange={(e) => {
+                setConfirmeEmail(e.target.value);
+                setError("");
+              }}
               required
               className="config-panel-input"
             />

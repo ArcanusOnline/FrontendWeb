@@ -97,7 +97,10 @@ const CambiarPassPanel = () => {
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())}
+            onChange={(e) => {
+              setEmail(e.target.value.toLocaleLowerCase());
+              setError("");
+            }}
             required
             className="config-panel-input"
           />
@@ -107,7 +110,10 @@ const CambiarPassPanel = () => {
           <input
             type="password"
             value={oldPassword}
-            onChange={(e) => setOldPassword(e.target.value)}
+            onChange={(e) => {
+              setOldPassword(e.target.value);
+              setError("");
+            }}
             required
             className="config-panel-input"
           />
@@ -117,7 +123,10 @@ const CambiarPassPanel = () => {
           <input
             type="password"
             value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
+            onChange={(e) => {
+              setNewPassword(e.target.value);
+              setError("");
+            }}
             required
             className="config-panel-input"
           />
@@ -129,7 +138,10 @@ const CambiarPassPanel = () => {
           <input
             type="password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              setError("");
+            }}
             required
             className="config-panel-input"
           />

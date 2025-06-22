@@ -42,9 +42,10 @@ const RecuperarCuenta = () => {
             <input
               type="text"
               value={fields.cuenta}
-              onChange={(e) =>
-                setFields((prev) => ({ ...prev, cuenta: e.target.value }))
-              }
+              onChange={(e) => {
+                setFields((prev) => ({ ...prev, cuenta: e.target.value }));
+                setError("");
+              }}
               required
               className="config-panel-input"
             />
@@ -54,9 +55,10 @@ const RecuperarCuenta = () => {
             <input
               type="email"
               value={fields.email}
-              onChange={(e) =>
-                setFields((prev) => ({ ...prev, email: e.target.value }))
-              }
+              onChange={(e) => {
+                setFields((prev) => ({ ...prev, email: e.target.value }));
+                setError("");
+              }}
               required
               className="config-panel-input"
             />
@@ -66,9 +68,10 @@ const RecuperarCuenta = () => {
             <input
               type="text"
               value={fields.pin}
-              onChange={(e) =>
-                setFields((prev) => ({ ...prev, pin: e.target.value }))
-              }
+              onChange={(e) => {
+                setFields((prev) => ({ ...prev, pin: e.target.value }));
+                setError("");
+              }}
               required
               className="config-panel-input"
             />

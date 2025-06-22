@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { cambioPasswordRecuperoPersonaje } from "../../querys/scripts";
-import "./style.css"
+import "./style.css";
 
 const FormularioCambiarPasswordRecuPersonaje = () => {
   let [fields, setFields] = useState({
@@ -46,6 +46,7 @@ const FormularioCambiarPasswordRecuPersonaje = () => {
             value={fields.newPassword}
             onChange={(e) => {
               setFields((prev) => ({ ...prev, newPassword: e.target.value }));
+              setError("");
             }}
             required
           />
@@ -66,6 +67,7 @@ const FormularioCambiarPasswordRecuPersonaje = () => {
                 ...prev,
                 confirmPassword: e.target.value,
               }));
+              setError("");
             }}
             required
           />
