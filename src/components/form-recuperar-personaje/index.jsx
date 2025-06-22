@@ -64,7 +64,7 @@ const RecuperarPersonaje = () => {
               onChange={(e) => {
                 setFields((prev) => ({
                   ...prev,
-                  email: e.target.value,
+                  email: e.target.value.toLowerCase(),
                 }));
                 setError("");
               }}
@@ -73,20 +73,37 @@ const RecuperarPersonaje = () => {
             />
           </div>
           <div className="config-panel-field">
-            <label className="config-panel-label">PIN:</label>
-            <input
-              type="text"
-              value={fields.pin}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  pin: e.target.value,
-                }));
-                setError("");
-              }}
-              required
-              className="config-panel-input"
-            />
+            <div style={{ position: "relative" }}>
+              <label className="config-panel-label">PIN:</label>
+              <input
+                type="text"
+                value={fields.pin}
+                onChange={(e) => {
+                  setFields((prev) => ({
+                    ...prev,
+                    pin: e.target.value,
+                  }));
+                  setError("");
+                }}
+                required
+                className="config-panel-input"
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPw((prev) => !prev)}
+                style={{
+                  position: "absolute",
+                  right: 10,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                {mostrarPw ? "🙈" : "👁️"}
+              </button>
+            </div>
           </div>
           {error && <p className="config-panel-error">{error}</p>}
           <button type="submit" className="config-panel-button">
