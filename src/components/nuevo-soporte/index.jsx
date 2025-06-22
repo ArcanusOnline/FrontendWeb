@@ -8,12 +8,12 @@ import "./style.css";
 
 const NuevoSoporte = () => {
   const token = localStorage.getItem("token") || "";
-  const account = localStorage.getItem("usernamme") || "";
+  const account = localStorage.getItem("username") || "";
 
   const [formData, setFormData] = useState({
     asunto: "",
     sector: "",
-    nick: account,
+    nick: "",
     texto: "",
     token: token,
     censura: "",
