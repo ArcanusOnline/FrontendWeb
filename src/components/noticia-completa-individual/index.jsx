@@ -11,7 +11,10 @@ const NoticiaIndividual = () => {
           <h2>{data.titulo}</h2>
           <p>{data.cuerpo}</p>
           <hr className="divisorNoticia" />
-          <p>{data.cuerpoCompleto}</p>
+          <div
+  className="cuerpo-completo"
+  dangerouslySetInnerHTML={{ __html: data.cuerpoCompleto }}
+></div>
           <span>
             Autor: {data.autor} Fecha: {data.fecha}
           </span>
