@@ -140,7 +140,7 @@ const PanelPorPersonaje = () => {
                   <td></td>
                 </tr>
                 <tr className="mmorpg-card">
-                  <td>Estado:</td>
+                  <td>Estado: {elem.Online == 0 ? "Offline" : "Online"}</td>
                   <td></td>
                   <td></td>
                 </tr>
