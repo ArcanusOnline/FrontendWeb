@@ -9,6 +9,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
   const [email, setEmail] = useState("");
   const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
   const [mensajeColor, setMensajeColor] = useState("lightgreen");
+  const [mostrarPw, setMostrarPw] = useState(false);
 
   const handleCancelar = () => {
     setVisible(false);
@@ -80,7 +81,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           className="modal-input-agregar-personaje-panel"
           required
         />
-
+<div className="form-agregar-personaje-panel-wrapped">
         <label>Contraseña del personaje:</label>
         <input
           type="password"
@@ -89,7 +90,15 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           className="modal-input-agregar-personaje-panel"
           required
         />
-
+                  <button
+            type="button"
+            onClick={() => setMostrarPw((prev) => !prev)}
+            className="toggle-btn-form-registrarse"
+          >
+            {mostrarPw ? "🙈" : "👁️"}
+          </button>
+        </div>
+<div className="form-agregar-personaje-panel-wrapped">
         <label>PIN del personaje:</label>
         <input
           type="text"
@@ -98,6 +107,14 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           className="modal-input-agregar-personaje-panel"
           required
         />
+                <button
+            type="button"
+            onClick={() => setMostrarPw((prev) => !prev)}
+            className="toggle-btn-form-registrarse"
+          >
+            {mostrarPw ? "🙈" : "👁️"}
+          </button>
+        </div>
 
         <label>Email del personaje:</label>
         <input
