@@ -37,6 +37,9 @@
   gap: 15px;
   font-family: "Cinzel", serif;
 }
+.form-agregar-personaje-panel-wrapped {
+  position: relative;
+}
 
 .modal-title-agregar-personaje-panel {
   font-size: 1.8rem;
