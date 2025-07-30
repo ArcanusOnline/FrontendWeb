@@ -14,28 +14,42 @@ const NoticiasCompletas = () => {
   }, []);
 
   return (
-    <div className="noticiasCompletas">
+    <div className="contenedor-lista-todas-las-noticias">
       {Array.isArray(noticias) ? (
         noticias.length > 0 ? (
           noticias.map((elem) => (
-            <div className="noticias" key={elem.id}>
+            <div
+              className="tarjeta-noticia-lista-todas-las-noticias"
+              key={elem.id}
+            >
               <NavLink
                 to={`/ver-informacion-completa-noticia/noticia?numero=${elem.id}`}
                 state={{ datos: elem }}
+                className="link-noticia-lista-todas-las-noticias"
               >
-                <h2>{elem.titulo}</h2>
+                <h2 className="titulo-noticia-lista-todas-las-noticias">
+                  {elem.titulo}
+                </h2>
               </NavLink>
-              <p>{elem.cuerpo}</p>
-              <span>
-                Fecha: {elem.fecha} Hora: {elem.hora} - Por: {elem.autor} 
+              <p className="cuerpo-noticia-lista-todas-las-noticias">
+                {elem.cuerpo}
+              </p>
+              <span className="meta-noticia-lista-todas-las-noticias">
+                Fecha: {elem.fecha} Hora: {elem.hora} - Por: {elem.autor}
               </span>
             </div>
           ))
         ) : (
-          <h1>Todavía no hay noticias</h1>
+          <h1 className="mensaje-vacio-lista-todas-las-noticias">
+            Todavía no hay noticias
+          </h1>
         )
       ) : (
-        noticias?.message && <h1>{noticias.message}</h1>
+        noticias?.message && (
+          <h1 className="mensaje-vacio-lista-todas-las-noticias">
+            {noticias.message}
+          </h1>
+        )
       )}
     </div>
   );

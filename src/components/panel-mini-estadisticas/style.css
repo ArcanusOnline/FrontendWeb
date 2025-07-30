@@ -1,95 +1,79 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
-
-.miniStats-container {
+.contenedor-panel-mini-estadisticas {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 30px;
-  background: linear-gradient(to bottom, #0e0e0e, #1a1a1a);
-  border: 2px solid #3a1c1c;
+  align-items: stretch;
+  gap: 1rem;
+  margin: 2rem auto;
+  background-color: #112d11;
   border-radius: 10px;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.08);
-  font-family: "Cinzel", serif;
-  color: #d6b88d;
-  gap: 20px;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  padding: 1rem;
 }
 
-.miniStats-title {
-  font-size: 24px;
-  color: #e7c06f;
-  margin-bottom: 20px;
+.banderin-panel-mini-estadisticas {
+  width: 70px;
+  border-radius: 4px;
+}
+
+.contenido-panel-mini-estadisticas {
+  flex-grow: 1;
+  color: white;
+}
+
+.titulo-panel-mini-estadisticas {
   text-align: center;
-  text-shadow: 0 0 8px rgba(231, 192, 111, 0.2);
+  font-size: 1.5rem;
+  color: #66bb6a;
+  margin-bottom: 1rem;
 }
 
-.miniStats-title span {
-  font-size: 16px;
-  display: block;
-  color: #bfa98a;
-  margin-top: 5px;
-}
-
-.miniStats-table {
+.tabla-panel-mini-estadisticas {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-  background-color: #151515;
-  border: 1px solid #3a1c1c;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  color: #e0ffe0;
 }
 
-.miniStats-table th,
-.miniStats-table td {
-  padding: 10px 12px;
-  text-align: left;
-  font-size: 14px;
-  border-bottom: 1px solid #292929;
+.tabla-panel-mini-estadisticas td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #4caf50;
 }
 
-.miniStats-nick {
-  font-size: 18px;
-  color: #ffcf70;
-  text-shadow: 0 0 5px rgba(255, 207, 112, 0.4);
-  background-color: #1e1e1e;
+.nick-panel-mini-estadisticas {
+  font-size: 1.3rem;
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem;
 }
 
-.raza-img {
-  width: 26px;
-  height: 26px;
+.nick-header-panel-mini-estadisticas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.imagen-raza-panel-mini-estadisticas {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 1px solid #444;
-  box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
 }
 
-.miniStats-info {
-  font-size: 13px;
-  background: #0f0f0f;
-  padding: 15px;
-  border: 1px solid #2f1b1b;
+.info-extra-panel-mini-estadisticas {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 1rem;
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4caf50;
   border-radius: 6px;
-  line-height: 1.5;
-  color: #d0c4aa;
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
 }
 
-.miniStats-info .blue {
-  color: #76c7e4;
+.texto-azul-panel-mini-estadisticas {
+  color: #1ac2d8;
   font-weight: bold;
-  text-shadow: 0 0 5px rgba(118, 199, 228, 0.3);
 }
 
-.miniStats-info .red {
-  color: #e55050;
+.texto-rojo-panel-mini-estadisticas {
+  color: #e53935;
   font-weight: bold;
-  text-shadow: 0 0 6px rgba(229, 80, 80, 0.4);
-}
-
-.banderinesStats {
-  width: 50px;
-  height: 100%; /* Cambia esto si no funciona por una altura fija */
-  min-height: 100vh; /* Prueba con esto para asegurarte que se vea */
-  border-radius: 4px;
-  background-color: #3a1c1c; /* backup color */
 }

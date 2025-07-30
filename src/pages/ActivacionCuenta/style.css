@@ -1,0 +1,27 @@
+.confirmar-activacion-cuenta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #112d11, #1f4d1f);
+  color: #a5d6a7;
+  font-family: "Cinzel", serif;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(17, 45, 17, 0.7);
+}
+
+.confirmar-activacion-cuenta h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #66bb6a;
+  text-shadow: 0 0 8px #4caf50;
+  max-width: 500px;
+}
+
+/* Para mensajes de error (puedes usar una clase extra en mensaje para error si querés) */
+.confirmar-activacion-cuenta.error h2 {
+  color: #cc4444;
+  text-shadow: 0 0 10px #aa0000;
+}

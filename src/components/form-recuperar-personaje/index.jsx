@@ -18,9 +18,7 @@ const RecuperarPersonaje = () => {
 
   let { token } = useParams();
 
-  if (token) {
-    return <Outlet />;
-  }
+  if (token) return <Outlet />;
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -28,21 +26,21 @@ const RecuperarPersonaje = () => {
     if (data.estado === 2 || data.estado === 3) {
       setError(data.message);
     } else {
-      setModalMessage(data.message); // Guardamos el mensaje para mostrarlo en el modal
-      setShowModal(true); // Mostramos el modal
+      setModalMessage(data.message);
+      setShowModal(true);
       setTimeout(() => {
-        navigate("/"); // Navegamos después de cerrar el modal
+        navigate("/");
       }, 2000);
     }
   }
 
   return (
     <>
-      <div className="config-panel-container">
-        <h2 className="config-panel-title">Recuperar Personaje</h2>
-        <form className="config-panel-form" onSubmit={handleSubmit}>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Nick:</label>
+      <div className="form-container-recuperar-pj-form">
+        <h2 className="form-title-recuperar-pj-form">Recuperar Personaje</h2>
+        <form className="form-recuperar-pj-form" onSubmit={handleSubmit}>
+          <div className="form-group-recuperar-pj-form">
+            <label className="form-label-recuperar-pj-form">Nick:</label>
             <input
               type="text"
               value={fields.nick}
@@ -54,11 +52,12 @@ const RecuperarPersonaje = () => {
                 setError("");
               }}
               required
-              className="config-panel-input"
+              className="form-input-recuperar-pj-form"
             />
           </div>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Email:</label>
+
+          <div className="form-group-recuperar-pj-form">
+            <label className="form-label-recuperar-pj-form">Email:</label>
             <input
               type="email"
               value={fields.email}
@@ -70,56 +69,55 @@ const RecuperarPersonaje = () => {
                 setError("");
               }}
               required
-              className="config-panel-input"
+              className="form-input-recuperar-pj-form"
             />
           </div>
-          <div className="config-panel-field">
-            <div style={{ position: "relative" }}>
-              <label className="config-panel-label">PIN:</label>
-              <input
-                type={mostrarPw ? "text" : "password"}
-                value={fields.pin}
-                onChange={(e) => {
-                  setFields((prev) => ({
-                    ...prev,
-                    pin: e.target.value,
-                  }));
-                  setError("");
-                }}
-                required
-                className="config-panel-input"
-              />
-              <button
-                type="button"
-                onClick={() => setMostrarPw((prev) => !prev)}
-                style={{
-                  position: "absolute",
-                  right: 10,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                {mostrarPw ? "🙈" : "👁️"}
-              </button>
-            </div>
+
+          <div
+            className="form-group-recuperar-pj-form"
+            style={{ position: "relative" }}
+          >
+            <label className="form-label-recuperar-pj-form">PIN:</label>
+            <input
+              type={mostrarPw ? "text" : "password"}
+              value={fields.pin}
+              onChange={(e) => {
+                setFields((prev) => ({
+                  ...prev,
+                  pin: e.target.value,
+                }));
+                setError("");
+              }}
+              required
+              className="form-input-recuperar-pj-form"
+            />
+            <button
+              type="button"
+              onClick={() => setMostrarPw((prev) => !prev)}
+              className="pin-toggle-button-recuperar-pj-form"
+            >
+              {mostrarPw ? "🙈" : "👁️"}
+            </button>
           </div>
-          {error && <p className="config-panel-error">{error}</p>}
-          <button type="submit" className="config-panel-button">
+
+          {error && <p className="form-error-recuperar-pj-form">{error}</p>}
+
+          <button type="submit" className="form-button-recuperar-pj-form">
             Recuperar personaje
           </button>
         </form>
-        <Link to="/recuperar-contrasenas" className="config-panel-link">
-          Volver
+
+        <Link
+          to="/recuperar-contrasenas"
+          className="form-link-recuperar-pj-form"
+        >
+          ← Volver
         </Link>
       </div>
 
-      {/* Modal */}
       {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay-recuperar-pj-form">
+          <div className="modal-content-recuperar-pj-form">
             <h2>{modalMessage}</h2>
             <button onClick={() => setShowModal(false)}>Cerrar</button>
           </div>

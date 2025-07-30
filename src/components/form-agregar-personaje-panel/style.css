@@ -1,82 +1,149 @@
-.modal-overlay-agregar.hidden {
-  display: none;
-}
-.modal-overlay-agregar.visible {
-  display: flex;
+.modal-overlay-agregar-personaje-panel {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background: rgba(18, 34, 18, 0.8); /* verde oscuro semitransparente */
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro */
-  z-index: 1000;
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.modal-form {
-  background-color: #1e1e1e;
-  border: 2px solid #ff6347;
-  border-radius: 12px;
-  padding: 30px;
-  width: 400px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  color: #ffffff;
+.modal-overlay-agregar-personaje-panel.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.modal-title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 22px;
-  color: #ff6347;
+.modal-overlay-agregar-personaje-panel.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.modal-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: 1px solid #444;
-  background-color: #2a2a2a;
-  color: #ffffff;
+.modal-form-agregar-personaje-panel {
+  background: #2d3a2c; /* verde oscuro */
+  border-radius: 10px;
+  padding: 25px 30px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 12px #76954e88;
+  color: #c3d9b5; /* texto verde claro */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Cinzel", serif;
 }
 
-.modal-message {
-  font-weight: bold;
+.modal-title-agregar-personaje-panel {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #a3c187; /* verde lima */
+  user-select: none;
   text-align: center;
   margin-bottom: 10px;
-  margin-top: -5px;
 }
 
-.modal-buttons {
+.modal-form-agregar-personaje-panel > label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #b0cc9a; /* verde intermedio */
+  user-select: none;
+}
+
+.modal-input-agregar-personaje-panel {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #8dbf67;
+  background-color: #223322;
+  color: #d8e9c7;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  text-transform: none;
+}
+
+.modal-input-agregar-personaje-panel:focus {
+  outline: none;
+  border-color: #a3c187;
+  box-shadow: 0 0 6px #a3c187aa;
+}
+
+.modal-message-agregar-personaje-panel {
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 5px;
+  user-select: none;
+}
+
+.modal-buttons-agregar-personaje-panel {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-.btn-cancelar,
-.btn-agregar {
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: bold;
+/* Cancel button - rojo */
+.btn-cancelar-agregar-personaje-panel {
+  flex: 1;
+  background-color: #bf3b3b; /* rojo peligro */
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 0;
+  border-radius: 8px;
   cursor: pointer;
-  border: none;
+  transition: background-color 0.3s ease;
+  border: 2px solid transparent;
+  user-select: none;
 }
 
-.btn-cancelar {
-  background-color: #ff6347;
-  color: #000000;
+.btn-cancelar-agregar-personaje-panel:hover {
+  background-color: #d9534f;
+  border-color: #a83232;
 }
 
-.btn-agregar {
-  background-color: #4caf50;
-  color: #000000;
+.btn-cancelar-agregar-personaje-panel:active {
+  background-color: #a83232;
 }
 
-.btn-cancelar:hover {
-  background-color: #fa6f56;
+/* Agregar button */
+.btn-agregar-agregar-personaje-panel {
+  flex: 1;
+  background-color: #8dbf67;
+  color: #1a250f;
+  font-weight: 700;
+  padding: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
 }
 
-.btn-agregar:hover {
-  background-color: #3fa144;
+.btn-agregar-agregar-personaje-panel:hover {
+  background-color: #a3c187;
+  transform: scale(1.05);
+}
+
+.btn-agregar-agregar-personaje-panel:active {
+  background-color: #76954e;
+  transform: scale(1);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .modal-form-agregar-personaje-panel {
+    padding: 20px 20px;
+  }
+
+  .modal-buttons-agregar-personaje-panel {
+    flex-direction: column;
+  }
+
+  .modal-buttons-agregar-personaje-panel > button {
+    width: 100%;
+  }
 }

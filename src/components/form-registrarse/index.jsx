@@ -33,6 +33,7 @@ const RegisterPanel = () => {
       alert("Por favor completá los campos obligatorios.");
       return;
     }
+
     const dat = await registrarCuenta(formData);
     if (dat.estado === 1) {
       navigate("/");
@@ -52,11 +53,11 @@ const RegisterPanel = () => {
   };
 
   return (
-    <div className="registro-container">
-      <h1 className="registro-title">Registrarse</h1>
-      <form onSubmit={handleSubmit} className="registro-form">
+    <div className="form-container-form-registrarse">
+      <h1 className="form-title-form-registrarse">Registrarse</h1>
+      <form onSubmit={handleSubmit} className="form-form-registrarse">
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="text"
           name="NombreCuenta"
           placeholder="Nombre de cuenta"
@@ -64,9 +65,9 @@ const RegisterPanel = () => {
           onChange={handleChange}
           required
         />
-        <div style={{ position: "relative" }}>
+        <div className="form-password-wrapper-form-registrarse">
           <input
-            className="registro-input"
+            className="form-input-form-registrarse"
             type={mostrarPw ? "text" : "password"}
             name="Clave"
             placeholder="Clave"
@@ -77,21 +78,13 @@ const RegisterPanel = () => {
           <button
             type="button"
             onClick={() => setMostrarPw((prev) => !prev)}
-            style={{
-              position: "absolute",
-              right: 10,
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-            }}
+            className="toggle-btn-form-registrarse"
           >
             {mostrarPw ? "🙈" : "👁️"}
           </button>
         </div>
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="email"
           name="Mail"
           placeholder="Email"
@@ -100,7 +93,7 @@ const RegisterPanel = () => {
           required
         />
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="text"
           name="Nombre"
           placeholder="Nombre"
@@ -109,7 +102,7 @@ const RegisterPanel = () => {
           required
         />
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="text"
           name="Apellido"
           placeholder="Apellido"
@@ -118,7 +111,7 @@ const RegisterPanel = () => {
           required
         />
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="text"
           name="Pais"
           placeholder="País"
@@ -127,7 +120,7 @@ const RegisterPanel = () => {
           required
         />
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="text"
           name="Localidad"
           placeholder="Localidad"
@@ -136,7 +129,7 @@ const RegisterPanel = () => {
           required
         />
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="text"
           name="Provincia"
           placeholder="Provincia"
@@ -145,16 +138,16 @@ const RegisterPanel = () => {
           required
         />
         <input
-          className="registro-input"
+          className="form-input-form-registrarse"
           type="date"
           name="FechaNacimiento"
           value={formData.FechaNacimiento}
           onChange={handleChange}
           required
         />
-        <div style={{ position: "relative" }}>
+        <div className="form-password-wrapper-form-registrarse">
           <input
-            className="registro-input"
+            className="form-input-form-registrarse"
             type={mostrarPin ? "text" : "password"}
             name="pin"
             placeholder="PIN"
@@ -165,20 +158,12 @@ const RegisterPanel = () => {
           <button
             type="button"
             onClick={() => setMostrarPin((prev) => !prev)}
-            style={{
-              position: "absolute",
-              right: 10,
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-            }}
+            className="toggle-btn-form-registrarse"
           >
             {mostrarPin ? "🙈" : "👁️"}
           </button>
         </div>
-        <button className="registro-btn" type="submit">
+        <button className="form-btn-form-registrarse" type="submit">
           Registrarse
         </button>
       </form>

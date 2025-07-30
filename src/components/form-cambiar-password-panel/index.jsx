@@ -12,15 +12,15 @@ const CambiarPassPanel = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [mostrarPw, setMostrarPw] = useState(false);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
-  let token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-  function desconectar() {
+  const desconectar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     navigate(`/`);
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,77 +36,72 @@ const CambiarPassPanel = () => {
       setError("La nueva contraseña debe tener al menos 6 caracteres.");
       return;
     }
-    let nombre = await protectedName(token);
+
+    const nombre = await protectedName(token);
     try {
       const response = await cambiarContra(
         nombre,
         pin,
         oldPassword,
         newPassword,
-        email.toLocaleLowerCase()
+        email.toLowerCase()
       );
       if (response === "OK") {
-        setError("Contraseña cambiada correctamente");
-        if (response === "OK") {
-          setTimeout(() => {
-            desconectar();
-          }, 2000);
-        }
+        setSuccess("Contraseña cambiada correctamente.");
+        setTimeout(() => {
+          desconectar();
+        }, 2000);
         return;
       }
       setError(response);
     } catch (error) {
-      setError("Error al conectar con el servidor.");
       console.error(error);
+      setError("Error al conectar con el servidor.");
     }
   };
 
   return (
-    <div className="config-panel-container">
-      <h2 className="config-panel-title">Cambiar Contraseña</h2>
-      <form onSubmit={handleSubmit} className="config-panel-form">
-        <div className="config-panel-field">
-          <div style={{ position: "relative" }}>
-            <label className="config-panel-label">PIN:</label>
+    <div className="form-container-cambiar-pass-panel">
+      <h2 className="form-title-cambiar-pass-panel">Cambiar Contraseña</h2>
+      <form onSubmit={handleSubmit} className="form-cambiar-pass-panel">
+        <div className="form-field-cambiar-pass-panel">
+          <label className="form-label-cambiar-pass-panel">PIN:</label>
+          <div className="input-wrapper-cambiar-pass-panel">
             <input
               type={mostrarPw ? "text" : "password"}
               value={pin}
               onChange={(e) => setPin(e.target.value)}
               required
-              className="config-panel-input"
+              className="form-input-cambiar-pass-panel"
             />
             <button
               type="button"
               onClick={() => setMostrarPw((prev) => !prev)}
-              style={{
-                position: "absolute",
-                right: 10,
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-              }}
+              className="toggle-visibility-cambiar-pass-panel"
             >
               {mostrarPw ? "🙈" : "👁️"}
             </button>
           </div>
         </div>
-        <div className="config-panel-field">
-          <label className="config-panel-label">Email:</label>
+
+        <div className="form-field-cambiar-pass-panel">
+          <label className="form-label-cambiar-pass-panel">Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => {
-              setEmail(e.target.value.toLocaleLowerCase());
+              setEmail(e.target.value.toLowerCase());
               setError("");
             }}
             required
-            className="config-panel-input"
+            className="form-input-cambiar-pass-panel"
           />
         </div>
-        <div className="config-panel-field">
-          <label className="config-panel-label">Contraseña Actual:</label>
+
+        <div className="form-field-cambiar-pass-panel">
+          <label className="form-label-cambiar-pass-panel">
+            Contraseña Actual:
+          </label>
           <input
             type="password"
             value={oldPassword}
@@ -115,11 +110,14 @@ const CambiarPassPanel = () => {
               setError("");
             }}
             required
-            className="config-panel-input"
+            className="form-input-cambiar-pass-panel"
           />
         </div>
-        <div className="config-panel-field">
-          <label className="config-panel-label">Nueva Contraseña:</label>
+
+        <div className="form-field-cambiar-pass-panel">
+          <label className="form-label-cambiar-pass-panel">
+            Nueva Contraseña:
+          </label>
           <input
             type="password"
             value={newPassword}
@@ -128,11 +126,12 @@ const CambiarPassPanel = () => {
               setError("");
             }}
             required
-            className="config-panel-input"
+            className="form-input-cambiar-pass-panel"
           />
         </div>
-        <div className="config-panel-field">
-          <label className="config-panel-label">
+
+        <div className="form-field-cambiar-pass-panel">
+          <label className="form-label-cambiar-pass-panel">
             Confirmar Nueva Contraseña:
           </label>
           <input
@@ -143,20 +142,25 @@ const CambiarPassPanel = () => {
               setError("");
             }}
             required
-            className="config-panel-input"
+            className="form-input-cambiar-pass-panel"
           />
         </div>
-        {error && <p className="config-panel-error">{error}</p>}
-        {success && <p className="config-panel-success">{success}</p>}
-        <button type="submit" className="config-panel-button">
+
+        {error && <p className="form-error-cambiar-pass-panel">{error}</p>}
+        {success && (
+          <p className="form-success-cambiar-pass-panel">{success}</p>
+        )}
+
+        <button type="submit" className="form-button-cambiar-pass-panel">
           Cambiar Contraseña
         </button>
       </form>
+
       <Link
         to="/panel-de-usuario/configuracion-de-cuenta"
-        className="config-panel-link"
+        className="form-link-cambiar-pass-panel"
       >
-        Volver
+        ← Volver
       </Link>
     </div>
   );

@@ -17,31 +17,50 @@ const NoticiasInicio = () => {
   }, []);
 
   return (
-    <div className="noticiasInicio">
+    <div className="contenedor-lista-noticias-inicio">
       {Array.isArray(noticias) ? (
         noticias.length > 0 ? (
           noticias.slice(0, 3).map((elem) => (
-            <div className="noticias" key={elem.id}>
+            <div
+              className="tarjeta-noticia-lista-noticias-inicio"
+              key={elem.id}
+            >
               <NavLink
                 to={`/ver-informacion-completa-noticia/noticia?numero=${elem.id}`}
                 state={{ datos: elem }}
+                className="link-noticia-lista-noticias-inicio"
               >
-                <h2>{elem.titulo}</h2>
+                <h2 className="titulo-noticia-lista-noticias-inicio">
+                  {elem.titulo}
+                </h2>
               </NavLink>
-              <p>{elem.cuerpo.slice(0, 200) + " ..."}</p>
-              <span>
-                Fecha: {elem.fecha} Hora: {elem.hora} - Por: {elem.autor} 
+              <p className="resumen-noticia-lista-noticias-inicio">
+                {elem.cuerpo.slice(0, 200) + " ..."}
+              </p>
+              <span className="meta-noticia-lista-noticias-inicio">
+                Fecha: {elem.fecha} Hora: {elem.hora} - Por: {elem.autor}
               </span>
             </div>
           ))
         ) : (
-          <h1>Todavía no hay noticias</h1>
+          <h1 className="mensaje-vacio-lista-noticias-inicio">
+            Todavía no hay noticias
+          </h1>
         )
       ) : (
-        noticias?.message && <h1>{noticias.message}</h1>
+        noticias?.message && (
+          <h1 className="mensaje-vacio-lista-noticias-inicio">
+            {noticias.message}
+          </h1>
+        )
       )}
 
-      <button onClick={() => redireccionar("/noticias")}>Ver más...</button>
+      <button
+        className="boton-vermas-lista-noticias-inicio"
+        onClick={() => redireccionar("/noticias")}
+      >
+        Ver más...
+      </button>
     </div>
   );
 };

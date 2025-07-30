@@ -1,65 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
-
-.registro-container {
-  background: linear-gradient(to bottom, #121212, #0a0a0a);
-  padding: 50px;
-  border: 2px solid #3a1c1c;
+.form-container-form-registrarse {
+  background-color: #2e3d2a;
+  padding: 35px;
   border-radius: 12px;
-  max-width: 600px;
-  margin: 60px auto;
-  box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
-  font-family: 'Cinzel', serif;
-  color: #d6b88d;
-  position: relative;
-  backdrop-filter: blur(2px);
+  max-width: 480px;
+  margin: 20px auto;
+  box-shadow: 0 0 14px #a3ce81;
+  color: #f1fff0;
+  font-family: "Cinzel", serif;
 }
 
-.registro-title {
+.form-title-form-registrarse {
   text-align: center;
-  font-size: 32px;
-  color: #e7c06f;
-  margin-bottom: 30px;
-  text-shadow: 0 0 12px rgba(231, 192, 111, 0.25);
+  font-size: 1.8rem;
+  color: #d5fcb1;
+  margin-bottom: 25px;
 }
 
-.registro-form {
+.form-form-registrarse {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
-.registro-input {
-  background: #0f0f0f;
-  border: 1px solid #3a1c1c;
-  color: #e0e0e0;
-  padding: 12px;
+.form-input-form-registrarse {
+  padding: 10px;
   border-radius: 6px;
-  font-family: 'Cinzel', serif;
-  font-size: 15px;
-  transition: border-color 0.3s ease;
+  background-color: #364735;
+  border: 1px solid #6a8d5b;
+  color: #f1fff0;
+  font-size: 1rem;
 }
 
-.registro-input:focus {
-  border-color: #ff3d3d;
+.form-input-form-registrarse:focus {
   outline: none;
-  box-shadow: 0 0 12px rgba(255, 61, 61, 0.4);
+  background-color: #3f5940;
+  border-color: #a8d683;
 }
 
-.registro-btn {
-  background: #3a1c1c;
-  color: #e7c06f;
-  padding: 14px;
-  font-size: 17px;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  border: 1px solid #5c2c2c;
-  border-radius: 8px;
+.form-password-wrapper-form-registrarse {
+  position: relative;
+}
+
+.toggle-btn-form-registrarse {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  color: #c7e5b1;
 }
 
-.registro-btn:hover {
-  background: #5c2c2c;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 61, 61, 0.3);
+.form-btn-form-registrarse {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #88b96e;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-btn-form-registrarse:hover {
+  background-color: #a6dc8b;
 }

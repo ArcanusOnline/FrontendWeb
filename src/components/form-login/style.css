@@ -1,95 +1,106 @@
-.cuentaContainer {
-  background: linear-gradient(to bottom, #0b0b0b, #1a1a1a);
-  color: #e2ded0;
-  padding: 2rem;
+.form-container-form-login {
+  width: 30%;
+  margin: 60px auto;
+  background-color: #2d3a2c;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 14px rgba(50, 100, 30, 0.7);
   font-family: "Cinzel", serif;
-  max-width: 500px;
-  margin: 2rem auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(170, 0, 0, 0.4);
+  color: #d8e9c7;
 }
 
-.cuentaContainer fieldset {
-  border: 1px solid #aa0000;
-  border-radius: 6px;
-  padding: 2rem;
-  background-color: #121212;
-}
-
-.cuentaContainer legend {
-  font-size: 1.5rem;
-  color: #ffffff;
-  padding: 0 0.6rem;
-  background-color: #aa0000;
-  border-radius: 4px;
-}
-
-.cuentaContainer form {
+.form-content-form-login {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 18px;
 }
 
-.cuentaContainer label {
-  font-size: 1rem;
-  color: #e2ded0;
-}
-
-.cuentaContainer input[type="text"],
-.cuentaContainer input[type="password"] {
-  padding: 0.7rem;
-  border: 1px solid #aa0000;
-  border-radius: 5px;
-  background-color: #1f1f1f;
-  color: #ffffff;
-  font-size: 1rem;
-}
-
-.cuentaContainer button[type="submit"] {
-  padding: 0.8rem;
-  background-color: #aa0000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-family: "Cinzel", serif;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cuentaContainer button[type="submit"]:hover {
-  background-color: #cc1e1e;
-}
-
-.cuentaContainer span {
-  color: #ff4d4d;
-  font-size: 0.9rem;
-  font-style: italic;
-}
-
-.cuentaContainer p {
-  margin-top: 1rem;
+.form-title-form-login {
   text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #a3c187;
+  margin-bottom: 10px;
 }
 
-.cuentaContainer p a {
-  color: #aa0000;
+.form-field-form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label-form-login {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #b0cc9a;
+}
+
+.form-input-form-login {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #223322;
+  color: #d8e9c7;
+  border: 2px solid #8dbf67;
+  border-radius: 6px;
+}
+
+.form-input-form-login:focus {
+  outline: none;
+  border-color: #a3c187;
+  box-shadow: 0 0 6px #a3c187aa;
+}
+
+.form-button-form-login {
+  padding: 12px;
+  background-color: #8dbf67;
+  color: #1a250f;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-button-form-login:hover {
+  background-color: #a3c187;
+  transform: scale(1.03);
+}
+
+.form-button-form-login:active {
+  background-color: #76954e;
+  transform: scale(1);
+}
+
+.form-error-form-login {
+  color: #ff4d4d;
+  font-weight: 600;
+  text-align: center;
+  margin-top: -10px;
+}
+
+.form-link-container-form-login {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-link-form-login {
+  color: #cbe7b5;
+  font-weight: 600;
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
-.cuentaContainer p a:hover {
-  color: #ffffff;
+.form-link-form-login:hover {
+  color: #a3c187;
 }
 
 /* Responsive */
-@media (max-width: 500px) {
-  .cuentaContainer {
-    padding: 1.5rem 1rem;
+@media (min-width: 280px) and (max-width: 980px) {
+  .form-container-form-login {
+    min-width: 60%;
+    padding: 20px;
   }
 
-  .cuentaContainer fieldset {
-    padding: 1.5rem;
+  .form-title-form-login {
+    font-size: 1.5rem;
   }
 }

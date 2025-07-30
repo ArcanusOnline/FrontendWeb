@@ -59,16 +59,25 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
   };
 
   return (
-    <div className={`modal-overlay-agregar ${visible ? "visible" : "hidden"}`}>
-      <form className="modal-form" onSubmit={handleSubmit}>
-        <h2 className="modal-title">Agregar Personaje</h2>
+    <div
+      className={`modal-overlay-agregar-personaje-panel ${
+        visible ? "visible" : "hidden"
+      }`}
+    >
+      <form
+        className="modal-form-agregar-personaje-panel"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="modal-title-agregar-personaje-panel">
+          Agregar Personaje
+        </h2>
 
         <label>Nombre de personaje:</label>
         <input
           type="text"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
-          className="modal-input"
+          className="modal-input-agregar-personaje-panel"
           required
         />
 
@@ -77,7 +86,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           type="password"
           value={contrasena}
           onChange={(e) => setContrasena(e.target.value)}
-          className="modal-input"
+          className="modal-input-agregar-personaje-panel"
           required
         />
 
@@ -86,7 +95,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           type="text"
           value={pin}
           onChange={(e) => setPin(e.target.value)}
-          className="modal-input"
+          className="modal-input-agregar-personaje-panel"
           required
         />
 
@@ -95,25 +104,28 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value.toLowerCase())}
-          className="modal-input"
+          className="modal-input-agregar-personaje-panel"
           required
         />
 
         {mensajeConfirmacion && (
-          <p className="modal-message" style={{ color: mensajeColor }}>
+          <p
+            className="modal-message-agregar-personaje-panel"
+            style={{ color: mensajeColor }}
+          >
             {mensajeConfirmacion}
           </p>
         )}
 
-        <div className="modal-buttons">
+        <div className="modal-buttons-agregar-personaje-panel">
           <button
             type="button"
-            className="btn-cancelar"
+            className="btn-cancelar-agregar-personaje-panel"
             onClick={handleCancelar}
           >
             Cancelar
           </button>
-          <button type="submit" className="btn-agregar">
+          <button type="submit" className="btn-agregar-agregar-personaje-panel">
             Agregar
           </button>
         </div>

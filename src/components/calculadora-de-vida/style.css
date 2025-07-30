@@ -5,8 +5,9 @@
   width: 100%;
   gap: 20px;
   padding: 20px;
-  background-color: #2b2b2b; /* Fondo oscuro para todo el contenedor */
+  background-color: #1e2a1f; /* verde oscuro */
   border-radius: 10px;
+  flex-wrap: wrap;
 }
 
 .razas-container {
@@ -14,24 +15,26 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #3a3a3a; /* Fondo más oscuro para la sección de razas */
+  background: #2d3a2c; /* verde más oscuro */
   padding: 15px;
   border-radius: 8px;
-  color: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  color: #c3d9b5; /* verde claro */
+  box-shadow: 0 0 8px rgba(10, 40, 10, 0.6);
+  min-width: 220px;
 }
 
 .clases-container {
-  width: 70%;
+  width: 65%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  background: #3a3a3a; /* Fondo más oscuro para la sección de clases */
+  background: #2d3a2c;
   padding: 15px;
   border-radius: 8px;
-  color: white;
+  color: #c3d9b5;
   position: relative;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 8px rgba(10, 40, 10, 0.6);
+  min-width: 300px;
 }
 
 .clases-titulo {
@@ -40,14 +43,16 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #ffd700; /* Dorado para los títulos de clases */
+  color: #a3c187; /* verde lima */
+  user-select: none;
 }
 
 .titulo {
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
-  color: #e74c3c; /* Rojo para los títulos de razas */
+  color: #8dbf67; /* verde más intenso */
+  user-select: none;
 }
 
 .opcion {
@@ -57,10 +62,12 @@
   cursor: pointer;
   opacity: 0.8;
   transition: all 0.3s ease;
+  user-select: none;
 }
 
 .opcion input[type="radio"] {
   margin: 0;
+  display: none;
 }
 
 .razas-container .opcion input {
@@ -68,57 +75,71 @@
 }
 
 .raza-img {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 5px;
   border: 2px solid transparent;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.3s;
 }
 
 .opcion.seleccionado {
   opacity: 1;
+  font-weight: 600;
+  color: #c3d9b5;
 }
 
 .opcion.seleccionado .raza-img {
-  scale: 1.2;
-  border-color: #e74c3c; /* Borde rojo cuando la opción está seleccionada */
+  transform: scale(1.2);
+  border-color: #8dbf67; /* borde verde cuando seleccionado */
 }
 
 .opcion:hover {
   opacity: 1;
+  color: #a3c187;
 }
 
 .contenedorEntradasVida {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  color: white;
-  margin: 20px 0 20px 0;
+  gap: 20px;
+  color: #c3d9b5;
+  margin: 20px 0;
+  flex-wrap: nowrap;
+  user-select: none;
+}
+
+.contenedorEntradasVida label {
+  font-weight: 600;
+  min-width: 50px;
 }
 
 .contenedorEntradasVida input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  margin: 0;
 }
 
 .contenedorEntradasVida input[type="number"] {
-  width: 70px;
+  width: 80px;
+  padding: 6px 10px;
+  border: 2px solid #8dbf67;
+  border-radius: 5px;
+  background: #223322;
+  color: #d8e9c7;
+  text-align: center;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
-.contenedorEntradasVida input {
-  height: auto;
-  width: auto;
-  text-align: center;
-  padding: 2px;
-  border: 2px solid #c29d5e;
-  border-radius: 5px;
-  background: #333;
-  color: white;
+.contenedorEntradasVida input[type="number"]:focus {
+  outline: none;
+  border-color: #a3c187;
+  box-shadow: 0 0 6px #a3c187aa;
 }
 
 .textoPromedio {
-  color: white;
+  color: #d8e9c7;
   text-align: center;
   font-size: 1rem;
   padding: 3px;
@@ -127,26 +148,71 @@ input[type="number"]::-webkit-inner-spin-button {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  min-height: 6rem;
 }
 
 .contenedorEntradasVida input[type="submit"] {
   cursor: pointer;
-  text-align: center;
-  background-color: #e74c3c; /* Rojo infernal */
-  color: white;
+  background-color: #8dbf67;
+  color: #1a250f;
   border: none;
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 10px 25px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  font-size: 1rem; /* Tamaño de fuente consistente */
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 130px;
 }
 
 .contenedorEntradasVida input[type="submit"]:hover {
-  background-color: #c0392b; /* Rojo más oscuro al pasar el mouse */
-  transform: scale(1.05); /* Le da un pequeño efecto de aumento */
+  background-color: #a3c187;
+  transform: scale(1.05);
 }
 
 .contenedorEntradasVida input[type="submit"]:active {
-  background-color: #9b2c2c; /* Rojo más oscuro al hacer clic */
-  transform: scale(1); /* Se quita el efecto de aumento */
+  background-color: #76954e;
+  transform: scale(1);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .containerCalculadoraSeleccion {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .razas-container,
+  .clases-container {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .clases-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contenedorEntradasVida {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .contenedorEntradasVida label {
+    min-width: auto;
+    align-self: flex-start;
+    margin-left: 10px;
+  }
+
+  .contenedorEntradasVida input[type="number"] {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .contenedorEntradasVida input[type="submit"] {
+    width: 100%;
+    max-width: 250px;
+  }
 }

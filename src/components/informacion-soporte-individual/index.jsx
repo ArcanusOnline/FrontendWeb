@@ -87,11 +87,11 @@ const SoporteInfo = () => {
   }
 
   return (
-    <div className="contenedor-soporte">
+    <div className="contenedor-info-soporte-individual">
       {/* Modal Mensaje */}
       {modalMensaje.abierto && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay-info-soporte-individual">
+          <div className="modal-content-info-soporte-individual">
             <p>{modalMensaje.texto}</p>
             <button
               onClick={() => setModalMensaje({ abierto: false, texto: "" })}
@@ -104,10 +104,12 @@ const SoporteInfo = () => {
 
       {/* Modal Confirmación */}
       {modalConfirmacion && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay-info-soporte-individual">
+          <div className="modal-content-info-soporte-individual">
             <p>¿Estás seguro que deseas cerrar el soporte?</p>
-            <div style={{ display: "flex", gap: "1rem" }}>
+            <div
+              style={{ display: "flex", gap: "1rem", justifyContent: "center" }}
+            >
               <button onClick={confirmarCierre}>Confirmar</button>
               <button onClick={() => setModalConfirmacion(false)}>
                 Cancelar
@@ -118,13 +120,15 @@ const SoporteInfo = () => {
       )}
 
       {respuestas.length > 0 ? (
-        <div className="soporte-detalle">
-          <div className="botones-container">
-            <h1 className="soporte-titulo">Asunto: {respuestas[0].asunto}</h1>
+        <div className="soporte-detalle-info-soporte-individual">
+          <div className="botones-container-info-soporte-individual">
+            <h1 className="soporte-titulo-info-soporte-individual">
+              Asunto: {respuestas[0].asunto}
+            </h1>
             {respuestas[0].estado !== "Cerrado" ? (
               <button
                 type="button"
-                className="cerrar-soporte-btn"
+                className="cerrar-soporte-btn-info-soporte-individual"
                 onClick={() => setModalConfirmacion(true)}
               >
                 Cerrar soporte
@@ -133,17 +137,17 @@ const SoporteInfo = () => {
               <p>Cerrado</p>
             )}
           </div>
-          <h2 className="soporte-categoria">
+          <h2 className="soporte-categoria-info-soporte-individual">
             {respuestas[0].descripcion} - Ticket #{respuestas[0].id}
           </h2>
-          <div className="soporte-hilo">
+          <div className="soporte-hilo-info-soporte-individual">
             {respuestas.map((item, idx) => (
-              <div key={idx} className="mensaje-hilo">
-                <p className="mensaje-autor">
+              <div key={idx} className="mensaje-hilo-info-soporte-individual">
+                <p className="mensaje-autor-info-soporte-individual">
                   <span>{item.responde}</span>
                   <span className="fecha">{formatDate(item.fecha)}</span>
                 </p>
-                <p className="mensaje-texto">
+                <p className="mensaje-texto-info-soporte-individual">
                   {item.censura === "CENSURADO"
                     ? "Mensaje censurado"
                     : item.texto}
@@ -157,10 +161,11 @@ const SoporteInfo = () => {
       )}
 
       {respuestas.length > 0 && respuestas[0].estado !== "Cerrado" ? (
-        <form className="soporte-formulario" onSubmit={handleSubmit}>
-          <label htmlFor="mensaje" style={{ color: "orangered" }}>
-            Responder:
-          </label>
+        <form
+          className="soporte-formulario-info-soporte-individual"
+          onSubmit={handleSubmit}
+        >
+          <label htmlFor="mensaje">Responder:</label>
           <textarea
             id="mensaje"
             name="mensaje"
@@ -172,7 +177,7 @@ const SoporteInfo = () => {
             }
           />
 
-          <div className="checkbox-censura">
+          <div className="checkbox-censura-info-soporte-individual">
             <input
               type="checkbox"
               id="censuraRespuesta"
@@ -189,12 +194,14 @@ const SoporteInfo = () => {
             </label>
           </div>
 
-          <div className="posicionEnviarRespuesta">
+          <div className="posicionEnviarRespuesta-info-soporte-individual">
             <button type="submit">Enviar respuesta</button>
           </div>
         </form>
       ) : (
-        <p className="soporte-cerrado">El soporte se encuentra cerrado</p>
+        <p className="soporte-cerrado-info-soporte-individual">
+          El soporte se encuentra cerrado
+        </p>
       )}
     </div>
   );

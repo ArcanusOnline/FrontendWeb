@@ -17,41 +17,35 @@ const PanelMiniStats = () => {
 
   function controlBanderin(data) {
     if (data.EjercitoCaosB === 1) {
-      setStyle({ backgroundColor: "rgb(141, 5, 5)" });
+      setStyle({ backgroundColor: "rgb(141, 5, 5)" }); // Rojo Caos
     } else if (data.EjercitoRealB === 1) {
-      setStyle({ backgroundColor: "rgb(26, 194, 216)" });
+      setStyle({ backgroundColor: "rgb(26, 194, 216)" }); // Celeste Real
     } else if (data.PromedioB < 0) {
-      setStyle({ backgroundColor: "rgb(255, 0, 0)" });
+      setStyle({ backgroundColor: "rgb(255, 0, 0)" }); // Reputación negativa
     } else {
-      setStyle({ backgroundColor: "rgb(51, 10, 199)" });
+      setStyle({ backgroundColor: "rgb(51, 10, 199)" }); // Neutro
     }
   }
 
   return (
-    <div className="miniStats-container">
-      <div className="banderinesStats" style={style}></div>
-      <div>
-        <div className="miniStats-title">
+    <div className="contenedor-panel-mini-estadisticas">
+      <div className="banderin-panel-mini-estadisticas" style={style}></div>
+      <div className="contenido-panel-mini-estadisticas">
+        <div className="titulo-panel-mini-estadisticas">
           Arcanus Online
           <br />
           <span>Mini estadísticas</span>
         </div>
-        <table className="miniStats-table">
+
+        <table className="tabla-panel-mini-estadisticas">
           <thead>
             <tr>
-              <th colSpan="2" className="miniStats-nick">
-                <div
-                  style={{
-                    display: "flex",
-                    alignContent: "center",
-                    justifyContent: "center",
-                    gap: "5px",
-                  }}
-                >
+              <th colSpan="2" className="nick-panel-mini-estadisticas">
+                <div className="nick-header-panel-mini-estadisticas">
                   <img
-                    src={`/heads/${fieldsPj.HeadB}.png `}
+                    src={`/heads/${fieldsPj.HeadB}.png`}
                     alt="head"
-                    className="raza-img"
+                    className="imagen-raza-panel-mini-estadisticas"
                   />
                   {fieldsPj.NickB || "NOMBRE"}
                 </div>
@@ -97,10 +91,11 @@ const PanelMiniStats = () => {
             </tr>
           </tbody>
         </table>
-        <div className="miniStats-info">
+
+        <div className="info-extra-panel-mini-estadisticas">
           <p>
-            <span className="blue">
-              Recuerde que para entrar a la Armada Real necesita:
+            <span className="texto-azul-panel-mini-estadisticas">
+              Requisitos para entrar a la Armada Real:
             </span>
             <br />
             Matar más de 100 criminales.
@@ -110,10 +105,9 @@ const PanelMiniStats = () => {
             <br />
             Nivel debe ser 25 o más.
           </p>
-
           <p>
-            <span className="red">
-              Recuerde que para entrar a las Fuerzas del caos necesita:
+            <span className="texto-rojo-panel-mini-estadisticas">
+              Requisitos para entrar a las Fuerzas del Caos:
             </span>
             <br />
             Ciudadanos matados deben ser 150 o más.
@@ -122,7 +116,7 @@ const PanelMiniStats = () => {
           </p>
         </div>
       </div>
-      <div className="banderinesStats" style={style}></div>
+      <div className="banderin-panel-mini-estadisticas" style={style}></div>
     </div>
   );
 };

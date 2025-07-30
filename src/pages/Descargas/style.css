@@ -1,42 +1,38 @@
-.descarga-container {
-  background-color: #000000;
-  color: #ff6347;
+.links-descargas {
   max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
-  border-radius: 8px;
-  background-color: #1a1a1a;
-  box-shadow: 0 0 10px #ff0000aa;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #112d11, #1b3b1a);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
+  font-family: "Cinzel", serif;
+  color: #e8f5e9;
   text-align: center;
 }
 
-.descarga-title {
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #ff6347;
-  text-shadow: 0 0 5px #ff0000;
+.links-descargas-title {
+  font-size: 2rem;
+  color: #66bb6a;
+  margin-bottom: 2rem;
 }
 
-.descarga-links {
+.links-descargas-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  gap: 1rem;
 }
 
-.descarga-links a {
+.links-descargas-list a {
   text-decoration: none;
-  color: #ffffff;
-  background-color: #2a2a2a;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: 1px solid #ff6347;
+  font-size: 1.1rem;
+  background-color: #2e7d32;
+  color: #e8f5e9;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.descarga-links a:hover {
-  background-color: #ff6347;
-  color: #000000;
-  box-shadow: 0 0 10px #ff0000aa;
+.links-descargas-list a:hover {
+  background-color: #388e3c;
+  transform: scale(1.02);
 }

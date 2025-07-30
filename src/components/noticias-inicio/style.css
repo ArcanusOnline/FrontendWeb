@@ -1,71 +1,64 @@
-.noticiasInicio {
-  background-color: transparent;
-  color: #e2ded0;
-  font-family: "Cinzel", serif;
-  display: flex;
-  flex-direction: column; /* ✅ hace que siempre se apilen */
-  gap: 2rem;
-}
-.noticiasInicio h1 {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-size: 2rem;
-  color: #aa0000;
+.contenedor-lista-noticias-inicio {
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  max-width: 800px;
+  margin: auto;
 }
 
-.noticias {
-  background-color: #121212;
-  border: 1px solid #aa0000;
+.tarjeta-noticia-lista-noticias-inicio {
+  background-color: #1b3b1b;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(170, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #4caf50;
+  transition: background-color 0.3s;
 }
 
-.noticias:hover {
-  transform: scale(1.02);
+.tarjeta-noticia-lista-noticias-inicio:hover {
+  background-color: #2a4f2a;
 }
 
-.noticias h2 {
-  font-size: 1.5rem;
-  color: #fff;
-  margin-bottom: 1rem;
+.link-noticia-lista-noticias-inicio {
+  text-decoration: none;
+  color: #66bb6a;
 }
 
-.noticias p {
+.titulo-noticia-lista-noticias-inicio {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.resumen-noticia-lista-noticias-inicio {
+  margin-bottom: 0.5rem;
   font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
+  color: #ddd;
 }
 
-.noticias span {
-  font-size: 0.85rem;
-  color: #999;
-  font-style: italic;
+.meta-noticia-lista-noticias-inicio {
+  font-size: 0.9rem;
+  color: #66bb6a;
 }
 
-/* 🔴 Botón "Ver más..." */
-.noticiasInicio > button {
-  grid-column: 1 / -1;
-  justify-self: center;
-  margin-top: 2rem;
-  background-color: #aa0000;
+.mensaje-vacio-lista-noticias-inicio {
+  text-align: center;
+  color: #ff5252;
+  font-size: 1.4rem;
+}
+
+.boton-vermas-lista-noticias-inicio {
+  background-color: #4caf50;
   color: white;
   border: none;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  font-family: "Cinzel", serif;
-  transition: background-color 0.3s ease;
-  align-self: center;
-  width: 50%;
+  display: block;
+  margin: 0 auto;
+  transition: background-color 0.3s;
 }
 
-.noticiasInicio > button:hover {
-  background-color: #cc1e1e;
+.boton-vermas-lista-noticias-inicio:hover {
+  background-color: #66bb6a;
 }

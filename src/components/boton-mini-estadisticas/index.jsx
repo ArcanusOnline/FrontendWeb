@@ -26,7 +26,8 @@ const MiniStats = () => {
     let response = await showMiniStats(nick);
     if (
       response.message == "No se encontro el personaje" ||
-      response.message == "Por favor ingrese un nick valido" || response.state == false
+      response.message == "Por favor ingrese un nick valido" ||
+      response.state == false
     ) {
       setErrorMsg(response.message);
       setError(!error);
@@ -44,9 +45,16 @@ const MiniStats = () => {
         <button onClick={cambioarVisibilidad}>
           Mini<br></br>Estadisticas
         </button>
-        <form id="formStats" style={estadoForm} onSubmit={setDatos}>
-          <label>
-            Nick
+        <form
+          id="formStats"
+          style={estadoForm}
+          onSubmit={setDatos}
+          className="miniStats-subform"
+        >
+          <fieldset>
+            <legend>Buscar personaje</legend>
+
+            <label htmlFor="nick">Nick</label>
             <input
               type="text"
               placeholder="Nick"
@@ -54,11 +62,14 @@ const MiniStats = () => {
               name="nick"
               onInput={(e) => {
                 setNick(e.target.value);
+                setErrorMsg("");
               }}
             />
-          </label>
-          <p style={estadoError}>Personaje no encontrado</p>
-          <input type="submit" value="Ver" />
+
+            {errorMsg && <p className="error-message">{errorMsg}</p>}
+
+            <input type="submit" value="Ver" />
+          </fieldset>
         </form>
       </div>
     </>

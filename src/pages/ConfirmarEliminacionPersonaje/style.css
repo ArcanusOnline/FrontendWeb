@@ -1,18 +1,28 @@
-.confirmacion-container {
-    width: 100%;
-    min-height: 48vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .confirmacion-texto {
-    font-size: 20px;
-    color: #ff6347; /* rojo tomate */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-  }
-  
+.confirmacion-pj-delete {
+  width: 100%;
+  min-height: 48vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #112d11, #1b3d1b);
+  color: #c8e6c9;
+  font-family: "Cinzel", serif;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(17, 45, 17, 0.4);
+}
+
+.confirmacion-pj-delete h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #66bb6a;
+  text-shadow: 0 0 10px #4caf50;
+  max-width: 600px;
+}
+
+/* Para posibles mensajes de error */
+.confirmacion-pj-delete.error h2 {
+  color: #ef5350;
+  text-shadow: 0 0 8px #c62828;
+}

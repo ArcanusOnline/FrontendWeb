@@ -68,22 +68,25 @@ const ListadoPersonajes = () => {
   });
 
   return (
-    <div className="containerPanelPersonajes">
+    <div className="container-lista-panel-pjs">
       {mensaje ? (
-        <h1 style={{ color: "yellow" }}>{mensaje}</h1>
+        <h1 className="mensaje-lista-panel-pjs">{mensaje}</h1>
       ) : (
         personajes.map((elem, index) => (
-          <div key={index} className="personaje-card">
-            <div className="personaje-info">
-              <div className="personaje-header">
+          <div key={index} className="personaje-card-lista-panel-pjs">
+            <div className="personaje-info-lista-panel-pjs">
+              <div className="personaje-header-lista-panel-pjs">
                 <img
                   src={`/heads/${elem.HeadB}.png`}
                   alt="head"
-                  className="personaje-head"
+                  className="personaje-head-lista-panel-pjs"
                 />
-                <span className="personaje-nick">{elem.NickB}</span>
+                <span className="personaje-nick-lista-panel-pjs">
+                  {elem.NickB}
+                </span>
               </div>
-              <div className="personaje-detalles">
+
+              <div className="personaje-detalles-lista-panel-pjs">
                 <p>
                   {`${(elem.ClaseB || "SIN CLASE").toUpperCase()} ${(
                     elem.RazaB || "SIN RAZA"
@@ -92,10 +95,11 @@ const ListadoPersonajes = () => {
 
                 <p>
                   Estado:{" "}
-                  <span className="estado-offline">
+                  <span className="estado-offline-lista-panel-pjs">
                     {elem.Online === 0 ? "Offline" : "Online"}
                   </span>
                 </p>
+
                 <p>
                   Vida: {elem.MaxHPB} [
                   {(() => {
@@ -133,9 +137,17 @@ const ListadoPersonajes = () => {
                 </p>
               </div>
             </div>
-            <div key={index} className="personaje-actions">
+
+            <div className="personaje-actions-lista-panel-pjs">
+              <NavLink
+                className="btn-link-lista-panel-pjs"
+                to="infoPersonaje"
+                state={{ datos: elem }}
+              >
+                Ver estadísticas
+              </NavLink>
               <button
-                className="btn-link danger"
+                className="btn-link-lista-panel-pjs danger"
                 onClick={async () => {
                   try {
                     const nuevoEstado = elem.Bloqueado == 0 ? 1 : 0;
@@ -159,15 +171,9 @@ const ListadoPersonajes = () => {
                   ? "Bloquear personaje"
                   : "Desbloquear personaje"}
               </button>
-              <NavLink
-                className="btn-link"
-                to="infoPersonaje"
-                state={{ datos: elem }}
-              >
-                Ver estadísticas
-              </NavLink>
+
               <button
-                className="btn-link warning"
+                className="btn-link-lista-panel-pjs warning"
                 onClick={() => {
                   setQuitarPersonaje(!quitarPersonaje);
                   setNombrePj(elem.NickB);
@@ -175,8 +181,9 @@ const ListadoPersonajes = () => {
               >
                 Quitar personaje
               </button>
+
               <button
-                className="btn-link danger"
+                className="btn-link-lista-panel-pjs danger"
                 onClick={() => {
                   setBorrarPersonaje(!borrarPersonaje);
                   setNombrePj(elem.NickB);
@@ -206,7 +213,7 @@ const ListadoPersonajes = () => {
       />
 
       <button
-        className="btn-diablo-warning"
+        className="btn-agregar-lista-panel-pjs"
         onClick={() => setAgregarPersonaje(true)}
       >
         Agregar personaje

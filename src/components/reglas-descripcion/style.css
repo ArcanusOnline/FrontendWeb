@@ -1,36 +1,40 @@
 .container {
   padding: 2rem;
-  background: linear-gradient(to bottom, #0b0b0b, #1a1a1a);
-  color: #e2ded0;
+  background: linear-gradient(
+    to bottom,
+    #0c0f1a,
+    #1c1f26
+  ); /* Azul oscuro a gris carbón */
+  color: #f4f1e7; /* Marfil suave */
   font-family: "Cinzel", serif;
 }
 
 .card {
-  border: 1px solid #aa0000;
+  border: 1px solid #c4a000; /* Dorado viejo */
   border-radius: 8px;
   padding: 2rem;
-  background-color: #121212;
-  box-shadow: 0 0 10px rgba(170, 0, 0, 0.3);
+  background-color: #1a1d23; /* Gris oscuro azulado */
+  box-shadow: 0 0 10px rgba(196, 160, 0, 0.3); /* Dorado */
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #aa0000;
+  border-bottom: 2px solid #c4a000;
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
 
 .card-header h2 {
-  color: #aa0000;
+  color: #c4a000;
   font-size: 1.8rem;
   margin: 0;
 }
 
 .index-btn a {
-  background-color: #aa0000;
-  color: white;
+  background-color: #c4a000;
+  color: #1a1d23;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-family: "Cinzel", serif;
@@ -39,7 +43,7 @@
 }
 
 .index-btn a:hover {
-  background-color: #cc1e1e;
+  background-color: #e6c200; /* Más brillante */
 }
 
 .card-body {
@@ -49,12 +53,12 @@
 }
 
 .card-section {
-  border-top: 1px solid #aa0000;
+  border-top: 1px solid #c4a000;
   padding-top: 1rem;
 }
 
 .card-section h3 {
-  color: #e2ded0;
+  color: #f4f1e7;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
@@ -73,7 +77,7 @@
 }
 
 .card-subsection strong {
-  color: #aa0000;
+  color: #c4a000;
 }
 
 .index-btn {

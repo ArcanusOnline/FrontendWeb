@@ -1,145 +1,107 @@
-.containerPanelPersonajes {
-  width: 100%;
-  padding: 0 10px 0 17px;
+.container-lista-panel-pjs {
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  margin: 1rem auto;
+}
+
+.mensaje-lista-panel-pjs {
+  text-align: center;
+  color: #4caf50;
+}
+
+.personaje-card-lista-panel-pjs {
+  background-color: #1c3d1c;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  margin-top: 1rem;
+}
+
+.personaje-info-lista-panel-pjs {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 15px 0 15px 0;
 }
 
-.containerPersonajePanel {
-  color: #d6b88d;
-  display: flex;
-
-  flex-direction: column;
-  padding: 10px;
-  gap: 5px;
-  width: 100%;
-  max-width: 600px;
-  background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.08);
-  border: 1px solid #3a1c1c;
-  font-family: "Cinzel", serif;
-}
-
-.headNickPersonajePanel {
+.personaje-header-lista-panel-pjs {
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 100%;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.headNickPersonajePanel img {
-  width: 30px;
-  height: 30px;
+.personaje-head-lista-panel-pjs {
+  width: 48px;
+  height: 48px;
 }
 
-.personaje-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: #141414;
-  border-bottom: 1px solid #3a1c1c;
-  padding: 12px 18px;
-  margin-bottom: 12px;
-  color: #e0d2b4;
-  width: 100%;
-  max-width: 550px;
-  font-family: "Cinzel", serif;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.08);
-}
-
-.personaje-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.personaje-head {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-.personaje-nick {
+.personaje-nick-lista-panel-pjs {
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #e7c06f;
-  font-size: 16px;
-  text-shadow: 0 0 4px rgba(231, 192, 111, 0.4);
+  color: #66bb6a;
 }
 
-.personaje-detalles p {
-  margin: 2px 0;
-  font-size: 14px;
-  color: #d4c4a3;
-  line-height: 1.4;
+.personaje-detalles-lista-panel-pjs p {
+  margin: 0.3rem 0;
 }
 
-.estado-offline {
-  color: #ffffff;
+.estado-offline-lista-panel-pjs {
   font-weight: bold;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.25);
+  color: red;
 }
 
-.personaje-actions {
+.personaje-actions-lista-panel-pjs {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  min-height: 100px;
-  gap: 5px;
-  padding-left: 20px;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
-.btn-link {
-  background: none;
+.btn-link-lista-panel-pjs {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  text-decoration: none;
   border: none;
-  color: #bfa98a;
-  cursor: pointer;
-  font-size: 13px;
-  text-align: right;
-  font-family: "Cinzel", serif;
-  transition: all 0.3s ease;
-}
-
-.btn-link:hover {
-  color: #ffcc70;
-  text-decoration: underline;
-  text-shadow: 0 0 6px rgba(255, 204, 112, 0.5);
-}
-
-.btn-link.warning {
-  color: #ffb347;
-}
-
-.btn-link.danger {
-  color: #ff4c4c;
-}
-
-.btn-link.danger:hover {
-  text-shadow: 0 0 5px rgba(255, 76, 76, 0.4);
-}
-
-.btn-diablo-warning {
-  font-size: 1.2rem;
-  border: 2px solid #ff8c00;
-  padding: 8px 14px;
-  background-color: transparent;
-  color: #ffae42;
-  font-family: "Cinzel", serif;
-  font-weight: bold;
-  cursor: pointer;
   border-radius: 6px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 8px rgba(255, 140, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.btn-diablo-warning:hover {
-  background-color: rgba(255, 140, 0, 0.1);
-  color: #ffc76b;
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
-  transform: scale(1.05);
-  text-shadow: 0 0 6px rgba(255, 140, 0, 0.4);
+.btn-link-lista-panel-pjs:hover {
+  background-color: #66bb6a;
+}
+
+.btn-link-lista-panel-pjs.danger {
+  background-color: #b71c1c;
+}
+
+.btn-link-lista-panel-pjs.danger:hover {
+  background-color: #e53935;
+}
+
+.btn-link-lista-panel-pjs.warning {
+  background-color: #f57f17;
+  color: black;
+}
+
+.btn-link-lista-panel-pjs.warning:hover {
+  background-color: #ffb300;
+}
+
+.btn-agregar-lista-panel-pjs {
+  margin-top: 2rem;
+  background-color: #66bb6a;
+  color: black;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-agregar-lista-panel-pjs:hover {
+  background-color: #4caf50;
 }

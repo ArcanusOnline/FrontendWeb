@@ -2,9 +2,9 @@ import "./style.css";
 
 const PaginaDescarga = () => {
   return (
-    <div className="descarga-container">
-      <h2 className="descarga-title">Descargas</h2>
-      <div className="descarga-links">
+    <div className="links-descargas">
+      <h2 className="links-descargas-title">Descargas</h2>
+      <div className="links-descargas-list">
         <a href="/descargas/cliente" target="_blank" rel="noopener noreferrer">
           Descarga #1
         </a>
@@ -21,5 +21,4 @@ const PaginaDescarga = () => {
     </div>
   );
 };
-
 export { PaginaDescarga };

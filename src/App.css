@@ -37,7 +37,7 @@ button,
 input,
 select,
 textarea {
-  font: inherit;
+
   border: none;
   outline: none;
   background: none;
@@ -56,7 +56,7 @@ body {
 
 /* =======================
       🎨 ESTILO GLOBAL ARCANUS
-      ======================= */
+   ======================= */
 
 body {
   font-family: "Cinzel", serif;
@@ -64,7 +64,7 @@ body {
   background-image: url("/ruta/a/una-textura-opaca.png"); /* Opcional */
   background-repeat: repeat;
   background-size: cover;
-  color: #e2ded0;
+  color: #d8e9c7; /* verde muy claro para texto */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,47 +76,33 @@ h3,
 h4,
 h5,
 h6 {
-  color: #fff;
+  color: #a3c187; /* verde lima para títulos */
   font-weight: 700;
 }
 
 p {
-  color: #ccc;
+  color: #c3d9b5; /* verde claro para párrafos */
   font-size: 1rem;
 }
 
 ::selection {
-  background: #aa0000;
-  color: #fff;
+  background: #8dbf67; /* verde medio para selección */
+  color: #1a250f; /* texto oscuro */
 }
 
-/* Scrollbar estilo Diablo */
+/* Scrollbar estilo Arcanus */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #1e2a1f; /* verde oscuro */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #aa0000;
+  background-color: #8dbf67; /* verde medio */
   border-radius: 6px;
-  border: 2px solid #1a1a1a;
+  border: 2px solid #1e2a1f;
 }
 
 /* HASTA ACA RESET CSS */
-/*
-#root {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 1),
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 1)
-    ),
-    url("/fondos/fondo2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-*/

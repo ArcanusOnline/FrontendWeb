@@ -14,6 +14,7 @@ const RecuperarCuenta = () => {
     email: "",
     pin: "",
   });
+
   const [mostrarPw, setMostrarPw] = useState(false);
 
   async function handleSubmit(e) {
@@ -29,17 +30,15 @@ const RecuperarCuenta = () => {
     }
   }
 
-  if (token) {
-    return <Outlet />;
-  }
+  if (token) return <Outlet />;
 
   return (
     <>
-      <div className="config-panel-container">
-        <h2 className="config-panel-title">Recuperar Cuenta</h2>
-        <form className="config-panel-form" onSubmit={handleSubmit}>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Cuenta:</label>
+      <div className="form-container-recuperar-cuenta">
+        <h2 className="form-title-recuperar-cuenta">Recuperar Cuenta</h2>
+        <form className="form-recuperar-cuenta" onSubmit={handleSubmit}>
+          <div className="form-group-recuperar-cuenta">
+            <label className="form-label-recuperar-cuenta">Cuenta:</label>
             <input
               type="text"
               value={fields.cuenta}
@@ -48,11 +47,12 @@ const RecuperarCuenta = () => {
                 setError("");
               }}
               required
-              className="config-panel-input"
+              className="form-input-recuperar-cuenta"
             />
           </div>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Email:</label>
+
+          <div className="form-group-recuperar-cuenta">
+            <label className="form-label-recuperar-cuenta">Email:</label>
             <input
               type="email"
               value={fields.email}
@@ -64,53 +64,52 @@ const RecuperarCuenta = () => {
                 setError("");
               }}
               required
-              className="config-panel-input"
+              className="form-input-recuperar-cuenta"
             />
           </div>
-          <div className="config-panel-field">
-            <div style={{ position: "relative" }}>
-              <label className="config-panel-label">PIN:</label>
-              <input
-                type={mostrarPw ? "text" : "password"}
-                value={fields.pin}
-                onChange={(e) => {
-                  setFields((prev) => ({ ...prev, pin: e.target.value }));
-                  setError("");
-                }}
-                required
-                className="config-panel-input"
-              />
-              <button
-                type="button"
-                onClick={() => setMostrarPw((prev) => !prev)}
-                style={{
-                  position: "absolute",
-                  right: 10,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                {mostrarPw ? "🙈" : "👁️"}
-              </button>
-            </div>
+
+          <div
+            className="form-group-recuperar-cuenta"
+            style={{ position: "relative" }}
+          >
+            <label className="form-label-recuperar-cuenta">PIN:</label>
+            <input
+              type={mostrarPw ? "text" : "password"}
+              value={fields.pin}
+              onChange={(e) => {
+                setFields((prev) => ({ ...prev, pin: e.target.value }));
+                setError("");
+              }}
+              required
+              className="form-input-recuperar-cuenta"
+            />
+            <button
+              type="button"
+              onClick={() => setMostrarPw((prev) => !prev)}
+              className="pin-toggle-button-recuperar-cuenta"
+            >
+              {mostrarPw ? "🙈" : "👁️"}
+            </button>
           </div>
-          <button type="submit" className="config-panel-button">
+
+          <button type="submit" className="form-button-recuperar-cuenta">
             Recuperar cuenta
           </button>
-          {error && <p className="config-panel-error">{error}</p>}
+
+          {error && <p className="form-error-recuperar-cuenta">{error}</p>}
         </form>
-        <Link to="/recuperar-contrasenas" className="config-panel-link">
-          Volver
+
+        <Link
+          to="/recuperar-contrasenas"
+          className="form-link-recuperar-cuenta"
+        >
+          ← Volver
         </Link>
       </div>
 
-      {/* Modal de éxito */}
       {successMessage && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay-recuperar-cuenta">
+          <div className="modal-content-recuperar-cuenta">
             <p>{successMessage}</p>
           </div>
         </div>

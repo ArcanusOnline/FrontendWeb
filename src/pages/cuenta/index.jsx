@@ -4,15 +4,13 @@ import "./style.css";
 
 const Cuenta = () => {
   return (
-    <>
-      <div className="seccionCuenta">
-        <h1>Iniciar sesión</h1>
-        <Login />
-        <Link to="/registrarse" className="linkRegistrarseCuenta">
-          Registrarme
-        </Link>
-      </div>
-    </>
+    <div className="cuenta-login">
+      <h1>Iniciar sesión</h1>
+      <Login />
+      <Link to="/registrarse" className="cuenta-login-link">
+        Registrarme
+      </Link>
+    </div>
   );
 };
 

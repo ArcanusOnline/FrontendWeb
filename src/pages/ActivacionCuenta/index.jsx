@@ -18,19 +18,21 @@ const ActivarCuenta = () => {
           navigate("/cuenta");
         }, 6000);
       } else {
-        setMensaje("Token inválido o ausente");
+        setMensaje({ message: "Token inválido o ausente" });
       }
     }
 
     if (token) {
       activar();
     } else {
-      setMensaje("Token inválido o ausente");
+      setMensaje({ message: "Token inválido o ausente" });
     }
-  }, []);
+  }, [token, navigate]);
 
   return (
-    <div className="mensajeCuentaActivada">{mensaje && <h2>{mensaje.message}</h2>}</div>
+    <div className="confirmar-activacion-cuenta">
+      {mensaje && <h2>{mensaje.message}</h2>}
+    </div>
   );
 };
 

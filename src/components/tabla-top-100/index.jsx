@@ -29,43 +29,43 @@ const Ranking = () => {
   }, []);
 
   return (
-    <>
-      <div>
-        <table className="tableRanking">
-          <caption>TOP 100</caption>
-          <thead>
-            <tr>
-              <th>POS.</th>
-              <th>NICK</th>
-              <th>LvL</th>
-              <th>CLASE</th>
-              <th>CLAN</th>
-              <th>EXP%</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ranking.length > 0 ? (
-              ranking.map((elem, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{elem.NickB.toUpperCase()}</td>
-                  <td>{elem.ELVB}</td>
-                  <td>{elem.ClaseB.toUpperCase()}</td>
-                  <td>
-                    {elem.nombreClan == null ? "SIN CLAN" : elem.nombreClan}
-                  </td>
-                  <td>{elem.ELVB < 47 ? `${elem.EXPB}%` : "-"}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={6}>No hay datos</td>
+    <div className="lista-ranking-cien">
+      <table className="tableRanking">
+        <caption>TOP 100</caption>
+        <thead>
+          <tr>
+            <th>POS.</th>
+            <th>NICK</th>
+            <th>LvL</th>
+            <th>CLASE</th>
+            <th>CLAN</th>
+            <th>EXP%</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ranking.length > 0 ? (
+            ranking.map((elem, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{elem.NickB.toUpperCase()}</td>
+                <td>{elem.ELVB}</td>
+                <td>{elem.ClaseB.toUpperCase()}</td>
+                <td>
+                  {elem.nombreClan == null ? "SIN CLAN" : elem.nombreClan}
+                </td>
+                <td>{elem.ELVB < 47 ? `${elem.EXPB}%` : "-"}</td>
               </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-    </>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={6} style={{ textAlign: "center" }}>
+                No hay datos
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

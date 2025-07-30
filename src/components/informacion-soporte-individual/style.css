@@ -1,246 +1,197 @@
-/* Contenedor principal */
-.contenedor-soporte {
-  background-color: #121212; /* Fondo negro */
-  color: #e6e6e6; /* Texto en gris claro */
-  font-family: "Arial", sans-serif;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+/* Contenedor general */
+.contenedor-info-soporte-individual {
+  background-color: #1b1b1b;
+  color: #e6ccb2;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.2);
 }
 
-/* Título del soporte */
-.soporte-titulo {
-  color: #ff6347; /* Rojo tomate */
-  font-size: 2em;
-  text-align: center;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  margin-bottom: 20px;
+/* Título principal */
+.soporte-titulo-info-soporte-individual {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #ffcc80;
+  text-shadow: 1px 1px 2px #000;
 }
 
-/* Categoría y ticket */
-.soporte-categoria {
-  color: #ff4500; /* Rojo anaranjado */
-  font-size: 1.2em;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Hilo de mensajes */
-.soporte-hilo {
-  margin-bottom: 30px;
-  padding: 10px;
-  background-color: #1a1a1a; /* Gris oscuro */
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-.mensaje-hilo {
-  margin-bottom: 15px;
-}
-
-.mensaje-autor {
-  font-weight: bold;
-  color: #ff6347; /* Rojo tomate */
-}
-
-.fecha {
-  font-size: 0.9em;
-  color: #ff4500; /* Rojo anaranjado */
-}
-
-.mensaje-texto {
-  color: #e6e6e6; /* Texto en gris claro */
+/* Subtítulo o categoría */
+.soporte-categoria-info-soporte-individual {
   font-size: 1.1em;
+  color: #d7b26f;
+  margin-bottom: 20px;
+  text-shadow: 0 0 2px #000;
+}
+
+/* Hilo de respuestas */
+.soporte-hilo-info-soporte-individual {
+  background-color: #2b2b2b;
+  border: 1px solid #4e342e;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+
+/* Cada mensaje del hilo */
+.mensaje-hilo-info-soporte-individual {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #3e2723;
+  padding-bottom: 12px;
+}
+
+/* Autor + fecha */
+.mensaje-autor-info-soporte-individual {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95em;
+  font-weight: bold;
+  color: #a1887f;
+}
+
+/* Fecha */
+.mensaje-autor-info-soporte-individual .fecha {
+  font-size: 0.85em;
+  color: #888;
+  font-style: italic;
+}
+
+/* Texto del mensaje */
+.mensaje-texto-info-soporte-individual {
   margin-top: 5px;
+  color: #f0e5d8;
+  font-size: 1em;
 }
 
 /* Formulario de respuesta */
-.soporte-formulario {
-  background-color: #1a1a1a; /* Gris oscuro */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+.soporte-formulario-info-soporte-individual {
   margin-top: 30px;
+  background-color: #252525;
+  border: 1px solid #6d4c41;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.soporte-formulario label {
-  color: #ff6347; /* Rojo tomate */
-  font-size: 1.2em;
-  display: block;
-  margin-bottom: 10px;
+/* Label */
+.soporte-formulario-info-soporte-individual label {
+  color: #ffa726;
+  font-weight: bold;
 }
 
-.soporte-formulario textarea {
+/* Textarea */
+.soporte-formulario-info-soporte-individual textarea {
   width: 100%;
   padding: 10px;
-  background-color: #333; /* Gris muy oscuro */
-  color: #e6e6e6; /* Texto en gris claro */
-  border: 1px solid #ff6347; /* Borde rojo */
-  border-radius: 8px;
+  margin-top: 10px;
+  background-color: #333;
+  color: #fff8e1;
+  border: 1px solid #795548;
+  border-radius: 6px;
+  resize: vertical;
   font-size: 1em;
-  margin-bottom: 20px;
 }
 
-.posicionEnviarRespuesta {
-  text-align: center;
-}
-
-.soporte-formulario button {
-  background-color: #ff6347; /* Rojo tomate */
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.soporte-formulario button:hover {
-  background-color: #ff4500; /* Rojo anaranjado */
-  transform: translateY(-2px);
-}
-
-.soporte-formulario button:active {
-  background-color: #e63946; /* Rojo oscuro */
-  transform: translateY(2px);
-}
-
-/* Estado cerrado */
-.soporte-cerrado {
-  color: #ff6347; /* Rojo tomate */
-  font-size: 1.5em;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.checkbox-censura {
+/* Checkbox censura */
+.checkbox-censura-info-soporte-individual {
+  margin-top: 15px;
   display: flex;
-  align-items: center; /* Alinea verticalmente */
-  gap: 10px;
-  color: #ff6347;
-  margin-bottom: 10px;
-  font-size: 14px;
+  align-items: center;
+  gap: 8px;
+  color: #ccc;
 }
 
-.checkbox-censura input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
+/* Botón enviar respuesta */
+.posicionEnviarRespuesta-info-soporte-individual {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.posicionEnviarRespuesta-info-soporte-individual button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  accent-color: #ff4d4d; /* Coordinado con la paleta */
-  vertical-align: middle; /* Clave para alineación */
-  margin: 0; /* Elimina espacios raros de algunos navegadores */
+  transition: background-color 0.3s ease;
 }
 
-.checkbox-censura label {
+.posicionEnviarRespuesta-info-soporte-individual button:hover {
+  background-color: #43a047;
+}
+
+/* Soporte cerrado */
+.soporte-cerrado-info-soporte-individual {
+  color: #9e9e9e;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* Botón cerrar soporte */
+.cerrar-soporte-btn-info-soporte-individual {
+  background-color: #d32f2f;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
-  user-select: none;
-  line-height: 1;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
-.mensaje-autor {
+.cerrar-soporte-btn-info-soporte-individual:hover {
+  background-color: #b71c1c;
+}
+
+/* Contenedor de botones y título */
+.botones-container-info-soporte-individual {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-  color: #ff6347;
-  margin-bottom: 5px;
-}
-
-.botones-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.cerrar-soporte-btn {
-  background-color: #1a0000;
-  color: #ff4d4d;
-  border: 2px solid #ff4d4d;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  text-shadow: 0 0 3px rgba(255, 77, 77, 0.6);
-  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  align-self: end;
-}
-
-.cerrar-soporte-btn:hover {
-  background-color: #330000;
-  color: #fff0f0;
-  box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
-  transform: translateY(-1px);
-}
-
-.botones-container p {
-  background-color: #1a0000;
-  color: #ff4d4d;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  text-shadow: 0 0 3px rgba(255, 77, 77, 0.6);
-  align-self: end;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
 /* Modal Overlay */
-.modal-overlay {
+.modal-overlay-info-soporte-individual {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+  background-color: rgba(20, 20, 20, 0.9);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 999;
+  align-items: center;
+  z-index: 1000;
 }
 
-/* Contenido del Modal */
-.modal-content {
-  background: #1a1a1a; /* Fondo gris oscuro */
-  color: #e6e6e6; /* Texto gris claro */
-  padding: 1.5rem;
-  border-radius: 8px;
-  width: 300px;
+/* Modal Content */
+.modal-content-info-soporte-individual {
+  background-color: #2e1b16;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 450px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  color: #ffecb3;
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
 }
 
-/* Título del Modal */
-.modal-content h2 {
-  color: #ff6347; /* Rojo tomate */
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-/* Botón del Modal */
-.modal-content button {
-  background-color: #ff6347; /* Rojo tomate */
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2em;
+.modal-content-info-soporte-individual button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #4caf50;
   border: none;
-  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
 }
 
-.modal-content button:hover {
-  background-color: #ff4500; /* Rojo anaranjado */
-  transform: translateY(-2px);
-}
-
-.modal-content button:active {
-  background-color: #e63946; /* Rojo oscuro */
-  transform: translateY(2px);
+.modal-content-info-soporte-individual button:hover {
+  background-color: #388e3c;
 }

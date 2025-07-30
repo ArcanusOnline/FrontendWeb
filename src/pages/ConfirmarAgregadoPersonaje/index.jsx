@@ -3,43 +3,30 @@ import { useState, useEffect } from "react";
 import { confirmAddCharacterAccount } from "../../querys/scripts";
 
 const ConfirmarAgregarPersonaje = () => {
-  let param = useParams();
-  let { token } = param;
-  let navigate = useNavigate();
-  let [estado, setEstado] = useState("");
-  let [isLoading, setIsLoading] = useState(true);
-
-  async function cargarEstado() {
-    if (token && isLoading) {
-      let chequeo = await confirmAddCharacterAccount(token);
-      setEstado(chequeo?.message);
-      setTimeout(() => {
-        navigate("/");
-      }, 5000);
-      setIsLoading(false);
-    }
-  }
+  const { token } = useParams();
+  const navigate = useNavigate();
+  const [estado, setEstado] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function refrescarEstado() {
-      await cargarEstado();
+    async function cargarEstado() {
+      if (token && isLoading) {
+        const chequeo = await confirmAddCharacterAccount(token);
+        setEstado(chequeo?.message || "Error al confirmar");
+        setTimeout(() => {
+          navigate("/");
+        }, 5000);
+        setIsLoading(false);
+      }
     }
-    refrescarEstado();
-  }, [token, isLoading]);
+
+    cargarEstado();
+  }, [token, isLoading, navigate]);
 
   return (
-    <>
-      <div
-        style={{
-          width: "100%",
-          minHeight: "48vh",
-          color: "white",
-          textAlign: "center",
-        }}
-      >
-        <h2>{estado}</h2>
-      </div>
-    </>
+    <div className="confirmar-agregar-pj">
+      <h2>{estado}</h2>
+    </div>
   );
 };
 

@@ -16,7 +16,7 @@
   gap: 1rem;
   background-color: #1a1a1a;
   padding: 1rem;
-  border-bottom: 2px solid #aa0000;
+  border-bottom: 2px solid #112d11;
 }
 
 .manual-section-horizontal {
@@ -28,7 +28,7 @@
 
 .section-button {
   width: 100%;
-  background-color: #aa0000;
+  background-color: #66bb6a;
   color: #e2ded0;
   border: none;
   border-radius: 4px;
@@ -39,7 +39,7 @@
 }
 
 .section-button:hover {
-  background-color: #cc0000;
+  background-color: #112d11;
 }
 
 .topic-list-horizontal {
@@ -61,7 +61,7 @@
 }
 
 .topic-button:hover {
-  background-color: #aa0000;
+  background-color: #66bb6a;
   color: #ffffff;
 }
 
@@ -70,12 +70,13 @@
   padding: 2rem;
   background-color: #121212;
   overflow-y: auto;
+  margin: 10px;
 }
 
 .manual-title {
   font-size: 1.75rem;
   margin-bottom: 1rem;
-  color: #aa0000;
+  color: #66bb6a;
 }
 
 .manual-text {

@@ -1,76 +1,52 @@
-.noticiasInicio {
-  background-color: transparent;
-  color: #e2ded0;
-  font-family: "Cinzel", serif;
-  display: flex;
-  flex-direction: column; /* ✅ hace que siempre se apilen */
-  gap: 2rem;
-  margin: 3rem;
-  min-height: 38vh;
-}
-.noticiasInicio h1 {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-size: 2rem;
-  color: #aa0000;
+.contenedor-noticia-completa {
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: auto;
+
 }
 
-.noticias {
-  background-color: #121212;
-  border: 1px solid #aa0000;
+.tarjeta-noticia-noticia-completa {
+  background-color: #1c3d1c;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(170, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease;
+  border-radius: 10px;
+  border: 1px solid rgba(76, 175, 80, 0.3);
 }
 
-.noticias h2 {
-  font-size: 1.5rem;
-  color: #fff;
+.titulo-noticia-completa {
+  color: #66bb6a;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.resumen-noticia-completa {
+  font-size: 1.1rem;
   margin-bottom: 1rem;
 }
 
-.noticias p {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
-}
-
-.noticias span {
-  font-size: 0.85rem;
-  color: #999;
-  font-style: italic;
-}
-
-.divisorNoticia {
+.divisor-noticia-completa {
   border: none;
-  border-top: 1px solid #fff;
+  border-top: 1px solid #4caf50;
   margin: 1rem 0;
-  opacity: 0.4; /* Opcional para que no sea tan fuerte */
 }
 
-/* 🔴 Botón "Ver más..." */
-.noticiasInicio > button {
-  grid-column: 1 / -1;
-  justify-self: center;
-  margin-top: 2rem;
-  background-color: #aa0000;
+.cuerpo-completo-noticia-completa {
   color: white;
-  border: none;
-  font-size: 1rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: "Cinzel", serif;
-  transition: background-color 0.3s ease;
-  align-self: center;
-  width: 50%;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.noticiasInicio > button:hover {
-  background-color: #cc1e1e;
+.autor-noticia-completa {
+  display: block;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #66bb6a;
+  margin-top: 1rem;
+}
+
+.mensaje-error-noticia-completa {
+  text-align: center;
+  color: #ff5252;
+  font-size: 1.4rem;
 }

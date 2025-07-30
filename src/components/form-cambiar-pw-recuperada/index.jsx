@@ -4,81 +4,88 @@ import { cambioPasswordRecupero } from "../../querys/scripts";
 import "./style.css";
 
 const FormularioCambiarPasswordRecu = () => {
-  let [fields, setFields] = useState({
+  const [fields, setFields] = useState({
     newPassword: "",
     confirmPassword: "",
   });
-  let navigate = useNavigate();
-  let [error, setError] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { token } = useParams();
 
-  let { token } = useParams();
-
-  async function enviarPasswords(e) {
+  const enviarPasswords = async (e) => {
     e.preventDefault();
-    if (fields.newPassword === fields.confirmPassword) {
-      let data = await cambioPasswordRecupero(fields, token);
-      setError(data.message);
-      if (data.estado === 200) {
-        setTimeout(() => {
-          navigate("/"); // Redirige al usuario después de 3 segundos
-        }, 3000);
-      }
-      return;
-    } else {
+    if (fields.newPassword !== fields.confirmPassword) {
       setError("Las contraseñas no coinciden");
       return;
     }
-  }
+
+    const data = await cambioPasswordRecupero(fields, token);
+    setError(data.message);
+
+    if (data.estado === 200) {
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    }
+  };
 
   return (
-    <>
-      <form className="mmorpg-form" onSubmit={enviarPasswords}>
-        <div className="mmorpg-form-group">
-          <label htmlFor="newPassword" className="mmorpg-label">
-            Nueva Contraseña:
-          </label>
-          <input
-            type="password"
-            id="newPassword"
-            name="newPassword"
-            className="mmorpg-input"
-            value={fields.newPassword}
-            onChange={(e) => {
-              setFields((prev) => ({ ...prev, newPassword: e.target.value }));
-              setError("");
-            }}
-            required
-          />
-        </div>
+    <form
+      className="form-container-form-cambiar-pw-recu"
+      onSubmit={enviarPasswords}
+    >
+      <h2 className="form-title-form-cambiar-pw-recu">
+        Restablecer Contraseña
+      </h2>
 
-        <div className="mmorpg-form-group">
-          <label htmlFor="repeatPassword" className="mmorpg-label">
-            Repetir Contraseña:
-          </label>
-          <input
-            type="password"
-            id="repeatPassword"
-            name="repeatPassword"
-            className="mmorpg-input"
-            value={fields.confirmPassword}
-            onChange={(e) => {
-              setFields((prev) => ({
-                ...prev,
-                confirmPassword: e.target.value,
-              }));
-              setError("");
-            }}
-            required
-          />
-        </div>
+      <div className="form-field-form-cambiar-pw-recu">
+        <label
+          htmlFor="newPassword"
+          className="form-label-form-cambiar-pw-recu"
+        >
+          Nueva Contraseña:
+        </label>
+        <input
+          type="password"
+          id="newPassword"
+          name="newPassword"
+          className="form-input-form-cambiar-pw-recu"
+          value={fields.newPassword}
+          onChange={(e) => {
+            setFields((prev) => ({ ...prev, newPassword: e.target.value }));
+            setError("");
+          }}
+          required
+        />
+      </div>
 
-        <button type="submit" className="mmorpg-button">
-          Cambiar Contraseña
-        </button>
+      <div className="form-field-form-cambiar-pw-recu">
+        <label
+          htmlFor="repeatPassword"
+          className="form-label-form-cambiar-pw-recu"
+        >
+          Repetir Contraseña:
+        </label>
+        <input
+          type="password"
+          id="repeatPassword"
+          name="repeatPassword"
+          className="form-input-form-cambiar-pw-recu"
+          value={fields.confirmPassword}
+          onChange={(e) => {
+            setFields((prev) => ({ ...prev, confirmPassword: e.target.value }));
+            setError("");
+          }}
+          required
+        />
+      </div>
 
-        {error && <p>{error}</p>}
-      </form>
-    </>
+      {error && <p className="form-error-form-cambiar-pw-recu">{error}</p>}
+
+      <button type="submit" className="form-button-form-cambiar-pw-recu">
+        Cambiar Contraseña
+      </button>
+    </form>
   );
 };
 

@@ -1,6 +1,6 @@
 .paginaInicio {
   display: flex;
-  gap: 2rem;
-  padding: 1rem;
-  align-items: start;
+  align-items: flex-start; /* Alinea los inicios de ambos componentes */
+  gap: 2rem; /* Espacio entre el banner y las noticias */
+  padding: 2rem;
 }

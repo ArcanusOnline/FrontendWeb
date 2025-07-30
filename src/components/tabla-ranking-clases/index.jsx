@@ -3,7 +3,7 @@ import { rankingPorClases } from "../../querys/scripts.js";
 import "./style.css";
 
 const RankingPorClases = () => {
-  const [clase, setClase] = useState(""); // Inicializa vacío
+  const [clase, setClase] = useState("");
   const [fields, setFields] = useState([]);
   const [error, setError] = useState(false);
   const [dataError, setDataError] = useState("");
@@ -11,13 +11,13 @@ const RankingPorClases = () => {
 
   const traerData = async () => {
     setLoading(true);
-    const data = await rankingPorClases(clase);
+    const data = await rankingPorClases(clase); // Asumo que esta función está definida en otro lado
     setLoading(false);
 
     if (!data || data.message) {
       setError(true);
       setFields([]);
-      setDataError(data.message || "Error desconocido");
+      setDataError(data?.message || "Error desconocido");
     } else {
       setError(false);
       setFields(data);
@@ -26,13 +26,12 @@ const RankingPorClases = () => {
 
   useEffect(() => {
     if (clase !== "") {
-      // Solo consulta si hay una clase seleccionada
       traerData();
     }
   }, [clase]);
 
   return (
-    <div className="rankingClases">
+    <div className="lista-ranking-clases">
       <select
         id="razaRanking"
         className="rankingSelect"

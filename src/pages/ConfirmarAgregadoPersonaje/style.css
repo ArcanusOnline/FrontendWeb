@@ -1,0 +1,28 @@
+.confirmar-agregar-pj {
+  width: 100%;
+  min-height: 48vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #112d11, #1f4d1f);
+  color: #a5d6a7;
+  font-family: "Cinzel", serif;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(17, 45, 17, 0.5);
+}
+
+.confirmar-agregar-pj h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #66bb6a;
+  text-shadow: 0 0 10px #4caf50;
+  max-width: 600px;
+}
+
+/* Variante en caso de error (opcional) */
+.confirmar-agregar-pj.error h2 {
+  color: #e57373;
+  text-shadow: 0 0 10px #c62828;
+}

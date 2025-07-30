@@ -14,14 +14,14 @@ const CambiarEmailPanel = () => {
   const [success, setSuccess] = useState("");
   let navigate = useNavigate();
 
-  let token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const [mostrarPw, setMostrarPw] = useState(false);
 
-  function desconectar() {
+  const desconectar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     navigate(`/`);
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const CambiarEmailPanel = () => {
         email.toLocaleLowerCase()
       );
       if (response === "OK") {
-        setError("Se ha enviado un email, para confirmar el cambio.");
+        setSuccess("Se ha enviado un email, para confirmar el cambio.");
         setTimeout(() => {
           desconectar();
         }, 2000);
@@ -57,109 +57,109 @@ const CambiarEmailPanel = () => {
   };
 
   return (
-    <>
-      <div className="config-panel-container">
-        <h2 className="config-panel-title">Cambiar Email</h2>
-        <form onSubmit={handleSubmit} className="config-panel-form">
-          <div className="config-panel-field">
-            <div style={{ position: "relative" }}>
-              <label className="config-panel-label">PIN:</label>
-              <input
-                type={mostrarPw ? "text" : "password"}
-                value={pin}
-                onChange={(e) => {
-                  setPin(e.target.value);
-                  setError("");
-                }}
-                required
-                className="config-panel-input"
-              />
-              <button
-                type="button"
-                onClick={() => {
-                  setMostrarPw((prev) => !prev);
-                  setError("");
-                }}
-                style={{
-                  position: "absolute",
-                  right: 10,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                {mostrarPw ? "🙈" : "👁️"}
-              </button>
-            </div>
-          </div>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Email:</label>
+    <div className="form-container-cambiar-email-panel">
+      <h2 className="form-title-cambiar-email-panel">Cambiar Email</h2>
+      <form onSubmit={handleSubmit} className="form-cambiar-email-panel">
+        <div className="form-field-cambiar-email-panel">
+          <label className="form-label-cambiar-email-panel">PIN:</label>
+          <div className="input-wrapper-cambiar-email-panel">
             <input
-              type="email"
-              value={email}
+              type={mostrarPw ? "text" : "password"}
+              value={pin}
               onChange={(e) => {
-                setEmail(e.target.value.toLowerCase());
+                setPin(e.target.value);
                 setError("");
               }}
               required
-              className="config-panel-input"
+              className="form-input-cambiar-email-panel"
             />
+            <button
+              type="button"
+              onClick={() => setMostrarPw((prev) => !prev)}
+              className="toggle-visibility-cambiar-email-panel"
+            >
+              {mostrarPw ? "🙈" : "👁️"}
+            </button>
           </div>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Contraseña Actual:</label>
-            <input
-              type="password"
-              value={oldPassword}
-              onChange={(e) => {
-                setOldPassword(e.target.value);
-                setError("");
-              }}
-              required
-              className="config-panel-input"
-            />
-          </div>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Nuevo Email:</label>
-            <input
-              type="email"
-              value={newEmail}
-              onChange={(e) => {
-                setNewEmail(e.target.value);
-                setError("");
-              }}
-              required
-              className="config-panel-input"
-            />
-          </div>
-          <div className="config-panel-field">
-            <label className="config-panel-label">Confirmar Nuevo Email:</label>
-            <input
-              type="email"
-              value={confirmeEmail}
-              onChange={(e) => {
-                setConfirmeEmail(e.target.value);
-                setError("");
-              }}
-              required
-              className="config-panel-input"
-            />
-          </div>
-          {error && <p className="config-panel-error">{error}</p>}
-          {success && <p className="config-panel-success">{success}</p>}
-          <button type="submit" className="config-panel-button">
-            Cambiar Email
-          </button>
-        </form>
-        <Link
-          to="/panel-de-usuario/configuracion-de-cuenta"
-          className="config-panel-link"
-        >
-          Volver
-        </Link>
-      </div>
-    </>
+        </div>
+
+        <div className="form-field-cambiar-email-panel">
+          <label className="form-label-cambiar-email-panel">Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value.toLowerCase());
+              setError("");
+            }}
+            required
+            className="form-input-cambiar-email-panel"
+          />
+        </div>
+
+        <div className="form-field-cambiar-email-panel">
+          <label className="form-label-cambiar-email-panel">
+            Contraseña Actual:
+          </label>
+          <input
+            type="password"
+            value={oldPassword}
+            onChange={(e) => {
+              setOldPassword(e.target.value);
+              setError("");
+            }}
+            required
+            className="form-input-cambiar-email-panel"
+          />
+        </div>
+
+        <div className="form-field-cambiar-email-panel">
+          <label className="form-label-cambiar-email-panel">Nuevo Email:</label>
+          <input
+            type="email"
+            value={newEmail}
+            onChange={(e) => {
+              setNewEmail(e.target.value);
+              setError("");
+            }}
+            required
+            className="form-input-cambiar-email-panel"
+          />
+        </div>
+
+        <div className="form-field-cambiar-email-panel">
+          <label className="form-label-cambiar-email-panel">
+            Confirmar Nuevo Email:
+          </label>
+          <input
+            type="email"
+            value={confirmeEmail}
+            onChange={(e) => {
+              setConfirmeEmail(e.target.value);
+              setError("");
+            }}
+            required
+            className="form-input-cambiar-email-panel"
+          />
+        </div>
+
+        {error && <p className="form-error-cambiar-email-panel">{error}</p>}
+        {success && (
+          <p className="form-success-cambiar-email-panel">{success}</p>
+        )}
+
+        <button type="submit" className="form-button-cambiar-email-panel">
+          Cambiar Email
+        </button>
+      </form>
+
+      <Link
+        to="/panel-de-usuario/configuracion-de-cuenta"
+        className="form-link-cambiar-email-panel"
+      >
+        ← Volver
+      </Link>
+    </div>
   );
 };
 

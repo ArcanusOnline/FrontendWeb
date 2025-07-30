@@ -1,211 +1,114 @@
-/* Estilos generales para el panel */
-.containerPanelInicio {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
-    background-color: #1a1a1a; /* Fondo negro con sombras para crear la atmósfera oscura */
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra oscura para dar profundidad */
-    color: #e74c3c; /* Rojo cálido para el texto */
-  }
-  
-  .nombreCuentaPanel {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .nombreCuentaPanel h1 {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #f39c12; /* Dorado para el nombre */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra para darle un toque infernal */
-  }
-  
-  /* Estilo para la sección de fecha de última conexión */
-  .fechaInicioPanel {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .fechaInicioPanel p {
-    font-size: 1.2em;
-    color: #ecf0f1; /* Gris claro para que contraste con el fondo oscuro */
-  }
-  
-  .cerrarSesionBtn {
-    background-color: #e74c3c; /* Rojo intenso */
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  }
-  
-  .cerrarSesionBtn:hover {
-    background-color: #c0392b; /* Rojo más oscuro en hover */
-  }
-  
-  .cerrarSesionBtn:active {
-    background-color: #9b2d20; /* Rojo más oscuro al hacer clic */
-  }
-  
-  /* Separadores */
-  .divSeparadorInicioPanel {
-    border-top: 2px solid #7f8c8d; /* Gris oscuro para el separador */
-    margin: 20px 0;
-  }
-  
-  /* Estilo para los botones de "Mis personajes" */
-  .misPersonajesPanel {
-    text-align: center;
-  }
-  
-/* Estilo para los botones "Ver mis personajes" */
-.misPersonajesBtn {
-    text-decoration: none; /* Eliminar subrayado */
-    color: #e74c3c; /* Rojo infernal para el texto */
-    font-size: 1.2em;
-    font-weight: 600;
-    padding: 12px 25px;
-    background-color: transparent; /* Fondo transparente para no interferir con el borde */
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease; /* Transición para el hover *//
-  }
-  
-  .misPersonajesBtn:hover {
-    color: #f39c12; /* Dorado en hover */
-    border-color: #f39c12; /* Borde dorado en hover */
-  }
-  
-  .misPersonajesBtn:active {
-    color: #c0392b; /* Rojo más oscuro en clic */
-    border-color: #c0392b; /* Borde más oscuro en clic */
-  }
-  
-  
-  /* Estilo para los enlaces */
-  .soporteLink, .ayudaLink, .configLink {
-    text-decoration: none;
-    color: #e74c3c; /* Rojo infernal para los enlaces */
-    font-size: 1.2em;
-    font-weight: 600;
-    transition: color 0.3s ease, transform 0.2s;
-  }
-  
-  .soporteLink:hover, .ayudaLink:hover, .configLink:hover {
-    color: #f39c12; /* Dorado en hover */
-    border-color: #f39c12; /* Borde dorado en hover */
-  }
-  
-  .soporteLink:active, .ayudaLink:active, .configLink:active {
-    color: #c0392b; /* Rojo oscuro en clic */
-
-  }
-  
-  /* Estilo para las secciones de soporte y ayuda */
-  .soporteInicioPanel, .ayudaInicioPanel, .configInicioPanel {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .soporteInicioPanel h5, .ayudaInicioPanel h5, .configInicioPanel h5, .misPersonajesPanel h5 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #ecf0f1; /* Gris claro para los títulos */
-  }
-  
-  /* Fondo y bordes para el contenedor */
-  .containerPanelInicio {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  .containerPanelInicio {
-  display: flex;
-  flex-direction: column; /* Organiza todo el contenido en columnas */
-  align-items: flex-start; /* Alinea todo hacia la izquierda */
-  padding: 20px;
+/* Container principal */
+.panel-pagina-principal-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #112d11;
+  border: 2px solid #4caf50;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
+  padding: 1.5rem;
+  color: #e2ded0;
+  font-family: "Cinzel", serif;
 }
 
-.nombreCuentaPanel {
-  display: flex;
-  justify-content: space-between; /* Distribuye los elementos en los extremos */
-  width: 100%;
-  margin-bottom: 20px; /* Añade espacio entre secciones */
+/* Header */
+.panel-pagina-principal-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.nombreCuentaPanel h1 {
-  font-size: 2em;
-  color: #e74c3c; /* Rojo infernal para el título */
-  text-transform: uppercase;
+.panel-pagina-principal-nombre {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #66bb6a;
 }
 
-.fechaInicioPanel {
-  display: flex;
-  justify-content: space-between; /* Distribuye en los extremos */
-  width: 100%;
-  margin-bottom: 20px;
+.panel-pagina-principal-ultima {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
 
-.fechaInicioPanel p {
-  font-size: 1.1em;
-  color: #fff;
-}
-
-.fechaInicioPanel button {
-  background-color: #e74c3c;
-  color: #fff;
+/* Separadores */
+.panel-pagina-principal-separator {
   border: none;
-  padding: 10px 20px;
-  font-size: 1.1em;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.fechaInicioPanel button:hover {
-  background-color: #c0392b; /* Rojo más oscuro al hacer hover */
-}
-
-.divSeparadorInicioPanel {
-  width: 100%;
   height: 1px;
-  background-color: #7f8c8d;
-  margin: 10px 0;
+  background-color: rgba(76, 175, 80, 0.3);
+  margin: 1.2rem 0;
 }
 
-.misPersonajesPanel, .soporteInicioPanel, .ayudaInicioPanel, .configInicioPanel {
-  width: 100%;
+/* Sección común */
+.panel-pagina-principal-section {
   display: flex;
-  justify-content: space-between; /* Los elementos se distribuyen en los extremos */
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
-.misPersonajesPanel h5, .soporteInicioPanel h5, .ayudaInicioPanel h5, .configInicioPanel h5 {
-  font-size: 1.3em;
-  color: #e74c3c;
+.panel-pagina-principal-section h5 {
+  font-size: 1.1rem;
+  color: #66bb6a;
+  margin: 0;
 }
 
-.misPersonajesPanel button, .soporteInicioPanel a, .ayudaInicioPanel a, .configInicioPanel a {
-  color: #e74c3c;
-  font-size: 1.2em;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 10px 20px;
-  border: 2px solid #e74c3c;
-  background-color: transparent;
-  border-radius: 8px;
+/* Botones */
+.panel-pagina-principal-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #4caf50;
+  color: #e2ded0;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.panel-pagina-principal-btn:hover {
+  background-color: #66bb6a;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.7);
+}
 
+/* Estilos específicos */
+.panel-pagina-principal-logout {
+  width: 50%;
+  max-width: 180px;
+  margin: 0.5rem auto 0;
+}
 
-  
+.panel-pagina-principal-mis-personajes {
+  flex: 1;
+  max-width: 200px;
+}
+
+/* Links estilo botón */
+.panel-pagina-principal-link {
+  color: #e2ded0;
+  background-color: #4caf50;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.panel-pagina-principal-link:hover {
+  background-color: #66bb6a;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .panel-pagina-principal-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .panel-pagina-principal-btn,
+  .panel-pagina-principal-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .panel-pagina-principal-logout {
+    max-width: none;
+  }
+}

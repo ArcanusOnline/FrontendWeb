@@ -1,69 +1,118 @@
-.borrar-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+.borrar-modal-overlay-borrar-personaje {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(
+    10,
+    40,
+    10,
+    0.85
+  ); /* Fondo oscuro verdoso translúcido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.borrar-modal-overlay-borrar-personaje.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.borrar-modal-contenido-borrar-personaje {
+  background-color: #2d3a2c; /* verde oscuro */
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(50, 100, 30, 0.7);
+  max-width: 420px;
+  width: 90%;
+  color: #c3d9b5; /* verde claro */
+  text-align: center;
+  user-select: none;
+}
+
+.borrar-modal-texto-borrar-personaje {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #a3c187; /* verde lima */
+}
+
+.borrar-modal-texto-borrar-personaje strong {
+  color: #8dbf67; /* verde más intenso */
+  font-weight: 700;
+}
+
+.borrar-modal-botones-borrar-personaje {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-confirmar-borrar-personaje,
+.btn-cancelar-borrar-personaje {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  min-width: 130px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.btn-confirmar-borrar-personaje {
+  background-color: #bf3b3b; /* rojo peligro */
+  color: #fff;
+}
+
+.btn-confirmar-borrar-personaje:hover {
+  background-color: #d9534f;
+  transform: scale(1.05);
+}
+
+.btn-confirmar-borrar-personaje:active {
+  background-color: #a83232;
+  transform: scale(1);
+}
+
+.btn-cancelar-borrar-personaje {
+  background-color: #8dbf67; /* verde seguro */
+  color: #1a250f;
+}
+
+.btn-cancelar-borrar-personaje:hover {
+  background-color: #a3c187;
+  transform: scale(1.05);
+}
+
+.btn-cancelar-borrar-personaje:active {
+  background-color: #76954e;
+  transform: scale(1);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .borrar-modal-contenido-borrar-personaje {
+    padding: 20px;
   }
-  
-  .borrar-modal-overlay.visible {
-    display: flex;
+
+  .borrar-modal-texto-borrar-personaje {
+    font-size: 1rem;
   }
-  
-  .borrar-modal-contenido {
-    background-color: #1e1e1e;
-    border: 2px solid #ffd700;
-    border-radius: 12px;
-    padding: 30px;
-    width: 400px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-    text-align: center;
+
+  .borrar-modal-botones-borrar-personaje {
+    flex-direction: column;
+    gap: 15px;
   }
-  
-  .borrar-modal-texto {
-    margin-bottom: 20px;
-    font-size: 18px;
-    line-height: 1.4;
-    color: #ff6347;
+
+  .btn-confirmar-borrar-personaje,
+  .btn-cancelar-borrar-personaje {
+    min-width: 100%;
   }
-  
-  .borrar-modal-botones {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-  }
-  
-  .btn-confirmar,
-  .btn-cancelar {
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.2s ease;
-  }
-  
-  .btn-confirmar {
-    background-color: #ff4d4f;
-    color: #ffffff;
-  }
-  
-  .btn-confirmar:hover {
-    background-color: #e64547;
-  }
-  
-  .btn-cancelar {
-    background-color: #4caf50;
-    color: #ffffff;
-  }
-  
-  .btn-cancelar:hover {
-    background-color: #3e9143;
-  }
-  
+}

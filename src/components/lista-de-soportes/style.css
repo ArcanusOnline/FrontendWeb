@@ -1,57 +1,60 @@
-/* Contenedor de la lista de soporte */
-.listaSoporteContainer {
-  max-width: 1200px;
+.lista-soporte-container-lista-soportes {
+  padding: 2rem;
+  background-color: #112d11;
+  border-radius: 12px;
+  max-width: 1000px;
   margin: 0 auto;
-  background-color: #1a1a1a; /* Gris oscuro */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  color: #ffffff;
 }
 
-/* Estilo de la tabla */
-.soportes-table {
+.titulo-lista-soportes {
+  color: #4caf50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.tabla-soportes-lista-soportes {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  background-color: #1c3d1c;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3);
 }
 
-.soportes-table th,
-.soportes-table td {
-  padding: 12px;
+.tabla-soportes-lista-soportes th,
+.tabla-soportes-lista-soportes td {
+  padding: 0.8rem 1rem;
   text-align: left;
-  border-bottom: 1px solid #660000; /* Rojo oscuro */
+  border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+  color: #ffffff;
 }
 
-.soportes-table th {
-  background-color: #660000; /* Rojo oscuro */
-  color: #fff;
-  font-size: 1.1em;
+.tabla-soportes-lista-soportes th {
+  background-color: #4caf50;
+  color: #ffffff;
+  font-weight: 600;
 }
 
-.soportes-table tr:nth-child(even) {
-  background-color: #333; /* Gris muy oscuro */
+.tabla-soportes-lista-soportes tr:hover {
+  background-color: rgba(76, 175, 80, 0.3);
 }
 
-.soportes-table tr:hover {
-  background-color: #b22222; /* Rojo brillante */
-  cursor: pointer;
-}
-
-/* Estilo de los enlaces dentro de la tabla */
-.linksSoportes {
-  color: #ff6347; /* Tomate */
+.link-soporte-lista-soportes {
+  color: #66bb6a;
   text-decoration: none;
+  font-weight: 500;
 }
 
-.linksSoportes:hover {
+.link-soporte-lista-soportes:hover {
   text-decoration: underline;
+  color: #4caf50;
 }
 
-/* Estilo de los mensajes de error */
-.listaSoporteContainer p {
-  color: #ff4d4d; /* Rojo brillante */
-  font-size: 1.1em;
-  font-style: italic;
+.mensaje-error-lista-soportes {
   text-align: center;
-  margin-top: 20px;
+  color: #f44336;
+  font-weight: bold;
+  margin-top: 1.5rem;
 }

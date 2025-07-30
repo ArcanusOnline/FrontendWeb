@@ -58,14 +58,14 @@ const NuevoSoporte = () => {
 
   return (
     <>
-      <form className="form-mmorpg" onSubmit={handleSubmit}>
-        <h2 className="form-title">Nuevo Soporte</h2>
+      <form className="formulario-nuevo-soporte" onSubmit={handleSubmit}>
+        <h2 className="titulo-nuevo-soporte">Nuevo Soporte</h2>
 
-        <label className="form-label" htmlFor="asunto">
+        <label className="label-nuevo-soporte" htmlFor="asunto">
           Asunto del soporte:
         </label>
         <input
-          className="form-input"
+          className="input-nuevo-soporte"
           type="text"
           id="asunto"
           name="asunto"
@@ -74,11 +74,11 @@ const NuevoSoporte = () => {
           required
         />
 
-        <label className="form-label" htmlFor="sector">
+        <label className="label-nuevo-soporte" htmlFor="sector">
           Sector:
         </label>
         <select
-          className="form-select"
+          className="select-nuevo-soporte"
           id="sector"
           name="sector"
           value={formData.sector}
@@ -94,11 +94,11 @@ const NuevoSoporte = () => {
             ))}
         </select>
 
-        <label className="form-label" htmlFor="nick">
+        <label className="label-nuevo-soporte" htmlFor="nick">
           Personaje:
         </label>
         <select
-          className="form-select"
+          className="select-nuevo-soporte"
           id="nick"
           name="nick"
           value={formData.nick}
@@ -119,11 +119,11 @@ const NuevoSoporte = () => {
           )}
         </select>
 
-        <label className="form-label" htmlFor="texto">
+        <label className="label-nuevo-soporte" htmlFor="texto">
           Descripción del soporte:
         </label>
         <textarea
-          className="form-textarea"
+          className="textarea-nuevo-soporte"
           id="texto"
           name="texto"
           value={formData.texto}
@@ -133,7 +133,7 @@ const NuevoSoporte = () => {
           required
         ></textarea>
 
-        <div className="form-checkbox">
+        <div className="checkbox-nuevo-soporte">
           <label htmlFor="censura">
             <input
               type="checkbox"
@@ -150,10 +150,13 @@ const NuevoSoporte = () => {
           </label>
         </div>
 
-        <input className="form-button" type="submit" value="Enviar soporte" />
+        <input
+          className="boton-enviar-nuevo-soporte"
+          type="submit"
+          value="Enviar soporte"
+        />
       </form>
 
-      {/* Modal de éxito */}
       {successMessage && (
         <div className="modal-overlay">
           <div className="modal-content success">
@@ -162,7 +165,6 @@ const NuevoSoporte = () => {
         </div>
       )}
 
-      {/* Modal de error */}
       {errorMessage && (
         <div className="modal-overlay">
           <div className="modal-content error">

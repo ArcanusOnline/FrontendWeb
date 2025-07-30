@@ -3,7 +3,7 @@ import "./style.css";
 const StaffCard = () => {
   return (
     <>
-      <div className="staffContainer">
+      <div className="lista-staff">
         <h1>Staff</h1>
         <fieldset className="staffCuadro">
           <legend>Adquisición</legend>

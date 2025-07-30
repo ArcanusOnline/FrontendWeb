@@ -1,58 +1,65 @@
-/* Estilos generales para la tabla */
-.tableRanking {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 2rem;
-  background-color: #121212;
+.lista-ranking-cien {
+  padding: 1.5rem;
   color: #e2ded0;
   font-family: "Cinzel", serif;
+  overflow-x: auto;
 }
 
-.tableRanking caption {
+.lista-ranking-cien table.tableRanking {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(17, 45, 17, 0.6);
+  background-color: #1a3a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lista-ranking-cien table.tableRanking caption {
   font-size: 2rem;
-  color: #aa0000;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: bold;
+  font-weight: 900;
+  padding: 1rem 0;
+  color: #66bb6a;
 }
 
-.tableRanking th,
-.tableRanking td {
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid #aa0000;
+.lista-ranking-cien table.tableRanking thead th {
+  padding: 0.8rem 1rem;
+  background-color: #112d11;
+  color: #a5d6a7;
+  border-bottom: 3px solid #66bb6a;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.tableRanking th {
-  background-color: #1a1a1a;
-  color: #e2ded0;
-  font-size: 1.1rem;
+.lista-ranking-cien table.tableRanking tbody tr {
+  border-bottom: 1px solid #4caf50;
+  transition: background-color 0.3s ease;
 }
 
-.tableRanking td {
-  background-color: #121212;
-  color: #ccc;
-  font-size: 1rem;
+.lista-ranking-cien table.tableRanking tbody tr:hover {
+  background-color: #2c6f2c;
+  cursor: default;
 }
 
-.tableRanking tr:nth-child(even) {
-  background-color: #1a1a1a;
+.lista-ranking-cien table.tableRanking tbody tr td {
+  padding: 0.7rem 1rem;
+  color: #cce6cc;
+  font-weight: 500;
 }
 
-.tableRanking tr:nth-child(odd) {
-  background-color: #121212;
-}
+/* Responsive */
+@media (max-width: 600px) {
+  .lista-ranking-cien {
+    padding: 1rem 0.5rem;
+  }
 
-.tableRanking tr:hover {
-  background-color: #aa0000;
-  color: white;
-  cursor: pointer;
-}
+  .lista-ranking-cien table.tableRanking caption {
+    font-size: 1.5rem;
+  }
 
-/* Para el mensaje "No hay datos" */
-.tableRanking td[colspan="6"] {
-  text-align: center;
-  color: #ff4d4d;
-  font-size: 1.2rem;
-  font-weight: bold;
+  .lista-ranking-cien table.tableRanking thead th,
+  .lista-ranking-cien table.tableRanking tbody td {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
 }
