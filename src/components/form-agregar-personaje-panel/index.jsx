@@ -85,7 +85,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
 <div className="form-agregar-personaje-panel-wrapped">
         <label>Contraseña del personaje:</label>
         <input
-          type="password"
+         type={mostrarPw ? "text" : "password"}
           value={contrasena}
           onChange={(e) => setContrasena(e.target.value)}
           className="modal-input-agregar-personaje-panel"
@@ -102,7 +102,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
 <div className="form-agregar-personaje-panel-wrapped">
         <label>PIN del personaje:</label>
         <input
-          type="text"
+          type={mostrarPin ? "text" : "password"}
           value={pin}
           onChange={(e) => setPin(e.target.value)}
           className="modal-input-agregar-personaje-panel"
