@@ -927,6 +927,17 @@ async function obtenerOnlinesServidor() {
   }
 }
 
+async function obtenerRangosGms() {
+  try {
+    let response = await fetch(`${urlBase}/obtener-rangos-gms`);
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error en obtenerRangosGms:", error.message);
+    return { message: error.message || "Error en la solicitud", error: 1 };
+  }
+}
+
 export {
   login,
   getTop100,
@@ -959,4 +970,5 @@ export {
   cerrarSoporte,
   bloquearPersonaje,
   obtenerOnlinesServidor,
+  obtenerRangosGms,
 };
