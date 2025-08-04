@@ -33,14 +33,10 @@ const BannerInicio = () => {
       </button>
 
       <div className="logo">
-        <img src={urlImagenes.logo} alt="Logo Arcanus" />
+        <Link to="/">
+          <img src={urlImagenes.logo} alt="Logo Arcanus" />
+        </Link>
       </div>
-
-      <div className="cta">
-        <Link to="/lista-de-descargas">Comenzar a jugar</Link>
-        <p>{`Cantidad de onlines: ${onlines}`}</p>
-      </div>
-
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
         <ul>
           <li>
@@ -108,6 +104,11 @@ const BannerInicio = () => {
           </li>
         </ul>
       </nav>
+
+      <div className="cta">
+        <Link to="/lista-de-descargas">Comenzar a jugar</Link>
+        <p>{`Cantidad de onlines: ${onlines}`}</p>
+      </div>
     </div>
   );
 };
