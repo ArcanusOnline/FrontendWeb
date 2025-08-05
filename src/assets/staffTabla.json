@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "rango": "Directores",
@@ -13,3 +14,20 @@
   },
   { "rango": "Diseño", "users": ["Tomas (Beli)"] }
 ]
+=======
+[
+  {
+    "rango": "Directores",
+    "users": ["Gonzalo (Aygron)", "Tomás (Nitherem)", "Brian (Naerib)"]
+  },
+  {
+    "rango": "Programacion del Juego",
+    "users": ["Gonzalo (Aygron)", "Axel", "Tomás (Nitherem)", "Brian (Naerib)"]
+  },
+  {
+    "rango": "Desarrollo Web",
+    "users": ["Brian (Naerib)", "Santiago (Sket)"]
+  },
+  { "rango": "Diseño", "users": ["Tomas (Beli)"] }
+]
+>>>>>>> 280b42019ffcca7140f00b00b813626e3d2fa782
