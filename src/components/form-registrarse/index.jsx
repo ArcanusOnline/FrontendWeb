@@ -25,7 +25,6 @@ const RegisterPanel = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value.trim().toLowerCase() });
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
