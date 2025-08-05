@@ -41,11 +41,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .cta a {
   font-size: 1.3rem;
-  padding: 1rem 2.5rem;
+  padding: 1rem 1rem;
   background-color: #4caf50;
   color: white;
   text-decoration: none;
