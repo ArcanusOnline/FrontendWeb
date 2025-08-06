@@ -1,9 +1,5 @@
 .bannerConLogo {
   display: flex;
-  /* grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "logo cta"
-    "nav nav"; */
   justify-content: space-between;
   gap: 1.5rem;
   background: linear-gradient(to right, #0e1f0f, #1b3a1b);

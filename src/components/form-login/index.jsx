@@ -37,7 +37,7 @@ const Login = () => {
         className="form-content-form-login"
         autoComplete="on"
       >
-        <h2 className="form-title-form-login">Acceder</h2>
+        <h2 className="form-title-form-login">Ingresa a tu Cuenta</h2>
 
         <div className="form-field-form-login">
           <label className="form-label-form-login">Usuario</label>
@@ -75,14 +75,21 @@ const Login = () => {
           Ingresar
         </button>
 
-        <p className="form-link-container-form-login">
-          <Link
-            to="/recuperar-contrasenas/recuperar-cuenta"
-            className="form-link-form-login"
-          >
-            Olvidé mi contraseña
-          </Link>
-        </p>
+        <div className="form-link-container-form-login">
+          <p>
+            <Link
+              to="/recuperar-contrasenas/recuperar-cuenta"
+              className="form-link-form-login"
+            >
+              Olvidé mi contraseña
+            </Link>
+          </p>
+          <p>
+            <Link to="/registrarse" className="form-link-form-login">
+              ¿No tenes cuenta? Registrate
+            </Link>
+          </p>
+        </div>
       </form>
     </div>
   );

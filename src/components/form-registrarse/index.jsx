@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { registrarCuenta } from "../../querys/scripts";
@@ -166,6 +167,11 @@ const RegisterPanel = () => {
         <button className="form-btn-form-registrarse" type="submit">
           Registrarse
         </button>
+        <p className="form-link-container-form-login">
+          <Link to="/cuenta" className="form-link-form-login">
+            ¿Ya tenes cuenta? Inicia sesion
+          </Link>
+        </p>
       </form>
     </div>
   );
