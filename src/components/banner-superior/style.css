@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
-  background: linear-gradient(to right, #0e1f0f, #1b3a1b);
+  background: rgb(10, 10, 10);
+  border-bottom: 1px solid #333;
   color: #e7fbe7;
   padding: 1rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Cinzel", serif;
   position: relative;
 }
 
@@ -43,24 +44,26 @@
 .cta a {
   font-size: 1.3rem;
   padding: 1rem 1rem;
-  background-color: #4caf50;
-  color: white;
+  background-color: #d4af37;
+  color: #111;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
-  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
 .cta a:hover {
-  background-color: #66bb6a;
+  background-color: #e8c547;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
 }
 
 .cta p {
   margin-top: 0.8rem;
   font-size: 1rem;
-  color: #c7e5c7;
+  color: white;
 }
 
 /* Navegación horizontal */
@@ -81,7 +84,7 @@
 }
 
 .nav a {
-  color: #d5f7d5;
+  color: #f0e68c;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
@@ -91,7 +94,6 @@
 
 .nav a:hover,
 .nav a.active {
-  border-bottom: 2px solid #66bb6a;
   color: #ffffff;
 }
 

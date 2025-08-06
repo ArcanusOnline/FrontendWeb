@@ -47,12 +47,14 @@
 }
 
 .boton-vermas-lista-noticias-inicio {
-  background-color: #4caf50;
-  color: white;
+  color: #f0e68c;
+  background-color: #4b3621;
   border: none;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
+  font-family: "Cinzel", serif;
   border-radius: 6px;
+  border: 1px solid #f0e68c;
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -60,5 +62,7 @@
 }
 
 .boton-vermas-lista-noticias-inicio:hover {
-  background-color: #66bb6a;
+  background-color: #5c3d26;
+  color: #fff8dc;
+  box-shadow: 0 0 10px #f0e68c55;
 }

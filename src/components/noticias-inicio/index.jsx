@@ -59,7 +59,7 @@ const NoticiasInicio = () => {
         className="boton-vermas-lista-noticias-inicio"
         onClick={() => redireccionar("/noticias")}
       >
-        Ver más...
+        Ver más noticias
       </button>
     </div>
   );
