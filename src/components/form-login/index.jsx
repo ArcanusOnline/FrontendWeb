@@ -87,10 +87,7 @@ const Login = () => {
 
         <div className="form-link-container-form-login">
           <p>
-            <Link
-              to="/recuperar-contrasenas/recuperar-cuenta"
-              className="form-link-form-login"
-            >
+            <Link to="/recuperar-cuenta" className="form-link-form-login">
               Olvidé mi contraseña
             </Link>
           </p>

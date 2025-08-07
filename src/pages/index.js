@@ -7,7 +7,6 @@ export { PaginaSoportes } from "./soportes";
 export { RenderReglas } from "./reglas";
 export { PanelUsuario } from "./PanelUsuario";
 export { ActivarCuenta } from "./ActivacionCuenta";
-export { RecuperarContrasenas } from "./RecuperarContrasenas";
 export { ConfirmarCambioEmailCuenta } from "./confirmarCambioEmail";
 export { ConfirmarAgregarPersonaje } from "./ConfirmarAgregadoPersonaje";
 export { Manual } from "./Manual";

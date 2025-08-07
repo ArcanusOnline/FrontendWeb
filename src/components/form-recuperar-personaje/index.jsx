@@ -103,15 +103,12 @@ const RecuperarPersonaje = () => {
           {error && <p className="form-error-recuperar-pj-form">{error}</p>}
 
           <button type="submit" className="form-button-recuperar-pj-form">
-            Recuperar personaje
+            Recuperar Personaje
           </button>
         </form>
 
-        <Link
-          to="/recuperar-contrasenas"
-          className="form-link-recuperar-pj-form"
-        >
-          ← Volver
+        <Link to="/recuperar-cuenta" className="form-link-recuperar-pj-form">
+          ¿Queres recuperar tu Cuenta?
         </Link>
       </div>
 

@@ -31,7 +31,6 @@ import {
   PaginaDescarga,
   CalculadoraVida,
   ActivarCuenta,
-  RecuperarContrasenas,
   ConfirmacionEliminadoPersonaje,
   ConfirmarCambioEmailCuenta,
   ConfirmarAgregarPersonaje,
@@ -87,22 +86,14 @@ function App() {
           <Route path="/calculadora-de-vida" element={<CalculadoraVida />} />
           <Route path="/noticias" element={<NoticiasCompletas />} />
           <Route path="/activar-cuenta/:token" element={<ActivarCuenta />} />
-          <Route
-            path="/recuperar-contrasenas"
-            element={<RecuperarContrasenas />}
-          >
-            <Route path="recuperar-cuenta" element={<RecuperarCuenta />}>
-              <Route
-                path=":token"
-                element={<FormularioCambiarPasswordRecu />}
-              />
-            </Route>
-            <Route path="recuperar-personaje" element={<RecuperarPersonaje />}>
-              <Route
-                path=":token"
-                element={<FormularioCambiarPasswordRecuPersonaje />}
-              />
-            </Route>
+          <Route path="/recuperar-cuenta" element={<RecuperarCuenta />}>
+            <Route path=":token" element={<FormularioCambiarPasswordRecu />} />
+          </Route>
+          <Route path="/recuperar-personaje" element={<RecuperarPersonaje />}>
+            <Route
+              path=":token"
+              element={<FormularioCambiarPasswordRecuPersonaje />}
+            />
           </Route>
           <Route
             path="/confirmacion-eliminar-personaje/:token"

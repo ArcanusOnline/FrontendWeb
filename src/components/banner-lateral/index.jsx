@@ -13,8 +13,8 @@ const BannerLateral = () => {
             </Link>
           </li>
           <li>
-            <Link to="/recuperar-contrasenas">
-              Recuperar<br></br>contraseña
+            <Link to="/recuperar-personaje">
+              Recuperar<br></br>Personaje
             </Link>
           </li>
           <li>

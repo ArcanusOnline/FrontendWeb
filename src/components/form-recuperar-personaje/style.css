@@ -1,10 +1,10 @@
 .form-container-recuperar-pj-form {
-  background-color: #242f21;
+  background-color: #1a1a1a;
   padding: 30px;
   max-width: 420px;
-  margin: 20px auto;
+  margin: 40px auto;
   border-radius: 10px;
-  box-shadow: 0 0 12px #91ad78;
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
   font-family: "Cinzel", serif;
   color: #dcefd1;
 }
@@ -14,7 +14,7 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  color: #c3e7a0;
+  color: #f0e68c;
 }
 
 .form-recuperar-pj-form {
@@ -30,22 +30,22 @@
 
 .form-label-recuperar-pj-form {
   margin-bottom: 5px;
-  color: #bfdcb4;
+  color: white;
 }
 
 .form-input-recuperar-pj-form {
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #6e8664;
-  background-color: #2d3a2d;
-  color: #f3fff3;
+  background-color: rgb(10, 10, 10);
+  color: #d8e9c7;
+  border: 2px solid #f0e68c;
   font-size: 1rem;
 }
 
 .form-input-recuperar-pj-form:focus {
   outline: none;
-  border-color: #a3cc87;
-  background-color: #364a36;
+  border-color: #c9c9c9;
+  box-shadow: 0 0 6px #a3c187aa;
 }
 
 .pin-toggle-button-recuperar-pj-form {
@@ -64,16 +64,17 @@
   margin-top: 10px;
   padding: 10px;
   border: none;
-  background-color: #8cab6f;
-  color: #fff;
+  background: linear-gradient(145deg, #b8860b, #ffd700);
+  color: #1a250f;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .form-button-recuperar-pj-form:hover {
-  background-color: #a5d279;
+  background-color: #a3c187;
+  transform: scale(1.03);
 }
 
 .form-error-recuperar-pj-form {
@@ -87,7 +88,7 @@
   display: block;
   margin-top: 20px;
   text-align: center;
-  color: #9cc891;
+  color: white;
   text-decoration: underline;
 }
 
