@@ -22,13 +22,15 @@
   max-width: 300px;
   max-height: 100px;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.4));
+  filter: drop-shadow(0 0 8px rgba(253, 255, 242, 0.4));
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .logo img:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 12px rgba(76, 175, 80, 0.7)); /* Sombra más intensa */
+  filter: drop-shadow(
+    0 0 12px rgba(241, 229, 51, 0.7)
+  ); /* Sombra más intensa */
 }
 
 /* Botón destacado */

@@ -53,8 +53,7 @@ const MiniStats = () => {
         >
           <fieldset>
             <legend>Buscar personaje</legend>
-
-            <label htmlFor="nick">Nick</label>
+            <label htmlFor="nick">Ingresa el Nick</label>
             <input
               type="text"
               placeholder="Nick"
@@ -68,7 +67,7 @@ const MiniStats = () => {
 
             {errorMsg && <p className="error-message">{errorMsg}</p>}
 
-            <input type="submit" value="Ver" />
+            <input type="submit" value="Buscar" />
           </fieldset>
         </form>
       </div>
