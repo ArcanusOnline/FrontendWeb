@@ -1,10 +1,10 @@
 .form-container-form-login {
   width: 30%;
   margin: 60px auto;
-  background-color: #2d3a2c;
+  background-color: #1a1a1a;
   padding: 30px 25px;
   border-radius: 12px;
-  box-shadow: 0 0 14px rgba(50, 100, 30, 0.7);
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
   font-family: "Cinzel", serif;
   color: #d8e9c7;
 }
@@ -19,7 +19,7 @@
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #a3c187;
+  color: #f0e68c;
   margin-bottom: 10px;
 }
 
@@ -31,27 +31,32 @@
 .form-label-form-login {
   margin-bottom: 6px;
   font-weight: 600;
-  color: #b0cc9a;
+  color: white;
 }
 
 .form-input-form-login {
   padding: 10px;
   font-size: 1rem;
-  background-color: #223322;
+  width: 100%;
+  background-color: rgb(10, 10, 10);
   color: #d8e9c7;
-  border: 2px solid #8dbf67;
+  border: 2px solid #f0e68c;
   border-radius: 6px;
 }
 
 .form-input-form-login:focus {
   outline: none;
-  border-color: #a3c187;
+  border-color: #c9c9c9;
   box-shadow: 0 0 6px #a3c187aa;
+}
+
+.form-password-wrapper-form-login {
+  position: relative;
 }
 
 .form-button-form-login {
   padding: 12px;
-  background-color: #8dbf67;
+  background: linear-gradient(145deg, #b8860b, #ffd700);
   color: #1a250f;
   font-weight: bold;
   border: none;
@@ -83,7 +88,7 @@
 }
 
 .form-link-form-login {
-  color: #cbe7b5;
+  color: white;
   font-weight: 600;
   text-decoration: underline;
   transition: color 0.3s ease;
@@ -91,6 +96,18 @@
 
 .form-link-form-login:hover {
   color: #a3c187;
+}
+
+.toggle-btn-form-login {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #c7e5b1;
 }
 
 /* Responsive */

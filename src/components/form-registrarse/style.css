@@ -1,18 +1,18 @@
 .form-container-form-registrarse {
-  background-color: #2e3d2a;
+  background-color: #1a1a1a;
   padding: 35px;
   border-radius: 12px;
   max-width: 480px;
-  margin: 20px auto;
-  box-shadow: 0 0 14px #a3ce81;
-  color: #f1fff0;
+  margin: 40px auto;
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
+  color: #d8e9c7;
   font-family: "Cinzel", serif;
 }
 
 .form-title-form-registrarse {
   text-align: center;
   font-size: 1.8rem;
-  color: #d5fcb1;
+  color: #f0e68c;
   margin-bottom: 25px;
 }
 
@@ -25,16 +25,21 @@
 .form-input-form-registrarse {
   padding: 10px;
   border-radius: 6px;
-  background-color: #364735;
-  border: 1px solid #6a8d5b;
-  color: #f1fff0;
+  width: 100%;
+  background-color: rgb(10, 10, 10);
+  color: #d8e9c7;
+  border: 2px solid #f0e68c;
   font-size: 1rem;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* calendario blanco */
 }
 
 .form-input-form-registrarse:focus {
   outline: none;
-  background-color: #3f5940;
-  border-color: #a8d683;
+  border-color: #c9c9c9;
+  box-shadow: 0 0 6px #a3c187aa;
 }
 
 .form-password-wrapper-form-registrarse {
@@ -56,16 +61,17 @@
 .form-btn-form-registrarse {
   margin-top: 10px;
   padding: 12px;
-  background-color: #88b96e;
+  background: linear-gradient(145deg, #b8860b, #ffd700);
+  color: #1a250f;
   border: none;
-  color: #fff;
   font-weight: bold;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .form-btn-form-registrarse:hover {
-  background-color: #a6dc8b;
+  background-color: #a3c187;
+  transform: scale(1.03);
 }

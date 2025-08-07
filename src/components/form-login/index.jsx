@@ -9,6 +9,7 @@ const Login = () => {
   const [fields, setFields] = useState({ nick: "", pass: "" });
   const [errorLog, setErrorLog] = useState("");
   const [error, setError] = useState(false);
+  const [mostrarPw, setMostrarPw] = useState(false);
 
   const redireccionar = useRedireccionar();
   const { updateUsername, updateToken } = useAuth();
@@ -56,17 +57,26 @@ const Login = () => {
 
         <div className="form-field-form-login">
           <label className="form-label-form-login">Contraseña</label>
-          <input
-            type="password"
-            name="password"
-            autoComplete="current-password"
-            className="form-input-form-login"
-            onChange={(e) => {
-              setError(false);
-              setFields({ ...fields, pass: e.target.value });
-            }}
-            required
-          />
+          <div className="form-password-wrapper-form-login">
+            <input
+              type={mostrarPw ? "text" : "password"}
+              name="password"
+              autoComplete="current-password"
+              className="form-input-form-login"
+              onChange={(e) => {
+                setError(false);
+                setFields({ ...fields, pass: e.target.value });
+              }}
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setMostrarPw((prev) => !prev)}
+              className="toggle-btn-form-login"
+            >
+              {mostrarPw ? "🙈" : "👁️"}
+            </button>
+          </div>
         </div>
 
         {error && <p className="form-error-form-login">{errorLog}</p>}

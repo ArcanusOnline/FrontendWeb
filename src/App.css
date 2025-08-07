@@ -75,31 +75,30 @@ h3,
 h4,
 h5,
 h6 {
-  color: #a3c187; /* verde lima para títulos */
+  color: #f0e68c; /* dorado para títulos */
   font-weight: 700;
 }
 
 p {
-  color: #c3d9b5; /* verde claro para párrafos */
+  color: #f0e68c; /* doradopara párrafos */
   font-size: 1rem;
 }
 
 ::selection {
-  background: #8dbf67; /* verde medio para selección */
+  background: #b8c9ff; /* verde medio para selección */
   color: #1a250f; /* texto oscuro */
 }
-
 /* Scrollbar estilo Arcanus */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e2a1f; /* verde oscuro */
+  background: #2a2a1e; /* verde oscuro */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #8dbf67; /* verde medio */
+  background-color: #b6b6b6; /* gris tenue */
   border-radius: 6px;
   border: 2px solid #1e2a1f;
 }
