@@ -1,12 +1,13 @@
 import { useRedireccionar } from "../../assets/functions";
 import { useState, useEffect } from "react";
 import { extraerNoticias } from "../../querys/scripts";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import "./style.css";
 
 const NoticiasInicio = () => {
   const redireccionar = useRedireccionar();
   const [noticias, setNoticias] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     async function cargarNoticias() {
@@ -27,7 +28,7 @@ const NoticiasInicio = () => {
             >
               <NavLink
                 to={`/ver-informacion-completa-noticia/noticia?numero=${elem.id}`}
-                state={{ datos: elem }}
+                state={{ datos: elem, prevPath: location.pathname }}
                 className="link-noticia-lista-noticias-inicio"
               >
                 <h2 className="titulo-noticia-lista-noticias-inicio">

@@ -1,9 +1,11 @@
 import { useLocation } from "react-router";
+import { useRedireccionar } from "../../assets/functions";
 import "./style.css";
 const NoticiaIndividual = () => {
+  const redireccionar = useRedireccionar();
   const location = useLocation().state;
   const data = location?.datos;
-
+  const previusPath = location?.prevPath;
   return (
     <div className="contenedor-noticia-completa">
       {data ? (
@@ -15,9 +17,17 @@ const NoticiaIndividual = () => {
             className="cuerpo-completo-noticia-completa"
             dangerouslySetInnerHTML={{ __html: data.cuerpoCompleto }}
           ></div>
-          <span className="autor-noticia-completa">
-            Autor: {data.autor} | Fecha: {data.fecha}
-          </span>
+          <div className="contenedor">
+            <span className="autor-noticia-completa">
+              Autor: {data.autor} | Fecha: {data.fecha}
+            </span>
+            <button
+              className="return-button"
+              onClick={() => redireccionar(previusPath)}
+            >
+              Volver
+            </button>
+          </div>
         </div>
       ) : location?.datos?.message ? (
         <h1 className="mensaje-error-noticia-completa">

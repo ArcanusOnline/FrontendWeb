@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { extraerNoticias } from "../../querys/scripts";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import "./style.css";
 const NoticiasCompletas = () => {
   const [noticias, setNoticias] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     async function cargarNoticias() {
@@ -24,7 +25,7 @@ const NoticiasCompletas = () => {
             >
               <NavLink
                 to={`/ver-informacion-completa-noticia/noticia?numero=${elem.id}`}
-                state={{ datos: elem }}
+                state={{ datos: elem, prevPath: location.pathname }}
                 className="link-noticia-lista-todas-las-noticias"
               >
                 <h2 className="titulo-noticia-lista-todas-las-noticias">
