@@ -4,7 +4,6 @@ import {
   StaffCard,
   ListadoPersonajes,
   PanelPorPersonaje,
-  ConfigPanelCuenta,
   CambiarEmailPanel,
   CambiarPassPanel,
   BannerInicio,
@@ -62,13 +61,9 @@ function App() {
                 path="lista-de-mis-personajes/:usuario/infoPersonaje"
                 element={<PanelPorPersonaje />}
               />
-              <Route
-                path="configuracion-de-cuenta"
-                element={<ConfigPanelCuenta />}
-              >
-                <Route path="change-password" element={<CambiarPassPanel />} />
-                <Route path="change-email" element={<CambiarEmailPanel />} />
-              </Route>
+              <Route path="change-password" element={<CambiarPassPanel />} />
+              <Route path="change-email" element={<CambiarEmailPanel />} />
+
               <Route
                 path="historial-de-soportes"
                 element={<PaginaSoportes />}

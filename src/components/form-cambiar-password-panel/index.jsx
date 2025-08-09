@@ -156,10 +156,7 @@ const CambiarPassPanel = () => {
         </button>
       </form>
 
-      <Link
-        to="/panel-de-usuario/configuracion-de-cuenta"
-        className="form-link-cambiar-pass-panel"
-      >
+      <Link to="/panel-de-usuario" className="form-link-cambiar-pass-panel">
         ← Volver
       </Link>
     </div>

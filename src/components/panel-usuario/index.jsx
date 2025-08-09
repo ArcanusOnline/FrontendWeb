@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router";
-import { useEffect } from "react";
 import { useAuth } from "../../useContext/useContext";
 import "./style.css";
 
@@ -56,7 +55,25 @@ const PanelComponent = () => {
           Nuevo soporte
         </Link>
       </div>
+      <hr className="panel-pagina-principal-separator" />
 
+      <div className="panel-pagina-principal-section">
+        <h5>Configuracion</h5>
+        <div className="panel-pagina-principal-contenedor">
+          <Link
+            to="/panel-de-usuario/change-password"
+            className="panel-pagina-principal-link"
+          >
+            Cambiar Contraseña
+          </Link>
+          <Link
+            to="/panel-de-usuario/change-email"
+            className="panel-pagina-principal-link"
+          >
+            Cambiar <br></br>Email
+          </Link>
+        </div>
+      </div>
       <hr className="panel-pagina-principal-separator" />
 
       <div className="panel-pagina-principal-section">
@@ -69,18 +86,6 @@ const PanelComponent = () => {
         >
           Reportar un error
         </a>
-      </div>
-
-      <hr className="panel-pagina-principal-separator" />
-
-      <div className="panel-pagina-principal-section">
-        <h5>Configuracion</h5>
-        <Link
-          to="/panel-de-usuario/configuracion-de-cuenta"
-          className="panel-pagina-principal-link"
-        >
-          Configuración de la cuenta
-        </Link>
       </div>
       <hr className="panel-pagina-principal-separator" />
       <button
