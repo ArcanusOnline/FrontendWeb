@@ -149,7 +149,7 @@
     height: 100%;
     width: 75%;
     max-width: 300px;
-    background-color: #112d11;
+    background-color: #121212;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     padding: 2rem 1.5rem;
@@ -157,7 +157,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-left: 2px solid #66bb6a;
+    border-left: 1px solid #f0e68c;
   }
 
   .nav.open {

@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router";
+import { useEffect } from "react";
 import { useAuth } from "../../useContext/useContext";
 import "./style.css";
 
@@ -30,12 +31,6 @@ const PanelComponent = () => {
           {nombre.toUpperCase()}
         </h1>
         <p className="panel-pagina-principal-ultima">{`Última conexión: ${new Date().toLocaleString()}`}</p>
-        <button
-          className="panel-pagina-principal-btn panel-pagina-principal-logout"
-          onClick={desconectar}
-        >
-          CERRAR SESIÓN
-        </button>
       </div>
 
       <hr className="panel-pagina-principal-separator" />
@@ -79,6 +74,7 @@ const PanelComponent = () => {
       <hr className="panel-pagina-principal-separator" />
 
       <div className="panel-pagina-principal-section">
+        <h5>Configuracion</h5>
         <Link
           to="/panel-de-usuario/configuracion-de-cuenta"
           className="panel-pagina-principal-link"
@@ -86,6 +82,13 @@ const PanelComponent = () => {
           Configuración de la cuenta
         </Link>
       </div>
+      <hr className="panel-pagina-principal-separator" />
+      <button
+        className="panel-pagina-principal-btn panel-pagina-principal-logout"
+        onClick={desconectar}
+      >
+        CERRAR SESIÓN
+      </button>
     </div>
   );
 };

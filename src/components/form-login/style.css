@@ -1,5 +1,4 @@
 .form-container-form-login {
-  width: 30%;
   margin: 60px auto;
   background-color: #1a1a1a;
   padding: 30px 25px;
@@ -113,7 +112,7 @@
 /* Responsive */
 @media (min-width: 280px) and (max-width: 980px) {
   .form-container-form-login {
-    min-width: 60%;
+    min-width: 50%;
     padding: 20px;
   }
 

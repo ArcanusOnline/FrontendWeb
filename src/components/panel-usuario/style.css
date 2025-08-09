@@ -2,10 +2,9 @@
 .panel-pagina-principal-container {
   max-width: 600px;
   margin: 2rem auto;
-  background-color: #112d11;
-  border: 2px solid #4caf50;
+  background-color: #1a1a1a;
   border-radius: 10px;
-  box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
   padding: 1.5rem;
   color: #e2ded0;
   font-family: "Cinzel", serif;
@@ -20,7 +19,7 @@
 .panel-pagina-principal-nombre {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #66bb6a;
+  color: #f0e68c;
 }
 
 .panel-pagina-principal-ultima {
@@ -47,15 +46,17 @@
 
 .panel-pagina-principal-section h5 {
   font-size: 1.1rem;
-  color: #66bb6a;
+  color: white;
   margin: 0;
 }
 
 /* Botones */
 .panel-pagina-principal-btn {
   padding: 0.6rem 1.2rem;
-  background-color: #4caf50;
-  color: #e2ded0;
+  background-color: #4b3621;
+  max-width: 200px;
+  text-align: center;
+  color: #f0e68c;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -64,15 +65,20 @@
 }
 
 .panel-pagina-principal-btn:hover {
-  background-color: #66bb6a;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.7);
+  background-color: #5c3d26;
+  color: #fff8dc;
+  box-shadow: 0 0 10px #f0e68c55;
 }
 
 /* Estilos específicos */
 .panel-pagina-principal-logout {
-  width: 50%;
-  max-width: 180px;
-  margin: 0.5rem auto 0;
+  background-color: #6b1e1e; /* vino oscuro */
+  color: #f0e68c;
+}
+.panel-pagina-principal-logout:hover {
+  background-color: #8c2f2f; /* vino más claro */
+  color: #fff8dc;
+  box-shadow: 0 0 10px #f0e68cbb;
 }
 
 .panel-pagina-principal-mis-personajes {
@@ -82,8 +88,11 @@
 
 /* Links estilo botón */
 .panel-pagina-principal-link {
-  color: #e2ded0;
-  background-color: #4caf50;
+  background-color: #4b3621;
+  color: #f0e68c;
+  max-width: 200px;
+  text-align: center;
+  flex: 1;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-weight: 600;
@@ -92,14 +101,15 @@
 }
 
 .panel-pagina-principal-link:hover {
-  background-color: #66bb6a;
+  background-color: #5c3d26;
+  color: #fff8dc;
+  box-shadow: 0 0 10px #f0e68c55;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
   .panel-pagina-principal-section {
     flex-direction: column;
-    align-items: stretch;
   }
 
   .panel-pagina-principal-btn,

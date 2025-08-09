@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { MiniStats } from "../boton-mini-estadisticas";
 import { urlImagenes } from "../../assets/urlImagenes";
 import "./style.css";
