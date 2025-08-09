@@ -7,6 +7,8 @@ import threads from "../resources/images/threads.png";
 import youtube from "../resources/images/youtube.png";
 import instagram from "../resources/images/instagram.png";
 import twitch from "../resources/images/twitch.png";
+import sidebar from "../resources/images/sidebar.png";
+import sidebarClose from "../resources/images/sidebar-close.png";
 
 let urlImagenes = {
   logo,
@@ -18,6 +20,8 @@ let urlImagenes = {
   youtube,
   instagram,
   twitch,
+  sidebar,
+  sidebarClose,
 };
 
 export { urlImagenes };

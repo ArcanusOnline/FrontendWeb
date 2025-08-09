@@ -4,3 +4,9 @@
   gap: 2rem; /* Espacio entre el banner y las noticias */
   padding: 2rem;
 }
+@media (max-width: 768px) {
+  .paginaInicio {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}

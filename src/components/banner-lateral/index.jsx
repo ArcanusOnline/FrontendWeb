@@ -1,11 +1,18 @@
 import { Link } from "react-router";
+import { useState, useRef } from "react";
 import { MiniStats } from "../boton-mini-estadisticas";
+import { urlImagenes } from "../../assets/urlImagenes";
 import "./style.css";
 
 const BannerLateral = () => {
+  const [visible, setVisible] = useState(false);
   return (
-    <>
-      <div className="bannerLateral">
+    <div>
+      {/* Overlay */}
+      {visible && (
+        <div className="overlay" onClick={() => setVisible(false)}></div>
+      )}
+      <div className={`bannerLateral ${visible ? "visible-mobile" : ""}`}>
         <ul>
           <li>
             <Link to="/cuenta">
@@ -26,8 +33,18 @@ const BannerLateral = () => {
             </Link>
           </li>
         </ul>
+        <img
+          src={urlImagenes.sidebarClose}
+          className="sidebar-close"
+          onClick={() => setVisible(!visible)}
+        ></img>
       </div>
-    </>
+      <img
+        src={urlImagenes.sidebar}
+        className="sidebar-open"
+        onClick={() => setVisible(!visible)}
+      ></img>
+    </div>
   );
 };
 

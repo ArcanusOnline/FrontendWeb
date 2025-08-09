@@ -46,10 +46,75 @@
   box-shadow: 0 0 12px #ffd70055; /* glow dorado */
 }
 
+/* buttons para abrir/cerrar el banner lateral mobile */
+
+.sidebar-close {
+  display: none;
+  position: absolute;
+  bottom: 57%;
+  left: 90%;
+}
+
+.sidebar-open {
+  display: none;
+}
+
+/* responsive banner */
+
+@media (max-width: 768px) {
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+  }
+
+  .bannerLateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1002;
+    align-items: center;
+  }
+
+  .bannerLateral.visible-mobile {
+    transform: translateX(0);
+  }
+
+  .sidebar-open {
+    display: block;
+    position: relative;
+    z-index: 1000;
+  }
+  .sidebar-close {
+    display: inherit;
+    position: absolute;
+    top: 0;
+    left: 90%;
+  }
+
+  .bannerLateral ul {
+    padding: 1rem;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .bannerLateral li a {
+    padding: 0.5rem 0.5rem; /* menos espacio */
+    font-size: 0.9rem; /* texto más compacto */
+    border-radius: 4px; /* bordes un poco más rectos */
+  }
+}
+
 /* MiniStats */
 .miniStatsContainer {
   text-align: center;
-  margin-top: 1rem;
 }
 
 .miniStatsContainer button {
@@ -187,4 +252,22 @@
   margin: 0;
   font-weight: 600;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .miniStatsContainer button {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+
+  .miniStatsContainer form {
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  .miniStats-subform fieldset {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
 }

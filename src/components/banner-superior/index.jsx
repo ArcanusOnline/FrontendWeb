@@ -37,6 +37,10 @@ const BannerInicio = () => {
           <img src={urlImagenes.logo} alt="Logo Arcanus" />
         </Link>
       </div>
+      {/* Overlay */}
+      {menuOpen && (
+        <div className="overlay" onClick={() => setMenuOpen(false)}></div>
+      )}
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
         <ul>
           <li>
