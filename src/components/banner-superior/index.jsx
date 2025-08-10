@@ -72,15 +72,6 @@ const BannerInicio = () => {
           </li>
           <li>
             <NavLink
-              to="/top100"
-              onClick={handleLinkClick}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Top 100
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/staff"
               onClick={handleLinkClick}
               className={({ isActive }) => (isActive ? "active" : "")}

@@ -9,6 +9,9 @@ import instagram from "../resources/images/instagram.png";
 import twitch from "../resources/images/twitch.png";
 import sidebar from "../resources/images/sidebar.png";
 import sidebarClose from "../resources/images/sidebar-close.png";
+import medallaBronce from "../resources/images/medalla-bronce.png";
+import medallaPlata from "../resources/images/medalla-plata.png";
+import medallaOro from "../resources/images/medalla-oro.png";
 
 let urlImagenes = {
   logo,
@@ -22,6 +25,9 @@ let urlImagenes = {
   twitch,
   sidebar,
   sidebarClose,
+  medallaBronce,
+  medallaPlata,
+  medallaOro,
 };
 
 export { urlImagenes };

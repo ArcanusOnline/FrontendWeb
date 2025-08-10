@@ -1,11 +1,17 @@
 .lista-ranking-clases {
   padding: 2rem;
-
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
   font-family: "Cinzel", serif;
   color: #e0f2e9;
   border-radius: 12px;
   max-width: 900px;
   margin: 2rem auto;
+}
+
+.lista-rankinkg-clases-container {
+  width: 100%;
 }
 
 .lista-ranking-clases select.rankingSelect {
@@ -15,31 +21,32 @@
   margin-bottom: 2rem;
   font-family: "Cinzel", serif;
   font-size: 1.1rem;
-  border: 2px solid #4caf50;
+  border: 2px solid rgba(143, 143, 143, 0.479);
   border-radius: 8px;
-  background-color: #0c260c;
-  color: #e0f2e9;
+  background-color: #1a1a1a;
+  color: #f5e6c4;
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
 
 .lista-ranking-clases select.rankingSelect:hover,
 .lista-ranking-clases select.rankingSelect:focus {
-  border-color: #66bb6a;
+  border-color: rgba(200, 200, 200, 0.8);
   outline: none;
+  box-shadow: 0 0 8px rgba(200, 200, 200, 0.4);
 }
 
 .lista-ranking-clases table.rankingTable {
   width: 100%;
   border-collapse: collapse;
-  box-shadow: 0 0 15px rgba(76, 175, 80, 0.25);
+  box-shadow: 0 0 14px rgba(192, 192, 192, 0.7); /* plata */
   border-radius: 10px;
   overflow: hidden;
 }
 
 .lista-ranking-clases table.rankingTable thead {
-  background-color: #4caf50;
-  color: #0b1c0b;
+  background-color: #d4af37; /* dorado principal */
+  color: #0b0b0b;
 }
 
 .lista-ranking-clases table.rankingTable thead th {
@@ -47,7 +54,7 @@
   font-weight: 700;
   font-size: 1.1rem;
   text-align: center;
-  border-right: 1px solid #66bb6a;
+  border-right: 1px solid;
 }
 
 .lista-ranking-clases table.rankingTable thead th:last-child {
@@ -55,30 +62,88 @@
 }
 
 .lista-ranking-clases table.rankingTable tbody tr {
-  background-color: #0c260c;
-  border-bottom: 1px solid #225522;
+  background: 
+    /*efecto madera */ repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.08) 0px,
+      rgba(0, 0, 0, 0.08) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    linear-gradient(135deg, #3b2416, #5c3b28);
+  border-bottom: 1px solid rgba(143, 143, 143, 0.479);
   transition: background-color 0.3s ease;
 }
 
 .lista-ranking-clases table.rankingTable tbody tr:hover {
-  background-color: #225522;
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.5); /* glow plateado  */
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.lista-ranking-clases table.rankingTable tbody tr:hover td {
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3); /* leve brillo en texto */
 }
 
 .lista-ranking-clases table.rankingTable tbody td {
   padding: 0.75rem 0.5rem;
   text-align: center;
   font-size: 1rem;
-  color: #c8e6c9;
+  color: #ffffff;
 }
 
 .lista-ranking-clases table.rankingTable tbody td:first-child {
   font-weight: 700;
-  color: #66bb6a;
+  color: #ffffff;
 }
 
 .lista-ranking-clases table.rankingTable tbody td:nth-child(2) {
   font-weight: 600;
-  color: #a5d6a7;
+  color: #ffffff;
+}
+
+.ranking-podio-img {
+  width: 80px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.second {
+  width: 70px;
+}
+
+.third {
+  width: 60px;
+}
+
+.change-ranking-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.change-rankinkg-button {
+  display: block;
+  font-family: "Cinzel", serif;
+  color: #f0e68c;
+  text-decoration: none;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border: 1px solid #f0e68c;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+  box-shadow: inset 0 0 5px transparent;
+}
+
+.change-rankinkg-button:hover {
+  background-color: #2b2b2b;
+  color: #ffd700; /* dorado */
+  box-shadow: 0 0 12px #ffd70055; /* glow dorado */
 }
 
 /* Mensajes de carga, error y sin resultados */
@@ -95,38 +160,70 @@
   font-weight: 700;
 }
 
+/* estilos especificos top 1, 2 y 3 */
+
 .lista-ranking-clases table.rankingTable tbody tr:nth-child(1) td {
   font-size: 1.3rem;
   font-weight: 900;
-  color: gold; /* Verde claro para top 1 */
+  color: gold; /* gold top 1 */
 }
 
 .lista-ranking-clases table.rankingTable tbody tr:nth-child(2) td {
   font-size: 1.15rem;
   font-weight: 800;
-  color:gray; /* Verde un poco menos brillante para top 2 */
+  color: #c0c0c0; /* plata top 2 */
 }
 
 .lista-ranking-clases table.rankingTable tbody tr:nth-child(3) td {
   font-size: 1.05rem;
   font-weight: 700;
-  color: brown; /* Verde más oscuro para top 3 */
+  color: #cd7f32; /* bronce top 3 */
+}
+
+/* estilos especificos de hover */
+.lista-ranking-clases table.rankingTable tbody tr:nth-child(1):hover td {
+  text-shadow: 0 0 6px gold, 0 0 12px gold, 0 0 18px gold, 0 0 24px #ffd700;
+}
+
+.lista-ranking-clases table.rankingTable tbody tr:nth-child(2):hover td {
+  text-shadow: 0 0 6px #c0c0c0, 0 0 12px #d3d3d3, 0 0 18px #e6e6e6,
+    0 0 24px #f0f0f0;
+}
+
+.lista-ranking-clases table.rankingTable tbody tr:nth-child(3):hover td {
+  text-shadow: 0 0 6px #cd7f32, 0 0 12px #c08040, 0 0 18px #b06020,
+    0 0 24px #a05010;
 }
 
 /* Responsive */
 @media (max-width: 700px) {
   .lista-ranking-clases {
     padding: 1rem;
+    flex-direction: column;
+    gap: 2rem;
   }
 
+  /* achicar fonts */
   .lista-ranking-clases select.rankingSelect {
     max-width: 100%;
     font-size: 1rem;
   }
 
+  .lista-ranking-clases table.rankingTable tbody tr:nth-child(1) td {
+    font-size: 1rem;
+  }
+
+  .lista-ranking-clases table.rankingTable tbody tr:nth-child(2) td {
+    font-size: 0.9rem;
+  }
+
+  .lista-ranking-clases table.rankingTable tbody tr:nth-child(3) td {
+    font-size: 0.8rem;
+  }
+
   .lista-ranking-clases table.rankingTable thead th,
   .lista-ranking-clases table.rankingTable tbody td {
-    font-size: 0.9rem;
-    padding: 0.5rem 0.3rem;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.2rem;
   }
 }
