@@ -40,7 +40,7 @@ const RankingPorClases = () => {
           onClick={() => {
             redireccionar("/top100");
           }}
-          className="change-rankinkg-button"
+          className="change-ranking-button"
         >
           Top 100
         </button>
@@ -48,12 +48,12 @@ const RankingPorClases = () => {
           onClick={() => {
             redireccionar("/");
           }}
-          className="change-rankinkg-button"
+          className="change-ranking-button"
         >
           Ranking de Retos
         </button>
       </div>
-      <div className="lista-rankinkg-clases-container">
+      <div className="lista-ranking-clases-container">
         <select
           id="razaRanking"
           className="rankingSelect"

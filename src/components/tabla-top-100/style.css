@@ -1,65 +1,139 @@
 .lista-ranking-cien {
   padding: 1.5rem;
-  color: #e2ded0;
+  color: white;
   font-family: "Cinzel", serif;
   overflow-x: auto;
 }
 
 .lista-ranking-cien table.tableRanking {
   width: 100%;
+  max-width: 800px;
   border-collapse: collapse;
-  text-align: left;
-  box-shadow: 0 0 15px rgba(17, 45, 17, 0.6);
-  background-color: #1a3a1a;
+  margin-top: 2rem;
+  text-align: center;
+  box-shadow: 0 0 14px rgba(192, 192, 192, 0.7); /* plata */
+  background: 
+    /*efecto madera */ repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.08) 0px,
+      rgba(0, 0, 0, 0.08) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    linear-gradient(135deg, #3b2416, #5c3b28);
   border-radius: 8px;
   overflow: hidden;
+}
+
+.lista-ranking-title {
+  text-align: center;
+}
+.lista-ranking-main-container {
+  display: flex;
+  gap: 3rem;
+}
+
+.lista-ranking-buttons-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .lista-ranking-cien table.tableRanking caption {
   font-size: 2rem;
   font-weight: 900;
   padding: 1rem 0;
-  color: #66bb6a;
+  color: #f0e68c;
 }
 
 .lista-ranking-cien table.tableRanking thead th {
   padding: 0.8rem 1rem;
-  background-color: #112d11;
-  color: #a5d6a7;
-  border-bottom: 3px solid #66bb6a;
+  background-color: #d4af37; /* dorado principal */
+  color: #0b0b0b;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 .lista-ranking-cien table.tableRanking tbody tr {
-  border-bottom: 1px solid #4caf50;
+  border-bottom: 1px solid rgba(143, 143, 143, 0.479);
   transition: background-color 0.3s ease;
 }
 
 .lista-ranking-cien table.tableRanking tbody tr:hover {
-  background-color: #2c6f2c;
-  cursor: default;
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.5); /* glow plateado  */
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .lista-ranking-cien table.tableRanking tbody tr td {
   padding: 0.7rem 1rem;
-  color: #cce6cc;
   font-weight: 500;
+}
+.tableRanking tbody tr:nth-child(1) td {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: gold; /* gold top 1 */
+}
+
+.tableRanking tbody tr:nth-child(2) td {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #c0c0c0;
+}
+
+.tableRanking tbody tr:nth-child(3) td {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #cd7f32;
+}
+
+/* hover (texto) */
+.tableRanking tbody tr:nth-child(1):hover td {
+  text-shadow: 0 0 6px gold, 0 0 12px gold, 0 0 18px gold, 0 0 24px #ffd700;
+}
+.tableRanking tbody tr:nth-child(2):hover td {
+  text-shadow: 0 0 6px #c0c0c0, 0 0 12px #d3d3d3, 0 0 18px #e6e6e6,
+    0 0 24px #f0f0f0;
+}
+.tableRanking tbody tr:nth-child(3):hover td {
+  text-shadow: 0 0 6px #cd7f32, 0 0 12px #c08040, 0 0 18px #b06020,
+    0 0 24px #a05010;
+}
+
+/* si quieres que la imagen de la medalla también tenga glow */
+.ranking-podio-img.first {
+  filter: drop-shadow(0 0 8px gold);
+}
+.ranking-podio-img.second {
+  filter: drop-shadow(0 0 8px #c0c0c0);
+}
+.ranking-podio-img.third {
+  filter: drop-shadow(0 0 8px #cd7f32);
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .lista-ranking-cien {
     padding: 1rem 0.5rem;
   }
 
+  .lista-ranking-main-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
   .lista-ranking-cien table.tableRanking caption {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .lista-ranking-cien table.tableRanking thead th,
   .lista-ranking-cien table.tableRanking tbody td {
-    font-size: 0.85rem;
-    padding: 0.5rem 0.8rem;
+    font-size: 0.6rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .lista-ranking-cien table.tableRanking tbody tr td {
+    padding: 0.5rem 0.5rem;
   }
 }
