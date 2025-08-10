@@ -72,6 +72,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .form-btn-form-registrarse:hover {
-  background-color: #a3c187;
   transform: scale(1.03);
 }

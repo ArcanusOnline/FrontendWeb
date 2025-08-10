@@ -65,13 +65,11 @@
 }
 
 .form-button-form-login:hover {
-  background-color: #a3c187;
   transform: scale(1.03);
 }
 
 .form-button-form-login:active {
-  background-color: #76954e;
-  transform: scale(1);
+  transform: scale(1.03);
 }
 
 .form-error-form-login {

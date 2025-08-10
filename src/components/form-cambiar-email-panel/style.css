@@ -1,18 +1,18 @@
 .form-container-cambiar-email-panel {
   max-width: 500px;
-  margin: 20px auto;
+  margin: 25px auto;
   padding: 30px;
-  background-color: #2d3a2c;
+  background-color: #1a1a1a;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(50, 100, 30, 0.7);
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
   color: #d8e9c7;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .form-title-cambiar-email-panel {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #a3c187;
+  color: #f0e68c;
   text-align: center;
   margin-bottom: 25px;
 }
@@ -31,22 +31,23 @@
 
 .form-label-cambiar-email-panel {
   font-weight: 600;
-  color: #b0cc9a;
+  color: white;
 }
 
 .form-input-cambiar-email-panel {
   padding: 10px 12px;
   border-radius: 6px;
-  border: 2px solid #8dbf67;
-  background-color: #223322;
+  background-color: rgb(10, 10, 10);
   color: #d8e9c7;
+  width: 100%;
+  border: 2px solid #f0e68c;
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
 
 .form-input-cambiar-email-panel:focus {
   outline: none;
-  border-color: #a3c187;
+  border-color: #c9c9c9;
   box-shadow: 0 0 6px #a3c187aa;
 }
 
@@ -81,24 +82,22 @@
 
 /* Botón principal */
 .form-button-cambiar-email-panel {
-  background-color: #8dbf67;
+  background: linear-gradient(145deg, #b8860b, #ffd700);
   color: #1a250f;
   font-weight: bold;
   padding: 12px 0;
   border-radius: 8px;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .form-button-cambiar-email-panel:hover {
-  background-color: #a3c187;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .form-button-cambiar-email-panel:active {
-  background-color: #76954e;
-  transform: scale(1);
+  transform: scale(1.03);
 }
 
 /* Link de retorno */
@@ -106,14 +105,14 @@
   display: block;
   margin-top: 20px;
   text-align: center;
-  color: #a3c187;
+  color: white;
   font-weight: 600;
   text-decoration: underline;
   transition: color 0.2s ease;
 }
 
 .form-link-cambiar-email-panel:hover {
-  color: #cdecc3;
+  color: #a3c187;
 }
 
 /* Responsive */
