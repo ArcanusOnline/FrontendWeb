@@ -1,39 +1,44 @@
 .lista-staff {
   padding: 2rem;
-  background: linear-gradient(to bottom, #112d11, #0b1c0b);
   font-family: "Cinzel", serif;
   color: #e0f2e9; /* texto claro, buen contraste */
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(76, 175, 80, 0.3); /* sombra verde medio */
 }
 
 .lista-staff h1 {
   font-size: 2.2rem;
   text-align: center;
-  color: #66bb6a; /* verde claro */
   margin-bottom: 2rem;
 }
 
 .lista-staff .staffCuadro {
-  border: 2px solid #4caf50; /* verde medio */
+  border: 2px solid #c0c0c0; /* plata */
   padding: 1.5rem;
   margin-bottom: 1.8rem;
   border-radius: 8px;
-  background-color: #0c260c; /* fondo interno oscuro verde */
-  box-shadow: inset 0 0 8px rgba(102, 187, 106, 0.25);
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 3px,
+      transparent 3px,
+      transparent 20px
+    ),
+    linear-gradient(135deg, #3b2a20, #1c120b);
+  box-shadow: inset 0 0 10px rgba(192, 192, 192, 0.25),
+    /* brillo plata suave */ 0 4px 10px rgba(0, 0, 0, 0.6); /* sombra externa */
 }
 
 .lista-staff .staffCuadro legend {
   font-size: 1.3rem;
   padding: 0 0.5rem;
-  color: #66bb6a; /* verde claro */
+  color: #ffdd66;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
   font-weight: 600;
 }
 
 .lista-staff ul {
   list-style: none;
   padding-left: 1rem;
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -41,7 +46,7 @@
 
 .lista-staff li {
   font-size: 1rem;
-  color: #ccc;
+  color: white;
   position: relative;
   padding-left: 1.2rem;
 }
@@ -50,7 +55,7 @@
   content: "★";
   position: absolute;
   left: 0;
-  color: #66bb6a;
+  color: #d4af37;
   font-size: 0.9rem;
 }
 
