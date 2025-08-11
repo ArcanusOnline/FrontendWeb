@@ -7,8 +7,8 @@ const isTokenValid = () => {
   if (!token) return false;
   try {
     const payloadBase64url = token.split(".")[1];
-    if(!payloadBase64url) return false;
-    let payloadBase64 = payloadBase64url.replace(/-/g,"+").replace(/_/g,"/")
+    if (!payloadBase64url) return false;
+    let payloadBase64 = payloadBase64url.replace(/-/g, "+").replace(/_/g, "/");
     while (payloadBase64.length % 4 !== 0) {
       payloadBase64 += "=";
     }

@@ -7,8 +7,7 @@ function useRedireccionar() {
     navigate(ruta);
   };
 
-  return redireccionar ;
-
+  return redireccionar;
 }
 
 export { useRedireccionar };

@@ -5,7 +5,7 @@ import head3 from "/heads/97.png";
 import head4 from "/heads/161.png";
 import head5 from "/heads/129.png";
 import { obtenerPromedio } from "../../assets/calculadoraVida";
-import "./style.css"
+import "./style.css";
 
 const CalculadoraDeVida = () => {
   const [selectedRaza, setSelectedRaza] = useState("Humano");
@@ -43,9 +43,11 @@ const CalculadoraDeVida = () => {
             (nivel - 1)
           ).toFixed(1)}`
         );
-        setMostrarResultado(
-          `¡¡FELICITACIONES!! Tu vida supera la vida de un personaje normal de tu raza, clase y nivel!`
-        );
+        setMostrarResultado({
+          tipo: "felicitaciones",
+          texto:
+            "Tu vida supera la vida de un personaje normal de tu raza, clase y nivel!",
+        });
         setvidaPromedio(
           `Tu personaje deberia tener ${(
             nuevoPromedio * (nivel - 1) +
@@ -56,9 +58,11 @@ const CalculadoraDeVida = () => {
           `El promedio de vida que deberías tener es ${nuevoPromedio}`
         );
       } else {
-        setMostrarResultado(
-          `¡¡NO TE DESANIMES!! Tu vida está por debajo del promedio pero con un buen entrenamiento y un poco de suerte podrás alcanzar un mejor promedio.`
-        );
+        setMostrarResultado({
+          tipo: "desanimo",
+          texto:
+            "Tu vida está por debajo del promedio pero con un buen entrenamiento y un poco de suerte podrás alcanzar un mejor promedio.",
+        });
         setPromedioReal(
           `El promedio de vida que deberías tener es ${nuevoPromedio}`
         );
@@ -94,7 +98,17 @@ const CalculadoraDeVida = () => {
         <p>{promedioPersonaje}</p>
         <p>{promedioReal}</p>
         <p>{vidaPromedio}</p>
-        <p>{mostrarResultado}</p>
+        <p>
+          {mostrarResultado.tipo === "felicitaciones" && (
+            <span className="calculadora-up-promedio">¡¡FELICITACIONES!! </span>
+          )}
+          {mostrarResultado.tipo === "desanimo" && (
+            <span className="calculadora-down-promedio">
+              ¡¡NO TE DESANIMES!!{" "}
+            </span>
+          )}
+          {mostrarResultado.texto}
+        </p>
       </div>
 
       <div className="containerCalculadoraSeleccion">
@@ -184,25 +198,29 @@ const CalculadoraDeVida = () => {
       </div>
 
       <div className="contenedorEntradasVida">
-        <label>Vida:</label>
-        <input
-          type="number"
-          name="vida"
-          id="vida"
-          min="1"
-          max="500"
-          onChange={(e) => setVida(e.target.value)}
-        />
+        <label>
+          Vida:
+          <input
+            type="number"
+            name="vida"
+            id="vida"
+            min="1"
+            max="500"
+            onChange={(e) => setVida(e.target.value)}
+          />
+        </label>
 
-        <label>Nivel:</label>
-        <input
-          type="number"
-          name="nivel"
-          id="nivel"
-          min="1"
-          max="47"
-          onChange={(e) => setNivel(e.target.value)}
-        />
+        <label>
+          Nivel:
+          <input
+            type="number"
+            name="nivel"
+            id="nivel"
+            min="1"
+            max="47"
+            onChange={(e) => setNivel(e.target.value)}
+          />
+        </label>
 
         <input type="submit" value="Calcular" onClick={obtenerVidaPromedio} />
       </div>
