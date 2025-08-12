@@ -21,11 +21,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fields.captcha) {
-      setError(true);
-      setErrorLog("Por favor completa el reCAPTCHA");
-      return;
-    }
+    // if (!fields.captcha) {
+    //   setError(true);
+    //   setErrorLog("Por favor completa el reCAPTCHA");
+    //   return;
+    // }
 
     const data = await login(fields.nick, fields.pass, fields.captcha);
 
@@ -89,10 +89,10 @@ const Login = () => {
             </button>
           </div>
         </div>
-        <ReCAPTCHA
+        {/* <ReCAPTCHA
           sitekey={recaptchaPublicKey}
           onChange={handleCaptchaChange}
-        />
+        /> */}
         {error && <p className="form-error-form-login">{errorLog}</p>}
 
         <button type="submit" className="form-button-form-login">
