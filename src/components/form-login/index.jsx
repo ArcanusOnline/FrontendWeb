@@ -3,20 +3,31 @@ import { login } from "../../querys/scripts";
 import { useState } from "react";
 import { useAuth } from "../../useContext/useContext.js";
 import { useRedireccionar } from "../../assets/functions.js";
+import ReCAPTCHA from "react-google-recaptcha"; // react-google-recaptcha wrapper
 import "./style.css";
+const recaptchaPublicKey = import.meta.env.VITE_RECAPTCHA_PUBLIC_KEY;
 
 const Login = () => {
-  const [fields, setFields] = useState({ nick: "", pass: "" });
+  const [fields, setFields] = useState({ nick: "", pass: "", captcha: "" });
   const [errorLog, setErrorLog] = useState("");
   const [error, setError] = useState(false);
   const [mostrarPw, setMostrarPw] = useState(false);
-
   const redireccionar = useRedireccionar();
   const { updateUsername, updateToken } = useAuth();
+  const handleCaptchaChange = (token) => {
+    setFields({ ...fields, captcha: token });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await login(fields.nick, fields.pass);
+
+    if (!fields.captcha) {
+      setError(true);
+      setErrorLog("Por favor completa el reCAPTCHA");
+      return;
+    }
+
+    const data = await login(fields.nick, fields.pass, fields.captcha);
 
     if (data.state === false) {
       setError(true);
@@ -78,7 +89,10 @@ const Login = () => {
             </button>
           </div>
         </div>
-
+        <ReCAPTCHA
+          sitekey={recaptchaPublicKey}
+          onChange={handleCaptchaChange}
+        />
         {error && <p className="form-error-form-login">{errorLog}</p>}
 
         <button type="submit" className="form-button-form-login">

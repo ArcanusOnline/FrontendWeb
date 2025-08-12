@@ -2,7 +2,9 @@ import { Link } from "react-router";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { registrarCuenta } from "../../querys/scripts";
+import ReCAPTCHA from "react-google-recaptcha"; // react-google-recaptcha wrapper
 import "./style.css";
+const recaptchaPublicKey = import.meta.env.VITE_RECAPTCHA_PUBLIC_KEY;
 
 const RegisterPanel = () => {
   let navigate = useNavigate();
@@ -17,6 +19,7 @@ const RegisterPanel = () => {
     Provincia: "",
     FechaNacimiento: "",
     pin: "",
+    captcha: "",
   });
 
   const [mostrarPin, setMostrarPin] = useState(false);
@@ -26,12 +29,19 @@ const RegisterPanel = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value.trim() });
   };
+  const handleCaptchaChange = (token) => {
+    setFormData({ ...formData, captcha: token });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.NombreCuenta || !formData.Clave || !formData.Mail) {
       alert("Por favor completá los campos obligatorios.");
+      return;
+    }
+    if (!formData.captcha) {
+      alert("Por favor completa el reCAPTCHA.");
       return;
     }
 
@@ -49,6 +59,7 @@ const RegisterPanel = () => {
         Provincia: "",
         FechaNacimiento: "",
         pin: "",
+        captcha: "",
       });
     }
   };
@@ -164,6 +175,10 @@ const RegisterPanel = () => {
             {mostrarPin ? "🙈" : "👁️"}
           </button>
         </div>
+        <ReCAPTCHA
+          sitekey={recaptchaPublicKey}
+          onChange={handleCaptchaChange}
+        />
         <button className="form-btn-form-registrarse" type="submit">
           Registrarse
         </button>

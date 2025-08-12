@@ -1,6 +1,6 @@
 const urlBase = import.meta.env.VITE_API_URL;
 
-async function login(nick, pass) {
+async function login(nick, pass, captcha) {
   try {
     let response = await fetch(`${urlBase}/login`, {
       method: "POST",
@@ -10,6 +10,7 @@ async function login(nick, pass) {
       body: JSON.stringify({
         nick: nick,
         pass: pass,
+        captcha: captcha,
       }),
     });
 
@@ -528,6 +529,7 @@ async function registrarCuenta({
   Provincia,
   FechaNacimiento,
   pin,
+  captcha,
 }) {
   try {
     let response = await fetch(`${urlBase}/register`, {
@@ -544,6 +546,7 @@ async function registrarCuenta({
         Provincia,
         FechaNacimiento,
         pin,
+        captcha,
       }),
     });
 
