@@ -23,7 +23,7 @@ const PanelMiniStats = () => {
     } else if (data.PromedioB < 0) {
       setStyle({ backgroundColor: "rgb(255, 0, 0)" }); // Reputación negativa
     } else {
-      setStyle({ backgroundColor: "rgb(51, 10, 199)" }); // Neutro
+      setStyle({ backgroundColor: "rgb(0, 130, 220)" }); // Neutro
     }
   }
 

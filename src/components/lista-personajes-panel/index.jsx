@@ -44,7 +44,6 @@ const ListadoPersonajes = () => {
         );
       }
       let data = await personajesPorCuenta(response);
-
       // Si data es un array
       if (Array.isArray(data)) {
         if (data.length === 0) {
@@ -62,6 +61,17 @@ const ListadoPersonajes = () => {
     traerPersonajes();
   }, [response, paramUsuario, navigate]);
 
+  function colorBanderin(data) {
+    if (data.EjercitoCaosB === 1) {
+      return "rgb(141, 5, 5)"; // Rojo Caos
+    } else if (data.EjercitoRealB === 1) {
+      return "rgb(26, 194, 216)"; // Celeste Real
+    } else if (data.PromedioB < 0) {
+      return "rgb(255, 0, 0)"; // Reputación negativa
+    } else {
+      return "rgb(0, 130, 220)"; // Neutro
+    }
+  }
   const oroFormatter = new Intl.NumberFormat("de-DE", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
@@ -81,7 +91,10 @@ const ListadoPersonajes = () => {
                   alt="head"
                   className="personaje-head-lista-panel-pjs"
                 />
-                <span className="personaje-nick-lista-panel-pjs">
+                <span
+                  className="personaje-nick-lista-panel-pjs"
+                  style={{ color: colorBanderin(elem) }}
+                >
                   {elem.NickB}
                 </span>
               </div>
@@ -147,6 +160,15 @@ const ListadoPersonajes = () => {
                 Ver estadísticas
               </NavLink>
               <button
+                className="btn-link-lista-panel-pjs warning"
+                onClick={() => {
+                  setQuitarPersonaje(!quitarPersonaje);
+                  setNombrePj(elem.NickB);
+                }}
+              >
+                Quitar personaje
+              </button>
+              <button
                 className="btn-link-lista-panel-pjs danger"
                 onClick={async () => {
                   try {
@@ -171,17 +193,6 @@ const ListadoPersonajes = () => {
                   ? "Bloquear personaje"
                   : "Desbloquear personaje"}
               </button>
-
-              <button
-                className="btn-link-lista-panel-pjs warning"
-                onClick={() => {
-                  setQuitarPersonaje(!quitarPersonaje);
-                  setNombrePj(elem.NickB);
-                }}
-              >
-                Quitar personaje
-              </button>
-
               <button
                 className="btn-link-lista-panel-pjs danger"
                 onClick={() => {

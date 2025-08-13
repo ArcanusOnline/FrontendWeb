@@ -65,9 +65,9 @@
 }
 
 .boton-vermas-lista-noticias-inicio {
-  color: #f0e68c;
-  background-color: #4b3621;
-  border: none;
+  background: linear-gradient(to bottom, #3b2d1f, #1f160e); /* cuero oscuro */
+  border: 1.5px solid #d4af37; /* dorado viejo */
+  color: #e6d17d;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   font-family: "Cinzel", serif;
@@ -76,11 +76,11 @@
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  transition: background-color 0.3s;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .boton-vermas-lista-noticias-inicio:hover {
-  background-color: #5c3d26;
-  color: #fff8dc;
-  box-shadow: 0 0 10px #f0e68c55;
+  background: linear-gradient(to bottom, #4d3a21, #2a1f15);
+  color: #ffe97d;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }

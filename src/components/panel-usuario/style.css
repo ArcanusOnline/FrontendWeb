@@ -59,32 +59,35 @@
 /* Botones */
 .panel-pagina-principal-btn {
   padding: 0.6rem 1.2rem;
-  background-color: #4b3621;
+  background: linear-gradient(to bottom, #3b2d1f, #1f160e); /* cuero oscuro */
+  color: #e6d17d; /* dorado viejo */
+  border: 1.5px solid #d4af37; /* borde dorado apagado */
   max-width: 200px;
   text-align: center;
-  color: #f0e68c;
-  border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .panel-pagina-principal-btn:hover {
-  background-color: #5c3d26;
-  color: #fff8dc;
-  box-shadow: 0 0 10px #f0e68c55;
+  background: linear-gradient(to bottom, #4d3a21, #2a1f15);
+  color: #ffe97d;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  transform: translateY(-1px);
 }
 
 /* Estilos específicos */
 .panel-pagina-principal-logout {
-  background-color: #6b1e1e; /* vino oscuro */
-  color: #f0e68c;
+  background: linear-gradient(to bottom, #5c1c1c, #2a0f0f); /* vino oscuro */
+  border: 1.5px solid #c97b63; /* cobre viejo */
+  color: #f4e1c1;
 }
 .panel-pagina-principal-logout:hover {
-  background-color: #8c2f2f; /* vino más claro */
-  color: #fff8dc;
-  box-shadow: 0 0 10px #f0e68cbb;
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 8px rgba(255, 170, 120, 0.4);
 }
 
 .panel-pagina-principal-mis-personajes {
@@ -94,22 +97,24 @@
 
 /* Links estilo botón */
 .panel-pagina-principal-link {
-  background-color: #4b3621;
-  color: #f0e68c;
+  background: linear-gradient(to bottom, #3b2d1f, #1f160e); /* cuero oscuro */
+  border: 1.5px solid #d4af37;
+  color: #e6d17d;
   max-width: 200px;
   text-align: center;
   flex: 1;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
   display: inline-block;
 }
 
 .panel-pagina-principal-link:hover {
-  background-color: #5c3d26;
-  color: #fff8dc;
-  box-shadow: 0 0 10px #f0e68c55;
+  background: linear-gradient(to bottom, #4d3a21, #2a1f15);
+  color: #ffe97d;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  transform: translateY(-1px);
 }
 
 /* Responsive */
