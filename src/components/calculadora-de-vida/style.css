@@ -174,9 +174,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .contenedorEntradasVida input[type="submit"] {
   cursor: pointer;
-  color: #f0e68c;
-  background-color: #4b3621;
-  border: 1px solid #f0e68c;
+  background: linear-gradient(to bottom, #3b2d1f, #1f160e); /* cuero oscuro */
+  border: 1.5px solid #d4af37; /* dorado viejo */
+  color: #e6d17d;
   border-radius: 8px;
   padding: 10px 25px;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -186,9 +186,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .contenedorEntradasVida input[type="submit"]:hover {
-  background-color: #5c3d26;
-  color: #fff8dc;
-  box-shadow: 0 0 10px #f0e68c55;
+  background: linear-gradient(to bottom, #4d3a21, #2a1f15);
+  color: #ffe97d;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
   transform: scale(1.05);
 }
 

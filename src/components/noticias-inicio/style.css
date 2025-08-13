@@ -72,11 +72,10 @@
   font-size: 1rem;
   font-family: "Cinzel", serif;
   border-radius: 6px;
-  border: 1px solid #f0e68c;
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .boton-vermas-lista-noticias-inicio:hover {
