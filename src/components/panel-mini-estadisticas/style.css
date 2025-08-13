@@ -25,6 +25,8 @@
   width: 70px;
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   background-color: var(--color-banderin, #444);
@@ -84,7 +86,7 @@
 }
 
 .nick-panel-mini-estadisticas {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: white;
   padding: 0.5rem;
 }

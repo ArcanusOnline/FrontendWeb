@@ -75,7 +75,6 @@
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  transition: box-shadow 0.3s ease;
 }
 
 .boton-vermas-lista-noticias-inicio:hover {

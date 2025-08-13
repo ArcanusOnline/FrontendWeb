@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 import { useState, useEffect } from "react";
+import { urlImagenes } from "../../assets/urlImagenes";
 import "./style.css";
 
 const PanelMiniStats = () => {
@@ -7,6 +8,7 @@ const PanelMiniStats = () => {
   const [fieldsPj, setFieldsPj] = useState({});
   const datosPj = location.state?.response || {};
   const [style, setStyle] = useState({ backgroundColor: "", color: "" });
+  const [src, setSrc] = useState({ src: null });
 
   useEffect(() => {
     if (datosPj) {
@@ -16,13 +18,27 @@ const PanelMiniStats = () => {
   }, []);
 
   function controlBanderin(data) {
-    if (data.EjercitoCaosB === 1 || data.PromedioB < 0) {
-      setStyle({ backgroundColor: "rgb(141, 5, 5)", color: "rgb(255, 0, 0)" }); // Criminal
+    if (data.EjercitoCaosB === 1) {
+      setStyle({ backgroundColor: "rgb(141, 5, 5)", color: "rgb(141, 5, 5)" }); // Legion
+      setSrc(urlImagenes.escudoLegion);
+    } else if (data.EjercitoRealB === 1) {
+      setStyle({
+        backgroundColor: "rgb(26, 194, 216)",
+        color: "rgb(26, 194, 216)",
+      }); // Armada
+      setSrc(urlImagenes.escudoArmada);
+    } else if (data.PromedioB < 0) {
+      setStyle({
+        backgroundColor: "rgb(255, 0, 0)",
+        color: "rgb(255, 0, 0)",
+      }); // Criminal
+      setSrc(null);
     } else {
       setStyle({
         backgroundColor: "rgb(4,103,171)",
         color: "rgb(0, 130, 220)",
       }); // Ciudadano
+      setSrc(null);
     }
   }
 
@@ -33,13 +49,13 @@ const PanelMiniStats = () => {
         style={{ "--color-banderin": style.backgroundColor }}
       >
         {" "}
+        {src && <img src={src} alt="" />}
         <span className="banderin-texto">ARCANUS</span>
       </div>
       <div className="contenido-panel-mini-estadisticas">
         <div className="titulo-panel-mini-estadisticas">
           <span>Mini estadísticas</span>
         </div>
-
         <table className="tabla-panel-mini-estadisticas">
           <thead>
             <tr>
@@ -127,6 +143,7 @@ const PanelMiniStats = () => {
         className="banderin-panel-mini-estadisticas"
         style={{ "--color-banderin": style.backgroundColor }}
       >
+        {src && <img src={src} alt="" />}
         <span className="banderin-texto">ARCANUS</span>
       </div>
     </div>

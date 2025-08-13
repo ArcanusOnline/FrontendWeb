@@ -12,6 +12,8 @@ import sidebarClose from "../resources/images/sidebar-close.png";
 import medallaBronce from "../resources/images/medalla-bronce.png";
 import medallaPlata from "../resources/images/medalla-plata.png";
 import medallaOro from "../resources/images/medalla-oro.png";
+import escudoLegion from "../resources/images/escudo-legion.png";
+import escudoArmada from "../resources/images/escudo-armada.png";
 
 let urlImagenes = {
   logo,
@@ -28,6 +30,8 @@ let urlImagenes = {
   medallaBronce,
   medallaPlata,
   medallaOro,
+  escudoLegion,
+  escudoArmada,
 };
 
 export { urlImagenes };
