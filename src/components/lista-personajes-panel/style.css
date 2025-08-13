@@ -11,14 +11,16 @@
 }
 
 .personaje-card-lista-panel-pjs {
-  background: repeating-linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.1) 0px,
-      rgba(0, 0, 0, 0.1) 3px,
-      transparent 3px,
-      transparent 20px
-    ),
-    #4d3a21; /* madera  */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
+    /* Patrón de líneas */
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 3px,
+        transparent 3px,
+        transparent 20px
+      ),
+    #47341b; /* madera  */
   box-shadow: inset 0 0 10px rgba(192, 192, 192, 0.25),
     /* brillo plata suave */ 0 4px 10px rgba(0, 0, 0, 0.6); /* sombra externa */
   padding: 1rem;

@@ -4,15 +4,59 @@
   align-items: stretch;
   gap: 1rem;
   margin: 2rem auto;
-  background-color: #112d11;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 3px,
+      transparent 3px,
+      transparent 20px
+    ),
+    #47341b; /* madera  */
+  box-shadow: inset 0 0 10px rgba(192, 192, 192, 0.25),
+    /* brillo plata suave */ 0 4px 10px rgba(0, 0, 0, 0.6); /* sombra externa */
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
   padding: 1rem;
 }
 
+/* estilo banderin medieval con punta inferior */
+
 .banderin-panel-mini-estadisticas {
   width: 70px;
-  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-banderin, #444);
+  border: 2px solid #d4af37;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Punta triangular inferior */
+.banderin-panel-mini-estadisticas::after {
+  content: "";
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-top: 35px solid var(--color-banderin, #444);
+  z-index: 1;
+}
+
+.banderin-texto {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 2;
 }
 
 .contenido-panel-mini-estadisticas {
@@ -23,7 +67,7 @@
 .titulo-panel-mini-estadisticas {
   text-align: center;
   font-size: 1.5rem;
-  color: #66bb6a;
+  color: #f0e68c;
   margin-bottom: 1rem;
 }
 
@@ -31,17 +75,16 @@
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1rem;
-  color: #e0ffe0;
+  color: white;
 }
 
 .tabla-panel-mini-estadisticas td {
   padding: 0.5rem;
-  border-bottom: 1px solid #4caf50;
+  border-bottom: 1px solid #b0b0b0;
 }
 
 .nick-panel-mini-estadisticas {
   font-size: 1.3rem;
-  background-color: #4caf50;
   color: white;
   padding: 0.5rem;
 }
@@ -63,9 +106,15 @@
   font-size: 0.95rem;
   line-height: 1.6;
   padding: 1rem;
-  background-color: rgba(76, 175, 80, 0.1);
-  border: 1px solid #4caf50;
+  background: linear-gradient(
+    to bottom,
+    rgba(212, 175, 55, 0.15) 0%,
+    /* dorado suave */ rgba(71, 52, 27, 0.15) 100% /* marrón muy claro */
+  );
+  border: 1px solid rgb(255 244 209 / 60%);
   border-radius: 6px;
+  color: #f5f5dc;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .texto-azul-panel-mini-estadisticas {

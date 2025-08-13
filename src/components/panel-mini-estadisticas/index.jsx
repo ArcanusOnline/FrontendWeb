@@ -6,7 +6,7 @@ const PanelMiniStats = () => {
   const location = useLocation();
   const [fieldsPj, setFieldsPj] = useState({});
   const datosPj = location.state?.response || {};
-  const [style, setStyle] = useState({ backgroundColor: "" });
+  const [style, setStyle] = useState({ backgroundColor: "", color: "" });
 
   useEffect(() => {
     if (datosPj) {
@@ -16,24 +16,27 @@ const PanelMiniStats = () => {
   }, []);
 
   function controlBanderin(data) {
-    if (data.EjercitoCaosB === 1) {
-      setStyle({ backgroundColor: "rgb(141, 5, 5)" }); // Rojo Caos
-    } else if (data.EjercitoRealB === 1) {
-      setStyle({ backgroundColor: "rgb(26, 194, 216)" }); // Celeste Real
-    } else if (data.PromedioB < 0) {
-      setStyle({ backgroundColor: "rgb(255, 0, 0)" }); // Reputación negativa
+    if (data.EjercitoCaosB === 1 || data.PromedioB < 0) {
+      setStyle({ backgroundColor: "rgb(141, 5, 5)", color: "rgb(255, 0, 0)" }); // Criminal
     } else {
-      setStyle({ backgroundColor: "rgb(0, 130, 220)" }); // Neutro
+      setStyle({
+        backgroundColor: "rgb(4,103,171)",
+        color: "rgb(0, 130, 220)",
+      }); // Ciudadano
     }
   }
 
   return (
     <div className="contenedor-panel-mini-estadisticas">
-      <div className="banderin-panel-mini-estadisticas" style={style}></div>
+      <div
+        className="banderin-panel-mini-estadisticas"
+        style={{ "--color-banderin": style.backgroundColor }}
+      >
+        {" "}
+        <span className="banderin-texto">ARCANUS</span>
+      </div>
       <div className="contenido-panel-mini-estadisticas">
         <div className="titulo-panel-mini-estadisticas">
-          Arcanus Online
-          <br />
           <span>Mini estadísticas</span>
         </div>
 
@@ -47,7 +50,11 @@ const PanelMiniStats = () => {
                     alt="head"
                     className="imagen-raza-panel-mini-estadisticas"
                   />
-                  {fieldsPj.NickB || "NOMBRE"}
+                  {
+                    <legend style={{ color: style.color }}>
+                      {fieldsPj.NickB || "NOMBRE"}
+                    </legend>
+                  }
                 </div>
               </th>
             </tr>
@@ -116,7 +123,12 @@ const PanelMiniStats = () => {
           </p>
         </div>
       </div>
-      <div className="banderin-panel-mini-estadisticas" style={style}></div>
+      <div
+        className="banderin-panel-mini-estadisticas"
+        style={{ "--color-banderin": style.backgroundColor }}
+      >
+        <span className="banderin-texto">ARCANUS</span>
+      </div>
     </div>
   );
 };
