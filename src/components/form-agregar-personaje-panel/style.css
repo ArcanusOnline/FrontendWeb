@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(18, 34, 18, 0.8); /* verde oscuro semitransparente */
+  background: rgb(2 2 2 / 80%); /* verde oscuro semitransparente */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,13 +25,13 @@
 }
 
 .modal-form-agregar-personaje-panel {
-  background: #2d3a2c; /* verde oscuro */
+  background-color: #1a1a1a;
   border-radius: 10px;
   padding: 25px 30px;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 0 12px #76954e88;
-  color: #c3d9b5; /* texto verde claro */
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
+  color: white; /* texto verde claro */
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -44,7 +44,7 @@
 .modal-title-agregar-personaje-panel {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #a3c187; /* verde lima */
+  color: #f0e68c;
   user-select: none;
   text-align: center;
   margin-bottom: 10px;
@@ -53,16 +53,17 @@
 .modal-form-agregar-personaje-panel > label {
   font-weight: 600;
   font-size: 1rem;
-  color: #b0cc9a; /* verde intermedio */
+  color: white;
   user-select: none;
 }
 
 .modal-input-agregar-personaje-panel {
   padding: 8px 12px;
   border-radius: 6px;
-  border: 2px solid #8dbf67;
-  background-color: #223322;
+  background-color: rgb(10, 10, 10);
+  width: 100%;
   color: #d8e9c7;
+  border: 2px solid #f0e68c;
   font-size: 1rem;
   transition: border-color 0.3s ease;
   text-transform: none;
@@ -70,7 +71,7 @@
 
 .modal-input-agregar-personaje-panel:focus {
   outline: none;
-  border-color: #a3c187;
+  border-color: #c9c9c9;
   box-shadow: 0 0 6px #a3c187aa;
 }
 
@@ -92,48 +93,69 @@
 /* Cancel button - rojo */
 .btn-cancelar-agregar-personaje-panel {
   flex: 1;
-  background-color: #bf3b3b; /* rojo peligro */
-  color: #fff;
+  background: linear-gradient(
+    to bottom,
+    #5c1c1c,
+    #2a0f0f
+  ); /* rojo vino apagado */
+  border: 1px solid #c97b63;
+  color: #f4e1c1;
   font-weight: 600;
   padding: 10px 0;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: 2px solid transparent;
   user-select: none;
 }
 
 .btn-cancelar-agregar-personaje-panel:hover {
-  background-color: #d9534f;
-  border-color: #a83232;
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 8px rgba(255, 170, 120, 0.5);
 }
 
 .btn-cancelar-agregar-personaje-panel:active {
-  background-color: #a83232;
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 8px rgba(255, 170, 120, 0.5);
 }
 
 /* Agregar button */
 .btn-agregar-agregar-personaje-panel {
   flex: 1;
-  background-color: #8dbf67;
-  color: #1a250f;
+  background: linear-gradient(to bottom, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border: 1px solid #7fe27f;
   font-weight: 700;
   padding: 10px 0;
   border-radius: 8px;
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: background-color 0.3s ease, transform 0.15s ease;
+  transition: box-shadow 0.3s ease;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(0, 255, 100, 0.3);
   user-select: none;
 }
 
 .btn-agregar-agregar-personaje-panel:hover {
-  background-color: #a3c187;
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
 }
 
 .btn-agregar-agregar-personaje-panel:active {
-  background-color: #76954e;
-  transform: scale(1);
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
+}
+
+.toggle-btn-form-agregar-personaje {
+  position: absolute;
+  right: 10px;
+  top: 65%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #c7e5b1;
 }
 
 /* Responsive */

@@ -82,36 +82,36 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           className="modal-input-agregar-personaje-panel"
           required
         />
-<div className="form-agregar-personaje-panel-wrapped">
-        <label>Contraseña del personaje:</label>
-        <input
-         type={mostrarPw ? "text" : "password"}
-          value={contrasena}
-          onChange={(e) => setContrasena(e.target.value)}
-          className="modal-input-agregar-personaje-panel"
-          required
-        />
-                  <button
+        <div className="form-agregar-personaje-panel-wrapped">
+          <label>Contraseña del personaje:</label>
+          <input
+            type={mostrarPw ? "text" : "password"}
+            value={contrasena}
+            onChange={(e) => setContrasena(e.target.value)}
+            className="modal-input-agregar-personaje-panel"
+            required
+          />
+          <button
             type="button"
             onClick={() => setMostrarPw((prev) => !prev)}
-            className="toggle-btn-form-registrarse"
+            className="toggle-btn-form-agregar-personaje"
           >
             {mostrarPw ? "🙈" : "👁️"}
           </button>
         </div>
-<div className="form-agregar-personaje-panel-wrapped">
-        <label>PIN del personaje:</label>
-        <input
-          type={mostrarPin ? "text" : "password"}
-          value={pin}
-          onChange={(e) => setPin(e.target.value)}
-          className="modal-input-agregar-personaje-panel"
-          required
-        />
-  <button
+        <div className="form-agregar-personaje-panel-wrapped">
+          <label>PIN del personaje:</label>
+          <input
+            type={mostrarPin ? "text" : "password"}
+            value={pin}
+            onChange={(e) => setPin(e.target.value)}
+            className="modal-input-agregar-personaje-panel"
+            required
+          />
+          <button
             type="button"
             onClick={() => setMostrarPin((prev) => !prev)}
-            className="toggle-btn-form-registrarse"
+            className="toggle-btn-form-agregar-personaje"
           >
             {mostrarPin ? "🙈" : "👁️"}
           </button>
@@ -136,15 +136,15 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
         )}
 
         <div className="modal-buttons-agregar-personaje-panel">
+          <button type="submit" className="btn-agregar-agregar-personaje-panel">
+            Agregar
+          </button>
           <button
             type="button"
             className="btn-cancelar-agregar-personaje-panel"
             onClick={handleCancelar}
           >
             Cancelar
-          </button>
-          <button type="submit" className="btn-agregar-agregar-personaje-panel">
-            Agregar
           </button>
         </div>
       </form>
