@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 import { useState, useEffect } from "react";
+import { urlImagenes } from "../../assets/urlImagenes";
 import "./style.css";
 
 const PanelMiniStats = () => {
@@ -48,7 +49,7 @@ const PanelMiniStats = () => {
         style={{ "--color-banderin": style.backgroundColor }}
       >
         {" "}
-        {/* {src && <img src={src} alt="" />} */}
+        {src && <img src={src} alt="" />}
         <span className="banderin-texto">ARCANUS</span>
       </div>
       <div className="contenido-panel-mini-estadisticas">
@@ -142,7 +143,7 @@ const PanelMiniStats = () => {
         className="banderin-panel-mini-estadisticas"
         style={{ "--color-banderin": style.backgroundColor }}
       >
-        {/* {src && <img src={src} alt="" />} */}
+        {src && <img src={src} alt="" />}
         <span className="banderin-texto">ARCANUS</span>
       </div>
     </div>
