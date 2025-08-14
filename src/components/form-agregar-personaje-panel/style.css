@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgb(2 2 2 / 80%); /* verde oscuro semitransparente */
+  background: rgb(2 2 2 / 80%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@
   width: 90%;
   max-width: 400px;
   box-shadow: 0 0 14px rgb(239 215 124 / 70%);
-  color: white; /* texto verde claro */
+  color: white;
   display: flex;
   flex-direction: column;
   gap: 15px;
