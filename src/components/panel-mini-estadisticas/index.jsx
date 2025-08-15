@@ -110,7 +110,7 @@ const PanelMiniStats = () => {
             </tr>
             <tr>
               <td>Baneado:</td>
-              <td>{fieldsPj.BaneadoB ? "Sí" : "No"}</td>
+              <td>{fieldsPj.BanB === 1 ? "Sí" : "No"}</td>
             </tr>
           </tbody>
         </table>
