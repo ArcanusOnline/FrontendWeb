@@ -40,10 +40,10 @@ const RegisterPanel = () => {
       alert("Por favor completá los campos obligatorios.");
       return;
     }
-    // if (!formData.captcha) {
-    //   alert("Por favor completa el reCAPTCHA.");
-    //   return;
-    // }
+    if (!formData.captcha) {
+      alert("Por favor completa el reCAPTCHA.");
+      return;
+    }
 
     const dat = await registrarCuenta(formData);
     if (dat.estado === 1) {
@@ -175,10 +175,10 @@ const RegisterPanel = () => {
             {mostrarPin ? "🙈" : "👁️"}
           </button>
         </div>
-        {/* <ReCAPTCHA
+        <ReCAPTCHA
           sitekey={recaptchaPublicKey}
           onChange={handleCaptchaChange}
-        /> */}
+        />
         <button className="form-btn-form-registrarse" type="submit">
           Registrarse
         </button>
