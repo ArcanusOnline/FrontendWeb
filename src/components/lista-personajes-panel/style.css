@@ -1,3 +1,30 @@
+.modal-overlay-mensaje-global {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 2, 2, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-mensaje-contenido {
+  background-color: #1a1a1a;
+  padding: 30px 35px;
+  border-radius: 10px;
+  box-shadow: 0 0 14px rgba(239, 215, 124, 0.7);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  border: 2px solid;
+}
+
+.modal-mensaje-contenido p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 .container-lista-panel-pjs {
   padding: 2rem;
   border-radius: 12px;

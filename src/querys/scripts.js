@@ -582,7 +582,7 @@ async function quitarPersonajeCuenta(nick) {
       console.error("Error al eliminar personaje:", data.message);
       return { success: false, message: data.message };
     }
-    return data?.message;
+    return data;
   } catch (error) {
     console.error("Error de red o servidor:", error);
     return { success: false, message: "Error al conectar con el servidor." };
