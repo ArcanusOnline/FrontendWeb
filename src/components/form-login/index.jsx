@@ -7,7 +7,6 @@ import ReCAPTCHA from "react-google-recaptcha"; // react-google-recaptcha wrappe
 import "./style.css";
 const recaptchaPublicKey = import.meta.env.VITE_RECAPTCHA_PUBLIC_KEY;
 
-console.log("recaptchaKey: " + recaptchaPublicKey);
 const Login = () => {
   const [fields, setFields] = useState({ nick: "", pass: "", captcha: "" });
   const [errorLog, setErrorLog] = useState("");
