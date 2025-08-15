@@ -1,16 +1,11 @@
 .borrar-modal-overlay-borrar-personaje {
   position: fixed;
   inset: 0;
-  background-color: rgba(
-    10,
-    40,
-    10,
-    0.85
-  ); /* Fondo oscuro verdoso translúcido */
+  background: rgb(2 2 2 / 80%);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -22,15 +17,16 @@
 }
 
 .borrar-modal-contenido-borrar-personaje {
-  background-color: #2d3a2c; /* verde oscuro */
+  background-color: #1a1a1a;
   padding: 25px 30px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(50, 100, 30, 0.7);
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
   max-width: 420px;
   width: 90%;
-  color: #c3d9b5; /* verde claro */
+  color: #cbdcc2;
   text-align: center;
   user-select: none;
+  font-family: "Cinzel", serif;
 }
 
 .borrar-modal-texto-borrar-personaje {
@@ -38,12 +34,7 @@
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 25px;
-  color: #a3c187; /* verde lima */
-}
-
-.borrar-modal-texto-borrar-personaje strong {
-  color: #8dbf67; /* verde más intenso */
-  font-weight: 700;
+  color: #f0e68c;
 }
 
 .borrar-modal-botones-borrar-personaje {
@@ -56,44 +47,54 @@
 .btn-confirmar-borrar-personaje,
 .btn-cancelar-borrar-personaje {
   cursor: pointer;
+  padding: 10px 22px;
   border-radius: 8px;
-  padding: 10px 25px;
-  font-size: 1rem;
   font-weight: 700;
-  border: none;
+  font-size: 1rem;
   min-width: 130px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
   user-select: none;
 }
 
 .btn-confirmar-borrar-personaje {
-  background-color: #bf3b3b; /* rojo peligro */
-  color: #fff;
+  background: linear-gradient(
+    to bottom,
+    #5c1c1c,
+    #2a0f0f
+  ); /* rojo vino apagado */
+  border: 1px solid #c97b63;
+  color: #f4e1c1;
+  box-shadow: 0 0 8px rgba(201, 123, 99, 0.6), 0 0 15px rgba(92, 28, 28, 0.5);
 }
 
 .btn-confirmar-borrar-personaje:hover {
-  background-color: #d9534f;
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 10px rgba(255, 190, 150, 0.7), 0 0 18px rgba(92, 28, 28, 0.6);
 }
 
 .btn-confirmar-borrar-personaje:active {
-  background-color: #a83232;
-  transform: scale(1);
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 10px rgba(255, 190, 150, 0.7), 0 0 18px rgba(92, 28, 28, 0.6);
 }
 
 .btn-cancelar-borrar-personaje {
-  background-color: #8dbf67; /* verde seguro */
-  color: #1a250f;
+  background: linear-gradient(to bottom, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border: 1px solid #7fe27f;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(0, 255, 100, 0.3);
 }
 
 .btn-cancelar-borrar-personaje:hover {
-  background-color: #a3c187;
-  transform: scale(1.05);
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
 }
 
 .btn-cancelar-borrar-personaje:active {
-  background-color: #76954e;
-  transform: scale(1);
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
 }
 
 /* Responsive */

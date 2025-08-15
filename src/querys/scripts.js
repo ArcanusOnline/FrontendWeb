@@ -603,7 +603,7 @@ async function eliminarPersonajeCuenta(nick) {
       console.error("Error al enviar solicitud de eliminación:", data.message);
       return { success: false, message: data.message };
     }
-    return data?.message;
+    return data;
   } catch (error) {
     console.error("Error de red:", error);
     return { success: false, message: "Error al conectar con el servidor." };
