@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { confirmAddCharacterAccount } from "../../querys/scripts";
+import "./style.css";
 
 const ConfirmarAgregarPersonaje = () => {
   const { token } = useParams();

@@ -5,8 +5,6 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background: linear-gradient(135deg, #112d11, #1f4d1f);
-  color: #a5d6a7;
   font-family: "Cinzel", serif;
   text-align: center;
   border-radius: 12px;
@@ -16,8 +14,7 @@
 .confirmar-agregar-pj h2 {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #66bb6a;
-  text-shadow: 0 0 10px #4caf50;
+  color: #f0e68c;
   max-width: 600px;
 }
 

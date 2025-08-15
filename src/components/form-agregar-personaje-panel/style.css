@@ -26,6 +26,7 @@
 
 .modal-form-agregar-personaje-panel {
   background-color: #1a1a1a;
+  position: relative;
   border-radius: 10px;
   padding: 25px 30px;
   width: 90%;
@@ -156,6 +157,28 @@
   font-size: 1.1rem;
   cursor: pointer;
   color: #c7e5b1;
+}
+
+.modal-overlay-mensaje {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a; /* mismo color que el modal para tapar todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+  border: 2px solid; /* color dinámico con inline style */
+  border-radius: 10px;
+}
+
+.modal-overlay-mensaje p {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* Responsive */

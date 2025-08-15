@@ -44,11 +44,6 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
         setContrasena("");
         setPin("");
         setEmail("");
-
-        setTimeout(() => {
-          setVisible(false);
-          setMensajeConfirmacion("");
-        }, 3000);
       } else {
         setMensajeColor("orange");
         setMensajeConfirmacion(mensaje?.message || "Ocurrió un error.");
@@ -57,6 +52,11 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
       console.error("Error al agregar personaje:", error);
       setMensajeColor("orange");
       setMensajeConfirmacion(error?.message || "Ocurrió un error inesperado.");
+    } finally {
+      setTimeout(() => {
+        setVisible(false);
+        setMensajeConfirmacion("");
+      }, 3000);
     }
   };
 
@@ -125,16 +125,6 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
           className="modal-input-agregar-personaje-panel"
           required
         />
-
-        {mensajeConfirmacion && (
-          <p
-            className="modal-message-agregar-personaje-panel"
-            style={{ color: mensajeColor }}
-          >
-            {mensajeConfirmacion}
-          </p>
-        )}
-
         <div className="modal-buttons-agregar-personaje-panel">
           <button type="submit" className="btn-agregar-agregar-personaje-panel">
             Agregar
@@ -147,6 +137,14 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
             Cancelar
           </button>
         </div>
+        {mensajeConfirmacion && (
+          <div
+            className="modal-overlay-mensaje"
+            style={{ border: `2px solid ${mensajeColor}` }}
+          >
+            <p style={{ color: mensajeColor }}>{mensajeConfirmacion}</p>
+          </div>
+        )}
       </form>
     </div>
   );

@@ -1,20 +1,33 @@
 import { quitarPersonajeCuenta } from "../../querys/scripts";
+import { useState } from "react";
 import "./style.css";
 
 const QuitarPersonaje = ({ visible, setVisible, nombrePj }) => {
+  const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
+  const [mensajeColor, setMensajeColor] = useState("lightgreen");
   const handleCancelar = () => {
     setVisible(false);
+    setMensajeConfirmacion("");
   };
 
   const handleConfirmar = async () => {
     try {
       const mensaje = await quitarPersonajeCuenta(nombrePj);
-      alert(mensaje);
+      if (mensaje === "Se removió correctamente el personaje") {
+        setMensajeConfirmacion(mensaje);
+        setMensajeColor("lightgreen");
+      } else {
+        setMensajeColor("orange");
+        setMensajeConfirmacion(mensaje || "Ocurrió un error.");
+      }
     } catch (error) {
-      console.error("Error al quitar personaje:", error);
-      alert("Ocurrió un error al quitar el personaje.");
+      setMensajeConfirmacion("Error");
+      setMensajeColor("red");
     } finally {
-      setVisible(false);
+      setTimeout(() => {
+        setVisible(false);
+        setMensajeConfirmacion("");
+      }, 3000);
     }
   };
 
@@ -26,8 +39,8 @@ const QuitarPersonaje = ({ visible, setVisible, nombrePj }) => {
     >
       <div className="modal-contenido-quitar-pj-panel">
         <h2 className="modal-titulo-quitar-pj-panel">
-          ¿Estás seguro que querés quitar al personaje{" "}
-          <strong>{nombrePj}</strong> de esta cuenta?
+          ¿Estás seguro que querés quitar al personaje {nombrePj} de esta
+          cuenta?
         </h2>
         <div className="modal-botones-quitar-pj-panel">
           <button
@@ -43,6 +56,14 @@ const QuitarPersonaje = ({ visible, setVisible, nombrePj }) => {
             No, cancelar
           </button>
         </div>
+        {mensajeConfirmacion && (
+          <div
+            className="modal-overlay-mensaje"
+            style={{ border: `2px solid ${mensajeColor}` }}
+          >
+            <p style={{ color: mensajeColor }}>{String(mensajeConfirmacion)}</p>
+          </div>
+        )}
       </div>
     </div>
   );
