@@ -1,4 +1,5 @@
 const urlBase = import.meta.env.VITE_API_URL;
+console.log("url base:" + urlBase);
 
 async function login(nick, pass, captcha) {
   try {
