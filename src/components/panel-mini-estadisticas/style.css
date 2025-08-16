@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
+  max-width: 960px;
   gap: 1rem;
   margin: 2rem auto;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),

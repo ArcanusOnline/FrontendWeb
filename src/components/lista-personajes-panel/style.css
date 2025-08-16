@@ -28,6 +28,7 @@
 .container-lista-panel-pjs {
   padding: 2rem;
   border-radius: 12px;
+  max-width: 960px;
   color: white;
   margin: 1rem auto;
 }

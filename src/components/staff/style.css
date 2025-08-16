@@ -3,6 +3,8 @@
   font-family: "Cinzel", serif;
   color: #e0f2e9; /* texto claro, buen contraste */
   border-radius: 10px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .lista-staff h1 {
