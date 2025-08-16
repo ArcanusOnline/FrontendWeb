@@ -15,6 +15,7 @@ import {
   BorrarPersonaje,
   QuitarPersonaje,
   AgregarPersonaje,
+  BloquearPersonaje,
 } from "../../components";
 
 import "./style.css";
@@ -26,7 +27,9 @@ const ListadoPersonajes = () => {
   const response = state?.response; // Evita error si state es null
   const [personajes, setPersonajes] = useState([]);
   const [mensaje, setMensaje] = useState("");
+  const [estatusBloq, setEstatusBloq] = useState(0);
   const [quitarPersonaje, setQuitarPersonaje] = useState(false);
+  const [bloquearPersonaje, setBloquearPersonaje] = useState(false);
   const [borrarPersonaje, setBorrarPersonaje] = useState(false);
   const [agregarPersonaje, setAgregarPersonaje] = useState(false);
 
@@ -84,7 +87,11 @@ const ListadoPersonajes = () => {
       ) : (
         personajes.map((elem, index) => (
           <div key={index} className="personaje-card-lista-panel-pjs">
-            <div className="personaje-info-lista-panel-pjs">
+            <div
+              className={`personaje-info-lista-panel-pjs ${
+                elem.Bloqueado == 1 ? "bloqueado" : ""
+              }`}
+            >
               <div className="personaje-header-lista-panel-pjs">
                 <img
                   src={`/heads/${elem.HeadB}.png`}
@@ -170,23 +177,10 @@ const ListadoPersonajes = () => {
               </button>
               <button
                 className="btn-link-lista-panel-pjs danger"
-                onClick={async () => {
-                  try {
-                    const nuevoEstado = elem.Bloqueado == 0 ? 1 : 0;
-                    const data = await bloquearPersonaje({
-                      usuario: elem.NickB,
-                      status: nuevoEstado,
-                    });
-                    alert(
-                      `${data.message}, debe esperar 1 minuto para poder bloquear/desbloquearlo`
-                    );
-                    setTimeout(() => {
-                      navigate("/panel-de-usuario");
-                    }, 2000);
-                  } catch (error) {
-                    alert("Error al intentar cambiar el estado del personaje.");
-                    console.error(error);
-                  }
+                onClick={() => {
+                  setBloquearPersonaje(!bloquearPersonaje);
+                  setNombrePj(elem.NickB);
+                  setEstatusBloq(elem.Bloqueado == 0 ? 1 : 0);
                 }}
               >
                 {elem.Bloqueado == 0
@@ -211,6 +205,12 @@ const ListadoPersonajes = () => {
         visible={quitarPersonaje}
         setVisible={setQuitarPersonaje}
         nombrePj={nombrePj}
+      />
+      <BloquearPersonaje
+        visible={bloquearPersonaje}
+        setVisible={setBloquearPersonaje}
+        nombrePj={nombrePj}
+        estadoBloq={estatusBloq}
       />
       <BorrarPersonaje
         visible={borrarPersonaje}

@@ -94,6 +94,32 @@
   flex-wrap: wrap;
   margin-top: 1rem;
 }
+.personaje-info-lista-panel-pjs.bloqueado {
+  position: relative; /* necesario para overlay */
+  opacity: 0.5; /* efecto apagado */
+  filter: grayscale(100%); /* sin color */
+  pointer-events: none; /* deshabilitar clics */
+}
+
+.personaje-info-lista-panel-pjs.bloqueado::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* capa oscura */
+  border-radius: 10px; /* igual al de la card */
+}
+
+.personaje-info-lista-panel-pjs.bloqueado::after {
+  content: "🔒";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: rgba(255, 0, 0, 0.9);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  pointer-events: none; /* no intercepta clics */
+}
 
 .btn-link-lista-panel-pjs {
   background: linear-gradient(to bottom, #3b2d1f, #1f160e); /* cuero oscuro */

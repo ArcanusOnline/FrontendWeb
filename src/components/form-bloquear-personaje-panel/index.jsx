@@ -1,25 +1,32 @@
-import { eliminarPersonajeCuenta } from "../../querys/scripts";
+import { bloquearPersonaje } from "../../querys/scripts";
 import { useState } from "react";
+import { useRedireccionar } from "../../assets/functions";
 import "./style.css";
 
-const BorrarPersonaje = ({ visible, setVisible, nombrePj }) => {
+const BloquearPersonaje = ({ visible, setVisible, nombrePj, estadoBloq }) => {
   const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
   const [mensajeColor, setMensajeColor] = useState("lightgreen");
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
+  const redireccionar = useRedireccionar();
   const handleCancelar = () => {
     setVisible(false);
     setMensajeConfirmacion("");
   };
 
   const handleConfirmar = async () => {
+    let shouldRedirect = false;
     try {
-      const mensaje = await eliminarPersonajeCuenta(nombrePj);
-      if (mensaje.state === 1) {
-        setMensajeConfirmacion(mensaje.message);
+      const data = await bloquearPersonaje({
+        usuario: nombrePj,
+        status: estadoBloq,
+      });
+      if (data.error === 0) {
+        setMensajeConfirmacion(data.message);
         setMensajeColor("lightgreen");
+        shouldRedirect = true;
       } else {
         setMensajeColor("orange");
-        setMensajeConfirmacion(mensaje.message || "Ocurrió un error.");
+        setMensajeConfirmacion(data?.message || "Ocurrió un error.");
       }
     } catch (error) {
       setMensajeConfirmacion(
@@ -33,6 +40,9 @@ const BorrarPersonaje = ({ visible, setVisible, nombrePj }) => {
       setTimeout(() => {
         setMostrarMensaje(false);
         setMensajeConfirmacion("");
+        if (shouldRedirect) {
+          redireccionar("/panel-de-usuario");
+        }
       }, 3000);
     }
   };
@@ -40,24 +50,25 @@ const BorrarPersonaje = ({ visible, setVisible, nombrePj }) => {
   return (
     <>
       <div
-        className={`borrar-modal-overlay-borrar-personaje ${
+        className={`bloquear-modal-overlay-bloquear-personaje ${
           visible ? "visible" : "hidden"
         }`}
       >
-        <div className="borrar-modal-contenido-borrar-personaje">
-          <h2 className="borrar-modal-texto-borrar-personaje">
-            ¿Estás seguro de que querés borrar al personaje {nombrePj} de forma
-            permanente?
+        <div className="bloquear-modal-contenido-bloquear-personaje">
+          <h2 className="bloquear-modal-texto-bloquear-personaje">
+            ¿Estás seguro de que querés{" "}
+            {estadoBloq == 1 ? "bloquear" : "desbloquear"} al personaje{" "}
+            {nombrePj}?
           </h2>
-          <div className="borrar-modal-botones-borrar-personaje">
+          <div className="bloquear-modal-botones-bloquear-personaje">
             <button
-              className="btn-confirmar-borrar-personaje"
+              className="btn-confirmar-bloquear-personaje"
               onClick={handleConfirmar}
             >
-              Sí, quitar
+              Sí, {estadoBloq == 1 ? "bloquear" : "desbloquear"}
             </button>
             <button
-              className="btn-cancelar-borrar-personaje"
+              className="btn-cancelar-bloquear-personaje"
               onClick={handleCancelar}
             >
               No, cancelar
@@ -79,4 +90,4 @@ const BorrarPersonaje = ({ visible, setVisible, nombrePj }) => {
   );
 };
 
-export { BorrarPersonaje };
+export { BloquearPersonaje };

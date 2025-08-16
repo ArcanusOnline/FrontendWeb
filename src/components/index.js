@@ -10,6 +10,7 @@ export { FormularioCambiarPasswordRecu } from "./form-cambiar-pw-recuperada";
 export { FormularioCambiarPasswordRecuPersonaje } from "./form-cambiar-pw-recuPj";
 export { Login } from "./form-login";
 export { QuitarPersonaje } from "./form-quitar-personaje-panel";
+export { BloquearPersonaje } from "./form-bloquear-personaje-panel";
 export { RecuperarCuenta } from "./form-recuperar-cuenta";
 export { RecuperarPersonaje } from "./form-recuperar-personaje";
 export { RegisterPanel } from "./form-registrarse";
