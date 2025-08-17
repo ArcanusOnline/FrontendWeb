@@ -7,7 +7,7 @@
 
 .lista-ranking-cien table.tableRanking {
   width: 100%;
-  max-width: 800px;
+  max-width: 850px;
   border-collapse: collapse;
   margin-top: 2rem;
   text-align: center;
@@ -24,15 +24,14 @@
   border-radius: 8px;
   overflow: hidden;
 }
-
 .lista-ranking-title {
   text-align: center;
 }
 .lista-ranking-main-container {
   display: flex;
   gap: 2rem;
+  justify-content: center;
 }
-
 .lista-ranking-buttons-container {
   margin-top: 2rem;
   display: flex;
