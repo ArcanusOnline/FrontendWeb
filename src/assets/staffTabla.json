@@ -1,16 +1,32 @@
-[
-  {
-    "rango": "Directores",
-    "users": ["Gonzalo (Aygron)", "Tomás (Nitherem)", "Brian (Naerib)"]
-  },
-  {
-    "rango": "Programacion del Juego",
-    "users": ["Gonzalo (Aygron)", "Axel", "Tomás (Nitherem)", "Brian (Naerib)"]
-  },
-  {
-    "rango": "Desarrollo Web",
-    "users": ["Brian (Naerib)", "Santiago (Sket)"]
-  },
-  { "rango": "Diseño", "users": ["Tomas (Beli)"] }
-]
-
+{
+  "staff": [
+    {
+      "rango": "Directores",
+      "users": ["Gonzalo (Aygron)", "Tomás (Nitherem)", "Brian (Naerib)"]
+    },
+    {
+      "rango": "Programacion del Juego",
+      "users": [
+        "Gonzalo (Aygron)",
+        "Axel",
+        "Tomás (Nitherem)",
+        "Brian (Naerib)"
+      ]
+    },
+    {
+      "rango": "Desarrollo Web",
+      "users": ["Brian (Naerib)", "Santiago (Sket)"]
+    },
+    { "rango": "Diseño", "users": ["Tomas (Beli)"] }
+  ],
+  "agradecimientos": [
+    {
+      "name": "Pepito",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel malesuada ipsum, eget pellentesque lacus. Pellentesque condimentum, diam vel egestas accumsan, tortor ligula fermentum dui, non condimentum elit augue at massa. Fusce porttitor feugiat ipsum, id tempus nibh ultrices quis. Aenean semper pretium quam sed suscipit. Suspendisse eget interdum massa, ut dictum mauris. Maecenas volutpat ornare porta."
+    },
+    {
+      "name": "Pom",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel malesuada ipsum, eget pellentesque lacus. Pellentesque condimentum, diam vel egestas accumsan, tortor ligula fermentum dui, non condimentum elit augue at massa. Fusce porttitor feugiat ipsum, id tempus nibh ultrices quis. Aenean semper pretium quam sed suscipit. Suspendisse eget interdum massa, ut dictum mauris. Maecenas volutpat ornare porta."
+    }
+  ]
+}

@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import staffDatos from "../../assets/staffTabla.json";
 
 const StaffCard = () => {
-  const [tablaRangos, setTablaRangos] = useState(staffDatos);
+  const [tablaRangos, setTablaRangos] = useState(staffDatos.staff);
+  const [agradecimientos, setAgradecimientos] = useState(
+    staffDatos.agradecimientos
+  );
   const [tablaDioses, setTablaDioses] = useState([]);
   const [tablaSemiDioses, setTablaSemiDioses] = useState([]);
   const [tablaConsejeros, setConsejeros] = useState([]);
@@ -113,6 +116,20 @@ const StaffCard = () => {
           ))
         ) : (
           <p>Sin info</p>
+        )}
+        {Array.isArray(agradecimientos) && agradecimientos.length > 0 ? (
+          <fieldset className="staffCuadro">
+            <legend>Agradecimientos</legend>
+            <ul>
+              {agradecimientos.map((elem, ind) => (
+                <li key={ind}>
+                  <strong>{elem.name}</strong>: {elem.message}
+                </li>
+              ))}
+            </ul>
+          </fieldset>
+        ) : (
+          <p>Sin agradecimientos</p>
         )}
       </div>
     </>
