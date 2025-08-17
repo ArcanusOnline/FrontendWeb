@@ -1,11 +1,11 @@
-.lista-ranking-cien {
+.lista-ranking-retos {
   padding: 1.5rem;
   color: white;
   font-family: "Cinzel", serif;
   overflow-x: auto;
 }
 
-.lista-ranking-cien table.tableRanking {
+.lista-ranking-retos table.tableRanking {
   width: 100%;
   max-width: 800px;
   border-collapse: collapse;
@@ -40,14 +40,14 @@
   gap: 2rem;
 }
 
-.lista-ranking-cien table.tableRanking caption {
+.lista-ranking-retos table.tableRanking caption {
   font-size: 2rem;
   font-weight: 900;
   padding: 1rem 0;
   color: #f0e68c;
 }
 
-.lista-ranking-cien table.tableRanking thead th {
+.lista-ranking-retos table.tableRanking thead th {
   padding: 0.8rem 1rem;
   background-color: #d4af37; /* dorado principal */
   color: #0b0b0b;
@@ -55,19 +55,19 @@
   font-weight: 700;
 }
 
-.lista-ranking-cien table.tableRanking tbody tr {
+.lista-ranking-retos table.tableRanking tbody tr {
   border-bottom: 1px solid rgba(143, 143, 143, 0.479);
   transition: background-color 0.3s ease;
 }
 
-.lista-ranking-cien table.tableRanking tbody tr:hover {
+.lista-ranking-retos table.tableRanking tbody tr:hover {
   box-shadow: 0 0 10px rgba(192, 192, 192, 0.5); /* glow plateado  */
   position: relative;
   z-index: 1;
   transition: box-shadow 0.2s ease-in-out;
 }
 
-.lista-ranking-cien table.tableRanking tbody tr td {
+.lista-ranking-retos table.tableRanking tbody tr td {
   padding: 0.7rem 1rem;
   font-weight: 500;
 }
@@ -102,19 +102,9 @@
     0 0 24px #a05010;
 }
 
-.ranking-podio-img.first {
-  filter: drop-shadow(0 0 8px gold);
-}
-.ranking-podio-img.second {
-  filter: drop-shadow(0 0 8px #c0c0c0);
-}
-.ranking-podio-img.third {
-  filter: drop-shadow(0 0 8px #cd7f32);
-}
-
 /* Responsive */
 @media (max-width: 860px) {
-  .lista-ranking-cien {
+  .lista-ranking-retos {
     padding: 1rem 0.5rem;
   }
 
@@ -122,17 +112,17 @@
     flex-direction: column;
     gap: 1.5rem;
   }
-  .lista-ranking-cien table.tableRanking caption {
+  .lista-ranking-retos table.tableRanking caption {
     font-size: 1.2rem;
   }
 
-  .lista-ranking-cien table.tableRanking thead th,
-  .lista-ranking-cien table.tableRanking tbody td {
+  .lista-ranking-retos table.tableRanking thead th,
+  .lista-ranking-retos table.tableRanking tbody td {
     font-size: 0.6rem;
     padding: 0.5rem 0.5rem;
   }
 
-  .lista-ranking-cien table.tableRanking tbody tr td {
+  .lista-ranking-retos table.tableRanking tbody tr td {
     padding: 0.5rem 0.5rem;
   }
 }

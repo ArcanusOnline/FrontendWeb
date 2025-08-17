@@ -13,6 +13,7 @@ import {
   RegisterPanel,
   Ranking,
   RankingPorClases,
+  RankingRetos,
   PanelMiniStats,
   NoticiasCompletas,
   RecuperarCuenta,
@@ -75,6 +76,7 @@ function App() {
           ;
           <Route path="/registrarse" element={<RegisterPanel />} />
           <Route path="/top100" element={<Ranking />} />
+          <Route path="/ranking-retos" element={<RankingRetos />} />
           <Route path="/lista-de-descargas" element={<PaginaDescarga />} />
           <Route path="/ranking" element={<RankingPorClases />} />
           <Route path="/ver-personaje" element={<PanelMiniStats />} />

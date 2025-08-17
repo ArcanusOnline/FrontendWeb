@@ -46,7 +46,7 @@ const RankingPorClases = () => {
         </button>
         <button
           onClick={() => {
-            redireccionar("/");
+            redireccionar("/ranking-retos");
           }}
           className="change-ranking-button"
         >

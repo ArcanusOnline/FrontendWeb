@@ -69,6 +69,32 @@ async function getTop100() {
   }
 }
 
+async function getRankingRetos() {
+  try {
+    let response = await fetch(`${urlBase}/obtener-ranking-retos`);
+
+    // Si la respuesta no es ok, devolver mensaje de error
+    if (!response.ok) {
+      return { message: "Hubo un error al cargar el ranking", state: false };
+    }
+
+    // Parsear la respuesta en formato JSON
+    let data = await response.json();
+
+    // Si no hay datos en el ranking de retos, devolver un mensaje
+    if (data.ranking.length === 0) {
+      return { message: "No hay datos para mostrar", state: false };
+    }
+
+    // Si todo está bien, devolver el ranking con estado true
+    return data.ranking;
+  } catch (error) {
+    // Capturar errores de la llamada fetch
+    console.error("Hubo un error al conectarse con el servidor:", error);
+    return { message: "Error al conectarse con el servidor", state: false };
+  }
+}
+
 async function comenzarDescarga() {
   try {
     let response = await fetch(`${urlBase}/download`);
@@ -944,6 +970,7 @@ async function obtenerRangosGms() {
 export {
   login,
   getTop100,
+  getRankingRetos,
   comenzarDescarga,
   rankingPorClases,
   showMiniStats,

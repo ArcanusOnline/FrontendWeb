@@ -1,24 +1,22 @@
-import { calcularExp } from "../../assets/calculadoraExp";
-import { getTop100 } from "../../querys/scripts";
+import { getRankingRetos } from "../../querys/scripts";
 import { useState, useEffect } from "react";
 import { urlImagenes } from "../../assets/urlImagenes";
 import { useRedireccionar } from "../../assets/functions";
 import "./style.css";
 
-const Ranking = () => {
+const RankingRetos = () => {
   let [ranking, setRanking] = useState([]);
   const redireccionar = useRedireccionar();
 
   useEffect(() => {
     async function getRank() {
       try {
-        let response = await getTop100();
+        let response = await getRankingRetos();
         if (response) {
           let topActualizado = [];
           response.map((elem) => {
             topActualizado.push({
               ...elem,
-              EXPB: calcularExp(elem.ELVB, elem.EXPB),
             });
           });
           setRanking(topActualizado);
@@ -32,10 +30,8 @@ const Ranking = () => {
   }, []);
 
   return (
-    <div className="lista-ranking-cien">
-      <h1 className="lista-ranking-title">
-        Los Personajes mas Poderosos de Arcanus
-      </h1>
+    <div className="lista-ranking-retos">
+      <h1 className="lista-ranking-title">Ranking de Retos</h1>
       <div className="lista-ranking-main-container">
         <div className="lista-ranking-buttons-container">
           <button
@@ -48,11 +44,11 @@ const Ranking = () => {
           </button>
           <button
             onClick={() => {
-              redireccionar("/ranking-retos");
+              redireccionar("/top100");
             }}
             className="change-ranking-button"
           >
-            Ranking de Retos
+            Top 100
           </button>
         </div>
         <table className="tableRanking">
@@ -60,10 +56,10 @@ const Ranking = () => {
             <tr>
               <th>POS.</th>
               <th>NICK</th>
-              <th>LvL</th>
-              <th>CLASE</th>
-              <th>CLAN</th>
-              <th>EXP%</th>
+              <th>RETOS GANADOS</th>
+              <th>RETOS PERDIDOS</th>
+              <th>ORO GANADO</th>
+              <th>ORO PERDIDO</th>
             </tr>
           </thead>
           <tbody>
@@ -101,12 +97,10 @@ const Ranking = () => {
                   <tr key={index}>
                     <td>{posicion}</td>
                     <td>{elem.NickB.toUpperCase()}</td>
-                    <td>{elem.ELVB}</td>
-                    <td>{elem.ClaseB.toUpperCase()}</td>
-                    <td>
-                      {elem.nombreClan == null ? "SIN CLAN" : elem.nombreClan}
-                    </td>
-                    <td>{elem.ELVB < 47 ? `${elem.EXPB}%` : "-"}</td>
+                    <td>{elem.RG}</td>
+                    <td>{elem.RP}</td>
+                    <td>{elem.OG}</td>
+                    <td>{elem.OP}</td>
                   </tr>
                 );
               })
@@ -124,4 +118,4 @@ const Ranking = () => {
   );
 };
 
-export { Ranking };
+export { RankingRetos };
