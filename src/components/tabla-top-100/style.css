@@ -102,16 +102,6 @@
     0 0 24px #a05010;
 }
 
-.ranking-podio-img.first {
-  filter: drop-shadow(0 0 8px gold);
-}
-.ranking-podio-img.second {
-  filter: drop-shadow(0 0 8px #c0c0c0);
-}
-.ranking-podio-img.third {
-  filter: drop-shadow(0 0 8px #cd7f32);
-}
-
 /* Responsive */
 @media (max-width: 860px) {
   .lista-ranking-cien {

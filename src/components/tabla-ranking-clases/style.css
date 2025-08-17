@@ -105,6 +105,7 @@
 
 .ranking-podio-img {
   width: 80px;
+  max-width: none;
   height: auto;
   margin: 0 auto;
 }
@@ -115,6 +116,16 @@
 
 .third {
   width: 60px;
+}
+
+.ranking-podio-img.first {
+  filter: drop-shadow(0 0 8px gold);
+}
+.ranking-podio-img.second {
+  filter: drop-shadow(0 0 8px #c0c0c0);
+}
+.ranking-podio-img.third {
+  filter: drop-shadow(0 0 8px #cd7f32);
 }
 
 .change-ranking-buttons-container {
