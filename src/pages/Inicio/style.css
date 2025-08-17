@@ -3,6 +3,8 @@
   align-items: flex-start; /* Alinea los inicios de ambos componentes */
   gap: 2rem; /* Espacio entre el banner y las noticias */
   padding: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 @media (max-width: 768px) {
   .paginaInicio {
