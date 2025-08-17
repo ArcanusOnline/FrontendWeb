@@ -130,10 +130,10 @@
   .lista-ranking-cien table.tableRanking thead th,
   .lista-ranking-cien table.tableRanking tbody td {
     font-size: 0.8rem;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.2rem;
   }
 
   .lista-ranking-cien table.tableRanking tbody tr td {
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0rem;
   }
 }

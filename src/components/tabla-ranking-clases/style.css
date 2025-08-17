@@ -239,17 +239,17 @@
   }
 
   .ranking-podio-img {
-    width: 60px;
+    width: 50px;
     max-width: none;
     height: auto;
     margin: 0 auto;
   }
 
   .second {
-    width: 55px;
+    width: 45px;
   }
 
   .third {
-    width: 45px;
+    width: 40px;
   }
 }
