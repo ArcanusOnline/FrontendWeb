@@ -71,19 +71,19 @@
   padding: 0.7rem 1rem;
   font-weight: 500;
 }
-.lista-ranking-retos table.tableRanking tbody tr:nth-child(1) td {
+.tableRanking tbody tr:nth-child(1) td {
   font-size: 1.3rem;
   font-weight: 900;
   color: gold; /* gold top 1 */
 }
 
-.lista-ranking-retos table.tableRanking tbody tr:nth-child(2) td {
+.tableRanking tbody tr:nth-child(2) td {
   font-size: 1.15rem;
   font-weight: 800;
   color: #c0c0c0;
 }
 
-.lista-ranking-retos table.tableRanking tbody tr:nth-child(3) td {
+.tableRanking tbody tr:nth-child(3) td {
   font-size: 1.05rem;
   font-weight: 700;
   color: #cd7f32;
@@ -116,13 +116,24 @@
     font-size: 1.2rem;
   }
 
-  .lista-ranking-retos table.tableRanking thead th,
-  .lista-ranking-retos table.tableRanking tbody td {
+  .lista-ranking-retos table.tableRanking tbody tr:nth-child(1) td {
     font-size: 0.8rem;
-    padding: 0.5rem 0.5rem;
   }
 
+  .lista-ranking-retos table.tableRanking tbody tr:nth-child(2) td {
+    font-size: 0.75rem;
+  }
+
+  .lista-ranking-retos table.tableRanking tbody tr:nth-child(3) td {
+    font-size: 0.7rem;
+  }
+
+  .lista-ranking-retos table.tableRanking thead th,
+  .lista-ranking-retos table.tableRanking tbody td {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.1rem;
+  }
   .lista-ranking-retos table.tableRanking tbody tr td {
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.1rem;
   }
 }

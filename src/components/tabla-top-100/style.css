@@ -115,15 +115,15 @@
     font-size: 1.2rem;
   }
 
-  .lista-ranking-cien table.rankingTable tbody tr:nth-child(1) td {
+  .lista-ranking-cien table.tableRanking tbody tr:nth-child(1) td {
     font-size: 0.9rem;
   }
 
-  .lista-ranking-cien table.rankingTable tbody tr:nth-child(2) td {
-    font-size: 0.8rem;
+  .lista-ranking-cien table.tableRanking tbody tr:nth-child(2) td {
+    font-size: 0.85rem;
   }
 
-  .lista-ranking-cien table.rankingTable tbody tr:nth-child(3) td {
+  .lista-ranking-cien table.tableRanking tbody tr:nth-child(3) td {
     font-size: 0.8rem;
   }
 
