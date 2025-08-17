@@ -115,9 +115,21 @@
     font-size: 1.2rem;
   }
 
+  .lista-ranking-cien table.rankingTable tbody tr:nth-child(1) td {
+    font-size: 0.9rem;
+  }
+
+  .lista-ranking-cien table.rankingTable tbody tr:nth-child(2) td {
+    font-size: 0.8rem;
+  }
+
+  .lista-ranking-cien table.rankingTable tbody tr:nth-child(3) td {
+    font-size: 0.8rem;
+  }
+
   .lista-ranking-cien table.tableRanking thead th,
   .lista-ranking-cien table.tableRanking tbody td {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     padding: 0.5rem 0.5rem;
   }
 

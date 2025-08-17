@@ -221,11 +221,11 @@
   }
 
   .lista-ranking-clases table.rankingTable tbody tr:nth-child(1) td {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .lista-ranking-clases table.rankingTable tbody tr:nth-child(2) td {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .lista-ranking-clases table.rankingTable tbody tr:nth-child(3) td {
@@ -236,5 +236,20 @@
   .lista-ranking-clases table.rankingTable tbody td {
     font-size: 0.8rem;
     padding: 0.4rem 0.2rem;
+  }
+
+  .ranking-podio-img {
+    width: 60px;
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .second {
+    width: 55px;
+  }
+
+  .third {
+    width: 45px;
   }
 }
