@@ -31,7 +31,15 @@ const Login = () => {
 
     if (data.state === false) {
       setError(true);
-      setErrorLog(data.message);
+      if (data.message.includes("nick")) {
+        setErrorLog(
+          <>
+            {data.message}
+            <br />
+            Recordá que el nick no puede tener espacios
+          </>
+        );
+      }
       return;
     }
 
