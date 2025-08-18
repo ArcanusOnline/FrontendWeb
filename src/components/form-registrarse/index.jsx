@@ -27,7 +27,7 @@ const RegisterPanel = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value.trim() });
+    setFormData({ ...formData, [name]: value });
   };
   const handleCaptchaChange = (token) => {
     setFormData({ ...formData, captcha: token });
