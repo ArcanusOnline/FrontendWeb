@@ -11,6 +11,7 @@ import { personajesPorCuenta, bloquearPersonaje } from "../../querys/scripts";
 import { calcularExp } from "../../assets/calculadoraExp";
 import { obtenerPromedio } from "../../assets/calculadoraVida";
 import { devolverExp } from "../../assets/indiceExp";
+import { useRedireccionar } from "../../assets/functions";
 import {
   BorrarPersonaje,
   QuitarPersonaje,
@@ -23,6 +24,7 @@ import "./style.css";
 const ListadoPersonajes = () => {
   const { state } = useLocation();
   const { usuario: paramUsuario } = useParams();
+  const redireccionar = useRedireccionar();
   const navigate = useNavigate();
   const response = state?.response; // Evita error si state es null
   const [personajes, setPersonajes] = useState([]);
@@ -222,13 +224,21 @@ const ListadoPersonajes = () => {
         setVisible={setAgregarPersonaje}
         nombreCuenta={paramUsuario}
       />
+      <div className="lista-panel-contenedor-botones">
+        <button
+          className="btn-agregar-lista-panel-pjs"
+          onClick={() => setAgregarPersonaje(true)}
+        >
+          Agregar personaje
+        </button>
 
-      <button
-        className="btn-agregar-lista-panel-pjs"
-        onClick={() => setAgregarPersonaje(true)}
-      >
-        Agregar personaje
-      </button>
+        <button
+          className="btn-volver-lista-panel-pjs"
+          onClick={() => redireccionar("/panel-de-usuario")}
+        >
+          Volver
+        </button>
+      </div>
 
       <Outlet />
     </div>
