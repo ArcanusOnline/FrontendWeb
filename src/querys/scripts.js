@@ -578,18 +578,18 @@ async function registrarCuenta({
 
     if (!response.ok) {
       const errorData = await response.json();
-      return { error: true, data: errorData };
+      return { error: true, message: errorData.message };
     }
 
     let data = await response.json();
-    alert(data.message); // Mensaje de éxito
     return data;
   } catch (error) {
     console.error("Error en la solicitud de registro:", error);
-    alert(
-      "Ocurrió un error al intentar registrar la cuenta. Por favor, inténtelo nuevamente."
-    );
-    return { message: "Error en la solicitud", error: true };
+    return {
+      message:
+        "Ocurrió un error al intentar registrar la cuenta. Por favor, inténtelo nuevamente.",
+      error: true,
+    };
   }
 }
 
