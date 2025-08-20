@@ -74,3 +74,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .form-btn-form-registrarse:hover {
   transform: scale(1.03);
 }
+
+.form-error-form-registro {
+  color: #ff4d4d;
+  font-weight: 600;
+  text-align: center;
+  margin-top: -10px;
+  white-space: pre-wrap;
+}
+
+.input-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 6px rgba(255, 77, 77, 0.8);
+}

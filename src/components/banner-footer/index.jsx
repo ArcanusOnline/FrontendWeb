@@ -28,7 +28,7 @@ const BannerFooter = () => {
             <img src={urlImagenes.facebook} alt="Facebook" />
           </a>
           <a
-            href="https://x.com/ArcanusOnline_"
+            href="https://x.com/ArcanusOnline"
             target="_blank"
             rel="noopener noreferrer"
           >

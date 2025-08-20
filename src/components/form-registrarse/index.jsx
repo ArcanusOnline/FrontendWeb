@@ -21,12 +21,14 @@ const RegisterPanel = () => {
     pin: "",
     captcha: "",
   });
-
+  const [errorLog, setErrorLog] = useState("");
+  const [error, setError] = useState(false);
   const [mostrarPin, setMostrarPin] = useState(false);
   const [mostrarPw, setMostrarPw] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setError(false);
     setFormData({ ...formData, [name]: value });
   };
   const handleCaptchaChange = (token) => {
@@ -35,17 +37,44 @@ const RegisterPanel = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!formData.NombreCuenta || !formData.Clave || !formData.Mail) {
-      alert("Por favor completá los campos obligatorios.");
+      console.log("se setio el error");
+      setError(true);
+      setErrorLog("Por favor completá los campos obligatorios.");
       return;
     }
     if (!formData.captcha) {
-      alert("Por favor completa el reCAPTCHA.");
+      setError(true);
+      setErrorLog("Por favor completa el reCAPTCHA.");
       return;
     }
 
     const dat = await registrarCuenta(formData);
+    // handle errors
+    if (dat.error) {
+      // cuenta caracteres invalidos
+      if (dat.data.message.includes("cuenta")) {
+        setError(true);
+        setErrorLog(
+          `${dat.data.message}\nRecordá que el nombre de la cuenta no puede tener espacios`
+        );
+      }
+      // pw invalid
+      if (dat.data.message.includes("contraseña")) {
+        setError(true);
+        setErrorLog(
+          `${dat.data.message}\nRecordá que la contraseña no puede tener espacios`
+        );
+      }
+      // pin invalid
+      if (dat.data.message.includes("pin")) {
+        setError(true);
+        setErrorLog(
+          `${dat.data.message}\nRecordá que el pin no puede tener espacios`
+        );
+      }
+    }
+
     if (dat.estado === 1) {
       navigate("/");
       setFormData({
@@ -69,7 +98,9 @@ const RegisterPanel = () => {
       <h1 className="form-title-form-registrarse">Registrarse</h1>
       <form onSubmit={handleSubmit} className="form-form-registrarse">
         <input
-          className="form-input-form-registrarse"
+          className={`form-input-form-registrarse ${
+            errorLog.includes("cuenta") ? "input-error" : ""
+          }`}
           type="text"
           name="NombreCuenta"
           placeholder="Nombre de cuenta"
@@ -79,7 +110,9 @@ const RegisterPanel = () => {
         />
         <div className="form-password-wrapper-form-registrarse">
           <input
-            className="form-input-form-registrarse"
+            className={`form-input-form-registrarse ${
+              errorLog.includes("contraseña") ? "input-error" : ""
+            }`}
             type={mostrarPw ? "text" : "password"}
             name="Clave"
             placeholder="Clave"
@@ -159,7 +192,9 @@ const RegisterPanel = () => {
         />
         <div className="form-password-wrapper-form-registrarse">
           <input
-            className="form-input-form-registrarse"
+            className={`form-input-form-registrarse ${
+              errorLog.includes("pin") ? "input-error" : ""
+            }`}
             type={mostrarPin ? "text" : "password"}
             name="pin"
             placeholder="PIN"
@@ -179,6 +214,7 @@ const RegisterPanel = () => {
           sitekey={recaptchaPublicKey}
           onChange={handleCaptchaChange}
         />
+        {error && <p className="form-error-form-registro">{errorLog}</p>}
         <button className="form-btn-form-registrarse" type="submit">
           Registrarse
         </button>

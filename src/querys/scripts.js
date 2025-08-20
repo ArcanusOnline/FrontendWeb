@@ -578,8 +578,7 @@ async function registrarCuenta({
 
     if (!response.ok) {
       const errorData = await response.json();
-      alert(`Error: ${errorData.message}`);
-      return errorData;
+      return { error: true, data: errorData };
     }
 
     let data = await response.json();
