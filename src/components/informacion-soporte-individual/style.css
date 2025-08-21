@@ -5,23 +5,25 @@
   padding: 30px;
   border-radius: 12px;
   max-width: 900px;
-  margin: auto;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  font-family: "Cinzel", serif;
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
 }
 
 /* Título principal */
 .soporte-titulo-info-soporte-individual {
   font-size: 1.8em;
   margin-bottom: 10px;
-  color: #ffcc80;
+  color: #f0e68c;
   text-shadow: 1px 1px 2px #000;
 }
 
 /* Subtítulo o categoría */
 .soporte-categoria-info-soporte-individual {
   font-size: 1.1em;
-  color: #d7b26f;
+  color: #f0e68c;
   margin-bottom: 20px;
   text-shadow: 0 0 2px #000;
 }
@@ -29,7 +31,7 @@
 /* Hilo de respuestas */
 .soporte-hilo-info-soporte-individual {
   background-color: #2b2b2b;
-  border: 1px solid #4e342e;
+  border: 1.5px solid #bbbbbb;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 25px;
@@ -38,7 +40,7 @@
 /* Cada mensaje del hilo */
 .mensaje-hilo-info-soporte-individual {
   margin-bottom: 15px;
-  border-bottom: 1px solid #3e2723;
+  border-bottom: 1.5px solid #bbbbbb;
   padding-bottom: 12px;
 }
 
@@ -54,7 +56,7 @@
 /* Fecha */
 .mensaje-autor-info-soporte-individual .fecha {
   font-size: 0.85em;
-  color: #888;
+  color: white;
   font-style: italic;
 }
 
@@ -69,14 +71,14 @@
 .soporte-formulario-info-soporte-individual {
   margin-top: 30px;
   background-color: #252525;
-  border: 1px solid #6d4c41;
+  border: 1.5px solid #bbbbbb;
   border-radius: 10px;
   padding: 20px;
 }
 
 /* Label */
 .soporte-formulario-info-soporte-individual label {
-  color: #ffa726;
+  color: #f0e68c;
   font-weight: bold;
 }
 
@@ -87,7 +89,7 @@
   margin-top: 10px;
   background-color: #333;
   color: #fff8e1;
-  border: 1px solid #795548;
+  border: 1.5px solid #bbbbbb;
   border-radius: 6px;
   resize: vertical;
   font-size: 1em;
@@ -109,18 +111,29 @@
 }
 
 .posicionEnviarRespuesta-info-soporte-individual button {
-  background-color: #4caf50;
+  background: linear-gradient(to bottom, #3fa047, #256b2c);
+  border: 1px solid #7fe27f;
+  font-family: "Cinzel", serif;
   color: white;
   padding: 10px 20px;
   font-weight: bold;
-  border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.1s ease;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(0, 255, 100, 0.3);
 }
 
 .posicionEnviarRespuesta-info-soporte-individual button:hover {
-  background-color: #43a047;
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
+  transform: translateY(-1px);
+}
+
+.posicionEnviarRespuesta-info-soporte-individual button:active {
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
+  transform: translateY(-1px);
 }
 
 /* Soporte cerrado */
@@ -132,19 +145,27 @@
 
 /* Botón cerrar soporte */
 .cerrar-soporte-btn-info-soporte-individual {
-  background-color: #d32f2f;
+  background: linear-gradient(
+    to bottom,
+    #5c1c1c,
+    #2a0f0f
+  ); /* rojo vino apagado */
+  border: 1px solid #c97b63;
   color: white;
   padding: 8px 16px;
-  border: none;
+  font-family: "Cinzel", serif;
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
   margin-top: 10px;
-  transition: background-color 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.1s ease;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cerrar-soporte-btn-info-soporte-individual:hover {
-  background-color: #b71c1c;
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 8px rgba(255, 170, 120, 0.5);
 }
 
 /* Contenedor de botones y título */
@@ -172,13 +193,13 @@
 
 /* Modal Content */
 .modal-content-info-soporte-individual {
-  background-color: #2e1b16;
+  background-color: #1a1a1a;
   padding: 25px;
   border-radius: 12px;
   max-width: 450px;
   text-align: center;
-  color: #ffecb3;
-  box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+  color: lightgreen;
+  box-shadow: 0 0 14px rgba(239, 215, 124, 0.7);
 }
 
 .modal-content-info-soporte-individual button {

@@ -1,4 +1,4 @@
-import { useSearchParams, useNavigate } from "react-router";
+import { useSearchParams, useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
 import {
   obtenerDataSoporte,
@@ -93,11 +93,6 @@ const SoporteInfo = () => {
         <div className="modal-overlay-info-soporte-individual">
           <div className="modal-content-info-soporte-individual">
             <p>{modalMensaje.texto}</p>
-            <button
-              onClick={() => setModalMensaje({ abierto: false, texto: "" })}
-            >
-              Cerrar
-            </button>
           </div>
         </div>
       )}
@@ -110,8 +105,16 @@ const SoporteInfo = () => {
             <div
               style={{ display: "flex", gap: "1rem", justifyContent: "center" }}
             >
-              <button onClick={confirmarCierre}>Confirmar</button>
-              <button onClick={() => setModalConfirmacion(false)}>
+              <button
+                className="btn-agregar-lista-panel-pjs"
+                onClick={confirmarCierre}
+              >
+                Confirmar
+              </button>
+              <button
+                className="cerrar-soporte-btn-info-soporte-individual"
+                onClick={() => setModalConfirmacion(false)}
+              >
                 Cancelar
               </button>
             </div>
@@ -203,6 +206,12 @@ const SoporteInfo = () => {
           El soporte se encuentra cerrado
         </p>
       )}
+      <Link
+        to="/panel-de-usuario/historial-de-soportes"
+        className="soportes-go-back-button"
+      >
+        Volver
+      </Link>
     </div>
   );
 };

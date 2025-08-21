@@ -52,7 +52,7 @@ const PanelComponent = () => {
           to="/panel-de-usuario/historial-de-soportes"
           className="panel-pagina-principal-link"
         >
-          Nuevo soporte
+          Tus Soportes
         </Link>
       </div>
       <hr className="panel-pagina-principal-separator" />
