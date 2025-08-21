@@ -51,7 +51,7 @@ const ListadoSoporte = () => {
 
   return (
     <div className="lista-soporte-container-lista-soportes">
-      <h1 className="titulo-lista-soportes">Soportes</h1>
+      <h1 className="titulo-lista-soportes">Tus Soportes</h1>
       {listaSoporte.length > 0 ? (
         <table className="tabla-soportes-lista-soportes">
           <thead>
@@ -66,8 +66,8 @@ const ListadoSoporte = () => {
           <tbody>
             {listaSoporte.map((elem) => (
               <tr key={elem.id}>
-                <td>{elem.id}</td>
-                <td>
+                <td data-label="Ticket #">{elem.id}</td>
+                <td data-label="Asunto">
                   <NavLink
                     to={`/panel-de-usuario/soporte?ticket=${elem.id}`}
                     state={{ datos: elem }}
@@ -76,9 +76,13 @@ const ListadoSoporte = () => {
                     {elem.asunto}
                   </NavLink>
                 </td>
-                <td>{formatDate(elem.fecha_alta)}</td>
-                <td>{formatDate(elem.fecha_cambio_estado)}</td>
-                <td>{elem.estado}</td>
+                <td data-label="Fecha creación">
+                  {formatDate(elem.fecha_alta)}
+                </td>
+                <td data-label="Última actividad">
+                  {formatDate(elem.fecha_cambio_estado)}
+                </td>
+                <td data-label="Estado">{elem.estado}</td>
               </tr>
             ))}
           </tbody>

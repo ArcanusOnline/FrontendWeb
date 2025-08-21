@@ -1,15 +1,18 @@
 .lista-soporte-container-lista-soportes {
   padding: 2rem;
-  background-color: #112d11;
+  background-color: #1a1a1a;
   border-radius: 12px;
-  max-width: 1000px;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: 0 auto;
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
   color: #ffffff;
 }
 
 .titulo-lista-soportes {
-  color: #4caf50;
+  color: #f0e68c;
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -17,39 +20,66 @@
 .tabla-soportes-lista-soportes {
   width: 100%;
   border-collapse: collapse;
-  background-color: #1c3d1c;
+  max-width: 750px;
+  align-self: center;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
+    /* Patrón de líneas */
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 3px,
+        transparent 3px,
+        transparent 20px
+      ),
+    #47341b; /* madera  */
+  box-shadow: inset 0 0 10px rgba(192, 192, 192, 0.25),
+    /* brillo plata suave */ 0 4px 10px rgba(0, 0, 0, 0.6); /* sombra externa */
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3);
 }
 
 .tabla-soportes-lista-soportes th,
 .tabla-soportes-lista-soportes td {
   padding: 0.8rem 1rem;
   text-align: left;
-  border-bottom: 1px solid rgba(76, 175, 80, 0.3);
-  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f5e6c5;
 }
 
 .tabla-soportes-lista-soportes th {
-  background-color: #4caf50;
-  color: #ffffff;
+  background: linear-gradient(
+    to bottom,
+    #6b4a2b,
+    #4a2f18
+  ); /* madera más oscura */
+  color: white;
   font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-bottom: 2px solid rgba(255, 210, 127, 0.4); /* borde dorado */
+}
+
+.tabla-soportes-lista-soportes td {
+  background: rgba(71, 52, 27, 0.6);
+}
+
+.tabla-soportes-lista-soportes tr:hover td {
+  background: rgba(107, 74, 43, 0.8);
 }
 
 .tabla-soportes-lista-soportes tr:hover {
-  background-color: rgba(76, 175, 80, 0.3);
+  background-color: rgba(255, 210, 127, 0.15);
 }
 
 .link-soporte-lista-soportes {
-  color: #66bb6a;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .link-soporte-lista-soportes:hover {
   text-decoration: underline;
-  color: #4caf50;
+  color: #ffd27f;
 }
 
 .mensaje-error-lista-soportes {
@@ -57,4 +87,66 @@
   color: #f44336;
   font-weight: bold;
   margin-top: 1.5rem;
+}
+
+@media (max-width: 590px) {
+  .tabla-soportes-lista-soportes {
+    background: none;
+    box-shadow: none;
+  }
+  .tabla-soportes-lista-soportes,
+  .tabla-soportes-lista-soportes thead,
+  .tabla-soportes-lista-soportes tbody,
+  .tabla-soportes-lista-soportes th,
+  .tabla-soportes-lista-soportes td,
+  .tabla-soportes-lista-soportes tr {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-soportes-lista-soportes thead {
+    display: none;
+  }
+
+  .tabla-soportes-lista-soportes tr {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
+      /* Patrón de líneas */
+        repeating-linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.1) 0px,
+          rgba(0, 0, 0, 0.1) 3px,
+          transparent 3px,
+          transparent 20px
+        ),
+      #47341b; /* madera  */
+    box-shadow: inset 0 0 10px rgba(192, 192, 192, 0.25),
+      /* brillo plata suave */ 0 4px 10px rgba(0, 0, 0, 0.6); /* sombra externa */
+  }
+
+  .tabla-soportes-lista-soportes td {
+    border: none;
+    background: none;
+    padding: 0.4rem 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .tabla-soportes-lista-soportes td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #ffd27f; /* dorado */
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .tabla-soportes-lista-soportes td a {
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+  }
 }
