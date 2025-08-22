@@ -49,7 +49,14 @@ const BannerFooter = () => {
             <img src={urlImagenes.twitch} alt="Twitch" />
           </a>
           <a
-            href="https://discord.com/invite/Eqg7zmVj2f"
+            href="https://www.tiktok.com/@arcanusonline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={urlImagenes.tiktok} alt="Tiktok" />
+          </a>
+          <a
+            href="https://discord.arcanusonline.com/"
             target="_blank"
             rel="noopener noreferrer"
           >

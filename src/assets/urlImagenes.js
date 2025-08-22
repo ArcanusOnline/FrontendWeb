@@ -2,6 +2,7 @@ import logo from "../resources/images/logo.png";
 import facebook from "../resources/images/facebook.png";
 import twitter from "../resources/images/twitter.png";
 import discord from "../resources/images/discord.png";
+import tiktok from "../resources/images/tiktok.png";
 import discordWhite from "../resources/images/discordWhite.png";
 import threads from "../resources/images/threads.png";
 import youtube from "../resources/images/youtube.png";
@@ -23,6 +24,7 @@ let urlImagenes = {
   discordWhite,
   threads,
   youtube,
+  tiktok,
   instagram,
   twitch,
   sidebar,
