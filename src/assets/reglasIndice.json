@@ -1,0 +1,79 @@
+{
+  "titulo": "Reglas de juego",
+  "subtitulo": "Reglamento oficial del servidor",
+  "indiceTitulo": "Índice",
+  "items": [
+    {
+      "id": "indice-1",
+      "texto": "Acerca del Reglamento de Arcanus Online",
+      "subItems": [
+        { "id": "indice-1.1", "texto": "Validez del reglamento" },
+        { "id": "indice-1.2", "texto": "Reglas y sus Actualizaciones" }
+      ]
+    },
+    {
+      "id": "indice-2",
+      "texto": "Reglamento del usuario",
+      "subItems": [
+        { "id": "indice-2.1", "texto": "Creación de personajes" },
+        { "id": "indice-2.2", "texto": "Identificadores Personales" },
+        {
+          "id": "indice-2.3",
+          "texto": "Explotación de bugs y uso de programas externos no autorizados"
+        },
+        { "id": "indice-2.4", "texto": "Sistema de trabajo" },
+        { "id": "indice-2.5", "texto": "Actos sancionables" },
+        {
+          "id": "indice-2.6",
+          "texto": "Acusaciones infundadas hacia un miembro del Staff"
+        },
+        {
+          "id": "indice-2.7",
+          "texto": "Discrepancias con decisiones del Staff del servidor Arcanus Online"
+        },
+        { "id": "indice-2.8", "texto": "Expulsiones y Sanciones" },
+        {
+          "id": "indice-2.9",
+          "texto": "Interferencias con el trabajo del Staff"
+        },
+        { "id": "indice-2.10", "texto": "Respeto entre usuarios" },
+        {
+          "id": "indice-2.11",
+          "texto": "Obstaculización del Respawn de criaturas"
+        },
+        { "id": "indice-2.12", "texto": "Doble cliente" },
+        {
+          "id": "indice-2.13",
+          "texto": "Objetos de GMs e intercambios de objetos"
+        },
+        { "id": "indice-2.14", "texto": "Robo de recompensa de entrenamiento" },
+        { "id": "indice-2.15", "texto": "Ubicación ilegal de Criaturas" },
+        {
+          "id": "indice-2.16",
+          "texto": "Revelación de la Identidad de los GMs y DSGMS"
+        },
+        { "id": "indice-2.17", "texto": "Comportamiento Faccionario" }
+      ]
+    },
+    {
+      "id": "indice-3",
+      "texto": "Reglamentación de GMs y miembros del Staff",
+      "subItems": [
+        { "id": "indice-3.1", "texto": "Admisión y permanencia" },
+        { "id": "indice-3.2", "texto": "Manual de procedimientos" },
+        { "id": "indice-3.3", "texto": "Comportamiento adecuado" },
+        {
+          "id": "indice-3.4",
+          "texto": "Relaciones del Staff de GMs, Consejeros y Rolemasters"
+        },
+        { "id": "indice-3.5", "texto": "Frecuencia de entrada" },
+        { "id": "indice-3.6", "texto": "Confidencialidad" },
+        { "id": "indice-3.7", "texto": "Discusiones internas" },
+        { "id": "indice-3.8", "texto": "Exposición pública" },
+        { "id": "indice-3.9", "texto": "Falta a procedimientos y reglamentos" }
+      ]
+    },
+    { "id": "indice-4", "texto": "Aclaraciones Importantes" },
+    { "id": "indice-5", "texto": "Venta de personajes y comercio entre mismos" }
+  ]
+}

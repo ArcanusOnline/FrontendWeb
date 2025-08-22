@@ -1,10 +1,5 @@
 .container {
   padding: 2rem;
-  background: linear-gradient(
-    to bottom,
-    #0c0f1a,
-    #1c1f26
-  ); /* Azul oscuro a gris carbón */
   color: #f4f1e7; /* Marfil suave */
   font-family: "Cinzel", serif;
 }
