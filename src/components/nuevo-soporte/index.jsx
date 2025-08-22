@@ -3,7 +3,7 @@ import {
   traerInfoPersonajeAsuntoSoporte,
   enviarNuevoSoporte,
 } from "../../querys/scripts";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import "./style.css";
 
 const NuevoSoporte = () => {
@@ -52,12 +52,34 @@ const NuevoSoporte = () => {
         navigate("/panel-de-usuario/historial-de-soportes");
       }, 2500);
     } else {
-      setErrorMessage(typeof dato === "string" ? dato : "Ocurrió un error.");
+      typeof dato === "string" ? dato : "Ocurrió un error.";
+      setErrorMessage("mensaje de error");
     }
   };
 
   return (
     <>
+      {successMessage && (
+        <div className="modal-overlay-info-soporte-individual">
+          <div className="modal-content success">
+            <p>{successMessage}</p>
+          </div>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="modal-overlay-info-soporte-individual">
+          <div className="modal-content error">
+            <p>{errorMessage}</p>
+            <button
+              className="cerrar-soporte-btn-info-soporte-individual"
+              onClick={() => setErrorMessage("")}
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
       <form className="formulario-nuevo-soporte" onSubmit={handleSubmit}>
         <h2 className="titulo-nuevo-soporte">Nuevo Soporte</h2>
 
@@ -134,8 +156,9 @@ const NuevoSoporte = () => {
         ></textarea>
 
         <div className="checkbox-nuevo-soporte">
-          <label htmlFor="censura">
+          <label className="label-nuevo-soporte" htmlFor="censura">
             <input
+              style={{ marginRight: "5px" }}
               type="checkbox"
               id="censura"
               name="censura"
@@ -149,30 +172,20 @@ const NuevoSoporte = () => {
             Marcar mensaje como CENSURADO
           </label>
         </div>
-
-        <input
-          className="boton-enviar-nuevo-soporte"
-          type="submit"
-          value="Enviar soporte"
-        />
+        <div className="nuevo-soporte-btn-container">
+          <input
+            className="boton-enviar-nuevo-soporte"
+            type="submit"
+            value="Enviar soporte"
+          />
+          <Link
+            to="/panel-de-usuario/historial-de-soportes"
+            className="soportes-go-back-button"
+          >
+            Volver
+          </Link>
+        </div>
       </form>
-
-      {successMessage && (
-        <div className="modal-overlay">
-          <div className="modal-content success">
-            <p>{successMessage}</p>
-          </div>
-        </div>
-      )}
-
-      {errorMessage && (
-        <div className="modal-overlay">
-          <div className="modal-content error">
-            <p>{errorMessage}</p>
-            <button onClick={() => setErrorMessage("")}>Cerrar</button>
-          </div>
-        </div>
-      )}
     </>
   );
 };
