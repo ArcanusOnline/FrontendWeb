@@ -164,7 +164,11 @@ const ListadoPersonajes = () => {
               <NavLink
                 className="btn-link-lista-panel-pjs"
                 to="infoPersonaje"
-                state={{ datos: elem }}
+                state={{
+                  datos: elem,
+                  head: elem.HeadB,
+                  color: colorBanderin(elem),
+                }}
               >
                 Ver estadísticas
               </NavLink>

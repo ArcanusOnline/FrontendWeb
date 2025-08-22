@@ -1,11 +1,10 @@
 /* Contenedor de la información del personaje */
 .containerInfoPersonajeCuenta {
   font-family: "Arial", sans-serif;
-  color: #f1fff0; /* Color claro para el texto */
+  color: white; /* Color claro para el texto */
   padding: 20px;
-  border: 3px solid #364735; /* Color marrón oscuro */
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
   max-width: 900px;
   margin: 10px;
 }
@@ -31,7 +30,7 @@
 
 .mmorpg-table td {
   padding: 10px;
-  border: 1px solid #6a8d5b;
+  border: 1.5px solid gray;
   background-color: black;
 }
 
@@ -49,6 +48,13 @@
 }
 
 /* Estilo para títulos de personajes */
+
+.info-personaje-panel-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
 .tituloPersonajeCuenta {
   font-size: 1.8em;
   color: #f1fff0; /* Dorado */
@@ -59,7 +65,7 @@
 
 h3 {
   color: #f1fff0;
-  border-bottom: 2px solid #6a8d5b;
+  border-bottom: 2px solid gray;
   padding-bottom: 5px;
   text-shadow: 1px 1px 2px #000;
 }
@@ -89,11 +95,9 @@ h3 {
 /* Estilo para la sección de clan y facción */
 .infoClanPersonaje {
   background-color: black;
-
   padding: 15px;
   border-radius: 8px;
   margin: 15px 0;
-  border-left: 4px solid #6a8d5b; /* Borde dorado */
 }
 
 /* Estilo para la tabla de penas y baneos */
@@ -105,16 +109,16 @@ h3 {
 }
 
 .table-container th {
-  background-color: black; /* Fondo marrón oscuro */
-  border: 1px solid #6a8d5b;
-  color: #f1fff0; /* Color dorado */
+  background-color: black;
+  border: 1px solid gray;
+  color: white;
   padding: 12px;
   text-align: center;
 }
 
 .table-container td {
   padding: 10px;
-  border: 1px solid #6a8d5b;
+  border: 1px solid gray;
   background-color: black;
 }
 
@@ -130,7 +134,7 @@ p {
   background-color: black;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #6a8d5b;
+  border: 1px solid grey;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -140,20 +144,20 @@ p {
 }
 
 .objetosInventarioPanel th {
-  background-color: black; /* Fondo marrón oscuro */
-  color: #f1fff0; /* Color dorado */
+  background-color: black;
+  color: white;
   padding: 12px;
   text-align: center;
   font-size: 1.2em;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-bottom: 3px solid #6a8d5b;
+  border-bottom: 3px solid grey;
 }
 
 .objetosInventarioPanel td {
   padding: 10px 15px;
-  border-bottom: 1px solid #6a8d5b;
-  color: #e0d8b0;
+  border-bottom: 1px solid grey;
+  color: white;
 }
 
 .objetosInventarioPanel tr:last-child td {
@@ -189,11 +193,19 @@ p {
   background-color: black;
 }
 
-.contenedorPrincipalInfoPersonaje{
+.contenedorPrincipalInfoPersonaje {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   justify-content: center;
   padding: 10px;
+}
+
+@media (max-width: 450px) {
+  .mmorpg-table td,
+  .mmorpg-table th {
+    font-size: 0.9em; /* un poquito más chico en mobile */
+    padding: 5px;
+  }
 }

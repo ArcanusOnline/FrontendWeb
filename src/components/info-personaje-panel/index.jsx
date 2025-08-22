@@ -1,14 +1,17 @@
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, Link } from "react-router";
 import { traerInfoIndividual } from "../../querys/scripts";
 import React, { useState, useEffect } from "react";
 import { devolverExp } from "../../assets/indiceExp";
 import { calcularExp } from "../../assets/calculadoraExp";
 import { transcribirSkill } from "../../assets/indicesSkill";
+import { useAuth } from "../../useContext/useContext";
+
 import "./style.css";
 
 const PanelPorPersonaje = () => {
   const { state } = useLocation();
   const nombre = state?.datos.NickB || "Sin nombre";
+  const { getUsername, getToken } = useAuth();
   const [personajeInfo, setPersonajeInfo] = useState();
   const [tablaHechis, setTablaHechis] = useState();
   const [tablaObjBove, setTablaObjBove] = useState();
@@ -17,8 +20,16 @@ const PanelPorPersonaje = () => {
   const [penas, setPenas] = useState();
   const [baneos, setBaneos] = useState();
   const [skills, setSkills] = useState();
-
   let navigate = useNavigate();
+  let userName =
+    getUsername() || localStorage.getItem("username") || "Usuario desconocido";
+  let response = getToken() || localStorage.getItem("token") || "";
+  const handleClick = () => {
+    const nombreURI = encodeURIComponent(userName);
+    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`, {
+      state: { response },
+    });
+  };
 
   const oroFormatter = new Intl.NumberFormat("de-DE", {
     minimumFractionDigits: 0,
@@ -61,8 +72,19 @@ const PanelPorPersonaje = () => {
         <table className="mmorpg-table">
           <thead>
             <tr>
-              <th colSpan={3} className="tituloPersonajeCuenta">
-                {tablaDatos && tablaDatos[0]?.NickB}
+              <th
+                style={{ color: state.color }}
+                colSpan={3}
+                className="tituloPersonajeCuenta"
+              >
+                <div className="info-personaje-panel-title-container">
+                  {state.datos.NickB}
+                  <img
+                    src={`/heads/${state.head}.png`}
+                    alt="head"
+                    className="personaje-head-lista-panel-pjs"
+                  />
+                </div>
               </th>
             </tr>
             <tr>
@@ -473,6 +495,9 @@ const PanelPorPersonaje = () => {
           </table>
         </div>
       </div>
+      <button onClick={handleClick} className="soportes-go-back-button">
+        Volver
+      </button>
     </div>
   );
 };
