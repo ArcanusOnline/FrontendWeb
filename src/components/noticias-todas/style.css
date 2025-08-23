@@ -49,6 +49,8 @@
 
 .cuerpo-noticia-lista-todas-las-noticias {
   font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
   color: #ddd;
   margin-bottom: 0.6rem;
 }

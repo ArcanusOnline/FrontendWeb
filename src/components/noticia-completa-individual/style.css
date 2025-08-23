@@ -30,6 +30,8 @@
 .resumen-noticia-completa {
   font-size: 1.1rem;
   margin-bottom: 1rem;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
 }
 
 .divisor-noticia-completa {
@@ -41,6 +43,7 @@
 .cuerpo-completo-noticia-completa {
   color: white;
   line-height: 1.6;
+  font-family: "Lato", sans-serif;
   margin-bottom: 1.5rem;
 }
 
