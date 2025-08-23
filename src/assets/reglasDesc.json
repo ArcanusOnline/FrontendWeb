@@ -1,0 +1,323 @@
+{
+  "cards": [
+    {
+      "id": "indice-1",
+      "titulo": "1 Acerca del Reglamento",
+      "sections": [
+        {
+          "id": "indice-1.1",
+          "titulo": "1.1 Validez del reglamento",
+          "parrafos": [
+            "1.1.1 Este reglamento posee validez desde su publicación y hasta nuevo aviso, revocando cualquier reglamento anterior.",
+            "1.1.2 Por el solo hecho de conectarse a Arcanus Online o descargarse nuestro software, el usuario acepta el deber de dar cumplimiento a las cláusulas contenidas en el presente."
+          ]
+        },
+        {
+          "id": "indice-1.2",
+          "titulo": "1.2 Reglas y sus Actualizaciones",
+          "parrafos": [
+            "1.2.1 El staff de Arcanus Online se reserva el derecho de suprimir, agregar o modificar cláusulas del presente reglamento, según lo crea conveniente, sin necesidad de previo aviso.",
+            "1.2.2 El desconocimiento de las reglas aquí contenidas o de sus actualizaciones, no podrá ser invocado, de ningún modo, como justificación frente a un incumplimiento de las mismas.",
+            "1.2.3 Cuando el reglamento sea actualizado, esto será anunciado en la sección de Noticias de la página web. Bastarán las simples palabras 'Reglamento Actualizado'. Es obligación del usuario chequear la página web antes de entrar al juego para confirmar la existencia de modificaciones al presente."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indice-2",
+      "titulo": "2 Reglamentación de los usuarios",
+      "sections": [
+        {
+          "id": "indice-2.1",
+          "titulo": "2.1 Creación de personajes",
+          "parrafos": [
+            "2.1.1 Los nombres para los personajes del juego pueden surgir de la imaginación del usuario o tomarse de la historia o mitología, manteniendo una ambientación temporal y temática acorde.",
+            "2.1.2.1 Estarán prohibidos los nombres que contengan alusión a una profesión y/o actividad (por ejemplo: talador, pesca, minero, etc.), ya sea en castellano o en otro idioma.",
+            "2.1.2.2 No se podrá hacer alusión a la 'clase' del personaje (por ejemplo: Mago, Guerrero, etc.) ni a su status (Crimi, PK, etc.).",
+            "2.1.2.3 No se permitirán alusiones a ningún tipo de droga (inclusive pegamentos), bebida alcohólica, cigarrillos, ni a estados inducidos por drogas o similares.",
+            "2.1.2.4 Asimismo, no se permitirán nombres que contengan alusiones raciales de tono discriminatorio o que hagan referencia a estados físicos o mentales insultantes, tanto hacia el propio dueño como hacia otros personajes. Los términos 'loco', 'rlz' y similares tampoco serán permitidos.",
+            "2.1.2.5 También serán prohibidos los nombres de los cuales se pueda inferir que hacen clara referencia a algún producto, marca, modelo o empresa de PÚBLICO y NOTORIO conocimiento. Tampoco se permitirán alusiones a programas de televisión de la actualidad, etc.",
+            "2.1.2.6 Estarán prohibidos, además, los nombres que por su similitud a los de los miembros del Staff puedan causar confusión o ser interpretados como una burla hacia ellos.",
+            "2.1.2.7 No se podrá crear personajes cuyos nombres contengan alusión al sexo, lenguaje grosero, callejero, chabacano o agresivo; tampoco se permitirán referencias a hechos de la vida real que puedan considerarse discriminatorios (por ejemplo: 'Limpio Inodoros').",
+            "2.1.2.8 No estará permitida la alusión a posturas políticas de ninguna índole.",
+            "2.1.2.9 Estarán prohibidos los nombres que se puedan interpretar como referencia a alguna banda de música, actor, cantante o famoso de PÚBLICO y NOTORIO conocimiento. Se exceptúan los nombres de personajes históricos o de películas que encajen en el contexto del juego (por ejemplo: se permite 'Alejandro Magno' pero no 'Neil Armstrong').",
+            "2.1.2.10 Tampoco se permitirán los nombres que hagan alusión a la procedencia de algún lugar, provincia, país o región (por ejemplo: chileno, cordobés, sureño, asiático, etc.).",
+            "2.1.3 Además de los ejemplos anteriores, se establece que los nombres no podrán contener decoraciones (por ejemplo: 'IXI personaje IXI'), aunque sí se permiten números romanos al final (ejemplo: Ricardo III o Luis X) y el uso de términos como Sir, Mr., Jr., etc.",
+            "2.1.4 Estas mismas reglas se aplican también a los nombres asignados a los CLANES.",
+            "2.1.5 Para la interpretación de las prohibiciones anteriores se podrán tener en cuenta variaciones mínimas en las letras.",
+            "2.1.6 Cualquier usuario con un personaje de nombre inadecuado podrá ser obligado a cambiarlo o ser baneado de forma definitiva, según las circunstancias.",
+            "2.1.7 Sin perjuicio de lo anterior, se recuerda que el Staff se reserva el derecho de admitir o no personajes en el servidor.",
+            "2.1.8 Creación de personajes con fines ajenos al juego: Aquellos personajes que se deduzca han sido creados con fines externos, entorpecedores o para actividades como piquetes, publicidad, insultos al Staff, etc., podrán ser sancionados con baneo, bloqueo de IP o penalizaciones en su personaje principal."
+          ]
+        },
+        {
+          "id": "indice-2.2",
+          "titulo": "2.2 Identificadores Personales",
+          "parrafos": [
+            "2.2.1 Se consideran 'identificadores Personales' aquellos datos que acrediten a un usuario como dueño de un personaje. Son inalterables, salvo en circunstancias excepcionales a través del Equipo Oficial de Arcanus Online.",
+            "2.2.2 Si un personaje no está adherido a una Cuenta, los únicos identificadores son la dirección de correo electrónico y la clave PIN asignada en la creación. Si el personaje está vinculado a una Cuenta, el dueño es únicamente el propietario de la misma, según lo establecido en el Reglamento del Sistema de Cuentas.",
+            "2.2.3 El uso de un identificador falso o inválido impide que el usuario demuestre la propiedad del personaje.",
+            "2.2.4 Estos identificadores son la única vía para solicitar trámites o pedidos referentes al personaje; cualquier impedimento para usarlos eliminará dicha posibilidad."
+          ]
+        },
+        {
+          "id": "indice-2.3",
+          "titulo": "2.3 Explotación de bugs y uso de programas externos y/o hardware no autorizados",
+          "parrafos": [
+            "2.3.1 Queda prohibida la explotación de cualquier bug o el uso de software/hardware externo no autorizado (por ejemplo, macros, clientes editados, aceleradores, etc.), así como el uso de más de un teclado/mouse o la participación de más de una persona por computadora. Tampoco se permite aprovechar periféricos para obtener ventaja en la jugabilidad.",
+            "2.3.1.1 Según la gravedad del hecho, se podrán aplicar tres tipos de penas: a) Baneo temporal del personaje. b) Baneo definitivo del personaje. c) Tolerancia Cero, según lo determine el DSGMS.",
+            "2.3.1.2 Los GMs aplicarán las penas conforme al 'Sistema de penas' vigente, salvo contraorden de una autoridad superior.",
+            "2.3.2 La explotación de un bug debe ser reportada al Staff; no hacerlo puede ocasionar la expulsión inmediata y permanente.",
+            "2.3.3 Quienes oculten información sobre estos puntos serán considerados cómplices y recibirán la misma sanción que el autor.",
+            "2.3.4 El uso de software externo, no publicado por el Staff, es responsabilidad del usuario; el Staff no se hace responsable de sus consecuencias."
+          ]
+        },
+        {
+          "id": "indice-2.4",
+          "titulo": "2.4 Sistema de trabajo",
+          "parrafos": [
+            "2.4.1 El sistema de trabajo (Modo trabajando) solo podrá utilizarse de manera asistida; el usuario debe estar frente a la PC durante su uso.",
+            "2.4.2 No poder responder ante la presencia del Centinela o un GM no será excusa para evadir la sanción.",
+            "2.4.3 SANCIÓN: La inasistencia durante el Modo Trabajando se sancionará con el baneo definitivo del personaje."
+          ]
+        },
+        {
+          "id": "indice-2.5",
+          "titulo": "2.5 Actos sancionables: Bloqueos a la libre circulación",
+          "parrafos": [
+            "2.5.1.1 Está terminantemente prohibido bloquear la libre circulación de otro usuario en cualquier sector público.",
+            "2.5.1.2 El bloqueo entre usuarios se permite solo si la víctima puede defenderse...",
+            "2.5.1.3 Se incluyen encierros en lugares cerrados para pedir objetos...",
+            "2.5.1.4 La utilización maliciosa de mascotas...",
+            "2.5.1.5 Utilizar personajes muertos...",
+            "2.5.1.6 Los personajes muertos en su barca...",
+            "2.5.1.7 Los GMs podrán bloquear usuarios...",
+            "2.5.1.8 SANCIÓN: La primera infracción se sancionará con una pena..."
+          ]
+        },
+        {
+          "id": "indice-2.6",
+          "titulo": "2.6 Acusaciones infundadas hacia un miembro del Staff",
+          "parrafos": [
+            "2.6.1 El usuario que realice acusaciones públicas infundadas o de carácter injurioso contra un miembro del Staff será sancionado gravemente, pudiendo llegar al baneo de todos sus personajes y la aplicación de 'Tolerancia Cero'."
+          ]
+        },
+        {
+          "id": "indice-2.7",
+          "titulo": "2.7 Comportamiento inadecuado en el Foro Oficial",
+          "parrafos": [
+            "2.7.1 Quien tenga una conducta temeraria en el Foro oficial—usando el espacio para insultos, acusaciones falsas o vejaciones hacia el Proyecto—será sancionado gravemente, pudiendo aplicarse la 'Tolerancia Cero' y el baneo de todos sus personajes."
+          ]
+        },
+        {
+          "id": "indice-2.8",
+          "titulo": "2.8 Sanciones extraordinarias a usuarios",
+          "parrafos": [
+            "2.8.1 Los Directivos del Staff podrán aplicar sanciones especiales a usuarios que demuestren actitudes hostiles en el juego o la comunidad, o que perjudiquen el normal desenvolvimiento del mismo.",
+            "2.8.2 En dichos casos, las sanciones se determinarán según las circunstancias y podrá aplicarse la 'Tolerancia Cero'."
+          ]
+        },
+        {
+          "id": "indice-2.9",
+          "titulo": "2.9 Interferencias con el trabajo del Staff",
+          "parrafos": [
+            "2.9.1 Mientras los GMs y Consejeros estén realizando sus tareas, los usuarios no podrán interferir en su libre desarrollo.",
+            "2.9.2 Está prohibido atacar al usuario que se encuentre en consulta con un GM o Consejero.",
+            "2.9.3 Tampoco se permite interrumpir al GM/Consejero o al usuario en consulta.",
+            "2.9.4 Se prohíbe llamar a un GM para pedirle objetos, que lo suban de nivel, lo trasladen o informen la ubicación de algún personaje.",
+            "2.9.5 El uso inadecuado de los comandos (como /GM y /DENUNCIAR) que molesten el desempeño de GMs y Consejeros será sancionado.",
+            "2.9.6 SANCIÓN: La infracción se castiga inicialmente con una pena al personaje; la reincidencia podrá acarrear baneo temporal o definitivo según el 'Sistema de penas'."
+          ]
+        },
+        {
+          "id": "indice-2.10",
+          "titulo": "2.10 Respeto entre usuarios",
+          "parrafos": [
+            "2.10.1 Está prohibido el uso de insultos, términos agresivos o actitudes discriminatorias entre usuarios. Quien incurra en ello será sancionado, y en caso de reincidir, podrá ser baneado según la gravedad."
+          ]
+        },
+        {
+          "id": "indice-2.11",
+          "titulo": "2.11 Obstaculización del Respawn de criaturas",
+          "parrafos": [
+            "2.11.1 El personaje que, por su ubicación en un mapa, impida maliciosamente que respawneen las criaturas, será sancionado con baneo (temporal o definitivo) según el 'Sistema de penas'."
+          ]
+        },
+        {
+          "id": "indice-2.12",
+          "titulo": "2.12 Doble Cliente",
+          "parrafos": [
+            "2.12.1 Si se detecta que un usuario utiliza dos clientes a la vez (en la misma o en distintas PCs), se aplicará baneo temporal o permanente sobre todos los personajes logueados simultáneamente, de acuerdo con el 'Sistema de penas'. Esto aplica también a clientes en distintos servidores de Arcanus Online."
+          ]
+        },
+        {
+          "id": "indice-2.13",
+          "titulo": "2.13 Objetos de GMs e intercambios de objetos",
+          "parrafos": [
+            "2.13.1 Los objetos que posean los GMs, ya sea por caída accidental o en intercambio con la intervención de un GM, no podrán ser tomados por un usuario no involucrado en dicho intercambio.",
+            "2.13.2 Si por error un usuario toma dichos objetos, deberá devolverlos inmediatamente ante la indicación del GM, o enfrentarse al baneo permanente de su personaje."
+          ]
+        },
+        {
+          "id": "indice-2.14",
+          "titulo": "2.14 Robo de recompensa de entrenamiento",
+          "parrafos": [
+            "2.14.1 Entre personajes sin el status 'Criminal' se prohíbe que uno se robe la recompensa de una criatura matada por otro 'Ciudadano'. La sanción se determinará según el 'Sistema de penas'.",
+            "2.14.2 Esta norma no se aplicará en criaturas ubicadas en 'zonas seguras', en el Dungeon Newbie o en áreas donde el robo esté deshabilitado."
+          ]
+        },
+        {
+          "id": "indice-2.15",
+          "titulo": "2.15 Ubicación ilegal de Criaturas",
+          "parrafos": [
+            "2.15.1 Está prohibido acomodar criaturas de forma que bloqueen una salida, paso o entrada, o que ataquen inmediatamente a quien entra en un mapa. Esta conducta se sancionará según el 'Sistema de penas'."
+          ]
+        },
+        {
+          "id": "indice-2.16",
+          "titulo": "2.16 Revelación de la Identidad de los GMs y DSGMS",
+          "parrafos": [
+            "2.16.1 Quienes revelen maliciosamente la identidad de un GM con identidad reservada –ya sea en el juego, en el foro o de forma personal– serán sancionados gravemente, pudiendo llegar al baneo de todos sus personajes y a la aplicación de 'Tolerancia Cero'."
+          ]
+        },
+        {
+          "id": "indice-2.17",
+          "titulo": "2.17 Comportamiento Faccionario",
+          "parrafos": [
+            "2.17.1 Las faltas por antifacción, enlistamiento fraudulento, colaboración con criminales o ciudadanos, robo de recompensa entre miembros de una misma facción y cualquier otra infracción a los reglamentos de las cúpulas faccionarias serán sancionadas por dichas cúpulas, sin afectar la acción de los Game Masters."
+          ]
+        },
+        {
+          "id": "indice-2.18",
+          "titulo": "2.18 Discrepancias con decisiones del Staff del servidor Arcanus Online",
+          "parrafos": [
+            "2.18.1 Ante una discrepancia con el actuar del Staff, el usuario podrá presentar su opinión o descargo de forma respetuosa. El uso de lenguaje vulgar, ofensivo o descalificativo implicará la pérdida inmediata de dicho derecho.",
+            "2.18.2 Si un usuario emite un descargo en un canal no estipulado (como el foro), pierde su derecho a formular descargos válidos.",
+            "2.18.3 Utilizar un medio público para disminuir una pena o presionar al Staff se considerará una falta grave.",
+            "2.18.4 Los descargos deben referirse exclusivamente a la sanción aplicada al usuario y no a las acciones de terceros.",
+            "2.18.5 Cualquier mención a una falta en el procedimiento por parte de un GM o miembro del Staff debe estar debidamente acreditada.",
+            "2.18.5.1 Rumores o acusaciones sin pruebas serán ignorados y, en su caso, se aplicará lo dispuesto en el apartado 2.6.1.",
+            "2.18.6 Los únicos canales oficiales de contacto con el Staff de GMs son el sistema de /GM Ayuda y el sistema de soporte.",
+            "2.18.7 Los descargos en el juego a través de /GM Ayuda no podrán incluir temas que deban tratarse por soporte; en ese caso, se deberá usar el sistema de soporte.",
+            "2.18.7.1 La información sobre las sanciones se puede consultar mediante el comando '/penas'.",
+            "2.18.8 Cualquier queja o descargo se realizará considerando que el Staff se reserva los derechos de admisión y permanencia."
+          ]
+        },
+        {
+          "id": "indice-2.19",
+          "titulo": "2.19 Expulsiones y Sanciones",
+          "parrafos": [
+            "2.19.1 Las sanciones se aplicarán conforme al reglamento y al 'Sistema de penas', salvo que los DSGMs decidan lo contrario.",
+            "2.19.2 Los DSGMs tienen facultad para aplicar sanciones especiales según su criterio.",
+            "2.19.3 El Staff no está obligado a sancionar de forma inmediata; se valorarán las circunstancias y el momento en que se verifiquen los hechos.",
+            "2.19.4 Los descargos y excusas se realizarán de acuerdo con lo estipulado en el apartado 2.18.",
+            "2.19.5 El Staff de GMs no aceptará capturas o videos personales como prueba para sancionar, solo como apoyo a la denuncia.",
+            "2.19.6 Tolerancia Cero: consecuencias: Baneo definitivo de todos los personajes del usuario. Baneo de personajes creados con los e-mails asociados. Baneo de personajes con IP asociada. Bloqueo de IP para ingresar al juego. Baneo de personajes creados posteriormente identificados como del usuario. Baneo del personaje en uso por el infractor, sin importar a quién pertenezca. El alcance podrá ser mitigado por los DSGMs."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indice-3",
+      "titulo": "3 Reglamentación de GMs y miembros del Staff",
+      "sections": [
+        {
+          "id": "indice-3.1",
+          "titulo": "3.1 Admisión y permanencia",
+          "parrafos": [
+            "3.1.1 Los DSGMs (Directores Staff de GMs) decidirán, según su criterio, la admisión y permanencia de los GMs, Consejeros y Rolemasters.",
+            "3.1.2 Ningún miembro del Staff, GM, Consejero o Rolemaster tiene derecho a reclamar por su permanencia ni a pedir pruebas o razones de exclusión."
+          ]
+        },
+        {
+          "id": "indice-3.2",
+          "titulo": "3.2 Manual de procedimientos",
+          "parrafos": [
+            "3.2.1 La actuación de GMs y Consejeros se regirá por un reglamento denominado 'Manual de Procedimientos', el cual forma parte del reglamento y debe ser respetado.",
+            "3.2.2 Los Rolemasters contarán con su propio manual de procedimientos."
+          ]
+        },
+        {
+          "id": "indice-3.3",
+          "titulo": "3.3 Comportamiento adecuado",
+          "parrafos": [
+            "3.3.1 Los GMs, Consejeros y Rolemasters deben ser ejemplo de respeto y utilizar un lenguaje adecuado, sin insultos ni vulgaridades."
+          ]
+        },
+        {
+          "id": "indice-3.4",
+          "titulo": "3.4 Relaciones del Staff de GMs, Consejeros y Rolemasters",
+          "parrafos": [
+            "3.4.1 No se permite que los miembros del Staff mantengan, desde su posición, relaciones personales o pertenencias a clanes de manera pública."
+          ]
+        },
+        {
+          "id": "indice-3.5",
+          "titulo": "3.5 Frecuencia de entrada",
+          "parrafos": [
+            "3.5.1 La frecuencia de entrada será determinada por el DSGMS y estará especificada en el Manual de Procedimientos."
+          ]
+        },
+        {
+          "id": "indice-3.6",
+          "titulo": "3.6 Confidencialidad",
+          "parrafos": [
+            "3.6.1 Los miembros del Staff se comprometen a mantener en confidencialidad la información a la que accedan por su puesto.",
+            "3.6.2 Tanto GMs como Consejeros podrán mantener su identidad en secreto, siendo responsabilidad de ellos."
+          ]
+        },
+        {
+          "id": "indice-3.7",
+          "titulo": "3.7 Discusiones internas",
+          "parrafos": [
+            "3.7.1 Las discusiones internas que dificulten el trabajo o las actividades serán sancionadas con la remoción automática de los involucrados."
+          ]
+        },
+        {
+          "id": "indice-3.8",
+          "titulo": "3.8 Falta a procedimientos y reglamentos",
+          "parrafos": [
+            "3.8.1 Los GMs, Consejeros y Rolemasters deberán reportar cualquier falta a procedimientos o reglamentos cometida por un compañero a los DSGMS, sin marcar la falta por cuenta propia."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indice-4",
+      "titulo": "4 Aclaraciones Importantes",
+      "sections": [
+        {
+          "parrafos": [
+            "4.1 El Staff del Servidor Arcanus Online se reserva el derecho de admisión y permanencia de los usuarios en la comunidad.",
+            "4.2 El Staff no se hace responsable de la actitudes o acciones de los usuarios; cada uno es responsable de sus propias conductas.",
+            "4.3 El Staff no se responsabiliza por daños ocasionados por el software, el cual se instala bajo riesgo del usuario.",
+            "4.4 Los GMs, Consejeros y demás personal del Staff no son empleados ni están en posición remunerativa, por lo que el Staff no responde por su accionar.",
+            "4.5 El Staff no está obligado a responder por fallas en el servicio, caídas o interrupciones sin previo aviso, ni por mal funcionamiento en el servidor o el cliente.",
+            "4.6 El Staff no se responsabiliza por la violación del reglamento por parte de terceros o personas que cooperen externamente con él (ej. grupos de GMs).",
+            "4.7 El Staff se reserva el derecho de utilizar los medios necesarios para conocer los programas externos que ejecuten los usuarios simultáneamente con el juego, si lo considera pertinente.",
+            "4.8 Todos los servicios son gratuitos, por lo que el usuario no tiene derecho a reclamar demandas o exigencias; en caso de desacuerdo, deberá abandonar el servicio y eliminar el software.",
+            "4.9 El cuidado de los personajes se realiza mediante encriptación de claves y un sistema de recuperación/borrado usando el e-mail elegido por el usuario.",
+            "4.9.1 El Staff no tiene relación u obligación respecto a problemas de seguridad en la PC o la cuenta de e-mail del usuario.",
+            "4.9.2 En caso de robo de e-mail, el usuario deberá gestionarlo con el proveedor; el Staff no intervendrá.",
+            "4.9.3 La seguridad del personaje es responsabilidad exclusiva de su dueño; el Staff no se hace cargo de daños por robo de e-mail o del personaje."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indice-5",
+      "titulo": "5 Venta de personajes y comercio entre mismos",
+      "sections": [
+        {
+          "parrafos": [
+            "5.1 Ningún miembro del Staff podrá avalar la venta o el comercio entre usuarios. Está absolutamente prohibido solicitarlo al Staff.",
+            "5.2 El único medio reconocido para el intercambio, compra o venta de personajes por monedas de oro es el denominado MercadoAo, accesible desde el sistema de Cuentas.",
+            "5.3 La venta o cambio de personajes por dinero real o fuera del sistema de MercadoAo es responsabilidad total de las partes involucradas, sin posibilidad de reclamo al Staff en caso de engaño o estafa.",
+            "5.4 Los GMs, Consejeros y demás personal del Staff no son empleados ni están en posición remunerativa, por lo que el Staff no responde por su accionar.",
+            "5.5 El cambio de mail de un personaje mediante el sistema en Arcanus Online es responsabilidad total del dueño, sin lugar a reclamos pordaños o pérdidas."
+          ]
+        }
+      ]
+    }
+  ]
+}

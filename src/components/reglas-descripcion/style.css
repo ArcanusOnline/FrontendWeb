@@ -71,13 +71,13 @@
   color: #ccc;
 }
 
-.card-subsection strong {
-  color: #c4a000;
-}
-
 .index-btn {
   align-self: flex-start;
   margin-top: 1rem;
+}
+
+.indice {
+  color: #c4a000;
 }
 
 /* Responsive */
