@@ -3,7 +3,8 @@
 .manual-container-column {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  max-width: 1500px;
+  margin: 0 auto;
   background-color: #121212;
   color: #e2ded0;
   font-family: "Segoe UI", sans-serif;
@@ -16,21 +17,26 @@
   gap: 1rem;
   background-color: #1a1a1a;
   padding: 1rem;
-  border-bottom: 2px solid #112d11;
+  border-bottom: 2px solid #b1b1b1;
+  justify-items: center; /* centra horizontalmente */
+  align-items: center; /* centra verticalmente */
 }
 
 .manual-section-horizontal {
   background-color: #1a1a1a;
   border-radius: 6px;
+  max-width: 350px;
+  width: 100%;
   padding: 0.5rem;
   transition: all 0.3s ease;
 }
 
 .section-button {
   width: 100%;
-  background-color: #66bb6a;
-  color: #e2ded0;
-  border: none;
+  background: linear-gradient(to bottom, #3b2d1f, #1f160e); /* cuero oscuro */
+  border: 1.5px solid #d4af37; /* dorado viejo */
+  font-family: "Cinzel", serif;
+  color: #e6d17d;
   border-radius: 4px;
   padding: 0.6rem;
   cursor: pointer;
@@ -39,7 +45,9 @@
 }
 
 .section-button:hover {
-  background-color: #112d11;
+  background: linear-gradient(to bottom, #4d3a21, #2a1f15);
+  color: #ffe97d;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
 
 .topic-list-horizontal {
@@ -61,8 +69,8 @@
 }
 
 .topic-button:hover {
-  background-color: #66bb6a;
-  color: #ffffff;
+  background-color: #d4af37;
+  color: black;
 }
 
 .manual-content {
@@ -76,7 +84,7 @@
 .manual-title {
   font-size: 1.75rem;
   margin-bottom: 1rem;
-  color: #66bb6a;
+  color: #f0e68c;
 }
 
 .manual-text {
@@ -87,4 +95,11 @@
 
 .manual-placeholder {
   color: #888;
+}
+
+@media (max-width: 768px) {
+  .manual-navbar-horizontal {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-rows: repeat(4, auto); /* 4 filas */
+  }
 }
