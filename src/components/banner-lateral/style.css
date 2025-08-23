@@ -5,8 +5,7 @@
   font-family: "Cinzel", serif;
   border: 1px solid #f0e68c;
   min-height: 75vh;
-  width: 100%;
-  max-width: 300px;
+  width: 270px;
   border-radius: 8px 0 0 8px;
   display: flex;
   flex-direction: column;
