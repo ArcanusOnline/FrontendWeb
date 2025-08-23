@@ -1,6 +1,5 @@
 import "./style.css";
 import reglas from "../../assets/reglasIndice.json";
-
 const ReglasIndice = () => {
   return (
     <>
@@ -12,7 +11,7 @@ const ReglasIndice = () => {
 
       <ol className="custom-list">
         {reglas.items.map((item, index) => (
-          <li key={index} className="main-item" id={item.id}>
+          <li key={index} className="main-item">
             <a href={`#${item.id}`}>{item.texto}</a>
 
             {item.subItems && (
