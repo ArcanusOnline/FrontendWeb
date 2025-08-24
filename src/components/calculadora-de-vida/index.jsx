@@ -30,18 +30,16 @@ const CalculadoraDeVida = () => {
 
   function obtenerVidaPromedio() {
     const nuevoPromedio = obtenerPromedio(selectedClass, selectedRaza);
-    const nuevoTotalVida = (vida - 20) / (nivel - 1);
-
+    const nuevoTotalVida =
+      nivel == 1 ? nuevoPromedio + (vida - 20) : (vida - 20) / (nivel - 1);
+    // promedio virtual para lvl 1 (promedio + (vidaActual - vida base (20)))
     if (nivel >= 1 && nivel <= 47 && vida >= 15 && vida <= 550) {
       if (nuevoTotalVida >= nuevoPromedio) {
         setDataPersonaje(
           `${selectedClass} ${selectedRaza} nivel ${nivel} con ${vida} de vida`
         );
         setPromedioPersonaje(
-          `El promedio de vida de tu personaje es ${(
-            (vida - 20) /
-            (nivel - 1)
-          ).toFixed(1)}`
+          `El promedio de vida de tu personaje es ${nuevoTotalVida.toFixed(1)}`
         );
         setMostrarResultado({
           tipo: "felicitaciones",
@@ -70,10 +68,7 @@ const CalculadoraDeVida = () => {
           `${selectedClass} ${selectedRaza} nivel ${nivel} con ${vida} de vida`
         );
         setPromedioPersonaje(
-          `El promedio de vida de tu personaje es ${(
-            (vida - 20) /
-            (nivel - 1)
-          ).toFixed(1)}`
+          `El promedio de vida de tu personaje es ${nuevoTotalVida.toFixed(1)}`
         );
         setvidaPromedio(
           `Tu personaje deberia tener ${(
