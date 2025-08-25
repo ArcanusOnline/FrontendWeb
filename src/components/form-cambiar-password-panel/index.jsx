@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { protectedName } from "../../assets/protectedName";
 import { cambiarContra } from "../../querys/scripts";
 import { useNavigate, Link } from "react-router";
+import { useAuth } from "../../useContext/useContext";
+import { logout } from "../../querys/scripts";
 import "./style.css";
 const CambiarPassPanel = () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -12,14 +13,22 @@ const CambiarPassPanel = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [mostrarPw, setMostrarPw] = useState(false);
+  const { handleLogout } = useAuth();
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
-
-  const desconectar = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    navigate(`/`);
+  const desconectar = async () => {
+    try {
+      const data = await logout();
+      if (!data.error) {
+        handleLogout();
+        navigate(`/`);
+      } else {
+        console.error(data.message);
+        return;
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -37,10 +46,8 @@ const CambiarPassPanel = () => {
       return;
     }
 
-    const nombre = await protectedName(token);
     try {
       const response = await cambiarContra(
-        nombre,
         pin,
         oldPassword,
         newPassword,

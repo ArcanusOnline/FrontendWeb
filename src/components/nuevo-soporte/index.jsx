@@ -4,18 +4,17 @@ import {
   enviarNuevoSoporte,
 } from "../../querys/scripts";
 import { useNavigate, Link } from "react-router";
+import { useAuth } from "../../useContext/useContext";
 import "./style.css";
 
 const NuevoSoporte = () => {
-  const token = localStorage.getItem("token") || "";
-  const account = localStorage.getItem("username") || "";
+  const { userName } = useAuth() || "";
 
   const [formData, setFormData] = useState({
     asunto: "",
     sector: "",
     nick: "",
     texto: "",
-    token: token,
     censura: "",
   });
 
@@ -27,7 +26,7 @@ const NuevoSoporte = () => {
 
   useEffect(() => {
     async function obtenerDatos() {
-      let data = await traerInfoPersonajeAsuntoSoporte(formData.token);
+      let data = await traerInfoPersonajeAsuntoSoporte();
       if (data.error === 0) {
         setSectores(data.data.sectores);
         setPersonajes(data.data.personajes);
@@ -135,8 +134,8 @@ const NuevoSoporte = () => {
               </option>
             ))
           ) : (
-            <option key={0} value={account}>
-              {account}
+            <option key={0} value={userName}>
+              {userName}
             </option>
           )}
         </select>

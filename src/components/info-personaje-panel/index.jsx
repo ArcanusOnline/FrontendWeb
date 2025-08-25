@@ -11,7 +11,7 @@ import "./style.css";
 const PanelPorPersonaje = () => {
   const { state } = useLocation();
   const nombre = state?.datos.NickB || "Sin nombre";
-  const { getUsername, getToken } = useAuth();
+  const { userName } = useAuth();
   const [personajeInfo, setPersonajeInfo] = useState();
   const [tablaHechis, setTablaHechis] = useState();
   const [tablaObjBove, setTablaObjBove] = useState();
@@ -21,14 +21,9 @@ const PanelPorPersonaje = () => {
   const [baneos, setBaneos] = useState();
   const [skills, setSkills] = useState();
   let navigate = useNavigate();
-  let userName =
-    getUsername() || localStorage.getItem("username") || "Usuario desconocido";
-  let response = getToken() || localStorage.getItem("token") || "";
   const handleClick = () => {
     const nombreURI = encodeURIComponent(userName);
-    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`, {
-      state: { response },
-    });
+    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`);
   };
 
   const oroFormatter = new Intl.NumberFormat("de-DE", {

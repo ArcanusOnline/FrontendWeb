@@ -12,12 +12,10 @@ const SoporteInfo = () => {
   let ticket = parametro.get("ticket");
   let [respuestas, setRespuestas] = useState([]);
   let navigate = useNavigate();
-  let token = localStorage.getItem("token") || "";
   let [formData, setFormData] = useState({
     censura: "",
     texto: "",
     idSoporte: "",
-    token: token,
   });
 
   const [modalMensaje, setModalMensaje] = useState({
@@ -58,7 +56,7 @@ const SoporteInfo = () => {
     }
     async function extraerDatos() {
       try {
-        const data = await obtenerDataSoporte(ticket, token);
+        const data = await obtenerDataSoporte(ticket);
         if (!data || !Array.isArray(data) || data.length === 0) {
           navigate("/");
           return;

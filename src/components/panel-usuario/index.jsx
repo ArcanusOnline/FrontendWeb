@@ -1,33 +1,36 @@
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "../../useContext/useContext";
 import "./style.css";
+import { logout } from "../../querys/scripts";
 
 const PanelComponent = () => {
-  const { getUsername, getToken } = useAuth();
+  const { userName, handleLogout } = useAuth();
   let navigate = useNavigate();
-
-  let nombre =
-    getUsername() || localStorage.getItem("username") || "Usuario desconocido";
-  let response = getToken() || localStorage.getItem("token") || "";
-
   const verPersonajes = () => {
-    const nombreURI = encodeURIComponent(nombre);
-    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`, {
-      state: { response },
-    });
+    const nombreURI = encodeURIComponent(userName);
+    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`);
   };
 
-  const desconectar = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    navigate(`/`);
+  const desconectar = async () => {
+    try {
+      const data = await logout();
+      if (!data.error) {
+        handleLogout();
+        navigate(`/`);
+      } else {
+        console.error(data.message);
+        return;
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
     <div className="panel-pagina-principal-container">
       <div className="panel-pagina-principal-header">
         <h1 className="panel-pagina-principal-nombre">
-          {nombre.toUpperCase()}
+          {userName.toUpperCase()}
         </h1>
         <p className="panel-pagina-principal-ultima">{`Última conexión: ${new Date().toLocaleString()}`}</p>
       </div>

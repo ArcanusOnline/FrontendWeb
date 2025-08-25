@@ -2,7 +2,7 @@ import { useState } from "react";
 import { agregarPersonajeCuenta } from "../../querys/scripts";
 import "./style.css";
 
-const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
+const AgregarPersonaje = ({ visible, setVisible }) => {
   const [nombre, setNombre] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [pin, setPin] = useState("");
@@ -33,7 +33,6 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
         contrasena,
         pin,
         email,
-        nombreCuenta,
       });
       if (mensaje === "OK") {
         setMensajeConfirmacion(

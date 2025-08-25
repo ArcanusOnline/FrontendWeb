@@ -7,6 +7,7 @@ async function login(nick, pass, captcha) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         nick: nick,
         pass: pass,
@@ -29,7 +30,6 @@ async function login(nick, pass, captcha) {
     return {
       message: `Bienvenido ${respuesta.username}`,
       state: true,
-      token: respuesta.token,
       username: respuesta.username,
     };
   } catch (error) {
@@ -218,14 +218,14 @@ async function extraerNoticias() {
   }
 }
 
-async function personajesPorCuenta(token) {
+async function personajesPorCuenta() {
   try {
     let response = await fetch(`${urlBase}/showCharacterCount`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Enviar token en los encabezados
       },
+      credentials: "include",
     });
 
     // Si la respuesta no es exitosa, manejar el error
@@ -253,21 +253,15 @@ async function personajesPorCuenta(token) {
   }
 }
 
-async function cambiarContra(
-  userName,
-  userPin,
-  userOldPass,
-  userNewPass,
-  userEmail
-) {
+async function cambiarContra(userPin, userOldPass, userNewPass, userEmail) {
   try {
     let response = await fetch(`${urlBase}/changePassword`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
-        userName,
         userPin,
         userOldPass,
         userNewPass,
@@ -348,21 +342,15 @@ async function traerInfoIndividual(nombre) {
   }
 }
 
-async function cambiarPin(
-  userName,
-  userPin,
-  userOldPass,
-  userNewPin,
-  userEmail
-) {
+async function cambiarPin(userPin, userOldPass, userNewPin, userEmail) {
   try {
     let response = await fetch(`${urlBase}/changePinCode`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
-        userName,
         userPin,
         userOldPass,
         userNewPin,
@@ -376,13 +364,7 @@ async function cambiarPin(
   }
 }
 
-async function cambiarEmail(
-  userName,
-  userPin,
-  userOldPass,
-  userNewEmail,
-  userEmail
-) {
+async function cambiarEmail(userPin, userOldPass, userNewEmail, userEmail) {
   try {
     // Realiza la solicitud a la API para cambiar el email
     let response = await fetch(`${urlBase}/changeAccountEmail`, {
@@ -390,8 +372,8 @@ async function cambiarEmail(
       headers: {
         "Content-Type": "application/json", // Tipo de contenido JSON
       },
+      credentials: "include",
       body: JSON.stringify({
-        userName,
         userPin,
         userOldPass,
         userNewEmail,
@@ -598,6 +580,7 @@ async function quitarPersonajeCuenta(nick) {
     const response = await fetch(`${urlBase}/removeCharacterForAccount`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify({ username: nick }),
     });
 
@@ -619,6 +602,7 @@ async function eliminarPersonajeCuenta(nick) {
     const response = await fetch(`${urlBase}/deleteCharacterForAccount`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify({ username: nick }),
     });
 
@@ -692,20 +676,15 @@ async function confirmUpdateEmailAccountQuery(token) {
   }
 }
 
-async function agregarPersonajeCuenta({
-  nombre,
-  contrasena,
-  pin,
-  email,
-  nombreCuenta,
-}) {
+async function agregarPersonajeCuenta({ nombre, contrasena, pin, email }) {
   try {
     const response = await fetch(`${urlBase}/agregarPersonajeCuenta`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ nombre, contrasena, pin, email, nombreCuenta }),
+      credentials: "include",
+      body: JSON.stringify({ nombre, contrasena, pin, email }),
     });
 
     const data = await response.json();
@@ -755,19 +734,15 @@ async function confirmAddCharacterAccount(token) {
   }
 }
 
-async function obtenerSoportes(token) {
-  if (!token) {
-    throw new Error("No se proporcionó token.");
-  }
-
+async function obtenerSoportes() {
   try {
     const url = `${urlBase}/recuperarSoportes`;
     const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
+      credentials: "include",
     });
 
     const data = await res.json();
@@ -789,8 +764,8 @@ async function obtenerSoportes(token) {
   }
 }
 
-async function obtenerDataSoporte(id, token) {
-  if (!token || !id) {
+async function obtenerDataSoporte(id) {
+  if (!id) {
     throw new Error("Faltan parámetros requeridos.");
   }
 
@@ -799,8 +774,8 @@ async function obtenerDataSoporte(id, token) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
+      credentials: "include",
       body: JSON.stringify({ id }),
     });
 
@@ -815,16 +790,14 @@ async function obtenerDataSoporte(id, token) {
   }
 }
 
-async function traerInfoPersonajeAsuntoSoporte(token) {
-  if (!token) throw new Error("Token no proporcionado.");
-
+async function traerInfoPersonajeAsuntoSoporte() {
   try {
     const response = await fetch(`${urlBase}/traerInformacionParaSoporte`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
+      credentials: "include",
     });
 
     const data = await response.json();
@@ -845,8 +818,8 @@ async function enviarNuevoSoporte(datos) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${datos.token}`,
       },
+      credentials: "include",
       body: JSON.stringify({
         sector: datos.sector,
         asunto: datos.asunto,
@@ -873,8 +846,8 @@ async function enviarRespuestaNuevaSoporte(datos) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${datos.token}`,
       },
+      credentials: "include",
       body: JSON.stringify({
         censura: datos.censura,
         texto: datos.texto,
@@ -965,9 +938,20 @@ async function obtenerRangosGms() {
     return { message: error.message || "Error en la solicitud", error: 1 };
   }
 }
+async function logout() {
+  try {
+    let response = await fetch(`${urlBase}/logout-panel`);
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error al cerrar la sesion", error.message);
+    return { message: error.message || "Error en la solicitud", error: 1 };
+  }
+}
 
 export {
   login,
+  logout,
   getTop100,
   getRankingRetos,
   comenzarDescarga,

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { protectedName } from "../../assets/protectedName";
 import { cambiarEmail } from "../../querys/scripts";
 import { useNavigate, Link } from "react-router";
+import { useAuth } from "../../useContext/useContext";
+import { logout } from "../../querys/scripts";
 import "./style.css";
 
 const CambiarEmailPanel = () => {
@@ -12,15 +13,25 @@ const CambiarEmailPanel = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const { handleLogout } = useAuth();
+
   let navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
   const [mostrarPw, setMostrarPw] = useState(false);
 
-  const desconectar = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    navigate(`/`);
+  const desconectar = async () => {
+    try {
+      const data = await logout();
+      if (!data.error) {
+        handleLogout();
+        navigate(`/`);
+      } else {
+        console.error(data.message);
+        return;
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -33,10 +44,8 @@ const CambiarEmailPanel = () => {
       return;
     }
 
-    let nombre = await protectedName(token);
     try {
       const response = await cambiarEmail(
-        nombre,
         pin,
         oldPassword,
         newEmail.toLocaleLowerCase(),

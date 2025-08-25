@@ -2,30 +2,26 @@ import { useContext } from "react";
 import { Context } from "../context/context.jsx";
 
 export const useAuth = () => {
-  const { token, username, setToken, setUsername } = useContext(Context);
+  const { isLoggedIn, userName, setUserName, setLoggedIn } =
+    useContext(Context);
 
-  const updateUsername = (newUsername) => {
-    setUsername(newUsername);
+  const handleLogin = () => {
+    setLoggedIn(true);
   };
 
-  const updateToken = (newToken) => {
-    setToken(newToken);
+  const handleLogout = () => {
+    setLoggedIn(false);
   };
 
-  const getUsername = () => {
-    return username;
+  const setName = (newUserName) => {
+    setUserName(newUserName);
   };
-
-  const getToken = () => {
-    return token;
-  }
-
 
   return {
-    updateUsername,
-    updateToken,
-    getUsername,
-    getToken,
+    userName,
+    isLoggedIn,
+    setName,
+    handleLogin,
+    handleLogout,
   };
 };
-

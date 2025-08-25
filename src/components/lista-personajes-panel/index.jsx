@@ -1,12 +1,5 @@
-import {
-  NavLink,
-  useLocation,
-  useParams,
-  Outlet,
-  useNavigate,
-} from "react-router";
+import { NavLink, Outlet, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
-import { protectedName } from "../../assets/protectedName";
 import { personajesPorCuenta, bloquearPersonaje } from "../../querys/scripts";
 import { calcularExp } from "../../assets/calculadoraExp";
 import { obtenerPromedio } from "../../assets/calculadoraVida";
@@ -22,11 +15,8 @@ import {
 import "./style.css";
 
 const ListadoPersonajes = () => {
-  const { state } = useLocation();
-  const { usuario: paramUsuario } = useParams();
   const redireccionar = useRedireccionar();
   const navigate = useNavigate();
-  const response = state?.response; // Evita error si state es null
   const [personajes, setPersonajes] = useState([]);
   const [mensaje, setMensaje] = useState("");
   const [estatusBloq, setEstatusBloq] = useState(0);
@@ -39,16 +29,7 @@ const ListadoPersonajes = () => {
 
   useEffect(() => {
     async function traerPersonajes() {
-      const tokenUsername = await protectedName(response);
-      if (tokenUsername !== paramUsuario) {
-        return navigate(
-          `/panel-de-usuario/lista-de-mis-personajes/${tokenUsername}`,
-          {
-            replace: true,
-          }
-        );
-      }
-      let data = await personajesPorCuenta(response);
+      let data = await personajesPorCuenta();
       // Si data es un array
       if (Array.isArray(data)) {
         if (data.length === 0) {
@@ -64,7 +45,7 @@ const ListadoPersonajes = () => {
       }
     }
     traerPersonajes();
-  }, [response, paramUsuario, navigate]);
+  }, [navigate]);
 
   function colorBanderin(data) {
     if (data.EjercitoCaosB === 1) {
@@ -226,7 +207,6 @@ const ListadoPersonajes = () => {
       <AgregarPersonaje
         visible={agregarPersonaje}
         setVisible={setAgregarPersonaje}
-        nombreCuenta={paramUsuario}
       />
       <div className="lista-panel-contenedor-botones">
         <button
