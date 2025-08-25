@@ -28,6 +28,7 @@ const Login = () => {
     }
 
     const data = await login(fields.nick, fields.pass, fields.captcha);
+    console.log(data);
 
     if (data.state === false) {
       setError(true);
