@@ -940,7 +940,10 @@ async function obtenerRangosGms() {
 }
 async function logout() {
   try {
-    let response = await fetch(`${urlBase}/logout-panel`);
+    const response = await fetch(`${urlBase}/logout-panel`, {
+      method: "GET",
+      credentials: "include", // 🔹 importante para enviar la cookie
+    });
     let data = await response.json();
     return data;
   } catch (error) {
