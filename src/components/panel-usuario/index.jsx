@@ -5,7 +5,6 @@ import { logout } from "../../querys/scripts";
 
 const PanelComponent = () => {
   const { userName, handleLogout } = useAuth();
-  console.log("panel usuario userName" + userName);
   let navigate = useNavigate();
   const verPersonajes = () => {
     const nombreURI = encodeURIComponent(userName);
