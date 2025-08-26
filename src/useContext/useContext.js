@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "../context/context.jsx";
 
 export const useAuth = () => {
-  const { isLoggedIn, userName, setUserName, setLoggedIn } =
+  const { isLoggedIn, userName, setUserName, setLoggedIn, loading } =
     useContext(Context);
 
   const handleLogin = () => {
@@ -20,6 +20,7 @@ export const useAuth = () => {
   return {
     userName,
     isLoggedIn,
+    loading,
     setName,
     handleLogin,
     handleLogout,

@@ -951,10 +951,30 @@ async function logout() {
     return { message: error.message || "Error en la solicitud", error: 1 };
   }
 }
+async function checkAuth() {
+  try {
+    const response = await fetch(`${urlBase}/checkAuth`, {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      console.log(response);
+      return { valid: false }; // No autorizado
+    }
+
+    const data = await response.json();
+    return data; // { valid: true, username: "..." }
+  } catch (error) {
+    console.error("Error en checkAuth:", error.message);
+    return { valid: false, message: error.message || "Error en la solicitud" };
+  }
+}
 
 export {
   login,
   logout,
+  checkAuth,
   getTop100,
   getRankingRetos,
   comenzarDescarga,
