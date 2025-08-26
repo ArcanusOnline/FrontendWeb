@@ -21,7 +21,7 @@ export const ContextProvider = (props) => {
         console.log(res);
         if (res.valid) {
           setLoggedIn(true);
-          setUserName(res.username || "");
+          setUserName(res.user || "");
         } else {
           setLoggedIn(false);
           setUserName("");
