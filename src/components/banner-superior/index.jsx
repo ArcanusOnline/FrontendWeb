@@ -97,15 +97,6 @@ const BannerInicio = () => {
               Reglas
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="https://discord.com/invite/Eqg7zmVj2f"
-              onClick={handleLinkClick}
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              <img src={urlImagenes.discordWhite} alt="Discord" />
-            </NavLink>
-          </li>
         </ul>
       </nav>
 
