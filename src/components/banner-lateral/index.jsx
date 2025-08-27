@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { useState } from "react";
 import { MiniStats } from "../boton-mini-estadisticas";
+import { ListarPersonajes } from "../boton-listar-pjs";
 import { urlImagenes } from "../../assets/urlImagenes";
 import "./style.css";
 
@@ -23,6 +24,9 @@ const BannerLateral = () => {
             <Link to="/recuperar-personaje">
               Recuperar<br></br>Personaje
             </Link>
+          </li>
+          <li>
+            <ListarPersonajes />
           </li>
           <li>
             <MiniStats />

@@ -218,6 +218,32 @@ async function extraerNoticias() {
   }
 }
 
+async function listarPersonajes(email) {
+  try {
+    let response = await fetch(`${urlBase}/obtener-listado-personajes-email`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    });
+
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return { error: 1, message: "No se encontraron personajes" };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+
+    // Retornar los datos de los personajes con estado positivo
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", error: 1 };
+  }
+}
+
 async function personajesPorCuenta() {
   try {
     let response = await fetch(`${urlBase}/showCharacterCount`, {
@@ -812,6 +838,27 @@ async function traerInfoPersonajeAsuntoSoporte() {
   }
 }
 
+async function checkAuth() {
+  try {
+    const response = await fetch(`${urlBase}/checkAuth`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    const data = await response.json();
+    if (!response.ok || data.error !== 0) {
+      return { valid: false }; // No autorizado
+    }
+
+    return data; // { valid: true, username: "..." }
+  } catch (error) {
+    console.error("Error en checkAuth:", error.message);
+    return { valid: false, message: error.message || "Error en la solicitud" };
+  }
+}
+
 async function enviarNuevoSoporte(datos) {
   try {
     let response = await fetch(`${urlBase}/insertarSoporte`, {
@@ -942,7 +989,7 @@ async function logout() {
   try {
     const response = await fetch(`${urlBase}/logout-panel`, {
       method: "GET",
-      credentials: "include", // 🔹 importante para enviar la cookie
+      credentials: "include",
     });
     let data = await response.json();
     return data;
@@ -951,30 +998,12 @@ async function logout() {
     return { message: error.message || "Error en la solicitud", error: 1 };
   }
 }
-async function checkAuth() {
-  try {
-    const response = await fetch(`${urlBase}/checkAuth`, {
-      method: "GET",
-      credentials: "include",
-    });
-
-    if (!response.ok) {
-      console.log(response);
-      return { valid: false }; // No autorizado
-    }
-
-    const data = await response.json();
-    return data; // { valid: true, username: "..." }
-  } catch (error) {
-    console.error("Error en checkAuth:", error.message);
-    return { valid: false, message: error.message || "Error en la solicitud" };
-  }
-}
 
 export {
   login,
   logout,
   checkAuth,
+  listarPersonajes,
   getTop100,
   getRankingRetos,
   comenzarDescarga,

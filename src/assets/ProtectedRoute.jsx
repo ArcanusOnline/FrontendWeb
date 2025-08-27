@@ -6,7 +6,7 @@ import { useAuth } from "../useContext/useContext";
 // Si el usuario está autenticado, redirige al panel; de lo contrario, muestra el login.
 export const ProtectedRoute = ({ redirectTo }) => {
   const { isLoggedIn, loading } = useAuth();
-  if (loading) return <div>Cargando...</div>;
+  // if (loading) return <div>Cargando...</div>;
   return isLoggedIn ? <Navigate to={redirectTo} /> : <Outlet />;
 };
 
@@ -15,6 +15,6 @@ export const ProtectedRoute = ({ redirectTo }) => {
 export const PrivateRoute = ({ redirectTo }) => {
   const { isLoggedIn, loading } = useAuth();
 
-  if (loading) return <div>Cargando...</div>;
+  // if (loading) return <div>Cargando...</div>;
   return isLoggedIn ? <Outlet /> : <Navigate to={redirectTo} />;
 };

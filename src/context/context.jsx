@@ -14,29 +14,29 @@ export const ContextProvider = (props) => {
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const verifyAuth = async () => {
-      try {
-        const res = await checkAuth();
-        console.log(res);
-        if (res.valid) {
-          setLoggedIn(true);
-          setUserName(res.user || "");
-        } else {
-          setLoggedIn(false);
-          setUserName("");
-        }
-      } catch (error) {
-        console.error("Error en verifyAuth:", error);
-        setLoggedIn(false);
-        setUserName("");
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const verifyAuth = async () => {
+  //     try {
+  //       const res = await checkAuth();
+  //       console.log(res);
+  //       if (res.valid) {
+  //         setLoggedIn(true);
+  //         setUserName(res.user || "");
+  //       } else {
+  //         setLoggedIn(false);
+  //         setUserName("");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error en verifyAuth:", error);
+  //       setLoggedIn(false);
+  //       setUserName("");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    verifyAuth();
-  }, []);
+  //   verifyAuth();
+  // }, []);
   return (
     <Context.Provider
       value={{ isLoggedIn, userName, loading, setUserName, setLoggedIn }}
