@@ -9,39 +9,59 @@ export const Context = createContext({
   setUserName: () => {},
 });
 
-export const ContextProvider = (props) => {
+export const ContextProvider = ({ children }) => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const verifyAuth = async () => {
-  //     try {
-  //       const res = await checkAuth();
-  //       console.log(res);
-  //       if (res.valid) {
-  //         setLoggedIn(true);
-  //         setUserName(res.user || "");
-  //       } else {
-  //         setLoggedIn(false);
-  //         setUserName("");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error en verifyAuth:", error);
-  //       setLoggedIn(false);
-  //       setUserName("");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const verifyAuth = async () => {
+      try {
+        if (!localStorage.getItem("logged")) {
+          setLoggedIn(false);
+          setUserName("");
+          return;
+        }
 
-  //   verifyAuth();
-  // }, []);
+        const res = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/checkAuth`,
+          {
+            method: "GET",
+            credentials: "include",
+          }
+        );
+
+        if (!res.ok) {
+          setLoggedIn(false);
+          setUserName("");
+          return;
+        }
+
+        const data = await res.json();
+        if (data.valid) {
+          setLoggedIn(true);
+          setUserName(data.user || "");
+        } else {
+          setLoggedIn(false);
+          setUserName("");
+        }
+      } catch (error) {
+        console.error("Error en verifyAuth:", error);
+        setLoggedIn(false);
+        setUserName("");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    verifyAuth();
+  }, []);
+
   return (
     <Context.Provider
       value={{ isLoggedIn, userName, loading, setUserName, setLoggedIn }}
     >
-      {props.children}
+      {children}
     </Context.Provider>
   );
 };

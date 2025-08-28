@@ -35,6 +35,7 @@ import {
   ConfirmarCambioEmailCuenta,
   ConfirmarAgregarPersonaje,
   Manual,
+  DonacionesPage,
 } from "./pages/index.js";
 
 import { ProtectedRoute, PrivateRoute } from "./assets/ProtectedRoute.jsx";
@@ -47,6 +48,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/reglas" element={<RenderReglas />} />
+          <Route path="/donaciones" element={<DonacionesPage />} />
           <Route path="/staff" element={<StaffCard />} />
           <Route element={<ProtectedRoute redirectTo="/panel-de-usuario" />}>
             <Route path="/cuenta" element={<Cuenta />} />

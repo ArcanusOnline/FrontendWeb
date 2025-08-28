@@ -1,20 +1,16 @@
-// AuthRoutes.js
 import { Navigate, Outlet } from "react-router";
 import { useAuth } from "../useContext/useContext";
 
-// ProtectedRoute para la ruta de login:
-// Si el usuario está autenticado, redirige al panel; de lo contrario, muestra el login.
+// ProtectedRoute: si el usuario está autenticado, redirige; si no, muestra login
 export const ProtectedRoute = ({ redirectTo }) => {
   const { isLoggedIn, loading } = useAuth();
-  // if (loading) return <div>Cargando...</div>;
+  if (loading) return <div>Cargando...</div>;
   return isLoggedIn ? <Navigate to={redirectTo} /> : <Outlet />;
 };
 
-// PrivateRoute para las rutas protegidas (panel, etc.):
-// Si el usuario está autenticado, muestra el contenido; de lo contrario, redirige al login.
+// PrivateRoute: si el usuario está autenticado, muestra contenido; si no, redirige
 export const PrivateRoute = ({ redirectTo }) => {
   const { isLoggedIn, loading } = useAuth();
-
-  // if (loading) return <div>Cargando...</div>;
+  if (loading) return <div>Cargando...</div>;
   return isLoggedIn ? <Outlet /> : <Navigate to={redirectTo} />;
 };

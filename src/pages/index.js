@@ -10,3 +10,4 @@ export { ActivarCuenta } from "./ActivacionCuenta";
 export { ConfirmarCambioEmailCuenta } from "./confirmarCambioEmail";
 export { ConfirmarAgregarPersonaje } from "./ConfirmarAgregadoPersonaje";
 export { Manual } from "./Manual";
+export { DonacionesPage } from "./Donaciones";

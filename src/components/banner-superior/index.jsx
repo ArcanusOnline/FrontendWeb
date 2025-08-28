@@ -97,6 +97,15 @@ const BannerInicio = () => {
               Reglas
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/donaciones"
+              onClick={handleLinkClick}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Donaciones
+            </NavLink>
+          </li>
         </ul>
       </nav>
 

@@ -8,6 +8,7 @@ export { CambiarEmailPanel } from "./form-cambiar-email-panel";
 export { CambiarPassPanel } from "./form-cambiar-password-panel";
 export { FormularioCambiarPasswordRecu } from "./form-cambiar-pw-recuperada";
 export { FormularioCambiarPasswordRecuPersonaje } from "./form-cambiar-pw-recuPj";
+export { FormDonar } from "./form-donaciones";
 export { Login } from "./form-login";
 export { QuitarPersonaje } from "./form-quitar-personaje-panel";
 export { BloquearPersonaje } from "./form-bloquear-personaje-panel";

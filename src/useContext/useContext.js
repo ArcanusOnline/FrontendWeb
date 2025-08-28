@@ -11,6 +11,8 @@ export const useAuth = () => {
 
   const handleLogout = () => {
     setLoggedIn(false);
+    setUserName("");
+    localStorage.removeItem("logged"); // opcional, si manejas sesión en localStorage
   };
 
   const setName = (newUserName) => {

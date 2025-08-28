@@ -312,6 +312,32 @@ async function cambiarContra(userPin, userOldPass, userNewPass, userEmail) {
   }
 }
 
+async function generarDonacion(valor) {
+  try {
+    let response = await fetch(`${urlBase}/generate-link-donate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        valor,
+      }),
+    });
+    if (!response.ok) {
+      let data = await response.json();
+      return data.message;
+    }
+
+    // Obtener la respuesta JSON
+    let data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error al generar la donacion", error);
+    return { message: "Error al conectar con el servidor", error: 1 };
+  }
+}
+
 async function enviarActivacion(token) {
   try {
     let response = await fetch(`${urlBase}/activateAccount`, {
@@ -1003,6 +1029,7 @@ export {
   login,
   logout,
   checkAuth,
+  generarDonacion,
   listarPersonajes,
   getTop100,
   getRankingRetos,

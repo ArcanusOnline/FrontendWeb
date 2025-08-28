@@ -1,0 +1,25 @@
+.donaciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donaciones-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  max-width: 800px;
+  gap: 3rem;
+}
+
+.donaciones-title {
+  margin-top: 1rem;
+}
+.donaciones-subtitle {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: #ddd;
+}
