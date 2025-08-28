@@ -26,6 +26,12 @@ const ConfirmarDonacion = () => {
           <h2>Muchas gracias por aportar a Arcanus Online</h2>
         </div>
       )}
+      {status != "success" && status != "failure" && status != "pending" && (
+        <div className="confirm-donation-text-container">
+          <h1>404</h1>
+          <h2>Donación no encontrada</h2>
+        </div>
+      )}
     </div>
   );
 };
