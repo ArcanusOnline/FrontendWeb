@@ -1,0 +1,10 @@
+.confirm-donation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.confirm-donation-text-container {
+  text-align: center;
+}

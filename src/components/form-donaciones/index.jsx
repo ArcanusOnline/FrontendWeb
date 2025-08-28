@@ -1,6 +1,4 @@
-import { Link } from "react-router";
 import { useState } from "react";
-import { useRedireccionar } from "../../assets/functions.js";
 import "./style.css";
 import { generarDonacion } from "../../querys/scripts.js";
 
@@ -8,14 +6,13 @@ const FormDonar = () => {
   const [fields, setFields] = useState({ valor: "" });
   const [errorLog, setErrorLog] = useState("");
   const [error, setError] = useState(false);
-  const redireccionar = useRedireccionar();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fields.valor) {
+    if (!fields.valor || fields.valor <= 0) {
       setError(true);
-      setErrorLog("Por favor ingresa un monto");
+      setErrorLog("Por favor ingresa un monto valido");
       return;
     }
 

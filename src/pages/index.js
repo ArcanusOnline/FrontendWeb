@@ -11,3 +11,4 @@ export { ConfirmarCambioEmailCuenta } from "./confirmarCambioEmail";
 export { ConfirmarAgregarPersonaje } from "./ConfirmarAgregadoPersonaje";
 export { Manual } from "./Manual";
 export { DonacionesPage } from "./Donaciones";
+export { ConfirmarDonacion } from "./ConfirmarDonacion";
