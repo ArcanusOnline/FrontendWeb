@@ -5,6 +5,8 @@
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Referrer-Policy: no-referrer
 
+ # Para todas las rutas del SPA
+/*  
   Content-Security-Policy: default-src 'self'; 
     connect-src 'self' https://backarcanus.onrender.com; 
     script-src 'self' https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com https://www.google.com https://www.gstatic.com; 
@@ -14,3 +16,7 @@
     font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com https://www.gstatic.com; 
     img-src 'self' data: https://www.gstatic.com; 
     frame-src https://www.google.com https://www.gstatic.com;
+
+# Para el proxy, si querés headers distintos
+/api/*
+  Content-Security-Policy: default-src 'self'; connect-src 'self' https://backarcanus.onrender.com;
