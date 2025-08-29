@@ -4,4 +4,11 @@
   X-XSS-Protection: 1; mode=block
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Referrer-Policy: no-referrer
-  Content-Security-Policy: default-src 'self'; connect-src 'self' https://backarcanus.onrender.com; script-src 'self' https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; img-src 'self' data:; frame-ancestors 'none';
+  Content-Security-Policy: 
+    default-src 'self'; 
+    connect-src 'self' https://backarcanus.onrender.com; 
+    script-src 'self' https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; 
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; 
+    font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; 
+    img-src 'self' data:; 
+    frame-ancestors 'none';
