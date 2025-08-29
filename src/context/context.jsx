@@ -19,7 +19,7 @@ useEffect(() => {
     try {
       // Llamamos siempre al backend para verificar cookie httpOnly
        const urlBase = "/api"; || '';
-      const res = await fetch(`${base}/checkAuth`, {
+      const res = await fetch(`${urlBase}/checkAuth`, {
         method: "GET",
         credentials: "include",
       });
