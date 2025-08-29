@@ -13,5 +13,4 @@
     style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com; 
     font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com https://www.gstatic.com; 
     img-src 'self' data: https://www.gstatic.com; 
-    frame-src https://www.google.com https://www.gstatic.com; 
-    frame-ancestors 'none';
+    frame-src https://www.google.com https://www.gstatic.com;
