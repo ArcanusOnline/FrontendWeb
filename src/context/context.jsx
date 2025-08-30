@@ -19,6 +19,7 @@ export const ContextProvider = ({ children }) => {
       try {
         // Llamamos siempre al backend para verificar cookie httpOnly
         const urlBase = "/api";
+        // const urlBase = import.meta.env.VITE_API_URL;
         const res = await fetch(`${urlBase}/checkAuth`, {
           method: "GET",
           credentials: "include",
