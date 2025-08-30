@@ -84,6 +84,54 @@ p {
   font-size: 1rem;
 }
 
+.global-loading-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centra verticalmente */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(16 16 16);
+  gap: 3rem;
+  z-index: 9999; /* enorme para que tape header/footer */
+  pointer-events: all; /* bloquea clics debajo */
+}
+
+.logo-loader {
+  filter: drop-shadow(0 0 8px rgba(253, 255, 242, 0.4));
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.dots::after {
+  content: "";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+  100% {
+    content: "";
+  }
+}
 ::selection {
   background: #b8c9ff; /* verde medio para selección */
   color: #1a250f; /* texto oscuro */
