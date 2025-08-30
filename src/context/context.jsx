@@ -14,41 +14,41 @@ export const ContextProvider = ({ children }) => {
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  const verifyAuth = async () => {
-    try {
-      // Llamamos siempre al backend para verificar cookie httpOnly
-       const urlBase = "/api";
-      const res = await fetch(`${urlBase}/checkAuth`, {
-        method: "GET",
-        credentials: "include",
-      });
+  useEffect(() => {
+    const verifyAuth = async () => {
+      try {
+        // Llamamos siempre al backend para verificar cookie httpOnly
+        const urlBase = "/api";
+        const res = await fetch(`${urlBase}/checkAuth`, {
+          method: "GET",
+          credentials: "include",
+        });
 
-      if (!res.ok) {
+        if (!res.ok) {
+          setLoggedIn(false);
+          setUserName("");
+          return;
+        }
+
+        const data = await res.json();
+        if (data.valid) {
+          setLoggedIn(true);
+          setUserName(data.user || "");
+        } else {
+          setLoggedIn(false);
+          setUserName("");
+        }
+      } catch (error) {
+        console.error("Error en verifyAuth:", error);
         setLoggedIn(false);
         setUserName("");
-        return;
+      } finally {
+        setLoading(false);
       }
+    };
 
-      const data = await res.json();
-      if (data.valid) {
-        setLoggedIn(true);
-        setUserName(data.user || "");
-      } else {
-        setLoggedIn(false);
-        setUserName("");
-      }
-    } catch (error) {
-      console.error("Error en verifyAuth:", error);
-      setLoggedIn(false);
-      setUserName("");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  verifyAuth();
-}, []);
+    verifyAuth();
+  }, []);
 
   return (
     <Context.Provider

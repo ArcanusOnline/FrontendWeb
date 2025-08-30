@@ -1,5 +1,5 @@
 //const urlBase = import.meta.env.VITE_API_URL;
- const urlBase = "/api"; // relativo - activar cuando se deploye el netlify.toml
+const urlBase = "/api"; // relativo - activar cuando se deploye el netlify.toml
 
 async function login(nick, pass, captcha) {
   try {
@@ -15,7 +15,7 @@ async function login(nick, pass, captcha) {
         captcha: captcha,
       }),
     });
-
+    console.log(response);
     // Parsear la respuesta
     let respuesta = await response.json();
 
