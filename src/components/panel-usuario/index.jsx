@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "../../useContext/useContext";
+import { useState } from "react";
 import "./style.css";
 import { logout } from "../../querys/scripts";
 
 const PanelComponent = () => {
   const { userName, handleLogout } = useAuth();
+  const [mostrarMensaje, setMostrarMensaje] = useState(false);
   let navigate = useNavigate();
   const verPersonajes = () => {
     const nombreURI = encodeURIComponent(userName);
@@ -15,8 +17,12 @@ const PanelComponent = () => {
     try {
       const data = await logout();
       if (!data.error) {
-        handleLogout();
-        navigate(`/`);
+        setMostrarMensaje(true);
+        setTimeout(() => {
+          handleLogout();
+          setMostrarMensaje(false);
+          navigate(`/`);
+        }, 5000);
       } else {
         console.error(data.message);
         return;
@@ -97,6 +103,15 @@ const PanelComponent = () => {
       >
         CERRAR SESIÓN
       </button>
+      {mostrarMensaje && (
+        <div className="modal-overlay-mensaje-global">
+          <div className="modal-mensaje-contenido">
+            <p className="mensaje-cerrando-sesion">
+              Cerrando sesión<span className="dots"></span>
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
