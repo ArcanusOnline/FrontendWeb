@@ -22,7 +22,7 @@ const PanelComponent = () => {
           handleLogout();
           setMostrarMensaje(false);
           navigate(`/`);
-        }, 5000);
+        }, 2000);
       } else {
         console.error(data.message);
         return;
