@@ -646,11 +646,14 @@ async function registrarCuenta({
   }
 }
 
-async function quitarPersonajeCuenta(nick) {
+async function quitarPersonajeCuenta(nick, token) {
   try {
     const response = await fetch(`${urlBase}/removeCharacterForAccount`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Enviar token en el header
+      },
       body: JSON.stringify({ username: nick }),
     });
 
@@ -667,11 +670,14 @@ async function quitarPersonajeCuenta(nick) {
   }
 }
 
-async function eliminarPersonajeCuenta(nick) {
+async function eliminarPersonajeCuenta(nick, token) {
   try {
     const response = await fetch(`${urlBase}/deleteCharacterForAccount`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Enviar token en el header
+      },
       body: JSON.stringify({ username: nick }),
     });
 
@@ -751,18 +757,18 @@ async function agregarPersonajeCuenta({
   pin,
   email,
   nombreCuenta,
+  token,
 }) {
   try {
     const response = await fetch(`${urlBase}/agregarPersonajeCuenta`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ nombre, contrasena, pin, email, nombreCuenta }),
     });
-
     const data = await response.json();
-
     if (!response.ok) {
       throw new Error(data.message || "Error al agregar personaje.");
     }

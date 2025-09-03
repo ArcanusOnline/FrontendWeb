@@ -5,24 +5,21 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background: linear-gradient(135deg, #112d11, #1b3d1b);
-  color: #c8e6c9;
   font-family: "Cinzel", serif;
   text-align: center;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(17, 45, 17, 0.4);
+  box-shadow: 0 0 20px rgba(17, 45, 17, 0.5);
 }
 
 .confirmacion-pj-delete h2 {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #66bb6a;
-  text-shadow: 0 0 10px #4caf50;
+  color: #f0e68c;
   max-width: 600px;
 }
 
 /* Para posibles mensajes de error */
 .confirmacion-pj-delete.error h2 {
-  color: #ef5350;
-  text-shadow: 0 0 8px #c62828;
+  color: #e57373;
+  text-shadow: 0 0 10px #c62828;
 }

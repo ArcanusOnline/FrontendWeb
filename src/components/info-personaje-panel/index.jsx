@@ -10,8 +10,7 @@ import "./style.css";
 
 const PanelPorPersonaje = () => {
   const { state } = useLocation();
-  const nombre = state?.datos.NickB || "Sin nombre";
-  const { userName } = useAuth();
+  const { getUsername, getToken } = useAuth();
   const [personajeInfo, setPersonajeInfo] = useState();
   const [tablaHechis, setTablaHechis] = useState();
   const [tablaObjBove, setTablaObjBove] = useState();
@@ -21,9 +20,15 @@ const PanelPorPersonaje = () => {
   const [baneos, setBaneos] = useState();
   const [skills, setSkills] = useState();
   let navigate = useNavigate();
+
+  let nombre =
+    getUsername() || localStorage.getItem("username") || "Usuario desconocido";
+  let response = getToken() || localStorage.getItem("token") || "";
   const handleClick = () => {
-    const nombreURI = encodeURIComponent(userName);
-    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`);
+    const nombreURI = encodeURIComponent(nombre);
+    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`, {
+      state: { response },
+    });
   };
 
   const oroFormatter = new Intl.NumberFormat("de-DE", {
@@ -38,14 +43,13 @@ const PanelPorPersonaje = () => {
     }
 
     async function cargarInfo() {
-      const data = await traerInfoIndividual(nombre);
+      const data = await traerInfoIndividual(state.datos.NickB);
       setPersonajeInfo(data);
       setTablaHechis(data.queryHechis);
       setTablaObjBove(data.queryOBoveda);
       setTablaObjInven(data.queryOInventario);
       setTablaDatos(data.queryStatsPersonaje);
       setSkills(data.queryInfoSkills);
-
       setPenas(
         typeof data.queryStatsPersonaje[0].PenasasB === "string"
           ? data.queryStatsPersonaje[0].PenasasB.split("-")

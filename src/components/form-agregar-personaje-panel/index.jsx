@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { agregarPersonajeCuenta } from "../../querys/scripts";
+import { useAuth } from "../../useContext/useContext";
 import "./style.css";
 
 const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
@@ -12,7 +13,8 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
   const [mostrarPw, setMostrarPw] = useState(false);
   const [mostrarPin, setMostrarPin] = useState(false);
-
+  const { getToken } = useAuth();
+  const token = getToken();
   const handleCancelar = () => {
     setVisible(false);
     setMensajeConfirmacion("");
@@ -34,6 +36,7 @@ const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
         pin,
         email,
         nombreCuenta,
+        token,
       });
       if (mensaje === "OK") {
         setMensajeConfirmacion(

@@ -1,19 +1,21 @@
 import { eliminarPersonajeCuenta } from "../../querys/scripts";
 import { useState } from "react";
+import { useAuth } from "../../useContext/useContext";
 import "./style.css";
 
 const BorrarPersonaje = ({ visible, setVisible, nombrePj }) => {
   const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
   const [mensajeColor, setMensajeColor] = useState("lightgreen");
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
+  const { getToken } = useAuth();
   const handleCancelar = () => {
     setVisible(false);
     setMensajeConfirmacion("");
   };
-
+  const token = getToken();
   const handleConfirmar = async () => {
     try {
-      const mensaje = await eliminarPersonajeCuenta(nombrePj);
+      const mensaje = await eliminarPersonajeCuenta(nombrePj, token);
       if (mensaje.state === 1) {
         setMensajeConfirmacion(mensaje.message);
         setMensajeColor("lightgreen");
@@ -54,7 +56,7 @@ const BorrarPersonaje = ({ visible, setVisible, nombrePj }) => {
               className="btn-confirmar-borrar-personaje"
               onClick={handleConfirmar}
             >
-              Sí, quitar
+              Sí, borrar
             </button>
             <button
               className="btn-cancelar-borrar-personaje"

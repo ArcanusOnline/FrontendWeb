@@ -1,12 +1,15 @@
 import { quitarPersonajeCuenta } from "../../querys/scripts";
 import { useState } from "react";
 import { useRedireccionar } from "../../assets/functions";
+import { useAuth } from "../../useContext/useContext";
 import "./style.css";
 
 const QuitarPersonaje = ({ visible, setVisible, nombrePj }) => {
   const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
   const [mensajeColor, setMensajeColor] = useState("lightgreen");
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
+  const { getToken } = useAuth();
+  const token = getToken();
   const redireccionar = useRedireccionar();
   const handleCancelar = () => {
     setVisible(false);
@@ -16,7 +19,7 @@ const QuitarPersonaje = ({ visible, setVisible, nombrePj }) => {
   const handleConfirmar = async () => {
     let shouldRedirect = false;
     try {
-      const data = await quitarPersonajeCuenta(nombrePj);
+      const data = await quitarPersonajeCuenta(nombrePj, token);
       if (data.state === 1) {
         setMensajeConfirmacion(data.message);
         setMensajeColor("lightgreen");
