@@ -13,7 +13,7 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [mostrarPw, setMostrarPw] = useState(false);
   const redireccionar = useRedireccionar();
-  const { handleLogin, setName } = useAuth();
+  const { updateUsername, updateToken } = useAuth();
   const handleCaptchaChange = (token) => {
     setFields({ ...fields, captcha: token });
   };
@@ -34,8 +34,11 @@ const Login = () => {
       setErrorLog(data.message);
       return;
     }
-    setName(data.username);
-    handleLogin();
+
+    updateUsername(data.username);
+    updateToken(data.token);
+    localStorage.setItem("username", data.username);
+    localStorage.setItem("token", data.token);
     redireccionar("/panel-de-usuario");
   };
 

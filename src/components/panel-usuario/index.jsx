@@ -2,41 +2,34 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "../../useContext/useContext";
 import { useState } from "react";
 import "./style.css";
-import { logout } from "../../querys/scripts";
 
 const PanelComponent = () => {
-  const { userName, handleLogout } = useAuth();
+  const { getUsername, getToken } = useAuth();
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
   let navigate = useNavigate();
+
+  let nombre =
+    getUsername() || localStorage.getItem("username") || "Usuario desconocido";
+  let response = getToken() || localStorage.getItem("token") || "";
+
   const verPersonajes = () => {
-    const nombreURI = encodeURIComponent(userName);
-    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`);
+    const nombreURI = encodeURIComponent(nombre);
+    navigate(`/panel-de-usuario/lista-de-mis-personajes/${nombreURI}`, {
+      state: { response },
+    });
   };
 
   const desconectar = async () => {
-    try {
-      const data = await logout();
-      if (!data.error) {
-        setMostrarMensaje(true);
-        setTimeout(() => {
-          handleLogout();
-          setMostrarMensaje(false);
-          navigate(`/`);
-        }, 2000);
-      } else {
-        console.error(data.message);
-        return;
-      }
-    } catch (error) {
-      console.error(error.message);
-    }
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    navigate(`/`);
   };
 
   return (
     <div className="panel-pagina-principal-container">
       <div className="panel-pagina-principal-header">
         <h1 className="panel-pagina-principal-nombre">
-          {userName.toUpperCase()}
+          {nombre.toUpperCase()}
         </h1>
         <p className="panel-pagina-principal-ultima">{`Última conexión: ${new Date().toLocaleString()}`}</p>
       </div>

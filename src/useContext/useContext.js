@@ -2,29 +2,39 @@ import { useContext } from "react";
 import { Context } from "../context/context.jsx";
 
 export const useAuth = () => {
-  const { isLoggedIn, userName, setUserName, setLoggedIn, loading } =
+  const { token, username, loading, setToken, setUsername, setLoading } =
     useContext(Context);
 
-  const handleLogin = () => {
-    setLoggedIn(true);
+  const updateUsername = (newUsername) => {
+    setUsername(newUsername);
   };
 
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setUserName("");
-    localStorage.removeItem("logged"); // opcional, si manejas sesión en localStorage
+  const updateToken = (newToken) => {
+    setToken(newToken);
   };
 
-  const setName = (newUserName) => {
-    setUserName(newUserName);
+  const updateLoading = (prevState) => {
+    setLoading(!prevState);
+  };
+
+  const getUsername = () => {
+    return username;
+  };
+
+  const getToken = () => {
+    return token;
+  };
+
+  const getLoading = () => {
+    return loading;
   };
 
   return {
-    userName,
-    isLoggedIn,
-    loading,
-    setName,
-    handleLogin,
-    handleLogout,
+    updateUsername,
+    updateToken,
+    updateLoading,
+    getUsername,
+    getToken,
+    getLoading,
   };
 };

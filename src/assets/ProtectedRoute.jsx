@@ -2,9 +2,26 @@ import { Navigate, Outlet } from "react-router";
 import { useAuth } from "../useContext/useContext";
 import { urlImagenes } from "./urlImagenes";
 
+const isTokenValid = () => {
+  const token = localStorage.getItem("token");
+  if (!token) return false;
+  try {
+    const payloadBase64url = token.split(".")[1];
+    if (!payloadBase64url) return false;
+    let payloadBase64 = payloadBase64url.replace(/-/g, "+").replace(/_/g, "/");
+    while (payloadBase64.length % 4 !== 0) {
+      payloadBase64 += "=";
+    }
+    const payload = JSON.parse(atob(payloadBase64));
+    return payload.exp * 1000 > Date.now();
+  } catch (error) {
+    return false;
+  }
+};
+
 // ProtectedRoute: si el usuario está autenticado, redirige; si no, muestra login
 export const ProtectedRoute = ({ redirectTo }) => {
-  const { isLoggedIn, loading } = useAuth();
+  const { loading } = useAuth();
   if (loading)
     return (
       <div className="global-loading-loader">
@@ -14,12 +31,12 @@ export const ProtectedRoute = ({ redirectTo }) => {
         </span>
       </div>
     );
-  return isLoggedIn ? <Navigate to={redirectTo} /> : <Outlet />;
+  return isTokenValid() ? <Navigate to={redirectTo} /> : <Outlet />;
 };
 
 // PrivateRoute: si el usuario está autenticado, muestra contenido; si no, redirige
 export const PrivateRoute = ({ redirectTo }) => {
-  const { isLoggedIn, loading } = useAuth();
+  const { loading } = useAuth();
   if (loading)
     return (
       <div className="global-loading-loader">
@@ -29,5 +46,5 @@ export const PrivateRoute = ({ redirectTo }) => {
         </span>
       </div>
     );
-  return isLoggedIn ? <Outlet /> : <Navigate to={redirectTo} />;
+  return isTokenValid() ? <Outlet /> : <Navigate to={redirectTo} />;
 };

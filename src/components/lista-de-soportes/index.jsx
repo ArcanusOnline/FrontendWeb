@@ -27,23 +27,26 @@ const ListadoSoporte = () => {
   }
 
   useEffect(() => {
-    async function obtenerDatos() {
-      try {
-        const data = await obtenerSoportes();
-        if (!data.hasOwnProperty("message")) {
-          setListaSoporte(data);
-        } else {
-          setError(data.message);
+    const token = localStorage.getItem("token") || "";
+    if (token !== "") {
+      async function obtenerDatos() {
+        try {
+          const data = await obtenerSoportes(token);
+          if (!data.hasOwnProperty("message")) {
+            setListaSoporte(data);
+          } else {
+            setError(data.message);
+          }
+        } catch (error) {
+          console.error("Error al obtener soportes:", error);
+          setError(
+            "Ocurrió un error al obtener los soportes. Intente más tarde."
+          );
         }
-      } catch (error) {
-        console.error("Error al obtener soportes:", error);
-        setError(
-          "Ocurrió un error al obtener los soportes. Intente más tarde."
-        );
       }
-    }
 
-    obtenerDatos();
+      obtenerDatos();
+    }
   }, []);
 
   return (
