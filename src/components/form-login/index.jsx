@@ -5,6 +5,7 @@ import { useAuth } from "../../useContext/useContext.js";
 import { useRedireccionar } from "../../assets/functions.js";
 import ReCAPTCHA from "react-google-recaptcha"; // react-google-recaptcha wrapper
 import "./style.css";
+import { useRef } from "react";
 const recaptchaPublicKey = import.meta.env.VITE_RECAPTCHA_PUBLIC_KEY;
 
 const Login = () => {
@@ -14,6 +15,8 @@ const Login = () => {
   const [mostrarPw, setMostrarPw] = useState(false);
   const redireccionar = useRedireccionar();
   const { updateUsername, updateToken } = useAuth();
+  const recaptchaRef = useRef(null);
+
   const handleCaptchaChange = (token) => {
     setFields({ ...fields, captcha: token });
   };
@@ -26,12 +29,12 @@ const Login = () => {
       setErrorLog("Por favor completa el reCAPTCHA");
       return;
     }
-
     const data = await login(fields.nick, fields.pass, fields.captcha);
 
     if (data.state === false) {
       setError(true);
       setErrorLog(data.message);
+      recaptchaRef.current?.reset();
       return;
     }
 
@@ -92,6 +95,7 @@ const Login = () => {
         <ReCAPTCHA
           sitekey={recaptchaPublicKey}
           onChange={handleCaptchaChange}
+          ref={recaptchaRef}
         />
         {error && <p className="form-error-form-login">{errorLog}</p>}
 

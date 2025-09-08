@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { registrarCuenta } from "../../querys/scripts";
 import ReCAPTCHA from "react-google-recaptcha"; // react-google-recaptcha wrapper
+import { useRef } from "react";
 import "./style.css";
 const recaptchaPublicKey = import.meta.env.VITE_RECAPTCHA_PUBLIC_KEY;
 
@@ -27,6 +28,7 @@ const RegisterPanel = () => {
   const [mostrarPw, setMostrarPw] = useState(false);
   const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,9 +44,9 @@ const RegisterPanel = () => {
     e.preventDefault();
     setError(false);
     if (!formData.NombreCuenta || !formData.Clave || !formData.Mail) {
-      console.log("se setio el error");
       setError(true);
       setErrorLog("Por favor completá los campos obligatorios.");
+      recaptchaRef.current?.reset();
       return;
     }
     if (!formData.captcha) {
@@ -79,6 +81,7 @@ const RegisterPanel = () => {
       }
       setError(true);
       setErrorLog(dat.message);
+      recaptchaRef.current?.reset();
     }
     if (dat.estado === 1) {
       setMostrarMensaje(true);
@@ -229,6 +232,7 @@ const RegisterPanel = () => {
           <ReCAPTCHA
             sitekey={recaptchaPublicKey}
             onChange={handleCaptchaChange}
+            ref={recaptchaRef}
           />
           {error && <p className="form-error-form-registro">{errorLog}</p>}
           <button className="form-btn-form-registrarse" type="submit">
