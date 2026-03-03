@@ -99,6 +99,24 @@ const BannerInicio = () => {
           </li>
           <li>
             <NavLink
+              to="/mercado"
+              onClick={handleLinkClick}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Mercado
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/tienda"
+              onClick={handleLinkClick}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Tienda
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/donaciones"
               onClick={handleLinkClick}
               className={({ isActive }) => (isActive ? "active" : "")}

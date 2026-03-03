@@ -5,36 +5,19 @@ export const useAuth = () => {
   const { token, username, loading, setToken, setUsername, setLoading } =
     useContext(Context);
 
-  const updateUsername = (newUsername) => {
+  const login = (newToken, newUsername) => {
+    localStorage.setItem("token", newToken);
+    localStorage.setItem("username", newUsername);
+    setToken(newToken);
     setUsername(newUsername);
   };
 
-  const updateToken = (newToken) => {
-    setToken(newToken);
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setToken("");
+    setUsername("");
   };
 
-  const updateLoading = (prevState) => {
-    setLoading(!prevState);
-  };
-
-  const getUsername = () => {
-    return username;
-  };
-
-  const getToken = () => {
-    return token;
-  };
-
-  const getLoading = () => {
-    return loading;
-  };
-
-  return {
-    updateUsername,
-    updateToken,
-    updateLoading,
-    getUsername,
-    getToken,
-    getLoading,
-  };
+  return { token, username, loading, setLoading, login, logout };
 };

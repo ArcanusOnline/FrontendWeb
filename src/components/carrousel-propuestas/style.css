@@ -1,0 +1,242 @@
+.propuesta-panel {
+  background: #181a1f;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+}
+
+.propuesta-panel h2 {
+  margin: 0 0 12px;
+}
+
+.trade-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 18px;
+  position: relative;
+}
+
+.char-card-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.char-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.char-head {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nick {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.level {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.label {
+  margin-top: 4px;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  width: max-content;
+  font-weight: bold;
+}
+
+.label.giving {
+  background: #ff4a4a33;
+  color: #ff6b6b;
+}
+
+.label.receive {
+  background: #3bd45b33;
+  color: #3bd45b;
+}
+
+.exchange {
+  font-size: 26px;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow.give {
+  color: #2ecc71; /* verde */
+}
+
+.arrow.receive {
+  color: #e74c3c; /* rojo */
+}
+
+.estado-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.estado-badge.pendiente {
+  background: #ffc10733;
+  color: #ffc107;
+}
+.estado-badge.aceptada {
+  background: #28a74533;
+  color: #28a745;
+}
+.estado-badge.rechazada {
+  background: #dc354533;
+  color: #dc3545;
+}
+
+.trade-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.action-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+  background: #2a2d34;
+  color: #eee;
+}
+
+/* Estados */
+.action-btn.accept {
+  background: #28a74533;
+  color: #28a745;
+}
+
+.action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.action-btn.reject {
+  background: #dc354533;
+  color: #dc3545;
+}
+
+.action-btn.info {
+  background: #17a2b833;
+  color: #17a2b8;
+}
+
+/* Hover */
+.action-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  opacity: 0.95;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.slide-card,
+.trade-card {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.trade-card {
+  min-width: 100%;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: #2a2d34;
+  border: none;
+  color: #eee;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  transition: 0.15s;
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.carousel-btn.left {
+  left: 6px;
+}
+
+.carousel-btn.right {
+  right: 6px;
+}
+
+/* Dots */
+.carousel-dots {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #555;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dot.active {
+  background: #28a745;
+  transform: scale(1.2);
+}
+
+.action-btn.reenviar {
+  background-color: #f0ad4e;
+}

@@ -1,7 +1,7 @@
 const urlBase = import.meta.env.VITE_API_URL;
 // // const urlBase = "/api"; // relativo - activar cuando se deploye el netlify.toml
 
-async function login(nick, pass, captcha) {
+async function loginAccount(nick, pass, captcha) {
   try {
     let response = await fetch(`${urlBase}/login`, {
       method: "POST",
@@ -279,12 +279,73 @@ async function personajesPorCuenta(token) {
   }
 }
 
+async function personajePublicadosPorCuenta(token) {
+  try {
+    let response = await fetch(`${urlBase}/showPersonajesPublicados`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se encontraron personajes publicados para esta cuenta",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+    // Si no se encuentran personajes, retornar mensaje de error
+    if (!data.ok) {
+      return { message: data.message, ok: false };
+    }
+    // Retornar los datos de los personajes con estado positivo
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
+async function traerPersonajesPublicados() {
+  try {
+    let response = await fetch(`${urlBase}/getPersonajesMAO`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se encontraron personajes publicados",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+    // Si no se encuentran personajes, retornar mensaje de error
+    if (!data) {
+      return { message: data.message, ok: false };
+    }
+    // Retornar los datos de los personajes con estado positivo
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
 async function cambiarContra(
   userName,
   userPin,
   userOldPass,
   userNewPass,
-  userEmail
+  userEmail,
 ) {
   try {
     let response = await fetch(`${urlBase}/changePassword`, {
@@ -344,34 +405,6 @@ async function generarDonacion(valor) {
   }
 }
 
-async function enviarActivacion(token) {
-  try {
-    let response = await fetch(`${urlBase}/activateAccount`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ token }),
-    });
-
-    // Si la respuesta no es exitosa, manejar el error
-    if (!response.ok) {
-      let data = await response.json();
-      return {
-        message: data.message || "Error al activar la cuenta.",
-        state: false,
-      };
-    }
-
-    // Si la respuesta es exitosa, devolver el mensaje
-    let data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error al enviar activación:", error);
-    return { message: "Error al conectar con el servidor", state: false };
-  }
-}
-
 async function traerInfoIndividual(nombre) {
   try {
     const response = await fetch(`${urlBase}/getInfoByCharacter`, {
@@ -405,7 +438,7 @@ async function cambiarPin(
   userPin,
   userOldPass,
   userNewPin,
-  userEmail
+  userEmail,
 ) {
   try {
     let response = await fetch(`${urlBase}/changePinCode`, {
@@ -429,11 +462,12 @@ async function cambiarPin(
 }
 
 async function cambiarEmail(
+  token,
   userName,
   userPin,
   userOldPass,
   userNewEmail,
-  userEmail
+  userEmail,
 ) {
   try {
     // Realiza la solicitud a la API para cambiar el email
@@ -441,7 +475,9 @@ async function cambiarEmail(
       method: "POST", // Método POST
       headers: {
         "Content-Type": "application/json", // Tipo de contenido JSON
+        Authorization: `Bearer ${token}`, // Enviar el token en el header
       },
+
       body: JSON.stringify({
         userName,
         userPin,
@@ -492,7 +528,7 @@ async function recuperarCuenta(fields) {
     // Manejo de errores
     console.error(
       "Error al hacer la solicitud de recuperación de cuenta:",
-      error
+      error,
     );
     return { message: `Error: ${error.message}`, error: true }; // Responder con el mensaje de error
   }
@@ -521,7 +557,7 @@ async function cambioPasswordRecupero(fields, token) {
     // Verificar si la respuesta contiene un error
     if (data.error) {
       throw new Error(
-        data.message || "Error desconocido al cambiar la contraseña"
+        data.message || "Error desconocido al cambiar la contraseña",
       );
     }
 
@@ -551,7 +587,7 @@ async function recuperarPersonaje(fields) {
     // Verificar si la respuesta contiene un error
     if (data.error) {
       throw new Error(
-        data.message || "Error desconocido al recuperar el personaje"
+        data.message || "Error desconocido al recuperar el personaje",
       );
     }
 
@@ -577,14 +613,13 @@ async function cambioPasswordRecuperoPersonaje(fields, token) {
     });
 
     // Obtener los datos de la respuesta
-    console.log(response);
     let data = await response.json();
 
     // Verificar si la respuesta contiene un error
     if (data.error) {
       throw new Error(
         data.message ||
-          "Error desconocido al cambiar la contraseña del personaje"
+          "Error desconocido al cambiar la contraseña del personaje",
       );
     }
 
@@ -694,33 +729,6 @@ async function eliminarPersonajeCuenta(nick, token) {
   }
 }
 
-async function confirmarEliminacionPersonaje(token) {
-  try {
-    const response = await fetch(`${urlBase}/confirmCharacterDeletion`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error("Error al confirmar la eliminación:", data.message);
-      return { success: false, message: data.message };
-    }
-
-    return data;
-  } catch (error) {
-    console.error("Error de red al confirmar eliminación:", error);
-    return {
-      success: false,
-      message: "No se pudo conectar con el servidor.",
-    };
-  }
-}
-
 async function confirmUpdateEmailAccountQuery(token) {
   try {
     if (!token) {
@@ -772,6 +780,7 @@ async function agregarPersonajeCuenta({
     if (!response.ok) {
       throw new Error(data.message || "Error al agregar personaje.");
     }
+
     return data.state || "Personaje agregado exitosamente.";
   } catch (error) {
     console.error("Error en agregarPersonajeCuenta:", error);
@@ -782,15 +791,356 @@ async function agregarPersonajeCuenta({
   }
 }
 
-async function confirmAddCharacterAccount(token) {
+async function publicarPersonajeMAO({
+  nombre,
+  accion,
+  precio,
+  nombreCuenta,
+  token,
+}) {
+  try {
+    const response = await fetch(`${urlBase}/publicarPersonajeMAO`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ nombre, accion, precio, nombreCuenta }),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || "Error al postear el personaje.");
+    }
+    return data;
+  } catch (error) {
+    throw new Error(error.message || "Error al postear el personaje.");
+  }
+}
+
+async function sendOfertaIntercambio(nickSolicitado, nickOferta, token) {
   if (!token) {
     throw new Error("No se proporcionó token.");
   }
+  try {
+    const url = `${urlBase}/sendOfertaIntercambioMAO`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ nickSolicitado, nickOferta }),
+    });
+
+    const data = await res.json();
+    if (data.ok) {
+      return data;
+    } else {
+      return { ok: false, message: data.message };
+    }
+  } catch (error) {
+    console.error("Error al realizar la propuesta:", error);
+    return {
+      success: false,
+      message: "Error al intentar confirmar la operación.",
+    };
+  }
+}
+
+async function propuestasRecibidasPendientesPorCuenta(token) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/showPropuestasRecibidas`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se encontraron propuestas recibidas para esta cuenta",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+    // Si no se encuentran personajes, retornar mensaje de error
+    if (!data.ok) {
+      return { message: data.message, ok: false };
+    }
+    // Retornar los datos de los personajes con estado positivo
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+async function propuestasRealizadasPendientesPorCuenta(token) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/showPropuestasEnviadas`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se encontraron propuestas enviadas para esta cuenta",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+    // Si no se encuentran personajes, retornar mensaje de error
+    if (!data.ok) {
+      return { message: data.message, ok: false };
+    }
+    // Retornar los datos de los personajes con estado positivo
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
+async function rechazarPropuestaIntercambio(idPropuesta, token) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/rechazarPropuestaIntercambio`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ idPropuesta }),
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se pudo rechazar la propuesta",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+    if (!data.ok) {
+      return { message: data.message, ok: false };
+    }
+    return { ok: true, message: data.message };
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
+async function aceptarPropuestaIntercambio(
+  idPropuesta,
+  token,
+  personajeUsuario,
+  personajeOfrecido,
+) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/aceptarPropuestaIntercambio`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        idPropuesta,
+        personajeUsuario,
+        personajeOfrecido,
+      }),
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se pudo aceptar la propuesta",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+    if (!data.ok) {
+      return { message: data.message, ok: false };
+    }
+    return { ok: true, message: data.message };
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
+async function removerPersonajeMAO(nickPersonaje, token) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/quitarPersonajeMAO`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ nickPersonaje }),
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se pudo remover el personaje de MAO",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+    console.log(data);
+    if (!data.ok) {
+      return { message: data.message, ok: false };
+    }
+    return { ok: true, message: data.message };
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
+async function comprarPersonaje(
+  nombrePublicado,
+  nombreComprador,
+  precio,
+  token,
+) {
+  const response = await fetch(`${urlBase}/comprarPersonajeMAO`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ nombrePublicado, nombreComprador, precio }),
+  });
+  if (!response.ok) {
+    throw new Error(response.message || "No se pudo realizar la compra");
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+async function getPaquetesArcanusPoints() {
+  const response = await fetch(`${urlBase}/getArcanusPoints`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error(
+      response.message || "Ocurrio un error al obtener los paquetes",
+    );
+  }
+
+  const data = await response.json();
+  return data.paquetes;
+}
+
+async function getPaquetesTiempoPremium() {
+  const response = await fetch(`${urlBase}/getTiempoPremium`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error(
+      response.message || "Ocurrio un error al obtener los paquetes",
+    );
+  }
+
+  const data = await response.json();
+  return data.paquetes;
+}
+
+async function comprarArcanusPoints(paqueteID, token) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/comprarArcanusPoints`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ paqueteID }),
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se pudo remover el personaje de MAO",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
+async function cargarTiempoPremium(planID, token) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/cargarTiempoPremium`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ planID }),
+    });
+
+    let data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
+async function confirmarAccion(token) {
+  if (!token) {
+    return { success: false, message: "Token no proporcionado." };
+  }
 
   try {
-    const url = `${urlBase}/confirmAddAccountCharacter`;
-    const res = await fetch(url, {
-      method: "GET",
+    const res = await fetch(`${urlBase}/confirmar`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -805,10 +1155,9 @@ async function confirmAddCharacterAccount(token) {
       message: data.message || "",
     };
   } catch (error) {
-    console.error("Error confirmando personaje:", error);
+    console.error("Error confirmando acción:", error);
     return {
       success: false,
-      status: 500,
       message: "Error al intentar confirmar la operación.",
     };
   }
@@ -986,12 +1335,13 @@ async function cerrarSoporte(id) {
   }
 }
 
-async function bloquearPersonaje({ usuario, status }) {
+async function bloquearPersonaje({ usuario, status, token }) {
   try {
     let response = await fetch(`${urlBase}/bloquear-personaje-panel`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ usuario, status }),
     });
@@ -1014,6 +1364,42 @@ async function obtenerOnlinesServidor() {
   }
 }
 
+async function getAccountData(token) {
+  if (!token) {
+    throw new Error("No se proporcionó token.");
+  }
+  try {
+    let response = await fetch(`${urlBase}/getAccountData`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // Si la respuesta no es exitosa, manejar el error
+    if (!response.ok) {
+      return {
+        message: "No se encontro la cuenta",
+        ok: false,
+      };
+    }
+
+    // Obtener los datos JSON de la respuesta
+    let data = await response.json();
+
+    // Si no se encuentran personajes, retornar mensaje de error
+    if (!data.ok) {
+      return { message: data.message, ok: false };
+    }
+
+    // Retornar los datos de los personajes con estado positivo
+    return data;
+  } catch (error) {
+    console.error("Error al conectar con el servidor:", error);
+    return { message: "Error al conectar con el servidor", ok: false };
+  }
+}
+
 async function obtenerRangosGms() {
   try {
     let response = await fetch(`${urlBase}/obtener-rangos-gms`);
@@ -1026,7 +1412,7 @@ async function obtenerRangosGms() {
 }
 
 export {
-  login,
+  loginAccount,
   generarDonacion,
   listarPersonajes,
   getTop100,
@@ -1037,7 +1423,6 @@ export {
   extraerNoticias,
   personajesPorCuenta,
   cambiarContra,
-  enviarActivacion,
   traerInfoIndividual,
   cambiarPin,
   cambiarEmail,
@@ -1047,11 +1432,9 @@ export {
   cambioPasswordRecupero,
   eliminarPersonajeCuenta,
   quitarPersonajeCuenta,
-  confirmarEliminacionPersonaje,
   cambioPasswordRecuperoPersonaje,
   confirmUpdateEmailAccountQuery,
   agregarPersonajeCuenta,
-  confirmAddCharacterAccount,
   obtenerSoportes,
   obtenerDataSoporte,
   traerInfoPersonajeAsuntoSoporte,
@@ -1061,4 +1444,20 @@ export {
   bloquearPersonaje,
   obtenerOnlinesServidor,
   obtenerRangosGms,
+  publicarPersonajeMAO,
+  personajePublicadosPorCuenta,
+  traerPersonajesPublicados,
+  sendOfertaIntercambio,
+  propuestasRecibidasPendientesPorCuenta,
+  propuestasRealizadasPendientesPorCuenta,
+  rechazarPropuestaIntercambio,
+  aceptarPropuestaIntercambio,
+  removerPersonajeMAO,
+  comprarPersonaje,
+  getPaquetesArcanusPoints,
+  getPaquetesTiempoPremium,
+  comprarArcanusPoints,
+  confirmarAccion,
+  getAccountData,
+  cargarTiempoPremium,
 };

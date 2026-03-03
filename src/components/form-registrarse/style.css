@@ -1,116 +1,89 @@
-.form-container-form-registrarse {
-  background-color: #1a1a1a;
-  padding: 35px;
-  border-radius: 12px;
-  max-width: 480px;
-  margin: 40px auto;
-  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
-  color: #d8e9c7;
-  font-family: "Cinzel", serif;
+/* Estilos específicos para el formulario de registro */
+
+.register-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
-.form-title-form-registrarse {
-  text-align: center;
-  font-size: 1.8rem;
-  color: #f0e68c;
-  margin-bottom: 25px;
-}
-
-.form-form-registrarse {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.form-input-form-registrarse {
-  padding: 10px;
-  border-radius: 6px;
-  width: 100%;
-  background-color: rgb(10, 10, 10);
-  color: #d8e9c7;
-  border: 2px solid #f0e68c;
-  font-size: 1rem;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* calendario blanco */
-}
-
-.form-input-form-registrarse:focus {
-  outline: none;
-  border-color: #c9c9c9;
-  box-shadow: 0 0 6px #a3c187aa;
-}
-
-.form-password-wrapper-form-registrarse {
-  position: relative;
-}
-
-.toggle-btn-form-registrarse {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  cursor: pointer;
-  color: #c7e5b1;
-}
-
-.form-btn-form-registrarse {
-  margin-top: 10px;
-  padding: 12px;
-  background: linear-gradient(145deg, #b8860b, #ffd700);
-  color: #1a250f;
-  border: none;
-  font-weight: bold;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.form-btn-form-registrarse:hover {
-  transform: scale(1.03);
-}
-
-.form-error-form-registro {
-  color: #ff4d4d;
-  font-weight: 600;
-  text-align: center;
-  margin-top: -10px;
-  white-space: pre-wrap;
-}
-
-.input-error {
+.form-input--error {
   border-color: #ff4d4d !important;
-  box-shadow: 0 0 6px rgba(255, 77, 77, 0.8);
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.5) !important;
 }
 
-.modal-overlay-mensaje-global {
+/* Calendario de fecha con mejor contraste */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* Modal de éxito */
+.success-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(2, 2, 2, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  animation: fadeIn 0.3s ease;
 }
 
-.modal-mensaje-contenido {
-  background-color: #1a1a1a;
-  padding: 30px 35px;
-  border-radius: 10px;
-  box-shadow: 0 0 14px rgba(239, 215, 124, 0.7);
-  width: 90%;
+.success-modal-content {
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  padding: 35px 40px;
+  border-radius: 12px;
+  border: 2px solid #3fa047;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(63, 160, 71, 0.4);
   max-width: 420px;
+  width: 90%;
   text-align: center;
   font-family: "Cinzel", serif;
-  border: 2px solid;
+  animation: slideUp 0.4s ease;
 }
 
-.modal-mensaje-contenido p {
+.success-modal-content p {
   font-size: 1.2rem;
   font-weight: 600;
+  color: #5bc95b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .success-modal-content {
+    padding: 25px 30px;
+  }
+
+  .success-modal-content p {
+    font-size: 1.1rem;
+  }
 }

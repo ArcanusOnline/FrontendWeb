@@ -26,7 +26,9 @@
   max-height: 160px;
   object-fit: contain;
   filter: drop-shadow(0 0 8px rgba(253, 255, 242, 0.4));
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .logo img:hover {
@@ -54,7 +56,9 @@
   border-radius: 8px;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-  transition: background-color 0.3s ease, transform 0.2s ease,
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
     box-shadow 0.3s ease;
 }
 
@@ -93,7 +97,9 @@
   font-weight: 500;
   font-size: 1.1rem;
   border-bottom: 2px solid transparent;
-  transition: border-bottom 0.2s ease, color 0.2s ease;
+  transition:
+    border-bottom 0.2s ease,
+    color 0.2s ease;
 }
 
 .nav a:hover,

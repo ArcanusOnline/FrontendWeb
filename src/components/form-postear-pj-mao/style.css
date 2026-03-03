@@ -1,0 +1,204 @@
+/* Overlay del modal */
+.modal-overlay-postear-pj {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content-postear-pj {
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border: 3px solid #d4af37;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(212, 175, 55, 0.4),
+    inset 0 0 20px rgba(212, 175, 55, 0.1);
+  animation: slideUp 0.3s ease;
+}
+
+/* Select personalizado */
+.form-select {
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: rgba(10, 10, 10, 0.8);
+  color: #d8e9c7;
+  border: 2px solid #6b4e2e;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #c7a039;
+  background-color: #0a0a0a;
+  box-shadow:
+    0 0 12px rgba(199, 160, 57, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-select option {
+  background-color: #1a1a1a;
+  color: #d8e9c7;
+  padding: 10px;
+}
+
+/* Animación para campos condicionales */
+.form-field-animate {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botones específicos */
+.form-buttons-postear-pj {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Botón Publicar (verde) */
+.btn-publicar-pj {
+  background: linear-gradient(145deg, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border: 2px solid #7fe27f;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.15),
+    0 4px 12px rgba(63, 160, 71, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-publicar-pj:hover:not(:disabled) {
+  background: linear-gradient(145deg, #4fc85b, #2e8b35);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 6px 16px rgba(63, 160, 71, 0.6);
+}
+
+.btn-publicar-pj:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(63, 160, 71, 0.4);
+}
+
+.btn-publicar-pj:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botón Cancelar (rojo) */
+.btn-cancelar-postear-pj {
+  background: linear-gradient(145deg, #5c1c1c, #2a0f0f);
+  color: #f4e1c1;
+  border: 2px solid #c97b63;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.1),
+    0 4px 12px rgba(92, 28, 28, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-cancelar-postear-pj:hover:not(:disabled) {
+  background: linear-gradient(145deg, #7a2626, #3b1414);
+  color: #fff2d9;
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.15),
+    0 6px 16px rgba(255, 107, 107, 0.5);
+}
+
+.btn-cancelar-postear-pj:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-cancelar-postear-pj:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-content-postear-pj {
+    padding: 2rem 1.5rem;
+    border-width: 2px;
+  }
+
+  .form-buttons-postear-pj {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-publicar-pj,
+  .btn-cancelar-postear-pj {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+}

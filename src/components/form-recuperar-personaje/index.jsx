@@ -1,125 +1,166 @@
-import { Link, useNavigate, Outlet, useParams } from "react-router";
+import { Link, Outlet, useParams } from "react-router";
 import { useState } from "react";
 import { recuperarPersonaje } from "../../querys/scripts";
+import { Modal } from "../../ui/Modales";
 import "./style.css";
-import "../form-recuperar-cuenta/style.css";
 
 const RecuperarPersonaje = () => {
-  const [error, setError] = useState("");
-  const [fields, setFields] = useState({
+  const { token } = useParams();
+
+  const [formData, setFormData] = useState({
     nick: "",
     email: "",
     pin: "",
   });
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
-  const [mostrarPw, setMostrarPw] = useState(false);
-  let navigate = useNavigate();
 
-  let { token } = useParams();
+  const [error, setError] = useState("");
+  const [modal, setModal] = useState(null);
+  const [mostrarPin, setMostrarPin] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  if (token) return <Outlet />;
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (error) setError("");
+  };
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let data = await recuperarPersonaje(fields);
-    if (data.estado === 2 || data.estado === 3) {
-      setError(data.message);
-    } else {
-      setModalMessage(data.message);
-      setShowModal(true);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const response = await recuperarPersonaje(formData);
+
+      if (response.estado === 2 || response.estado === 3) {
+        setModal({
+          type: "error",
+          title: "Error en la recuperación",
+          message:
+            response.message || "Ocurrió un error al recuperar el personaje",
+        });
+      } else {
+        setModal({
+          type: "success",
+          title: "¡Recuperación exitosa!",
+          message:
+            response.message ||
+            "Se ha enviado un correo a tu email para recuperar el personaje",
+        });
+      }
+    } catch (err) {
+      setModal({
+        type: "error",
+        title: "Error",
+        message: "Error al recuperar el personaje. Intenta nuevamente.",
+      });
+    } finally {
+      setIsLoading(false);
     }
-  }
+  };
+
+  // Si hay token, mostrar nested route
+  if (token) return <Outlet />;
 
   return (
     <>
-      <div className="form-container-recuperar-pj-form">
-        <h2 className="form-title-recuperar-pj-form">Recuperar Personaje</h2>
-        <form className="form-recuperar-pj-form" onSubmit={handleSubmit}>
-          <div className="form-group-recuperar-pj-form">
-            <label className="form-label-recuperar-pj-form">Nick:</label>
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="form-wrapper">
+          <h2 className="form-title">Recuperar Personaje</h2>
+
+          {/* Campo Nick */}
+          <div className="form-field">
+            <label htmlFor="nick" className="form-label">
+              Nick del personaje
+            </label>
             <input
+              id="nick"
               type="text"
-              value={fields.nick}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  nick: e.target.value,
-                }));
-                setError("");
-              }}
+              name="nick"
+              className="form-input"
+              value={formData.nick}
+              onChange={(e) => handleInputChange("nick", e.target.value)}
+              disabled={isLoading}
               required
-              className="form-input-recuperar-pj-form"
             />
           </div>
 
-          <div className="form-group-recuperar-pj-form">
-            <label className="form-label-recuperar-pj-form">Email:</label>
+          {/* Campo Email */}
+          <div className="form-field">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <input
+              id="email"
               type="email"
-              value={fields.email}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  email: e.target.value.toLowerCase(),
-                }));
-                setError("");
-              }}
+              name="email"
+              className="form-input"
+              value={formData.email}
+              onChange={(e) =>
+                handleInputChange("email", e.target.value.toLowerCase())
+              }
+              disabled={isLoading}
               required
-              className="form-input-recuperar-pj-form"
             />
           </div>
 
-          <div
-            className="form-group-recuperar-pj-form"
-            style={{ position: "relative" }}
-          >
-            <label className="form-label-recuperar-pj-form">PIN:</label>
-            <input
-              type={mostrarPw ? "text" : "password"}
-              value={fields.pin}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  pin: e.target.value,
-                }));
-                setError("");
-              }}
-              required
-              className="form-input-recuperar-pj-form"
-            />
-            <button
-              type="button"
-              onClick={() => setMostrarPw((prev) => !prev)}
-              className="pin-toggle-button-recuperar-pj-form"
-            >
-              {mostrarPw ? "🙈" : "👁️"}
-            </button>
+          {/* Campo PIN */}
+          <div className="form-field">
+            <label htmlFor="pin" className="form-label">
+              PIN de seguridad
+            </label>
+            <div className="form-password-wrapper">
+              <input
+                id="pin"
+                type={mostrarPin ? "text" : "password"}
+                name="pin"
+                className="form-input"
+                value={formData.pin}
+                onChange={(e) => handleInputChange("pin", e.target.value)}
+                disabled={isLoading}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPin((prev) => !prev)}
+                className="form-toggle-password"
+                aria-label={mostrarPin ? "Ocultar PIN" : "Mostrar PIN"}
+                disabled={isLoading}
+              >
+                {mostrarPin ? "🙈" : "👁️"}
+              </button>
+            </div>
           </div>
 
-          {error && <p className="form-error-recuperar-pj-form">{error}</p>}
+          {/* Mensaje de error */}
+          {error && (
+            <div className="form-error" role="alert">
+              {error}
+            </div>
+          )}
 
-          <button type="submit" className="form-button-recuperar-pj-form">
-            Recuperar Personaje
+          {/* Botón submit */}
+          <button type="submit" className="form-button" disabled={isLoading}>
+            {isLoading ? "Recuperando..." : "Recuperar Personaje"}
           </button>
-        </form>
 
-        <Link to="/recuperar-cuenta" className="form-link-recuperar-pj-form">
-          ¿Queres recuperar tu Cuenta?
-        </Link>
+          {/* Link a recuperar cuenta */}
+          <div className="form-links">
+            <Link to="/recuperar-cuenta" className="form-link">
+              ¿Quieres recuperar tu Cuenta?
+            </Link>
+          </div>
+        </form>
       </div>
 
-      {showModal && (
-        <div className="modal-overlay-recuperar-pj-form">
-          <div className="modal-content-recuperar-pj-form">
-            <h2>{modalMessage}</h2>
-            <button onClick={() => setShowModal(false)}>Cerrar</button>
-          </div>
-        </div>
-      )}
+      {/* Modal de respuesta */}
+      <Modal
+        isOpen={!!modal}
+        type={modal?.type}
+        title={modal?.title}
+        message={modal?.message}
+        onClose={() => setModal(null)}
+        buttonText={modal?.type === "success" ? "Entendido" : "Cerrar"}
+      />
     </>
   );
 };

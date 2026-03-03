@@ -1,0 +1,236 @@
+.confirmar-container {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: "Cinzel", serif;
+}
+
+.confirmar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 50px 40px;
+  max-width: 480px;
+  width: 100%;
+  border-radius: 16px;
+  text-align: center;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border: 1px solid rgba(240, 230, 140, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(239, 215, 124, 0.15);
+  animation: fadeInUp 0.4s ease;
+}
+
+/* Estados de la card */
+.confirmar-card.success {
+  border-color: rgba(63, 160, 71, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(63, 160, 71, 0.2);
+}
+
+.confirmar-card.error {
+  border-color: rgba(255, 77, 77, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 77, 77, 0.2);
+}
+
+/* Ícono */
+.confirmar-icono {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.confirmar-icono.loading {
+  background: rgba(212, 175, 55, 0.1);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.confirmar-icono.success {
+  background: rgba(63, 160, 71, 0.15);
+  border: 2px solid rgba(63, 160, 71, 0.5);
+  color: #5bc95b;
+  animation: scaleIn 0.4s ease;
+}
+
+.confirmar-icono.error {
+  background: rgba(255, 77, 77, 0.15);
+  border: 2px solid rgba(255, 77, 77, 0.5);
+  color: #ff6b6b;
+  animation: scaleIn 0.4s ease;
+}
+
+/* Spinner de carga */
+.confirmar-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(212, 175, 55, 0.2);
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Títulos */
+.confirmar-titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.confirmar-titulo.loading {
+  color: #f0e68c;
+}
+
+.confirmar-titulo.success {
+  color: #5bc95b;
+  text-shadow: 0 0 20px rgba(91, 201, 91, 0.3);
+}
+
+.confirmar-titulo.error {
+  color: #ff6b6b;
+  text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+/* Mensaje y subtítulo */
+.confirmar-mensaje {
+  font-size: 1.05rem;
+  color: #d8e9c7;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 380px;
+}
+
+.confirmar-subtitulo {
+  font-size: 0.95rem;
+  color: #888;
+  margin: 0;
+}
+
+/* Botón */
+.confirmar-boton {
+  margin-top: 10px;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 2px solid;
+}
+
+.confirmar-boton.success {
+  background: linear-gradient(145deg, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border-color: #7fe27f;
+  box-shadow: 0 4px 12px rgba(63, 160, 71, 0.3);
+}
+
+.confirmar-boton.success:hover {
+  background: linear-gradient(145deg, #4bb554, #3fa047);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(63, 160, 71, 0.5);
+}
+
+.confirmar-boton.error {
+  background: linear-gradient(145deg, #c7a039, #d4af37);
+  color: #1a1a1a;
+  border-color: #d4af37;
+  box-shadow: 0 4px 12px rgba(199, 160, 57, 0.3);
+}
+
+.confirmar-boton.error:hover {
+  background: linear-gradient(145deg, #d4af37, #e8c547);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(199, 160, 57, 0.5);
+}
+
+.confirmar-boton:active {
+  transform: translateY(0);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .confirmar-card {
+    padding: 40px 25px;
+  }
+
+  .confirmar-titulo {
+    font-size: 1.5rem;
+  }
+
+  .confirmar-mensaje {
+    font-size: 0.95rem;
+  }
+}
+
+.confirmar-card.pending {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(212, 175, 55, 0.2);
+}
+.confirmar-icono.pending {
+  background: rgba(212, 175, 55, 0.15);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  color: #d4af37;
+  animation: scaleIn 0.4s ease;
+  font-size: 2rem;
+}
+.confirmar-titulo.pending {
+  color: #d4af37;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+.confirmar-boton.pending {
+  background: linear-gradient(145deg, #c7a039, #d4af37);
+  color: #1a1a1a;
+  border-color: #d4af37;
+  box-shadow: 0 4px 12px rgba(199, 160, 57, 0.3);
+}
+.confirmar-boton.pending:hover {
+  background: linear-gradient(145deg, #d4af37, #e8c547);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(199, 160, 57, 0.5);
+}

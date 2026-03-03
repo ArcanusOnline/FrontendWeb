@@ -1,82 +1,104 @@
 import { eliminarPersonajeCuenta } from "../../querys/scripts";
 import { useState } from "react";
 import { useAuth } from "../../useContext/useContext";
+import { Modal } from "../../ui/Modales";
 import "./style.css";
 
 const BorrarPersonaje = ({ visible, setVisible, nombrePj }) => {
-  const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
-  const [mensajeColor, setMensajeColor] = useState("lightgreen");
-  const [mostrarMensaje, setMostrarMensaje] = useState(false);
-  const { getToken } = useAuth();
+  const { token } = useAuth();
+
+  const [showResultModal, setShowResultModal] = useState(false);
+  const [modalConfig, setModalConfig] = useState({
+    type: "success",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleCancelar = () => {
     setVisible(false);
-    setMensajeConfirmacion("");
   };
-  const token = getToken();
+
   const handleConfirmar = async () => {
+    setIsLoading(true);
     try {
-      const mensaje = await eliminarPersonajeCuenta(nombrePj, token);
-      if (mensaje.state === 1) {
-        setMensajeConfirmacion(mensaje.message);
-        setMensajeColor("lightgreen");
+      const data = await eliminarPersonajeCuenta(nombrePj, token);
+      setVisible(false);
+      if (data.state === 1) {
+        setModalConfig({
+          type: "success",
+          message: data.message,
+        });
+        setShowResultModal(true);
       } else {
-        setMensajeColor("orange");
-        setMensajeConfirmacion(mensaje.message || "Ocurrió un error.");
+        setModalConfig({
+          type: "error",
+          message: data.message || "Ocurrió un error al quitar el personaje.",
+        });
+        setShowResultModal(true);
       }
     } catch (error) {
-      setMensajeConfirmacion(
-        error?.message || "Error al conectarse con el servidor"
-      );
-      setMensajeColor("red");
-    } finally {
+      console.error("Error al quitar personaje:", error);
       setVisible(false);
-      setMostrarMensaje(true);
-
-      setTimeout(() => {
-        setMostrarMensaje(false);
-        setMensajeConfirmacion("");
-      }, 3000);
+      setModalConfig({
+        type: "error",
+        message: error?.message || "Error al conectarse con el servidor.",
+      });
+      setShowResultModal(true);
+    } finally {
+      setIsLoading(false);
     }
+  };
+  const handleCloseResultModal = () => {
+    setShowResultModal(false);
   };
 
   return (
     <>
-      <div
-        className={`borrar-modal-overlay-borrar-personaje ${
-          visible ? "visible" : "hidden"
-        }`}
-      >
-        <div className="borrar-modal-contenido-borrar-personaje">
-          <h2 className="borrar-modal-texto-borrar-personaje">
-            ¿Estás seguro de que querés borrar al personaje {nombrePj} de forma
-            permanente?
-          </h2>
-          <div className="borrar-modal-botones-borrar-personaje">
-            <button
-              className="btn-confirmar-borrar-personaje"
-              onClick={handleConfirmar}
-            >
-              Sí, borrar
-            </button>
-            <button
-              className="btn-cancelar-borrar-personaje"
-              onClick={handleCancelar}
-            >
-              No, cancelar
-            </button>
-          </div>
-        </div>
-      </div>
-      {mostrarMensaje && (
-        <div className="modal-overlay-mensaje-global">
-          <div
-            className="modal-mensaje-contenido"
-            style={{ borderColor: mensajeColor }}
-          >
-            <p style={{ color: mensajeColor }}>{mensajeConfirmacion}</p>
+      {/* Modal de confirmación */}
+      {visible && (
+        <div className="modal-overlay-quitar-pj">
+          <div className="modal-content-quitar-pj">
+            <h2 className="modal-titulo-quitar-pj">
+              ¿Estás seguro de borrar el personaje?
+            </h2>
+            <p className="modal-descripcion-quitar-pj">
+              El personaje <strong>{nombrePj}</strong> será borrado de forma
+              permanente. Se te enviara un mail para confirmar la operacion.
+            </p>
+
+            <div className="modal-botones-quitar-pj">
+              <button
+                className="btn-quitar-pj"
+                onClick={handleConfirmar}
+                disabled={isLoading}
+              >
+                {isLoading ? "Procesando..." : "Sí, borrar personaje"}
+              </button>
+              <button
+                className="btn-cancelar-quitar-pj"
+                onClick={handleCancelar}
+                disabled={isLoading}
+              >
+                No, cancelar
+              </button>
+            </div>
           </div>
         </div>
       )}
+      <Modal
+        isOpen={showResultModal}
+        type={modalConfig.type}
+        title={
+          modalConfig.type === "success"
+            ? "¡Operacion Exitosa!"
+            : modalConfig.type === "warning"
+              ? "Advertencia"
+              : "Error"
+        }
+        message={modalConfig.message}
+        onClose={handleCloseResultModal}
+        buttonText="Entendido"
+      />
     </>
   );
 };

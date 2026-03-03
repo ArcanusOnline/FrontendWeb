@@ -1,119 +1,147 @@
-import { Link } from "react-router";
-import { login } from "../../querys/scripts";
-import { useState } from "react";
+import { Link, useSearchParams } from "react-router";
+import { loginAccount } from "../../querys/scripts";
+import { useState, useRef } from "react";
 import { useAuth } from "../../useContext/useContext.js";
 import { useRedireccionar } from "../../assets/functions.js";
-import ReCAPTCHA from "react-google-recaptcha"; // react-google-recaptcha wrapper
+
+import ReCAPTCHA from "react-google-recaptcha";
 import "./style.css";
-import { useRef } from "react";
-const recaptchaPublicKey = import.meta.env.VITE_RECAPTCHA_PUBLIC_KEY;
+
+const RECAPTCHA_PUBLIC_KEY = import.meta.env.VITE_RECAPTCHA_PUBLIC_KEY;
 
 const Login = () => {
-  const [fields, setFields] = useState({ nick: "", pass: "", captcha: "" });
-  const [errorLog, setErrorLog] = useState("");
-  const [error, setError] = useState(false);
-  const [mostrarPw, setMostrarPw] = useState(false);
-  const redireccionar = useRedireccionar();
-  const { updateUsername, updateToken } = useAuth();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    captcha: "",
+  });
+  const [error, setError] = useState("");
+  const [mostrarPassword, setMostrarPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchParams] = useSearchParams();
   const recaptchaRef = useRef(null);
+  const redireccionar = useRedireccionar();
+  const { login, logout } = useAuth();
+
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (error) setError(""); // Limpiar error al escribir
+  };
 
   const handleCaptchaChange = (token) => {
-    setFields({ ...fields, captcha: token });
+    setFormData((prev) => ({ ...prev, captcha: token }));
+    if (error) setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fields.captcha) {
-      setError(true);
-      setErrorLog("Por favor completa el reCAPTCHA");
+    if (!formData.captcha) {
+      setError("Por favor completa el reCAPTCHA");
       return;
     }
-    const data = await login(fields.nick, fields.pass, fields.captcha);
 
-    if (data.state === false) {
-      setError(true);
-      setErrorLog(data.message);
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const data = await loginAccount(
+        formData.username,
+        formData.password,
+        formData.captcha,
+      );
+
+      if (!data.state) {
+        setError(data.message);
+        recaptchaRef.current?.reset();
+        setFormData((prev) => ({ ...prev, captcha: "" }));
+        return;
+      }
+
+      // Login exitoso
+      login(data.token, data.username);
+      const redirect = searchParams.get("redirect");
+      redireccionar(redirect || "/panel-de-usuario");
+    } catch (err) {
+      setError("Error al iniciar sesión. Intenta nuevamente.");
       recaptchaRef.current?.reset();
-      return;
+      setFormData((prev) => ({ ...prev, captcha: "" }));
+    } finally {
+      setIsLoading(false);
     }
-
-    updateUsername(data.username);
-    updateToken(data.token);
-    localStorage.setItem("username", data.username);
-    localStorage.setItem("token", data.token);
-    redireccionar("/panel-de-usuario");
   };
 
   return (
-    <div className="form-container-form-login">
-      <form
-        onSubmit={handleSubmit}
-        className="form-content-form-login"
-        autoComplete="on"
-      >
-        <h2 className="form-title-form-login">Ingresa a tu Cuenta</h2>
+    <div className="form-container">
+      <form onSubmit={handleSubmit} className="form-wrapper">
+        <h2 className="form-title">Ingresa a tu Cuenta</h2>
 
-        <div className="form-field-form-login">
-          <label className="form-label-form-login">Usuario</label>
+        <div className="form-field">
+          <label htmlFor="username" className="form-label">
+            Usuario
+          </label>
           <input
+            id="username"
             type="text"
-            name="username"
-            autoComplete="username"
-            className="form-input-form-login"
-            onChange={(e) => {
-              setError(false);
-              setFields({ ...fields, nick: e.target.value });
-            }}
+            className="form-input"
+            value={formData.username}
+            onChange={(e) => handleInputChange("username", e.target.value)}
             required
           />
         </div>
 
-        <div className="form-field-form-login">
-          <label className="form-label-form-login">Contraseña</label>
-          <div className="form-password-wrapper-form-login">
+        {/* Campo Contraseña */}
+        <div className="form-field">
+          <label htmlFor="password" className="form-label">
+            Contraseña
+          </label>
+          <div className="form-password-wrapper">
             <input
-              type={mostrarPw ? "text" : "password"}
+              id="password"
+              type={mostrarPassword ? "text" : "password"}
               name="password"
               autoComplete="current-password"
-              className="form-input-form-login"
-              onChange={(e) => {
-                setError(false);
-                setFields({ ...fields, pass: e.target.value });
-              }}
+              className="form-input"
+              value={formData.password}
+              onChange={(e) => handleInputChange("password", e.target.value)}
+              disabled={isLoading}
               required
             />
             <button
               type="button"
-              onClick={() => setMostrarPw((prev) => !prev)}
-              className="toggle-btn-form-login"
+              onClick={() => setMostrarPassword((prev) => !prev)}
+              className="form-toggle-password"
+              aria-label={
+                mostrarPassword ? "Ocultar contraseña" : "Mostrar contraseña"
+              }
+              disabled={isLoading}
             >
-              {mostrarPw ? "🙈" : "👁️"}
+              {mostrarPassword ? "🙈" : "👁️"}
             </button>
           </div>
         </div>
+
         <ReCAPTCHA
-          sitekey={recaptchaPublicKey}
+          sitekey={RECAPTCHA_PUBLIC_KEY}
           onChange={handleCaptchaChange}
           ref={recaptchaRef}
         />
-        {error && <p className="form-error-form-login">{errorLog}</p>}
 
-        <button type="submit" className="form-button-form-login">
-          Ingresar
+        {/* Mensaje de Error */}
+        {error && <div className="form-error">{error}</div>}
+        {/* Botón Submit */}
+        <button type="submit" className="form-button" disabled={isLoading}>
+          {isLoading ? "Ingresando..." : "Ingresar"}
         </button>
 
-        <div className="form-link-container-form-login">
-          <p>
-            <Link to="/recuperar-cuenta" className="form-link-form-login">
-              Olvidé mi contraseña
-            </Link>
-          </p>
-          <p>
-            <Link to="/registrarse" className="form-link-form-login">
-              ¿No tenes cuenta? Registrate
-            </Link>
-          </p>
+        {/* Links */}
+        <div className="form-links">
+          <Link to="/recuperar-cuenta" className="form-link">
+            Olvidé mi contraseña
+          </Link>
+          <Link to="/registrarse" className="form-link">
+            ¿No tienes cuenta? Regístrate
+          </Link>
         </div>
       </form>
     </div>

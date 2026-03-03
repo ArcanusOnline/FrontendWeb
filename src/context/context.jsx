@@ -10,9 +10,11 @@ export const Context = createContext({
 });
 
 export const ContextProvider = ({ children }) => {
-  const [token, setToken] = useState("");
-  const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(() => localStorage.getItem("token") || "");
+  const [username, setUsername] = useState(
+    () => localStorage.getItem("username") || "",
+  );
+  const [loading, setLoading] = useState(false);
 
   return (
     <Context.Provider

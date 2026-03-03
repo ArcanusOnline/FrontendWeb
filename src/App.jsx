@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import {
   StaffCard,
   ListadoPersonajes,
-  PanelPorPersonaje,
   CambiarEmailPanel,
   CambiarPassPanel,
   BannerInicio,
@@ -30,13 +29,14 @@ import {
   PaginaSoportes,
   PaginaDescarga,
   CalculadoraVida,
-  ActivarCuenta,
-  ConfirmacionEliminadoPersonaje,
   ConfirmarCambioEmailCuenta,
-  ConfirmarAgregarPersonaje,
   Manual,
+  MercadoPage,
+  PanelMercado,
+  ConfirmarAccion,
   DonacionesPage,
-  ConfirmarDonacion,
+  ResultadoPago,
+  TiendaArcanus,
 } from "./pages/index.js";
 
 import { ProtectedRoute, PrivateRoute } from "./assets/ProtectedRoute.jsx";
@@ -49,9 +49,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/reglas" element={<RenderReglas />} />
-          <Route path="/donaciones" element={<DonacionesPage />}>
-            <Route path=":status" element={<ConfirmarDonacion />} />
-          </Route>
+          <Route path="/mercado" element={<MercadoPage />}></Route>
+          <Route path="/tienda" element={<TiendaArcanus />}></Route>
+          <Route path="/pagos/:tipo/:status" element={<ResultadoPago />} />
           <Route path="/staff" element={<StaffCard />} />
           <Route element={<ProtectedRoute redirectTo="/panel-de-usuario" />}>
             <Route path="/cuenta" element={<Cuenta />} />
@@ -64,8 +64,8 @@ function App() {
               />
 
               <Route
-                path="lista-de-mis-personajes/:usuario/infoPersonaje"
-                element={<PanelPorPersonaje />}
+                path="panel-de-mercado/:usuario"
+                element={<PanelMercado />}
               />
               <Route path="change-password" element={<CambiarPassPanel />} />
               <Route path="change-email" element={<CambiarEmailPanel />} />
@@ -87,7 +87,6 @@ function App() {
           <Route path="/ver-personaje" element={<PanelMiniStats />} />
           <Route path="/calculadora-de-vida" element={<CalculadoraVida />} />
           <Route path="/noticias" element={<NoticiasCompletas />} />
-          <Route path="/activar-cuenta/:token" element={<ActivarCuenta />} />
           <Route path="/recuperar-cuenta" element={<RecuperarCuenta />}>
             <Route path=":token" element={<FormularioCambiarPasswordRecu />} />
           </Route>
@@ -97,17 +96,10 @@ function App() {
               element={<FormularioCambiarPasswordRecuPersonaje />}
             />
           </Route>
-          <Route
-            path="/confirmacion-eliminar-personaje/:token"
-            element={<ConfirmacionEliminadoPersonaje />}
-          />
+          <Route path="/confirmar/:token" element={<ConfirmarAccion />} />
           <Route
             path="/confirmacion-cambio-email/:token"
             element={<ConfirmarCambioEmailCuenta />}
-          />
-          <Route
-            path="/confirmacion-agregar-personaje/:token"
-            element={<ConfirmarAgregarPersonaje />}
           />
           <Route
             path="/ver-informacion-completa-noticia/noticia"

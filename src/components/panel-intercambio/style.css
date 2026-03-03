@@ -1,0 +1,215 @@
+.panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.panel-intercambio {
+  width: 700px;
+  background: #2a1f12;
+  border-radius: 12px;
+  padding: 20px;
+  color: #eee;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.panel-columnas {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.panel-box {
+  flex: 1;
+  background: #1b1209;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 260px; /* 👈 CLAVE para simetría */
+  justify-content: center;
+}
+
+.panel-box select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 6px;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.panel-box-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-inline {
+  width: 130px;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
+.panel-exchange-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-pj {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-inline {
+  width: 140px;
+  padding: 6px 30px 6px 10px;
+  font-size: 13px;
+  color: #f2f2f2;
+
+  background-color: #2a1f12; /* mismo tono del panel */
+  border: 1px solid #5a4632; /* más claro y visible */
+  border-radius: 6px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+/* Flecha custom */
+.select-inline {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23ccc' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 16px;
+}
+
+.select-inline:hover {
+  border-color: #8a6a3d;
+}
+
+.select-inline:focus {
+  outline: none;
+  border-color: #b08952;
+  background-color: #332514;
+}
+
+.select-inline option {
+  background-color: #2a1f12;
+  color: #f2f2f2;
+}
+.preview-pj button,
+.panel-box button {
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.preview-pj button:hover {
+  opacity: 1;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.btn-cancelar-intercambio {
+  flex: 1;
+  background: linear-gradient(145deg, #5c1c1c, #2a0f0f);
+  color: #f4e1c1;
+  border: 2px solid #c97b63;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.1),
+    0 4px 12px rgba(92, 28, 28, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-cancelar-intercambio:hover:not(:disabled) {
+  background: linear-gradient(145deg, #7a2626, #3b1414);
+  color: #fff2d9;
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.15),
+    0 6px 16px rgba(255, 107, 107, 0.5);
+}
+
+.btn-cancelar-intercambio:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-cancelar-intercambio:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-enviar-oferta-intercambio {
+  flex: 1;
+  background: linear-gradient(145deg, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border: 2px solid #7fe27f;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.15),
+    0 4px 12px rgba(63, 160, 71, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-enviar-oferta-intercambio:hover:not(:disabled) {
+  background: linear-gradient(145deg, #4fc85b, #2e8b35);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 6px 16px rgba(63, 160, 71, 0.6);
+}
+
+.btn-enviar-oferta-intercambio:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(63, 160, 71, 0.4);
+}
+
+.btn-enviar-oferta-intercambio:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

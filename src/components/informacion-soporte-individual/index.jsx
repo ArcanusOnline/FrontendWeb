@@ -1,5 +1,6 @@
 import { useSearchParams, useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
+import { useAuth } from "../../useContext/useContext";
 import {
   obtenerDataSoporte,
   enviarRespuestaNuevaSoporte,
@@ -12,7 +13,7 @@ const SoporteInfo = () => {
   let ticket = parametro.get("ticket");
   let [respuestas, setRespuestas] = useState([]);
   let navigate = useNavigate();
-  let token = localStorage.getItem("token") || "";
+  const { token } = useAuth();
   let [formData, setFormData] = useState({
     censura: "",
     texto: "",
@@ -44,7 +45,7 @@ const SoporteInfo = () => {
       setModalMensaje({ abierto: true, texto: data.message });
       setTimeout(
         () => navigate("/panel-de-usuario/historial-de-soportes"),
-        1500
+        1500,
       );
     } else {
       setModalMensaje({ abierto: true, texto: data.message });
@@ -80,7 +81,7 @@ const SoporteInfo = () => {
       setModalMensaje({ abierto: true, texto: response.message });
       setTimeout(
         () => navigate("/panel-de-usuario/historial-de-soportes"),
-        1500
+        1500,
       );
     }
     setModalConfirmacion(false);

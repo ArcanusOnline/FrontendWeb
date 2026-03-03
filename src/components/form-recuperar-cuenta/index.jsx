@@ -1,116 +1,159 @@
 import { Link, useNavigate, Outlet, useParams } from "react-router";
 import { useState } from "react";
 import { recuperarCuenta } from "../../querys/scripts";
+import { Modal } from "../../ui/Modales";
 import "./style.css";
 
 const RecuperarCuenta = () => {
-  const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  let navigate = useNavigate();
-  let { token } = useParams();
+  const navigate = useNavigate();
+  const { token } = useParams();
 
-  const [fields, setFields] = useState({
+  const [formData, setFormData] = useState({
     cuenta: "",
     email: "",
     pin: "",
   });
 
-  const [mostrarPw, setMostrarPw] = useState(false);
+  const [error, setError] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [mostrarPin, setMostrarPin] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  async function handleSubmit(e) {
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (error) setError("");
+  };
+
+  const handleModalClose = () => {
+    setShowSuccessModal(false);
+    navigate("/");
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    let data = await recuperarCuenta(fields);
-    if (data.estado === 2 || data.estado === 3) {
-      setError(data.message);
-    } else {
-      setSuccessMessage(data.message);
-      setTimeout(() => {
-        navigate("/");
-      }, 2500);
-    }
-  }
+    setError("");
+    setIsLoading(true);
 
+    try {
+      const response = await recuperarCuenta(formData);
+
+      if (response.estado === 2 || response.estado === 3) {
+        setError(response.message);
+      } else {
+        setSuccessMessage(response.message);
+        setShowSuccessModal(true);
+      }
+    } catch (err) {
+      setError("Error al recuperar la cuenta. Intenta nuevamente.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Si hay token, mostrar nested route
   if (token) return <Outlet />;
 
   return (
     <>
-      <div className="form-container-recuperar-cuenta">
-        <h2 className="form-title-recuperar-cuenta">Recuperar Cuenta</h2>
-        <form className="form-recuperar-cuenta" onSubmit={handleSubmit}>
-          <div className="form-group-recuperar-cuenta">
-            <label className="form-label-recuperar-cuenta">Cuenta:</label>
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="form-wrapper">
+          <h2 className="form-title">Recuperar Cuenta</h2>
+
+          {/* Campo Cuenta */}
+          <div className="form-field">
+            <label htmlFor="cuenta" className="form-label">
+              Nombre de cuenta
+            </label>
             <input
+              id="cuenta"
               type="text"
-              value={fields.cuenta}
-              onChange={(e) => {
-                setFields((prev) => ({ ...prev, cuenta: e.target.value }));
-                setError("");
-              }}
+              name="cuenta"
+              className="form-input"
+              value={formData.cuenta}
+              onChange={(e) => handleInputChange("cuenta", e.target.value)}
+              disabled={isLoading}
               required
-              className="form-input-recuperar-cuenta"
             />
           </div>
 
-          <div className="form-group-recuperar-cuenta">
-            <label className="form-label-recuperar-cuenta">Email:</label>
+          {/* Campo Email */}
+          <div className="form-field">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <input
+              id="email"
               type="email"
-              value={fields.email}
-              onChange={(e) => {
-                setFields((prev) => ({
-                  ...prev,
-                  email: e.target.value.toLowerCase(),
-                }));
-                setError("");
-              }}
+              name="email"
+              className="form-input"
+              value={formData.email}
+              onChange={(e) =>
+                handleInputChange("email", e.target.value.toLowerCase())
+              }
+              disabled={isLoading}
               required
-              className="form-input-recuperar-cuenta"
             />
           </div>
 
-          <div
-            className="form-group-recuperar-cuenta"
-            style={{ position: "relative" }}
-          >
-            <label className="form-label-recuperar-cuenta">PIN:</label>
-            <input
-              type={mostrarPw ? "text" : "password"}
-              value={fields.pin}
-              onChange={(e) => {
-                setFields((prev) => ({ ...prev, pin: e.target.value }));
-                setError("");
-              }}
-              required
-              className="form-input-recuperar-cuenta"
-            />
-            <button
-              type="button"
-              onClick={() => setMostrarPw((prev) => !prev)}
-              className="pin-toggle-button-recuperar-cuenta"
-            >
-              {mostrarPw ? "🙈" : "👁️"}
-            </button>
+          {/* Campo PIN */}
+          <div className="form-field">
+            <label htmlFor="pin" className="form-label">
+              PIN de la cuenta
+            </label>
+            <div className="form-password-wrapper">
+              <input
+                id="pin"
+                type={mostrarPin ? "text" : "password"}
+                name="pin"
+                className="form-input"
+                value={formData.pin}
+                onChange={(e) => handleInputChange("pin", e.target.value)}
+                disabled={isLoading}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPin((prev) => !prev)}
+                className="form-toggle-password"
+                aria-label={mostrarPin ? "Ocultar PIN" : "Mostrar PIN"}
+                disabled={isLoading}
+              >
+                {mostrarPin ? "🙈" : "👁️"}
+              </button>
+            </div>
           </div>
 
-          <button type="submit" className="form-button-recuperar-cuenta">
-            Recuperar Cuenta
+          {/* Mensaje de error */}
+          {error && (
+            <div className="form-error" role="alert">
+              {error}
+            </div>
+          )}
+
+          {/* Botón submit */}
+          <button type="submit" className="form-button" disabled={isLoading}>
+            {isLoading ? "Recuperando..." : "Recuperar Cuenta"}
           </button>
 
-          {error && <p className="form-error-recuperar-cuenta">{error}</p>}
+          {/* Link a recuperar personaje */}
+          <div className="form-links">
+            <Link to="/recuperar-personaje" className="form-link">
+              ¿Quieres recuperar tu Personaje?
+            </Link>
+          </div>
         </form>
-
-        <Link to="/recuperar-personaje" className="form-link-recuperar-cuenta">
-          ¿Queres recuperar tu Personaje?
-        </Link>
       </div>
 
-      {successMessage && (
-        <div className="modal-overlay-recuperar-cuenta">
-          <div className="modal-content-recuperar-cuenta">
-            <p>{successMessage}</p>
-          </div>
-        </div>
-      )}
+      {/* Modal de éxito */}
+      <Modal
+        isOpen={showSuccessModal}
+        type="success"
+        title="¡Cuenta recuperada!"
+        message={successMessage}
+        onClose={handleModalClose}
+        buttonText="Ir al inicio"
+      />
     </>
   );
 };

@@ -1,165 +1,265 @@
 import { useState } from "react";
-import { protectedName } from "../../assets/protectedName";
-import { cambiarContra } from "../../querys/scripts";
 import { useNavigate, Link } from "react-router";
-
+import { cambiarContra } from "../../querys/scripts";
+import { Modal } from "../../ui/Modales";
+import { useAuth } from "../../useContext/useContext";
 import "./style.css";
+
 const CambiarPassPanel = () => {
-  const [oldPassword, setOldPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [pin, setPin] = useState("");
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [mostrarPw, setMostrarPw] = useState(false);
   const navigate = useNavigate();
+  const { token, logout, username } = useAuth();
 
-  const token = localStorage.getItem("token");
+  const [formData, setFormData] = useState({
+    pin: "",
+    email: "",
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
 
-  const desconectar = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    navigate(`/`);
+  const [error, setError] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [mostrarPin, setMostrarPin] = useState(false);
+  const [mostrarPwActual, setMostrarPwActual] = useState(false);
+  const [mostrarPwNueva, setMostrarPwNueva] = useState(false);
+  const [mostrarPwNuevaConfirm, setMostrarPwNuevaConfirm] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (error) setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
 
-    if (newPassword !== confirmPassword) {
+    // Validaciones
+    if (formData.newPassword !== formData.confirmPassword) {
       setError("Las contraseñas nuevas no coinciden.");
       return;
     }
 
-    if (newPassword.length < 6) {
+    if (formData.newPassword.length < 6) {
       setError("La nueva contraseña debe tener al menos 6 caracteres.");
       return;
     }
-    const nombre = await protectedName(token);
+
+    setIsLoading(true);
+
     try {
       const response = await cambiarContra(
-        nombre,
-        pin,
-        oldPassword,
-        newPassword,
-        email.toLowerCase()
+        username,
+        formData.pin,
+        formData.oldPassword,
+        formData.newPassword,
+        formData.email.toLowerCase(),
       );
+
       if (response === "OK") {
-        setSuccess("Contraseña cambiada correctamente.");
-        setTimeout(() => {
-          desconectar();
-        }, 2000);
-        return;
+        setShowSuccessModal(true);
+      } else {
+        setError(response);
       }
-      setError(response);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
       setError("Error al conectar con el servidor.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
+  const handleModalClose = () => {
+    setShowSuccessModal(false);
+    logout();
+    navigate("/");
+  };
+
   return (
-    <div className="form-container-cambiar-pass-panel">
-      <h2 className="form-title-cambiar-pass-panel">Cambiar Contraseña</h2>
-      <form onSubmit={handleSubmit} className="form-cambiar-pass-panel">
-        <div className="form-field-cambiar-pass-panel">
-          <label className="form-label-cambiar-pass-panel">PIN:</label>
-          <div className="input-wrapper-cambiar-pass-panel">
-            <input
-              type={mostrarPw ? "text" : "password"}
-              value={pin}
-              onChange={(e) => setPin(e.target.value)}
-              required
-              className="form-input-cambiar-pass-panel"
-            />
-            <button
-              type="button"
-              onClick={() => setMostrarPw((prev) => !prev)}
-              className="toggle-visibility-cambiar-pass-panel"
-            >
-              {mostrarPw ? "🙈" : "👁️"}
-            </button>
+    <>
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="form-wrapper">
+          <h2 className="form-title">Cambiar Contraseña</h2>
+
+          {/* PIN */}
+          <div className="form-field">
+            <label htmlFor="pin" className="form-label">
+              PIN
+            </label>
+            <div className="form-password-wrapper">
+              <input
+                id="pin"
+                type={mostrarPin ? "text" : "password"}
+                name="pin"
+                className="form-input"
+                value={formData.pin}
+                onChange={(e) => handleInputChange("pin", e.target.value)}
+                disabled={isLoading}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPin((prev) => !prev)}
+                className="form-toggle-password"
+                aria-label={mostrarPin ? "Ocultar PIN" : "Mostrar PIN"}
+                disabled={isLoading}
+              >
+                {mostrarPin ? "🙈" : "👁️"}
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className="form-field-cambiar-pass-panel">
-          <label className="form-label-cambiar-pass-panel">Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value.toLowerCase());
-              setError("");
-            }}
-            required
-            className="form-input-cambiar-pass-panel"
-          />
-        </div>
+          {/* Email */}
+          <div className="form-field">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              className="form-input"
+              value={formData.email}
+              onChange={(e) =>
+                handleInputChange("email", e.target.value.toLowerCase())
+              }
+              disabled={isLoading}
+              required
+            />
+          </div>
 
-        <div className="form-field-cambiar-pass-panel">
-          <label className="form-label-cambiar-pass-panel">
-            Contraseña Actual:
-          </label>
-          <input
-            type="password"
-            value={oldPassword}
-            onChange={(e) => {
-              setOldPassword(e.target.value);
-              setError("");
-            }}
-            required
-            className="form-input-cambiar-pass-panel"
-          />
-        </div>
+          {/* Contraseña Actual */}
+          <div className="form-field">
+            <label htmlFor="oldPassword" className="form-label">
+              Contraseña actual
+            </label>
+            <div className="form-password-wrapper">
+              <input
+                id="oldPassword"
+                type="password"
+                name="oldPassword"
+                className="form-input"
+                value={formData.oldPassword}
+                onChange={(e) =>
+                  handleInputChange("oldPassword", e.target.value)
+                }
+                disabled={isLoading}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPwActual((prev) => !prev)}
+                className="form-toggle-password"
+                aria-label={
+                  mostrarPwActual ? "Ocultar Contraseña" : "Mostrar Contraseña"
+                }
+                disabled={isLoading}
+              >
+                {mostrarPwActual ? "🙈" : "👁️"}
+              </button>
+            </div>
+          </div>
 
-        <div className="form-field-cambiar-pass-panel">
-          <label className="form-label-cambiar-pass-panel">
-            Nueva Contraseña:
-          </label>
-          <input
-            type="password"
-            value={newPassword}
-            onChange={(e) => {
-              setNewPassword(e.target.value);
-              setError("");
-            }}
-            required
-            className="form-input-cambiar-pass-panel"
-          />
-        </div>
+          {/* Nueva Contraseña */}
+          <div className="form-field">
+            <label htmlFor="newPassword" className="form-label">
+              Nueva contraseña
+            </label>
+            <div className="form-password-wrapper">
+              <input
+                id="newPassword"
+                type="password"
+                name="newPassword"
+                className="form-input"
+                value={formData.newPassword}
+                onChange={(e) =>
+                  handleInputChange("newPassword", e.target.value)
+                }
+                disabled={isLoading}
+                placeholder="Mínimo 6 caracteres"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPwNueva((prev) => !prev)}
+                className="form-toggle-password"
+                aria-label={
+                  mostrarPwNueva ? "Ocultar Contraseña" : "Mostrar Contraseña"
+                }
+                disabled={isLoading}
+              >
+                {mostrarPwNueva ? "🙈" : "👁️"}
+              </button>
+            </div>
+          </div>
 
-        <div className="form-field-cambiar-pass-panel">
-          <label className="form-label-cambiar-pass-panel">
-            Confirmar Nueva Contraseña:
-          </label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => {
-              setConfirmPassword(e.target.value);
-              setError("");
-            }}
-            required
-            className="form-input-cambiar-pass-panel"
-          />
-        </div>
+          {/* Confirmar Nueva Contraseña */}
+          <div className="form-field">
+            <label htmlFor="confirmPassword" className="form-label">
+              Confirmar nueva contraseña
+            </label>
+            <div className="form-password-wrapper">
+              <input
+                id="confirmPassword"
+                type="password"
+                name="confirmPassword"
+                className="form-input"
+                value={formData.confirmPassword}
+                onChange={(e) =>
+                  handleInputChange("confirmPassword", e.target.value)
+                }
+                disabled={isLoading}
+                placeholder="Mínimo 6 caracteres"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setMostrarPwNuevaConfirm((prev) => !prev)}
+                className="form-toggle-password"
+                aria-label={
+                  mostrarPwNuevaConfirm
+                    ? "Ocultar Contraseña"
+                    : "Mostrar Contraseña"
+                }
+                disabled={isLoading}
+              >
+                {mostrarPwNuevaConfirm ? "🙈" : "👁️"}
+              </button>
+            </div>
+          </div>
 
-        {error && <p className="form-error-cambiar-pass-panel">{error}</p>}
-        {success && (
-          <p className="form-success-cambiar-pass-panel">{success}</p>
-        )}
+          {/* Mensaje de error */}
+          {error && (
+            <div className="form-error" role="alert">
+              {error}
+            </div>
+          )}
 
-        <button type="submit" className="form-button-cambiar-pass-panel">
-          Cambiar Contraseña
-        </button>
-      </form>
+          {/* Botón submit */}
+          <button type="submit" className="form-button" disabled={isLoading}>
+            {isLoading ? "Cambiando..." : "Cambiar Contraseña"}
+          </button>
 
-      <Link to="/panel-de-usuario" className="form-link-cambiar-pass-panel">
-        ← Volver
-      </Link>
-    </div>
+          {/* Link para volver */}
+          <div className="form-links">
+            <Link to="/panel-de-usuario" className="form-link">
+              ← Volver al panel
+            </Link>
+          </div>
+        </form>
+      </div>
+
+      {/* Modal de éxito */}
+      <Modal
+        isOpen={showSuccessModal}
+        type="success"
+        title="¡Contraseña actualizada!"
+        message="Tu contraseña ha sido cambiada correctamente. Por seguridad, debes iniciar sesión nuevamente."
+        onClose={handleModalClose}
+        buttonText="Iniciar sesión"
+      />
+    </>
   );
 };
 

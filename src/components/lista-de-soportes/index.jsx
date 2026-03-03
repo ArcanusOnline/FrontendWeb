@@ -1,11 +1,13 @@
 import { obtenerSoportes } from "../../querys/scripts";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router";
+import { useAuth } from "../../useContext/useContext";
 import "./style.css";
 
 const ListadoSoporte = () => {
   const [listaSoporte, setListaSoporte] = useState([]);
   const [error, setError] = useState("");
+  const { token } = useAuth();
   let navigate = useNavigate();
 
   async function cargarSoporte() {
@@ -27,7 +29,6 @@ const ListadoSoporte = () => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token") || "";
     if (token !== "") {
       async function obtenerDatos() {
         try {
@@ -40,7 +41,7 @@ const ListadoSoporte = () => {
         } catch (error) {
           console.error("Error al obtener soportes:", error);
           setError(
-            "Ocurrió un error al obtener los soportes. Intente más tarde."
+            "Ocurrió un error al obtener los soportes. Intente más tarde.",
           );
         }
       }

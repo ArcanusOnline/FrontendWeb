@@ -1,164 +1,243 @@
 import { useState } from "react";
 import { agregarPersonajeCuenta } from "../../querys/scripts";
 import { useAuth } from "../../useContext/useContext";
+import { Modal } from "../../ui/Modales";
 import "./style.css";
 
 const AgregarPersonaje = ({ visible, setVisible, nombreCuenta }) => {
-  const [nombre, setNombre] = useState("");
-  const [contrasena, setContrasena] = useState("");
-  const [pin, setPin] = useState("");
-  const [email, setEmail] = useState("");
-  const [mensajeConfirmacion, setMensajeConfirmacion] = useState("");
-  const [mensajeColor, setMensajeColor] = useState("lightgreen");
-  const [mostrarMensaje, setMostrarMensaje] = useState(false);
-  const [mostrarPw, setMostrarPw] = useState(false);
+  const { token } = useAuth();
+
+  const [formData, setFormData] = useState({
+    nombre: "",
+    contrasena: "",
+    pin: "",
+    email: "",
+  });
+
+  const [error, setError] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [modalConfig, setModalConfig] = useState({
+    type: "success",
+    message: "",
+  });
+  const [mostrarPassword, setMostrarPassword] = useState(false);
   const [mostrarPin, setMostrarPin] = useState(false);
-  const { getToken } = useAuth();
-  const token = getToken();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (error) setError("");
+  };
+
   const handleCancelar = () => {
     setVisible(false);
-    setMensajeConfirmacion("");
+    setFormData({
+      nombre: "",
+      contrasena: "",
+      pin: "",
+      email: "",
+    });
+    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
-    if (!nombre || !contrasena || !pin || !email) {
-      setMensajeConfirmacion("Todos los campos son obligatorios.");
-      setMensajeColor("orange");
+    if (
+      !formData.nombre ||
+      !formData.contrasena ||
+      !formData.pin ||
+      !formData.email
+    ) {
+      setError("Todos los campos son obligatorios.");
       return;
     }
 
+    setIsLoading(true);
+
     try {
       const mensaje = await agregarPersonajeCuenta({
-        nombre,
-        contrasena,
-        pin,
-        email,
+        nombre: formData.nombre,
+        contrasena: formData.contrasena,
+        pin: formData.pin,
+        email: formData.email,
         nombreCuenta,
         token,
       });
-      if (mensaje === "OK") {
-        setMensajeConfirmacion(
-          "Se ha enviado un email a la casilla de correo del personaje, para finalizar con el proceso."
-        );
-        setMensajeColor("lightgreen");
-        setNombre("");
-        setContrasena("");
-        setPin("");
-        setEmail("");
-      } else {
-        setMensajeColor("orange");
-        setMensajeConfirmacion(mensaje?.message || "Ocurrió un error.");
-      }
-    } catch (error) {
-      console.error("Error al agregar personaje:", error);
-      setMensajeColor("red");
-      setMensajeConfirmacion(error?.message || "Ocurrió un error inesperado.");
-    } finally {
-      setMostrarMensaje(true);
-      setVisible(false);
 
-      setTimeout(() => {
-        setMostrarMensaje(false);
-        setMensajeConfirmacion("");
-      }, 3000);
+      if (mensaje === "OK") {
+        setModalConfig({
+          type: "success",
+          message:
+            "Se ha enviado un email a la casilla de correo del personaje para finalizar el proceso.",
+        });
+        setShowModal(true);
+        setVisible(false);
+        setFormData({
+          nombre: "",
+          contrasena: "",
+          pin: "",
+          email: "",
+        });
+      } else {
+        setError(
+          mensaje?.message || "Ocurrió un error al agregar el personaje.",
+        );
+      }
+    } catch (err) {
+      console.error("Error al agregar personaje:", err);
+      setError(err?.message || "Ocurrió un error inesperado.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <>
-      <div
-        className={`modal-overlay-agregar-personaje-panel ${
-          visible ? "visible" : "hidden"
-        }`}
-      >
-        <form
-          className="modal-form-agregar-personaje-panel"
-          onSubmit={handleSubmit}
-        >
-          <h2 className="modal-title-agregar-personaje-panel">
-            Agregar Personaje
-          </h2>
+      {/* Formulario - solo se muestra si visible es true */}
+      {visible && (
+        <div className="modal-overlay-agregar-pj">
+          <div className="modal-content-agregar-pj">
+            <form onSubmit={handleSubmit} className="form-wrapper">
+              <h2 className="form-title">Agregar Personaje</h2>
 
-          <label>Nombre de personaje:</label>
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            className="modal-input-agregar-personaje-panel"
-            required
-          />
-          <div className="form-agregar-personaje-panel-wrapped">
-            <label>Contraseña del personaje:</label>
-            <input
-              type={mostrarPw ? "text" : "password"}
-              value={contrasena}
-              onChange={(e) => setContrasena(e.target.value)}
-              className="modal-input-agregar-personaje-panel"
-              required
-            />
-            <button
-              type="button"
-              onClick={() => setMostrarPw((prev) => !prev)}
-              className="toggle-btn-form-agregar-personaje"
-            >
-              {mostrarPw ? "🙈" : "👁️"}
-            </button>
-          </div>
-          <div className="form-agregar-personaje-panel-wrapped">
-            <label>PIN del personaje:</label>
-            <input
-              type={mostrarPin ? "text" : "password"}
-              value={pin}
-              onChange={(e) => setPin(e.target.value)}
-              className="modal-input-agregar-personaje-panel"
-              required
-            />
-            <button
-              type="button"
-              onClick={() => setMostrarPin((prev) => !prev)}
-              className="toggle-btn-form-agregar-personaje"
-            >
-              {mostrarPin ? "🙈" : "👁️"}
-            </button>
-          </div>
+              {/* Nombre del personaje */}
+              <div className="form-field">
+                <label htmlFor="nombre" className="form-label">
+                  Nombre del personaje
+                </label>
+                <input
+                  id="nombre"
+                  type="text"
+                  name="nombre"
+                  className="form-input"
+                  value={formData.nombre}
+                  onChange={(e) => handleInputChange("nombre", e.target.value)}
+                  disabled={isLoading}
+                  required
+                />
+              </div>
 
-          <label>Email del personaje:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
-            className="modal-input-agregar-personaje-panel"
-            required
-          />
-          <div className="modal-buttons-agregar-personaje-panel">
-            <button
-              type="submit"
-              className="btn-agregar-agregar-personaje-panel"
-            >
-              Agregar
-            </button>
-            <button
-              type="button"
-              className="btn-cancelar-agregar-personaje-panel"
-              onClick={handleCancelar}
-            >
-              Cancelar
-            </button>
-          </div>
-        </form>
-      </div>
-      {mostrarMensaje && (
-        <div className="modal-overlay-mensaje-global">
-          <div
-            className="modal-mensaje-contenido"
-            style={{ borderColor: mensajeColor }}
-          >
-            <p style={{ color: mensajeColor }}>{mensajeConfirmacion}</p>
+              {/* Contraseña del personaje */}
+              <div className="form-field">
+                <label htmlFor="contrasena" className="form-label">
+                  Contraseña del personaje
+                </label>
+                <div className="form-password-wrapper">
+                  <input
+                    id="contrasena"
+                    type={mostrarPassword ? "text" : "password"}
+                    name="contrasena"
+                    className="form-input"
+                    value={formData.contrasena}
+                    onChange={(e) =>
+                      handleInputChange("contrasena", e.target.value)
+                    }
+                    disabled={isLoading}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setMostrarPassword((prev) => !prev)}
+                    className="form-toggle-password"
+                    aria-label={
+                      mostrarPassword
+                        ? "Ocultar contraseña"
+                        : "Mostrar contraseña"
+                    }
+                    disabled={isLoading}
+                  >
+                    {mostrarPassword ? "🙈" : "👁️"}
+                  </button>
+                </div>
+              </div>
+
+              {/* PIN del personaje */}
+              <div className="form-field">
+                <label htmlFor="pin" className="form-label">
+                  PIN del personaje
+                </label>
+                <div className="form-password-wrapper">
+                  <input
+                    id="pin"
+                    type={mostrarPin ? "text" : "password"}
+                    name="pin"
+                    className="form-input"
+                    value={formData.pin}
+                    onChange={(e) => handleInputChange("pin", e.target.value)}
+                    disabled={isLoading}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setMostrarPin((prev) => !prev)}
+                    className="form-toggle-password"
+                    aria-label={mostrarPin ? "Ocultar PIN" : "Mostrar PIN"}
+                    disabled={isLoading}
+                  >
+                    {mostrarPin ? "🙈" : "👁️"}
+                  </button>
+                </div>
+              </div>
+
+              {/* Email del personaje */}
+              <div className="form-field">
+                <label htmlFor="email" className="form-label">
+                  Email del personaje
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  className="form-input"
+                  value={formData.email}
+                  onChange={(e) =>
+                    handleInputChange("email", e.target.value.toLowerCase())
+                  }
+                  disabled={isLoading}
+                  required
+                />
+              </div>
+
+              {/* Mensaje de error */}
+              {error && (
+                <div className="form-error" role="alert">
+                  {error}
+                </div>
+              )}
+
+              {/* Botones */}
+              <div className="form-buttons-agregar-pj">
+                <button
+                  type="submit"
+                  className="btn-agregar-pj"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Agregando..." : "Agregar Personaje"}
+                </button>
+                <button
+                  type="button"
+                  className="btn-cancelar-pj"
+                  onClick={handleCancelar}
+                  disabled={isLoading}
+                >
+                  Cancelar
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
+
+      <Modal
+        isOpen={showModal}
+        type={modalConfig.type}
+        title={modalConfig.type === "success" ? "¡Email enviado!" : "Error"}
+        message={modalConfig.message}
+        onClose={() => setShowModal(false)}
+        buttonText="Entendido"
+      />
     </>
   );
 };

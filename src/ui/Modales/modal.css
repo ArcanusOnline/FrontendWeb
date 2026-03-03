@@ -1,0 +1,213 @@
+/* ========================================
+   MODAL OVERLAY
+   ======================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   MODAL BOX
+   ======================================== */
+.modal-box {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 2px solid;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   ICONO DEL MODAL
+   ======================================== */
+.modal-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  animation: scaleIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.modal-icon.success {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: white;
+}
+
+.modal-icon.error {
+  background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+  color: white;
+}
+
+/* ========================================
+   TÍTULO DEL MODAL
+   ======================================== */
+.modal-title {
+  font-size: 22px;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.modal-title.success {
+  color: #4ade80;
+}
+
+.modal-title.error {
+  color: #f87171;
+}
+
+/* ========================================
+   MENSAJE DEL MODAL
+   ======================================== */
+.modal-message {
+  color: #d1d5db;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+  padding: 0 10px;
+}
+
+/* ========================================
+   BOTÓN DEL MODAL
+   ======================================== */
+.modal-button {
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-button.success {
+  background: linear-gradient(to bottom, #3fa047, #256b2c);
+  color: #f0f5e0;
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(0, 255, 100, 0.3);
+}
+
+.modal-button.success:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow:
+    0 0 12px rgba(0, 255, 100, 0.6),
+    0 0 6px rgba(0, 255, 100, 0.4);
+  transform: translateY(-1px);
+}
+
+.modal-button.success:active {
+  transform: translateY(0);
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow:
+    0 0 12px rgba(0, 255, 100, 0.6),
+    0 0 6px rgba(0, 255, 100, 0.4);
+  transform: translateY(-1px);
+}
+
+.modal-button.error {
+  background: linear-gradient(
+    to bottom,
+    #5c1c1c,
+    #2a0f0f
+  ); /* rojo vino apagado */
+  border: 1px solid #c97b63;
+  color: #f4e1c1;
+}
+
+.modal-button.error:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 8px rgba(255, 170, 120, 0.5);
+}
+
+.modal-button.error:active {
+  transform: translateY(0);
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 8px rgba(255, 170, 120, 0.5);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 480px) {
+  .modal-box {
+    padding: 25px 20px;
+  }
+
+  .modal-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .modal-message {
+    font-size: 14px;
+  }
+}
+
+.modal-input-agregar-personaje-panel:disabled,
+.btn-agregar-agregar-personaje-panel:disabled,
+.btn-cancelar-agregar-personaje-panel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Estilo del botón mientras carga */
+.btn-agregar-agregar-personaje-panel:disabled {
+  background: #666;
+}

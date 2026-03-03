@@ -1,0 +1,291 @@
+.panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.panel-intercambio {
+  width: 700px;
+  background: #2a1f12;
+  border-radius: 12px;
+  padding: 20px;
+  color: #eee;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.panel-columnas {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.panel-box {
+  flex: 1;
+  background: #1b1209;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 260px;
+  justify-content: center;
+}
+
+.panel-box select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 6px;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-confirmar {
+  background: linear-gradient(to bottom, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border: 1px solid #7fe27f;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(0, 255, 100, 0.3);
+}
+
+.btn-confirmar:hover {
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow:
+    0 0 12px rgba(0, 255, 100, 0.6),
+    0 0 6px rgba(0, 255, 100, 0.4);
+}
+
+.btn-confirmar:active {
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow:
+    0 0 12px rgba(0, 255, 100, 0.6),
+    0 0 6px rgba(0, 255, 100, 0.4);
+}
+
+.panel-box-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-inline {
+  width: 130px;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
+.panel-exchange-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-pj {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-inline {
+  width: 140px;
+  padding: 6px 30px 6px 10px;
+  font-size: 13px;
+  color: #f2f2f2;
+
+  background-color: #2a1f12; /* mismo tono del panel */
+  border: 1px solid #5a4632; /* más claro y visible */
+  border-radius: 6px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+/* Flecha custom */
+.select-inline {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23ccc' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 16px;
+}
+
+.select-inline:hover {
+  border-color: #8a6a3d;
+}
+
+.select-inline:focus {
+  outline: none;
+  border-color: #b08952;
+  background-color: #332514;
+}
+
+.select-inline option {
+  background-color: #2a1f12;
+  color: #f2f2f2;
+}
+.preview-pj button,
+.panel-box button {
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.preview-pj button:hover {
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #222;
+  padding: 20px 25px;
+  border-radius: 10px;
+  max-width: 350px;
+  text-align: center;
+}
+
+/* Estilos específicos para panel de compra */
+.panel-compra {
+  max-width: 500px;
+  text-align: center;
+}
+
+.panel-compra-selector {
+  margin-top: 10px;
+}
+
+.panel-info-compra {
+  margin-top: 5px;
+  min-height: 120px;
+}
+
+.info-personaje-comprador {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.datos-comprador {
+  flex: 1;
+  text-align: left;
+}
+
+.datos-comprador p {
+  font-size: 14px;
+}
+
+.oro-boveda {
+  font-size: 15px !important;
+}
+
+.cantidad-oro {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.advertencia-oro {
+  color: #ff6b6b;
+  font-size: 13px !important;
+  margin-top: 6px !important;
+}
+
+.placeholder-comprador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  padding: 20px;
+}
+
+.texto-info {
+  text-align: center;
+  opacity: 0.8;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.precio-requerido {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.separador-compra {
+  margin: 5px 0px;
+  text-align: center;
+  position: relative;
+}
+
+.separador-compra::before,
+.separador-compra::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #5a4632, transparent);
+}
+
+.separador-compra::before {
+  left: 0;
+}
+
+.separador-compra::after {
+  right: 0;
+}
+
+.separador-compra span {
+  background: #2a1f12;
+  padding: 0 15px;
+  font-size: 13px;
+  color: #b08952;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.panel-compra-personaje .panel-box {
+  max-width: 100%;
+}
+
+.precio-personaje {
+  margin-top: 10px !important;
+  font-size: 16px !important;
+}
+
+.valor-precio {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.btn-confirmar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #1a1f24, #0f1215);
+}

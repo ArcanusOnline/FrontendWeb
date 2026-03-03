@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet, useSearchParams } from "react-router";
 import { useAuth } from "../useContext/useContext";
 import { urlImagenes } from "./urlImagenes";
 
@@ -22,6 +22,9 @@ const isTokenValid = () => {
 // ProtectedRoute: si el usuario está autenticado, redirige; si no, muestra login
 export const ProtectedRoute = ({ redirectTo }) => {
   const { loading } = useAuth();
+  const [searchParams] = useSearchParams();
+  const redirect = searchParams.get("redirect");
+
   if (loading)
     return (
       <div className="global-loading-loader">
@@ -31,7 +34,8 @@ export const ProtectedRoute = ({ redirectTo }) => {
         </span>
       </div>
     );
-  return isTokenValid() ? <Navigate to={redirectTo} /> : <Outlet />;
+
+  return isTokenValid() ? <Navigate to={redirect || redirectTo} /> : <Outlet />;
 };
 
 // PrivateRoute: si el usuario está autenticado, muestra contenido; si no, redirige

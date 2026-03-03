@@ -5,10 +5,10 @@ import {
 } from "../../querys/scripts";
 import { useNavigate, Link } from "react-router";
 import "./style.css";
+import { useAuth } from "../../useContext/useContext";
 
 const NuevoSoporte = () => {
-  const token = localStorage.getItem("token") || "";
-  const account = localStorage.getItem("username") || "";
+  const { token } = useAuth();
 
   const [formData, setFormData] = useState({
     asunto: "",

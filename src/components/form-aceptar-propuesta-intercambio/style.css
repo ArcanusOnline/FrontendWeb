@@ -1,0 +1,211 @@
+/* Overlay del modal */
+.modal-overlay-aceptar-propuesta {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content-aceptar-propuesta {
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border: 3px solid #d4af37;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(212, 175, 55, 0.4),
+    inset 0 0 20px rgba(212, 175, 55, 0.1);
+  animation: slideUp 0.3s ease;
+  text-align: center;
+  font-family: "Cinzel", serif;
+}
+
+.modal-titulo-aceptar-propuesta {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f0e68c;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 0 10px rgba(240, 230, 140, 0.3);
+}
+
+.modal-descripcion-aceptar-propuesta {
+  margin-bottom: 2rem;
+}
+
+.modal-descripcion-aceptar-propuesta p {
+  font-size: 1rem;
+  color: #cbdcc2;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.personaje-nombre {
+  font-weight: 700;
+  color: #d4af37;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.advertencia-texto {
+  color: #ff9966 !important;
+  font-size: 0.9rem !important;
+  font-style: italic;
+  margin-top: 1rem !important;
+}
+
+.modal-botones-aceptar-propuesta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Botón Aceptar (verde) */
+.btn-aceptar-propuesta {
+  background: linear-gradient(145deg, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border: 2px solid #7fe27f;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.15),
+    0 4px 12px rgba(63, 160, 71, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-aceptar-propuesta:hover:not(:disabled) {
+  background: linear-gradient(145deg, #4fc85b, #2e8b35);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 6px 16px rgba(63, 160, 71, 0.6);
+}
+
+.btn-aceptar-propuesta:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(63, 160, 71, 0.4);
+}
+
+.btn-aceptar-propuesta:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botón Cancelar (rojo) */
+.btn-cancelar-aceptar-propuesta {
+  background: linear-gradient(145deg, #5c1c1c, #2a0f0f);
+  color: #f4e1c1;
+  border: 2px solid #c97b63;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0 0 8px rgba(255, 255, 255, 0.1),
+    0 4px 12px rgba(92, 28, 28, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-cancelar-aceptar-propuesta:hover:not(:disabled) {
+  background: linear-gradient(145deg, #7a2626, #3b1414);
+  color: #fff2d9;
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.15),
+    0 6px 16px rgba(255, 107, 107, 0.5);
+}
+
+.btn-cancelar-aceptar-propuesta:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-cancelar-aceptar-propuesta:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-content-aceptar-propuesta {
+    padding: 2rem 1.5rem;
+    border-width: 2px;
+  }
+
+  .modal-titulo-aceptar-propuesta {
+    font-size: 1.4rem;
+  }
+
+  .intercambio-detalle {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .intercambio-flecha {
+    transform: rotate(90deg);
+  }
+
+  .modal-botones-aceptar-propuesta {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-aceptar-propuesta,
+  .btn-cancelar-aceptar-propuesta {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+}

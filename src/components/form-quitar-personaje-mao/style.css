@@ -1,0 +1,119 @@
+.bloquear-modal-overlay-bloquear-personaje {
+  position: fixed;
+  inset: 0;
+  background: rgb(2 2 2 / 80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.bloquear-modal-overlay-bloquear-personaje.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bloquear-modal-contenido-bloquear-personaje {
+  background-color: #1a1a1a;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 14px rgb(239 215 124 / 70%);
+  max-width: 420px;
+  width: 90%;
+  color: #cbdcc2;
+  text-align: center;
+  user-select: none;
+  font-family: "Cinzel", serif;
+}
+
+.bloquear-modal-texto-bloquear-personaje {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #f0e68c;
+}
+
+.bloquear-modal-botones-bloquear-personaje {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-confirmar-bloquear-personaje,
+.btn-cancelar-bloquear-personaje {
+  cursor: pointer;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  min-width: 130px;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-confirmar-bloquear-personaje {
+  background: linear-gradient(
+    to bottom,
+    #5c1c1c,
+    #2a0f0f
+  ); /* rojo vino apagado */
+  border: 1px solid #c97b63;
+  color: #f4e1c1;
+  box-shadow: 0 0 8px rgba(201, 123, 99, 0.6), 0 0 15px rgba(92, 28, 28, 0.5);
+}
+
+.btn-confirmar-bloquear-personaje:hover {
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 10px rgba(255, 190, 150, 0.7), 0 0 18px rgba(92, 28, 28, 0.6);
+}
+
+.btn-confirmar-bloquear-personaje:active {
+  background: linear-gradient(to bottom, #7a2626, #3b1414);
+  color: #fff2d9;
+  box-shadow: 0 0 10px rgba(255, 190, 150, 0.7), 0 0 18px rgba(92, 28, 28, 0.6);
+}
+
+.btn-cancelar-bloquear-personaje {
+  background: linear-gradient(to bottom, #3fa047, #256b2c);
+  color: #f0f5e0;
+  border: 1px solid #7fe27f;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(0, 255, 100, 0.3);
+}
+
+.btn-cancelar-bloquear-personaje:hover {
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
+}
+
+.btn-cancelar-bloquear-personaje:active {
+  background: linear-gradient(to bottom, #4fc85b, #2e8b35);
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.6), 0 0 6px rgba(0, 255, 100, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .bloquear-modal-contenido-bloquear-personaje {
+    padding: 20px;
+  }
+
+  .bloquear-modal-texto-bloquear-personaje {
+    font-size: 1rem;
+  }
+
+  .bloquear-modal-botones-bloquear-personaje {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-confirmar-bloquear-personaje,
+  .btn-cancelar-bloquear-personaje {
+    min-width: 100%;
+  }
+}
